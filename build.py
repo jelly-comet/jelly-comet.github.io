@@ -37,7 +37,8 @@ HASHES = ROOT / ".manual-hashes.json"
 
 # Source repositories are private: nothing on the site may link one (release-repo.md in FrameworkBtw).
 PRIVATE_LINK = re.compile(rf"{OWNER}/[A-Za-z]+Btw([^-\w]|$)|FrameworkBtw", re.M)
-FORMATS_LINE = re.compile(r"\s*CLAP and VST3 for Linux\.\s*$")
+# The README's formats line, "CLAP and VST3 for Linux." before 2026-11-06, "CLAP for Linux." since.
+FORMATS_LINE = re.compile(r"\s*(CLAP(?: and VST3)?) for Linux\.\s*$")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 LINK_ATTR = re.compile(r'(href|src)="([^"]*)"')
 TAG = re.compile(r"<[^>]+>")
@@ -145,6 +146,7 @@ def parse_readme(text, name):
         notice = re.sub(r"^<p>|</p>$", "", notice)
         notice = re.sub(r"^<strong>Discontinued</strong>[:.]?\s*", "", notice)
     first, _, rest = rest.partition("\n\n")
+    formats = FORMATS_LINE.search(first)
     summary_html, _ = render_markdown(FORMATS_LINE.sub("", first))
     summary_html = re.sub(r"^<p>|</p>$", "", summary_html)
     image = IMAGE.search(rest)
@@ -153,6 +155,7 @@ def parse_readme(text, name):
     body = rest[: image.start()] + rest[image.end() :]
     return {
         "summary": summary_html,
+        "formats": formats.group(1) if formats else "CLAP and VST3",
         "notice": notice,
         "alt": image.group(1),
         "image": image.group(2),
@@ -224,6 +227,7 @@ def collect(repo):
         "repo": repo,
         "source": source,
         "summary": Markup(readme["summary"]),
+        "formats": readme["formats"],
         "discontinued": readme["notice"] is not None,
         "notice": Markup(readme["notice"] or ""),
         "description": html.unescape(TAG.sub("", readme["summary"])),
