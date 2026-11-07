@@ -26,7 +26,7 @@
 </section>
 <div class="columns">
   <article class="prose">
-    {{ plugin.body }}
+    {{ plugin.intro }}
     {% if plugin.gallery %}
     <h2 id="screenshots">Screenshots</h2>
     <div class="gallery">
@@ -38,6 +38,7 @@
       {% endfor %}
     </div>
     {% endif %}
+    {{ plugin.sections }}
   </article>
   <aside class="panel changes">
     <h2>What's new in {{ latest.version }}</h2>

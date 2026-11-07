@@ -221,6 +221,10 @@ def collect(repo):
     if latest["version"].lstrip("v") not in (source / "README.md").read_text():
         print(f"  warning: {name}'s README doesn't mention its latest version, {latest['version']}")
     body, _ = render_markdown(readme["body"])
+    body = rewrite_links(body, lambda t: page_link(repo, name, t))
+    # The screenshots go after the README's opening paragraphs, before its first section (Features).
+    cut = body.find("<h2")
+    intro, sections = (body[:cut], body[cut:]) if cut >= 0 else (body, "")
     return {
         "name": name,
         "slug": name.lower(),
@@ -235,7 +239,8 @@ def collect(repo):
         "alt": readme["alt"],
         "width": width,
         "height": height,
-        "body": Markup(rewrite_links(body, lambda t: page_link(repo, name, t))),
+        "intro": Markup(intro),
+        "sections": Markup(sections),
         "manual": manual,
         "gallery": gallery(manual, source, readme["image"]),
         "pdf": f"{name}-manual.pdf",
