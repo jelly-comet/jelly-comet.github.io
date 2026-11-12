@@ -1,15 +1,32 @@
 {% extends "base.html" %}
-{% block title %}Audio plugins for Linux{% endblock %}
-{% block description %}Audio plugins for Linux. CLAP and VST3, free to download.{% endblock %}
+{% block title %}JellyFishComet · hand-made by tentacles{% endblock %}
+{% block description %}Hand-made by tentacles, free for humans: audio plugins for Linux.{% endblock %}
 {% block meta %}<meta property="og:url" content="{{ site_url }}/">
 <meta property="og:image" content="{{ site_url }}/assets/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">{% endblock %}
 {% block main %}
-<section class="intro">
-  <h1>Audio plugins for Linux</h1>
-  <p>CLAP and VST3, free to download. Each one comes with a manual.</p>
+<section class="intro hello">
+  <h1>Hand-made by <span class="tentacles">tentacles</span>, <span class="nowrap">free for humans.</span></h1>
+  <p>Glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
 </section>
+{% macro feature(plugin, eager) %}
+  <li class="feature">
+    <a class="feature-image" href="plugins/{{ plugin.slug }}/">
+      <img src="plugins/{{ plugin.slug }}/{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}" {% if not eager %}loading="lazy"{% endif %}>
+    </a>
+    <div class="feature-text">
+      <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a></h2>
+      <p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }}</p>
+      <p class="summary">{{ plugin.summary }}</p>
+      <div class="actions">
+        <a class="button primary" href="{{ plugin.latest.download }}">Download{% if plugin.latest.size %} <span class="button-note">{{ plugin.latest.size }}</span>{% endif %}</a>
+        <a class="button" href="plugins/{{ plugin.slug }}/{{ plugin.pdf }}" download>Manual <span class="button-note">PDF</span></a>
+      </div>
+      <a class="more" href="plugins/{{ plugin.slug }}/">Everything about {{ plugin.name }}</a>
+    </div>
+  </li>
+{%- endmacro -%}
 {% macro card(plugin, eager) %}
   <li class="card{% if plugin.discontinued %} discontinued{% endif %}">
     <a href="plugins/{{ plugin.slug }}/">
@@ -21,14 +38,14 @@
     </a>
   </li>
 {%- endmacro -%}
-<ul class="cards">
-{% for plugin in plugins %}{{ card(plugin, loop.first) }}
+<ul class="features">
+{% for plugin in plugins %}{{ feature(plugin, loop.first) }}
 {% endfor %}
 </ul>
 {% if discontinued -%}
 <section class="intro discontinued-intro">
   <h2>Discontinued</h2>
-  <p>These get no new releases. Their last release stays here to download, with its manual.</p>
+  <p>These get no new releases. Their last release stays here to download.</p>
 </section>
 <ul class="cards">
 {% for plugin in discontinued %}{{ card(plugin, false) }}

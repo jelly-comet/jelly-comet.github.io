@@ -80,6 +80,42 @@ h1, h2, h3 { font-weight: 300; line-height: 1.25; }
 
 /* Overview */
 .intro { padding-block: 32px 40px; }
+/* The greeting: big, with a few stars like the plugins' displays. */
+.hello {
+  padding-block: 40px 56px;
+  background:
+    radial-gradient(1.5px 1.5px at 8% 20%, var(--text-dim), transparent),
+    radial-gradient(1px 1px at 92% 30%, var(--text-dim), transparent),
+    radial-gradient(1.5px 1.5px at 78% 82%, var(--text-dim), transparent),
+    radial-gradient(1px 1px at 30% 90%, var(--text-dim), transparent),
+    radial-gradient(1px 1px at 60% 12%, var(--text-dim), transparent);
+}
+.hello h1 { font-size: clamp(36px, 7vw, 64px); max-width: 14em; }
+.hello p { max-width: 36em; font-size: clamp(17px, 2vw, 20px); line-height: 1.5; }
+.tentacles { color: var(--glow); }
+.nowrap { white-space: nowrap; }
+
+/* The plugins still being made: one wide panel each, the picture big, the download right there. */
+.features { display: grid; gap: 32px; margin: 0; padding: 0; list-style: none; }
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  align-items: center;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-panel);
+}
+.feature:nth-child(even) .feature-image { order: 2; }
+.feature-image img { width: 100%; border-radius: var(--radius-display); }
+.feature-image:hover img { box-shadow: 0 0 0 3px var(--accent-halo-strong); }
+.feature h2 { margin: 0 0 6px; font-size: clamp(30px, 4vw, 42px); }
+.feature h2 a { color: var(--text); }
+.feature h2 a:hover { color: var(--glow); }
+.feature .actions { margin-bottom: 16px; }
+.more { font-size: 15px; }
+.more::after { content: " →"; }
 .intro h1 { margin: 0 0 8px; font-size: clamp(32px, 6vw, 48px); }
 .intro p { margin: 0; color: var(--text-dim); font-size: 18px; }
 
@@ -222,7 +258,9 @@ pre {
 
 @media (max-width: 900px) {
   main, .site-header, .site-footer { padding-inline: 16px; }
-  .hero, .columns { grid-template-columns: minmax(0, 1fr); }
+  .hero, .columns, .feature { grid-template-columns: minmax(0, 1fr); }
+  .feature { gap: 20px; padding: 16px 16px 20px; }
+  .feature:nth-child(even) .feature-image { order: 0; }
   .hero { gap: 24px; padding-bottom: 32px; }
   .changes { position: static; max-height: none; order: -1; }
 }
