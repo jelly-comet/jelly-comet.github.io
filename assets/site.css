@@ -30,6 +30,26 @@
 
 * { box-sizing: border-box; }
 
+/* The starfield behind every page (stars.py draws the tiles): three layers, far to near, each
+   drifting up and to the right by exactly one tile before it starts over, so it never jumps. Smooth at the
+   screen's rate where the browser draws with a graphics card: it adds about 6 % of a core to what
+   the moving logo already costs. Where it doesn't,
+   base.html's script sets `soft-sky` and all three step together twice a second instead, by 1, 2 and
+   3 whole pixels with the twinkle on the same beat: about 6 % of a core rather than 60 %. Only
+   transform and opacity move; still for anyone who asks for less motion. */
+.sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.stars { position: absolute; top: 0; left: 0; background-repeat: repeat; will-change: transform; }
+.far { width: calc(100% + 360px); height: calc(100% + 360px); background-image: url("stars-far.svg"); animation: drift-far 180s linear infinite; }
+.mid { width: calc(100% + 720px); height: calc(100% + 720px); background-image: url("stars-mid.svg"); animation: drift-mid 180s linear infinite; }
+.near { width: calc(100% + 1080px); height: calc(100% + 1080px); background-image: url("stars-near.svg"); animation: drift-near 180s linear infinite, twinkle 5s ease-in-out infinite alternate; }
+@keyframes drift-far { from { transform: translate3d(-360px, 0, 0); } to { transform: translate3d(0, -360px, 0); } }
+@keyframes drift-mid { from { transform: translate3d(-720px, 0, 0); } to { transform: translate3d(0, -720px, 0); } }
+@keyframes drift-near { from { transform: translate3d(-1080px, 0, 0); } to { transform: translate3d(0, -1080px, 0); } }
+@keyframes twinkle { from { opacity: 0.55; } to { opacity: 1; } }
+.soft-sky .far, .soft-sky .mid { animation-timing-function: steps(360); }
+.soft-sky .near { animation-timing-function: steps(360), steps(10); }
+@media (prefers-reduced-motion: reduce) { .stars { animation: none; } }
+
 body {
   margin: 0;
   background: var(--background);
@@ -80,16 +100,8 @@ h1, h2, h3 { font-weight: 300; line-height: 1.25; }
 
 /* Overview */
 .intro { padding-block: 32px 40px; }
-/* The greeting: big, with a few stars like the plugins' displays. */
-.hello {
-  padding-block: 40px 56px;
-  background:
-    radial-gradient(1.5px 1.5px at 8% 20%, var(--text-dim), transparent),
-    radial-gradient(1px 1px at 92% 30%, var(--text-dim), transparent),
-    radial-gradient(1.5px 1.5px at 78% 82%, var(--text-dim), transparent),
-    radial-gradient(1px 1px at 30% 90%, var(--text-dim), transparent),
-    radial-gradient(1px 1px at 60% 12%, var(--text-dim), transparent);
-}
+/* The greeting: big. */
+.hello { padding-block: 40px 56px; }
 .hello h1 { font-size: clamp(36px, 7vw, 64px); max-width: 14em; }
 .hello p { max-width: 36em; font-size: clamp(17px, 2vw, 20px); line-height: 1.5; }
 .tentacles { color: var(--glow); }
@@ -249,6 +261,42 @@ pre {
   border: 1px solid var(--edge);
   border-radius: var(--radius-display);
   line-height: 1.5;
+}
+
+/* The lightbox (lightbox.js): a plugin page's pictures over the page, big. */
+.zoomable { cursor: zoom-in; }
+.lightbox-open { overflow: hidden; }
+.lightbox {
+  width: 100%; height: 100%; max-width: 100%; max-height: 100%;
+  margin: 0; padding: 0; border: 0;
+  background: transparent; color: var(--text);
+}
+.lightbox::backdrop { background: rgba(5, 8, 13, 0.97); }
+.lightbox figure {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  height: 100%; margin: 0; padding: 56px 72px 40px;
+}
+.lightbox img {
+  max-width: 100%; max-height: calc(100% - 48px); width: auto; height: auto; object-fit: contain;
+  border-radius: var(--radius-display); box-shadow: 0 0 0 1px var(--edge);
+}
+.lightbox figcaption { max-width: 60em; color: var(--text-dim); font-size: 15px; line-height: 1.4; text-align: center; }
+.lightbox-count { position: absolute; top: 18px; left: 24px; margin: 0; color: var(--text-dim); font-size: 14px; }
+.lightbox button {
+  position: absolute; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--edge); border-radius: 50%; background: var(--raised); color: var(--text);
+  font: 300 26px/1 var(--font-sans); cursor: pointer;
+}
+.lightbox button:hover { background: var(--raised-hover); color: var(--glow); }
+.lightbox-close { top: 12px; right: 16px; }
+.lightbox-prev { left: 16px; top: calc(50% - 22px); }
+.lightbox-next { right: 16px; top: calc(50% - 22px); }
+.lightbox.single .lightbox-prev, .lightbox.single .lightbox-next { display: none; }
+@media (max-width: 600px) {
+  .lightbox figure { padding: 60px 12px 72px; }
+  .lightbox-prev, .lightbox-next { top: auto; bottom: 14px; }
+  .lightbox-prev { left: calc(50% - 56px); }
+  .lightbox-next { right: calc(50% - 56px); }
 }
 
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 20px; }

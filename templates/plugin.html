@@ -19,6 +19,7 @@
     </div>
     <p class="links">
       <a href="{{ plugin.repo.html_url }}/releases">All releases</a>
+      {% if not plugin.discontinued %}<a href="{{ plugin.repo.html_url }}/issues">Support</a>{% endif %}
       {% if latest.checksum %}<a href="{{ latest.checksum }}">SHA-256</a>{% endif %}
       <a href="{{ plugin.repo.html_url }}">Release repository</a>
     </p>
@@ -56,3 +57,4 @@
   </aside>
 </div>
 {% endblock %}
+{% block scripts %}<script src="../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

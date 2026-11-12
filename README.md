@@ -55,3 +55,13 @@ stops if anything would link a private source repository.
 
 The colors and the font are the ones the plugins use. Ubuntu Light is under the Ubuntu Font Licence,
 `assets/fonts/UFL.txt`.
+
+## The starfield
+
+Every page has a slowly drifting starfield behind it: `assets/stars-{far,mid,near}.svg`, drawn by
+`python3 -I stars.py`, tiled and moved by `site.css`. It moves smoothly where the browser draws with a
+graphics card, adding about 6 % of a core to what the moving logo already costs. A small script in
+`templates/base.html` finds a software renderer and sets `soft-sky`; there all three layers step
+together twice a second instead, about 6 % rather than 60 %. (Headless Chromium at 1920 x 1080,
+2026-11-12; the logo itself costs about 25 to 50 % there, more than a browser on a screen would.)
+Still for anyone who asks for less motion.

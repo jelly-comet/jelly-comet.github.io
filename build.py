@@ -45,6 +45,10 @@ TAG = re.compile(r"<[^>]+>")
 DISCONTINUED = re.compile(r"^> \*\*Discontinued\b")
 
 env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html"]))
+# The stylesheet's and the lightbox script's links carry a hash of the file, so a browser fetches the new one when it changes
+# instead of laying out new pages with the cached old one (GitHub Pages lets it keep it 10 minutes).
+env.globals["css_version"] = hashlib.sha256((ROOT / "assets" / "site.css").read_bytes()).hexdigest()[:10]
+env.globals["js_version"] = hashlib.sha256((ROOT / "assets" / "lightbox.js").read_bytes()).hexdigest()[:10]
 
 
 def github_token():
