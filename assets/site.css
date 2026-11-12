@@ -59,6 +59,8 @@ h1, h2, h3 { font-weight: 300; line-height: 1.25; }
   font-size: 22px;
 }
 .brand:hover { color: var(--text); }
+.brand .fish { color: var(--accent); }
+.brand .comet { color: var(--text-dim); }
 
 .site-footer {
   display: flex;

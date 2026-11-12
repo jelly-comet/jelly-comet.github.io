@@ -272,6 +272,7 @@ def build_manual(plugin, out, hashes):
         sys.exit(f"{name}'s manual links something private: {match.group(0)!r}")
 
     digest = hashlib.sha256(page.encode())
+    digest.update((ROOT / "assets" / "logo-mark.svg").read_bytes())
     for image in sorted((source / "images").iterdir()):
         digest.update(image.read_bytes())
     digest = digest.hexdigest()
