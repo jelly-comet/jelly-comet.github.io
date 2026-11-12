@@ -15,25 +15,7 @@ sidechain signal is using right now.">
 <meta name="theme-color" content="#0a0e15">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
-<link rel="stylesheet" href="../../assets/site.css?v=6ee45a1e5f">
-<script>
-// The starfield moves smoothly only where the browser draws with a graphics card; a software
-// renderer (no WebGL, or SwiftShader, llvmpipe and the like) gets the twice-a-second steps.
-(function () {
-  var soft = true;
-  try {
-    var gl = document.createElement("canvas").getContext("webgl");
-    if (gl) {
-      var info = gl.getExtension("WEBGL_debug_renderer_info");
-      var name = String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER));
-      soft = /swiftshader|llvmpipe|softpipe|software|basic render/i.test(name);
-      var lose = gl.getExtension("WEBGL_lose_context");
-      if (lose) lose.loseContext();
-    }
-  } catch (e) {}
-  if (soft) document.documentElement.classList.add("soft-sky");
-})();
-</script>
+<link rel="stylesheet" href="../../assets/site.css?v=ba50b9ad1b">
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
