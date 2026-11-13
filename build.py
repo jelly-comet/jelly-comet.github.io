@@ -28,7 +28,7 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
-OWNER = "rmnhofma"
+OWNER = "jelly-comet"
 SITE_URL = f"https://{OWNER}.github.io"
 ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / ".cache"

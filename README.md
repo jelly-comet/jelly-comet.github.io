@@ -1,4 +1,4 @@
-# rmnhofma.github.io
+# jelly-comet.github.io
 
 An overview of the plugins, latest release first, and a page for each one, generated from the
 public `<Name>-release` repositories on GitHub and served by GitHub Pages from `main`.
@@ -10,7 +10,7 @@ public `<Name>-release` repositories on GitHub and served by GitHub Pages from `
 git add -A && git commit -m "Site: <what changed>" && git push
 ```
 
-That is all, also for a new plugin: every public repository of `rmnhofma` named `<Name>-release`
+That is all, also for a new plugin: every public repository of `jelly-comet` named `<Name>-release`
 with a published release gets a card and a page. One without a release is skipped until it has one.
 Run it after `gh release create`, since the version, the notes and the download link come from the
 release.
