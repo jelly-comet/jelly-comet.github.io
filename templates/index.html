@@ -41,7 +41,7 @@
           <a class="panel" href="plugins/{{ p.slug }}/"><img class="shot" src="plugins/{{ p.slug }}/{{ p.image }}" alt="{{ p.alt }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy"></a>
           <h3><a href="plugins/{{ p.slug }}/">{{ p.name }} {{ p.latest.version|replace("v", "") }}</a></h3>
           <p>{{ p.headline }}.</p>
-          <div class="card__links"><a class="link" href="{{ p.latest.download }}">Download {{ p.name }}{% if p.latest.size %}, {{ p.latest.size }}{% endif %}</a></div>
+          <div class="card__links"><a class="link" href="plugins/{{ p.slug }}/">See {{ p.name }}</a></div>
         </article>
         {% endfor %}
       </div>

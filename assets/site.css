@@ -27,9 +27,16 @@ html footer.closing .closing__links { margin-top: var(--s-9); }
 a.panel { display: block; }
 .panel > .shot { position: absolute; inset: 0; }
 .frame__img { object-position: var(--pos, 0% 0%); }
+/* No border, line or ground round a screenshot: the plugin's window has its own edge (owner, 2026-11-14). */
+.panel:has(> .shot)::before, .panel:has(> .shot)::after { display: none; }
+.panel:has(> .shot), .frame:has(> .frame__img), .hero__media { border: 0; background: none; box-shadow: none; }
 .card__links { display: flex; gap: var(--s-5); flex-wrap: wrap; margin-top: auto; }
 .card h3 a { color: inherit; text-decoration: none; }
-#plugins .panel { --p-h: 260px; }
+/* The plugins' cards: each window whole, all at one shape and height, so the titles under them line
+   up; the words sit a little in from the window's edge. */
+#plugins .card > .panel { flex: none; min-height: 0; aspect-ratio: 1260 / 846; border-radius: var(--r-lg); background: none; }
+#plugins .card > .panel > .shot { object-fit: contain; object-position: 50% 0%; }
+#plugins .card > :not(.panel) { padding-inline: var(--s-3); }
 .section.g2 .card .panel { --p-h: 300px; }
 .wide-frame { display: block; height: 400px; margin-top: var(--s-7); }
 .icon-row { display: flex; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-6); }
@@ -40,12 +47,10 @@ a.panel { display: block; }
 .facts { margin-top: var(--s-8); }
 .facts dd { margin: 0; }
 
-@media (min-width: 640px) and (max-width: 1023px) { #plugins { --h: 2 } }
-@media (min-width: 1024px) and (max-width: 1279px) { .section.g2 .card--open > .panel { --p-h: 200px; } #plugins .panel { --p-h: 180px; } }
+@media (min-width: 1024px) and (max-width: 1279px) { .section.g2 .card--open > .panel { --p-h: 200px; } }
 @media (max-width: 639px) {
   .prose .gallery { grid-template-columns: minmax(0, 1fr); }
   header.nav .nav__bar > .nav__actions { display: none; }
-  #plugins .panel { --p-h: 260px; }
   .section.g2 .card--open > .panel { --p-h: 190px; }
   .frame--split { --ratio: 50%; }
   .wide-frame { height: 220px; }
