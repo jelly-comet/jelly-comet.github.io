@@ -89,6 +89,11 @@ def checkout(repo):
 
 
 def render_markdown(text):
+    # The account was rmnhofma until 2026-11-13; archived release repositories and old release
+    # notes still say so, and rmnhofma.github.io no longer exists.
+    text = text.replace("rmnhofma.github.io", "jelly-comet.github.io").replace(
+        "github.com/rmnhofma/", f"github.com/{OWNER}/"
+    )
     md = markdown.Markdown(
         extensions=["fenced_code", "tables", "sane_lists", "toc"], extension_configs={"toc": {"toc_depth": "2-2"}}
     )
