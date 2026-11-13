@@ -31,8 +31,7 @@ a { color: #3d9bff; }
 img { max-width: 75%; display: block; margin: 12px auto; border-radius: 8px; break-inside: avoid; }
 .logo { margin: 0; border-radius: 0; }
 .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 14pt; }
-.brand .fish { color: #3d9bff; }
-.brand .comet { color: #8a95a9; }
+.brand .comet { color: #3d9bff; }
 table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9.5pt; }
 th, td { text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid #263247; }
 th { color: #8a95a9; font-weight: 300; }

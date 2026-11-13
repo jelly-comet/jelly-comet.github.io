@@ -6,7 +6,7 @@
 <title>{% block title %}{% endblock %}</title>
 <meta name="description" content="{% block description %}{% endblock %}">
 <meta property="og:title" content="{{ self.title() }}">
-<meta property="og:site_name" content="JellyFishComet">
+<meta property="og:site_name" content="JellyComet">
 <meta property="og:description" content="{{ self.description() }}">
 {% block meta %}{% endblock %}
 <meta name="theme-color" content="#0a0e15">
@@ -17,7 +17,7 @@
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
 <header class="site-header">
-  <a class="brand" href="{{ root or './' }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="fish">Fish</span><span class="comet">Comet</span></span></a>
+  <a class="brand" href="{{ root or './' }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
 </header>
 <main>
 {% block main %}{% endblock %}

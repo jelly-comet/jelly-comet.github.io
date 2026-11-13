@@ -74,8 +74,7 @@ h1, h2, h3 { font-weight: 300; line-height: 1.25; }
   font-size: 22px;
 }
 .brand:hover { color: var(--text); }
-.brand .fish { color: var(--accent); }
-.brand .comet { color: var(--text-dim); }
+.brand .comet { color: var(--accent); }
 
 .site-footer {
   display: flex;
