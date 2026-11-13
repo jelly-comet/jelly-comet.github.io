@@ -32,6 +32,15 @@
     <div class="wrap grid grid--top">
       <article class="prose span-7">
         {{ plugin.intro }}
+        {#- the screenshots between the description and its first section (Features), as on the old site -#}
+        {% if plugin.gallery %}
+        <h2 id="screenshots">Screenshots</h2>
+        <div class="gallery">
+          {% for shot in plugin.gallery %}
+          <a class="gallery__shot" href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
+          {% endfor %}
+        </div>
+        {% endif %}
         {{ plugin.sections }}
       </article>
       <aside class="notes-panel span-4 start-9">
@@ -50,19 +59,6 @@
       </aside>
     </div>
   </div>
-
-  {% if plugin.gallery %}
-  <div class="doc doc--gallery">
-    <div class="wrap">
-      <h2 id="screenshots">Screenshots</h2>
-      <div class="grid gallery">
-        {% for shot in plugin.gallery %}
-        <a class="span-6 gallery__shot" href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  {% endif %}
 {% endblock %}
 
 {% block close %}

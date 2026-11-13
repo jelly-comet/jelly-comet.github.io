@@ -38,7 +38,7 @@ HASHES = ROOT / ".manual-hashes.json"
 # Source repositories are private: nothing on the site may link one (release-repo.md in FrameworkBtw).
 PRIVATE_LINK = re.compile(rf"{OWNER}/[A-Za-z]+Btw([^-\w]|$)|FrameworkBtw", re.M)
 # The README's formats line, "CLAP and VST3 for Linux." before 2026-11-06, "CLAP for Linux." since.
-FORMATS_LINE = re.compile(r"\s*(CLAP(?: and VST3)?) for Linux\.\s*$")
+FORMATS_LINE = re.compile(r"\s*(CLAP(?:\s+and\s+VST3)?)\s+for\s+Linux\.\s*$")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 LINK_ATTR = re.compile(r'(href|src)="([^"]*)"')
 TAG = re.compile(r"<[^>]+>")

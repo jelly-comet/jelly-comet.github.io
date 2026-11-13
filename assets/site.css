@@ -2,6 +2,21 @@
    footer, is the tasteskill kit in assets/kit; this file holds only what sits inside the site's own
    pictures and long text: the plugins' windows, the README prose, the release notes and the lightbox. */
 
+/* Sections as tall as what they hold (owner, 2026-11-13: the kit's one-screen sections left whole
+   screens empty in a tall window). The kit's own rules size them to the screen; these win by one
+   more element in the selector, and one even gap parts every section. */
+html main > :is(section, .section):not(.hero), html footer.closing { height: auto; min-height: 0; display: block; padding: var(--s-9) 0; }
+html main > :is(section, .section):not(.hero) > :is(.wrap, .container), html footer.closing > .wrap { height: auto; }
+html main > :is(section, .section).g2 > :is(.wrap, .container) { display: flex; flex-direction: column; row-gap: var(--s-6); }
+html main > :is(section, .section):not(.hero) .fill { flex: none; }
+html main > :is(section, .section):not(.ground-inverse) + :is(section, .section):not(.ground-inverse) { padding-top: 0; }
+html main > .hero:not(.plugin-hero) { height: min(100svh, 960px); }
+html footer.closing .closing__links { margin-top: var(--s-9); }
+@media (max-width: 639px) {
+  html main > :is(section, .section):not(.hero), html footer.closing { padding: var(--s-8) 0; }
+  html main > .hero:not(.plugin-hero) { height: auto; min-height: 0; }
+}
+
 .nav__logo img { width: 32px; height: 32px; }
 .nav__logo .comet { color: var(--p-accent); }
 .closing .nav__logo .comet { color: inherit; }
@@ -9,6 +24,7 @@
 /* The plugins' windows: screenshots shown whole, or cut by their frame from the top left. */
 .shot { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 0% 0%); }
 .panel { position: relative; overflow: hidden; }
+a.panel { display: block; }
 .panel > .shot { position: absolute; inset: 0; }
 .frame__img { object-position: var(--pos, 0% 0%); }
 .card__links { display: flex; gap: var(--s-5); flex-wrap: wrap; margin-top: auto; }
@@ -27,6 +43,7 @@
 @media (min-width: 640px) and (max-width: 1023px) { #plugins { --h: 2 } }
 @media (min-width: 1024px) and (max-width: 1279px) { .section.g2 .card--open > .panel { --p-h: 200px; } #plugins .panel { --p-h: 180px; } }
 @media (max-width: 639px) {
+  .prose .gallery { grid-template-columns: minmax(0, 1fr); }
   header.nav .nav__bar > .nav__actions { display: none; }
   #plugins .panel { --p-h: 260px; }
   .section.g2 .card--open > .panel { --p-h: 190px; }
@@ -36,6 +53,10 @@
 }
 
 /* A plugin page: the window whole in the first screen, then the README and the notes as long text. */
+/* A plugin page's first block ends with its content: no screen-tall hero, the README right under it. */
+main > .hero.plugin-hero { height: auto; min-height: 0; padding-bottom: 0; }
+.plugin-hero .hero-text, .plugin-hero .hero__grid { height: auto; min-height: 0; }
+.plugin-hero + .doc { padding-top: var(--s-9); }
 .hero--split .hero__media.hero__media--whole { height: auto; align-self: start; background: none; }
 .hero__media--whole > img.hero-image { position: static; width: 100%; height: auto; object-fit: contain; cursor: zoom-in; }
 .plugin-links { margin-top: var(--s-5); }
@@ -62,14 +83,13 @@
 .notes-panel h3 a { color: inherit; }
 .notes-panel ul { padding-left: 1.2em; margin: 0 0 var(--s-3); }
 .notes-panel summary { cursor: pointer; margin-top: var(--s-5); font-weight: 500; }
-.doc--gallery h2 { margin: 0 0 var(--s-7); }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); margin: 0 0 var(--s-4); }
 .gallery__shot { display: block; overflow: hidden; border-radius: var(--r-lg); }
 .gallery__shot img { display: block; width: 100%; height: auto; cursor: zoom-in; transition: transform .4s ease; }
 .gallery__shot:hover img { transform: scale(1.02); }
-.gallery { row-gap: var(--s-5); }
 @media (max-width: 1023px) {
   .notes-panel { position: static; order: -1; margin-bottom: var(--s-8); }
-  .prose, .notes-panel, .gallery__shot { grid-column: 1 / -1; }
+  .prose, .notes-panel { grid-column: 1 / -1; }
 }
 
 /* The lightbox (lightbox.js): a plugin page's pictures over the page, big. */
