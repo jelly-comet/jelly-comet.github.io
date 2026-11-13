@@ -1,30 +1,122 @@
 <!doctype html>
-<html lang="en">
+{#- The redesign (branch redesign): the tasteskill kit in assets/kit carries the system (grid, type, buttons,
+    nav, footer, motion); assets/site.css holds only what sits inside the site's own pictures and text. -#}
+{%- set kit = root ~ "assets/kit/" -%}
+{%- set home = root or "./" -%}
+<html lang="en" data-type="software" data-radius="soft" data-buttons="arrow" data-ground="sky" data-motion>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% block title %}{% endblock %}</title>
 <meta name="description" content="{% block description %}{% endblock %}">
+<meta property="og:type" content="website">
 <meta property="og:title" content="{{ self.title() }}">
 <meta property="og:site_name" content="JellyComet">
 <meta property="og:description" content="{{ self.description() }}">
+<meta name="twitter:card" content="summary_large_image">
 {% block meta %}{% endblock %}
-<meta name="theme-color" content="#0a0e15">
+<meta name="theme-color" content="#0a0d14">
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
 <link rel="icon" type="image/svg+xml" href="{{ root }}assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ root }}assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ kit }}system.css?v={{ kit_version }}">
+<link rel="stylesheet" href="{{ kit }}ui/cards.css?v={{ kit_version }}">
+<link rel="stylesheet" href="{{ kit }}motion/motion.css?v={{ kit_version }}">
+<link rel="stylesheet" href="{{ kit }}backgrounds/backgrounds.css?v={{ kit_version }}">
+<link rel="stylesheet" href="{{ kit }}layout/layout.css?v={{ kit_version }}">
+<link rel="stylesheet" href="{{ kit }}icons/icon.css?v={{ kit_version }}">
+<style>
+:root {
+  --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
+  --p-accent: #5ab9fc; --p-accent-ink: #0a0d14; --p-action: #5ab9fc; --p-action-ink: #0a0d14;
+  --p-inv-bg: #e9edf3; --p-inv-surface: #d7dbe1; --p-inv-ink: #0a0d14; --p-inv-muted: #54575f;
+  --p-inv-accent: #0a0d14; --p-inv-accent-ink: #e9edf3; --p-inv-action: #0a0d14; --p-inv-action-ink: #e9edf3;
+  --font-display: "Funnel Display", system-ui, sans-serif;
+  --font-text: "Funnel Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-tracking-xl: -0.04em;
+  --ly-scale: 0.98;
+}
+</style>
 <link rel="stylesheet" href="{{ root }}assets/site.css?v={{ css_version }}">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="{{ kit }}backgrounds/backgrounds.js?v={{ kit_version }}"></script>
+{% block head %}{% endblock %}
 </head>
 <body>
-<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
-<header class="site-header">
-  <a class="brand" href="{{ root or './' }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="{{ home }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="32" height="32">Jelly<span class="comet">Comet</span></a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item">
+        <a class="nav__link" href="{{ root }}#plugins">Plugins <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-6">
+              <p class="t-label">Plugins, newest first</p>
+              {% for p in plugins %}<a href="{{ root }}plugins/{{ p.slug }}/">{{ p.name }}<span>{{ p.latest.version }} · {{ p.latest.date }}</span></a>
+              {% endfor %}
+            </div>
+            {% set newest = plugins[0] %}
+            <a class="menu-card span-3 start-10" href="{{ root }}plugins/{{ newest.slug }}/">
+              <div class="panel"><img class="shot" src="{{ root }}plugins/{{ newest.slug }}/{{ newest.image }}" alt="" width="{{ newest.width }}" height="{{ newest.height }}" loading="lazy"></div>
+              <span class="t-card">{{ newest.name }} {{ newest.latest.version }}</span>
+              <span class="t-small muted">Released {{ newest.latest.date }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="{{ root }}#licence">Licence</a></div>
+      <div class="nav__item"><a class="nav__link" href="{{ root }}#faq">Questions</a></div>
+      <div class="nav__item"><a class="nav__link" href="https://github.com/{{ owner }}">GitHub</a></div>
+    </nav>
+    <div class="nav__actions">
+      {% block nav_action %}<a class="btn btn--primary" href="{{ root }}#plugins">Get the plugins</a>{% endblock %}
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 </header>
-<main>
+
+<main id="top">
 {% block main %}{% endblock %}
 </main>
-<footer class="site-footer">
-  <a class="github" href="https://github.com/{{ owner }}"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/{{ owner }}</a>
+
+<footer class="footer closing footer--statement" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      {% block close %}{% endblock %}
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="{{ home }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="32" height="32">Jelly<span class="comet">Comet</span></a>
+          <p class="footer__lede">Audio plugins for Linux, made one at a time.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Plugins</h3><ul>{% for p in plugins %}<li><a href="{{ root }}plugins/{{ p.slug }}/">{{ p.name }}</a></li>{% endfor %}</ul></div>
+        <div class="span-2 footer__col"><h3>Manuals</h3><ul>{% for p in plugins %}<li><a href="{{ root }}plugins/{{ p.slug }}/{{ p.pdf }}">{{ p.name }}</a></li>{% endfor %}</ul></div>
+        <div class="span-2 footer__col"><h3>Releases</h3><ul>{% for p in plugins %}<li><a href="{{ p.repo.html_url }}/releases">{{ p.name }}</a></li>{% endfor %}</ul></div>
+        <div class="span-2 footer__col"><h3>About</h3><ul><li><a href="{{ root }}#licence">Licence</a></li><li><a href="{{ root }}#faq">Questions</a></li><li><a href="https://github.com/{{ owner }}">GitHub</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; {{ plugins[0].latest.published.year }} JellyComet &nbsp; Product names and logos are trademarks of their owners</span>
+        <div class="socials"></div>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<script type="module" src="{{ kit }}system.js?v={{ kit_version }}"></script>
+<script type="module" src="{{ kit }}motion/motion.js?v={{ kit_version }}"></script>
+<script type="module" src="{{ kit }}layout/layout.js?v={{ kit_version }}"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
