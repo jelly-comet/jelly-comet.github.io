@@ -47,18 +47,27 @@ stops if anything would link a private source repository.
 
 - `build.py`: the generator. Needs `/usr/bin/python3` with `python-markdown` and `python-jinja`,
   `git` and `chromium`. It uses `gh`'s token if there is one, only for the API's rate limit.
-- `templates/`: the pages and the PDF's style. `assets/`: the site's CSS, logo and font.
+- `templates/`: the pages and the PDF's style. `assets/`: the site's CSS, logo, lightbox and the
+  manuals' font.
+- `assets/kit/`: the design system the pages are built on, copied from the tasteskill skill (MIT,
+  `assets/kit/LICENSE`): grid, type, buttons, nav, footer and motion. Don't edit it; `assets/site.css`
+  holds what is the site's own (the plugins' windows, the README text, the notes, the lightbox) and
+  overrides the kit where the owner wanted otherwise.
 - Generated, committed because Pages serves them: `index.html`, `plugins/`, `.manual-hashes.json`.
   Don't edit these by hand. `.nojekyll` makes Pages serve the files as they are.
 - `.cache/`, not committed: shallow clones of the release repositories.
 
-The colors and the font are the ones the plugins use. Ubuntu Light is under the Ubuntu Font Licence,
-`assets/fonts/UFL.txt`.
+## The design
 
-## The starfield
+Redesigned 2026-11-14 with the tasteskill skill: a near-black page with the plugins' sky blue, Funnel
+Display and Funnel Sans from Google Fonts, a first screen with the newest plugin, a card per plugin,
+a section per plugin in turns (words beside a window, a light band, four windows), the MIT licence
+set large, questions, and a closing footer. Each plugin page has its window, the README with the
+screenshots between the description and Features, and the release notes beside it.
 
-Every page has a slowly drifting starfield behind it: `assets/stars-{far,mid,near}.svg`, drawn by
-`python3 -I stars.py`, tiled and moved by `site.css`, smooth at the screen's rate for everyone (the
-owner's choice, 2026-11-12: no slower fallback). It adds about 6 % of a core to what the moving logo
-costs where the browser draws with a graphics card, and about 60 % where it draws without one
-(headless Chromium at 1920 x 1080). Still for anyone who asks for less motion.
+Where the owner overrode the kit (`assets/site.css`): sections are as tall as their content (the
+kit makes each one or two screens, which left empty screens in a tall window), screenshots have no
+border, and the header has a Donations link to paypal.me/jellycomet.
+
+The manuals keep the plugins' own look: Ubuntu Light, under the Ubuntu Font Licence
+(`assets/fonts/UFL.txt`), and their dark colours (`templates/manual.css`).
