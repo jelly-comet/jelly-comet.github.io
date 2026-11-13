@@ -62,6 +62,8 @@ a.panel { display: block; }
 main > .hero.plugin-hero { height: auto; min-height: 0; padding-bottom: 0; }
 .plugin-hero .hero-text, .plugin-hero .hero__grid { height: auto; min-height: 0; }
 .plugin-hero + .doc { padding-top: var(--s-9); }
+/* the plugin's name is one word: smaller on a narrow column, never broken inside */
+.plugin-hero h1 { font-size: clamp(40px, 4.6vw, 72px); hyphens: none; overflow-wrap: normal; word-break: keep-all; }
 .hero--split .hero__media.hero__media--whole { height: auto; align-self: start; background: none; }
 .hero__media--whole > img.hero-image { position: static; width: 100%; height: auto; object-fit: contain; cursor: zoom-in; }
 .plugin-links { margin-top: var(--s-5); }
