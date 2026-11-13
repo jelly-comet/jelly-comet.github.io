@@ -36,10 +36,9 @@ and open <http://127.0.0.1:8765/>.
 | Version, date, what's new, earlier versions | the GitHub releases and their notes, without the `Install:` paragraph |
 | Download button | the release's `.tar.gz` |
 
-A README with a `> **Discontinued** …` paragraph right under its title (`discontinue-plugin.md` in
-FrameworkBtw) puts the plugin under Discontinued, below the others: its card is dimmed, its page shows
-the notice and calls its version the last release, and the same paragraph in a release's notes is
-left out of "What's new". Its repository is archived; an archived one without the notice is left off.
+A discontinued plugin (a `> **Discontinued** …` paragraph right under its README's title, see
+`discontinue-plugin.md` in FrameworkBtw, or an archived repository) is left off the site: no card
+and no page (owner, 2026-11-13).
 
 So a release repository that follows `release-repo.md` in FrameworkBtw needs nothing else. The build
 stops if anything would link a private source repository.

@@ -27,28 +27,8 @@
     </div>
   </li>
 {%- endmacro -%}
-{% macro card(plugin, eager) %}
-  <li class="card{% if plugin.discontinued %} discontinued{% endif %}">
-    <a href="plugins/{{ plugin.slug }}/">
-      <img src="plugins/{{ plugin.slug }}/{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}" {% if not eager %}loading="lazy"{% endif %}>
-      <span class="card-text">
-        <span class="card-title"><span class="card-name">{{ plugin.name }}</span><span class="version">{{ plugin.latest.version }}</span></span>
-        <span class="card-summary">{{ plugin.summary }}</span>
-      </span>
-    </a>
-  </li>
-{%- endmacro -%}
 <ul class="features">
 {% for plugin in plugins %}{{ feature(plugin, loop.first) }}
 {% endfor %}
 </ul>
-{% if discontinued -%}
-<section class="intro discontinued-intro">
-  <h2>Discontinued</h2>
-  <p>These get no new releases. Their last release stays here to download.</p>
-</section>
-<ul class="cards">
-{% for plugin in discontinued %}{{ card(plugin, false) }}
-{% endfor %}
-</ul>
-{% endif %}{% endblock %}
+{% endblock %}

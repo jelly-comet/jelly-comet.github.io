@@ -6,8 +6,8 @@ a card on index.html and a page in plugins/<name>/ with its README, release note
 PDF of its manual. There is nothing to configure: run it after a release and commit the result.
 
 A plugin whose README has a Discontinued notice right under its title (discontinue-plugin.md in
-FrameworkBtw) is listed under Discontinued, below the others, and its page says so. Its repository
-is archived, so archived repositories with the notice are kept; one without it is left off.
+FrameworkBtw), or whose repository is archived, is left off: no card and no page (owner,
+2026-11-13).
 """
 
 import hashlib
@@ -220,8 +220,8 @@ def collect(repo):
         return None
     source = checkout(repo)
     readme = parse_readme((source / "README.md").read_text(), name)
-    if repo["archived"] and readme["notice"] is None:
-        print(f"  {name}: skipped, archived without a Discontinued notice in its README")
+    if repo["archived"] or readme["notice"] is not None:
+        print(f"  {name}: skipped, discontinued")
         return None
     manual = (source / "manual.md").read_text()
     width, height = image_size(source / readme["image"])
@@ -241,8 +241,6 @@ def collect(repo):
         "source": source,
         "summary": Markup(readme["summary"]),
         "formats": readme["formats"],
-        "discontinued": readme["notice"] is not None,
-        "notice": Markup(readme["notice"] or ""),
         "description": html.unescape(TAG.sub("", readme["summary"])),
         "image": readme["image"],
         "alt": readme["alt"],
@@ -339,23 +337,21 @@ def main():
     if PLUGINS.exists():
         for old in PLUGINS.iterdir():
             if old.name not in current:
-                print(f"  removing {old.name}: its repository is gone or has no release")
+                print(f"  removing {old.name}: discontinued, or its repository is gone or has no release")
                 shutil.rmtree(old)
     hashes = {plugin["name"]: hashes[plugin["name"]] for plugin in plugins}
     HASHES.write_text(json.dumps(hashes, indent=2, sort_keys=True) + "\n")
     write_checked(
         ROOT / "index.html",
         env.get_template("index.html").render(
-            plugins=[plugin for plugin in plugins if not plugin["discontinued"]],
-            discontinued=[plugin for plugin in plugins if plugin["discontinued"]],
+            plugins=plugins,
             root="",
             site_url=SITE_URL,
             owner=OWNER,
         ),
     )
     for plugin in plugins:
-        state = ", discontinued" if plugin["discontinued"] else ""
-        print(f"  {plugin['name']} {plugin['latest']['version']} ({plugin['latest']['date']}{state})")
+        print(f"  {plugin['name']} {plugin['latest']['version']} ({plugin['latest']['date']})")
 
 
 if __name__ == "__main__":
