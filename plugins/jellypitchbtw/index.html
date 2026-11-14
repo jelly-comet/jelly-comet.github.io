@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#0a0e15">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
-<link rel="stylesheet" href="../../assets/site.css?v=825372ba17">
+<link rel="stylesheet" href="../../assets/site.css?v=c5ab4e1b61">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -143,11 +143,26 @@ in your DAW.</p>
 <li>X11 or XWayland, and a Vulkan driver for the editor</li>
 </ul>
 <p>Releases contain the CLAP plugin only.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="is-it-free">Is it free?</h3>
+<p>Yes. The download is free and MIT-licensed.</p>
+<h3 id="is-there-a-vst3-or-lv2-version">Is there a VST3 or LV2 version?</h3>
+<p>No. Releases contain the CLAP plugin only.</p>
+<h3 id="does-it-run-on-arm-like-a-raspberry-pi-or-apple-silicon">Does it run on ARM, like a Raspberry Pi or Apple Silicon?</h3>
+<p>No. It needs Linux on x86-64, on a CPU with AVX2.</p>
+<h3 id="which-hosts-does-it-work-in">Which hosts does it work in?</h3>
+<p>Any CLAP host. It was tried in Bitwig Studio and REAPER.</p>
+<h3 id="does-it-work-on-wayland">Does it work on Wayland?</h3>
+<p>Through XWayland. The editor also needs a Vulkan driver.</p>
+<h3 id="does-it-work-on-chords-or-several-voices-at-once">Does it work on chords or several voices at once?</h3>
+<p>No. It corrects one voice at a time: a lead vocal, a backing vocal, or an instrument that plays one
+note at a time. It is not a harmoniser and not a vocoder.</p>
 <h2 id="license">License</h2>
 <p>MIT, see <a href="https://github.com/jelly-comet/JellyPitchBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
 <code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
-<p>CLAP is an open standard by the free-audio project. JellyPitchBtw is an independent project, not
-affiliated with or endorsed by the makers of any other pitch correction.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. JellyPitchBtw is an independent project, not affiliated with or endorsed by the
+makers of any other pitch correction.</p>
   </article>
   <aside class="panel changes">
     <h2>What's new in v1.3.0</h2>
@@ -209,14 +224,14 @@ affiliated with or endorsed by the makers of any other pitch correction.</p>
 
 <section class="others">
   <h2>More from JellyComet</h2>
+
   <ul>
     
     <li><a href="../orbitloopbtw/"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span></a></li>
     
     <li><a href="../easymodebtw/"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span></a></li>
     
-  </ul>
-</section>
+  </ul></section>
 
 
 </main>

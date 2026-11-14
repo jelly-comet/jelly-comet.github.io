@@ -15,9 +15,8 @@
       <img src="plugins/{{ plugin.slug }}/{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}" {% if not eager %}loading="lazy"{% endif %}>
     </a>
     <div class="feature-text">
-      <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a></h2>
-      {% if plugin.tagline %}<p class="tagline">{{ plugin.tagline }}</p>
-      {% endif %}<p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }} · Free</p>
+      <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a>{% if plugin.tagline %} <span class="tagline">{{ plugin.tagline }}</span>{% endif %}</h2>
+      <p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }} · Free</p>
       <p class="summary">{{ plugin.summary }}</p>
       <div class="actions">
         <a class="button primary" href="{{ plugin.latest.download }}">Download{% if plugin.latest.size %} <span class="button-note">{{ plugin.latest.size }}</span>{% endif %}</a>
@@ -34,5 +33,6 @@
 <section class="about">
   <h2>About JellyComet</h2>
   <p>JellyComet makes small, free audio plugins for Linux. Each does one job with one unusual control: a jellyfish pad for vocal pitch correction, an orbiting puck for loop effects, and white keys that play any scale or chord. All are CLAP plugins for x86-64 Linux, MIT-licensed, each with a manual.</p>
+  <p>CLAP is an open plugin format that hosts such as Bitwig Studio and REAPER load natively on Linux. Every JellyComet plugin installs by copying one <code>.clap</code> file into <code>~/.clap</code>.</p>
 </section>
 {% endblock %}

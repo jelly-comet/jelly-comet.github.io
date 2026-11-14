@@ -12,5 +12,10 @@
   </div>
   {{ body }}
 </article>
+{% if others %}
+<section class="others manual-others">
+  <h2>More from JellyComet</h2>
+{% include "others.html" %}</section>
+{% endif %}
 {% endblock %}
 {% block scripts %}<script src="../../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

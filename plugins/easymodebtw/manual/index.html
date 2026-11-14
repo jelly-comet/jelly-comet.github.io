@@ -20,7 +20,59 @@
 <meta name="theme-color" content="#0a0e15">
 <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
-<link rel="stylesheet" href="../../../assets/site.css?v=825372ba17">
+<link rel="stylesheet" href="../../../assets/site.css?v=c5ab4e1b61">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "EasyModeBtw",
+          "item": "https://jelly-comet.github.io/plugins/easymodebtw/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manual"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "EasyModeBtw manual",
+      "description": "The EasyModeBtw manual: every control and how to use it. EasyModeBtw is a free CLAP plugin: MIDI scales, chords and arpeggios for Linux.",
+      "url": "https://jelly-comet.github.io/plugins/easymodebtw/manual/",
+      "image": "https://jelly-comet.github.io/plugins/easymodebtw/images/screenshot.png",
+      "dateModified": "2026-11-14",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "EasyModeBtw",
+        "url": "https://jelly-comet.github.io/plugins/easymodebtw/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
@@ -41,7 +93,7 @@
 <p><strong>Play any scale on the white keys, as chords, strums or arpeggios.</strong> A MIDI effect for Linux:
 the white keys play the notes of the scale you pick with its root on middle C, and each key can
 play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat.</p>
-<p>Version 1.2.6. To install it, see the <a href="../">README</a>.</p>
+<p>Version 1.2.6. To install it, see the <a href="../#install">install steps</a>.</p>
 <div class="toc">
 <ul>
 <li><a href="#getting-started">Getting started</a></li>
@@ -62,7 +114,7 @@ receives.</p>
 <p>Choose a KEY and a SCALE, then play the white keys from middle C upwards: every note is in the
 scale. Then set CHORDS to Triads and play the white keys again: each one plays a chord. Open the
 PLAY page to see which notes every key sends.</p>
-<p><img alt="The PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" src="../images/screenshot.png" /></p>
+<p><img alt="The PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" src="../images/screenshot.png" width="1260" height="846"></p>
 <h2 id="the-controls">The controls</h2>
 <p>The header holds the zoom select and the power switch. Below it one row holds three selectors, the
 key and scale, CHORDS and ARP, and the HOLD pedal. A click on a selector's icon or caption shows its
@@ -220,7 +272,7 @@ octave for the same reach, which makes fast runs easy.</p>
 so middle C plays the root: in C, the keyboard as it is.</p>
 <p>Click the value on the PLAY selector for its list: the twelve keys along the top, and a tile for
 each scale, naming its notes in your key and lighting them on a little keyboard.</p>
-<p><img alt="The PLAY selector's list in F: the twelve keys and a tile for every scale" src="../images/scales-list.png" /></p>
+<p><img alt="The PLAY selector's list in F: the twelve keys and a tile for every scale" src="../images/scales-list.png" width="1260" height="846" loading="lazy"></p>
 <h3 id="chords">Chords</h3>
 <p>With CHORDS on, each key plays a chord built on its note.</p>
 <ul>
@@ -245,10 +297,10 @@ key map: one octave of keys, each naming the chord it plays. The chord sounding 
 and three chords that would sound good next are lit on theirs and named after NEXT. Where a white
 and a black key play the same chord, the white one lights. Click a key on the map to hear its
 chord, in the octave of the last note you played: near its top it plays soft, near its foot loud.</p>
-<p><img alt="The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice" src="../images/chords.png" /></p>
+<p><img alt="The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice" src="../images/chords.png" width="1260" height="846" loading="lazy"></p>
 <p>The list on the CHORDS selector has a tile for each chord set, showing what it plays on the key you
 last held, so you can compare them before you choose.</p>
-<p><img alt="The CHORDS selector's list after E3 in F minor: what every chord set plays on that key" src="../images/chords-list.png" /></p>
+<p><img alt="The CHORDS selector's list after E3 in F minor: what every chord set plays on that key" src="../images/chords-list.png" width="1260" height="846" loading="lazy"></p>
 <h3 id="strum">Strum</h3>
 <p>Turn on the switch on the strum display and a chord's notes start one after another, as a
 guitarist strums. STRUM is a three-note chord's strum; more notes take longer, fewer less. Low to
@@ -268,7 +320,7 @@ beat. While the transport stands it runs at the host's tempo from the first key.
   above, weaving back down, the top note loudest.</li>
 </ul>
 <p>The list on the ARP selector draws each order as stairs. Hover one and it performs.</p>
-<p><img alt="The ARP selector's list: every order as stairs, Piano performing under the pointer" src="../images/arp-list.png" /></p>
+<p><img alt="The ARP selector's list: every order as stairs, Piano performing under the pointer" src="../images/arp-list.png" width="1260" height="846" loading="lazy"></p>
 <p>RANGE plays the run up to four times, each time higher by STEP. A chord played a little late still
 starts on its root.</p>
 <p>The <strong>ARP page</strong> shows the stairs: what the arp plays over one turn of its rhythm, a ball hopping
@@ -291,7 +343,7 @@ tooltip says where it comes from.</p>
 <p>Below are the keys from the CHORDS page, playable with the mouse, with the chords to play next lit
 on them; with CHORDS Off each key names the note it plays. With ARP Off these keys are off, as the
 CHORDS page's are with CHORDS Off.</p>
-<p><img alt="The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing" src="../images/arp.png" /></p>
+<p><img alt="The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing" src="../images/arp.png" width="1260" height="846" loading="lazy"></p>
 <h3 id="hold">HOLD</h3>
 <p>HOLD is the sustain pedal at the end of the selector row, on every page. Click to stomp it, and it
 stays down. Let go of the keys and what they play goes on, until your next press with every key up
@@ -333,6 +385,18 @@ it records the plugin's output.</p>
   errors to <code>~/.BitwigStudio/log/engine.log</code>.</li>
 </ul>
 </article>
+
+<section class="others manual-others">
+  <h2>More from JellyComet</h2>
+
+  <ul>
+    
+    <li><a href="../../jellypitchbtw/"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span></a></li>
+    
+    <li><a href="../../orbitloopbtw/"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span></a></li>
+    
+  </ul></section>
+
 
 </main>
 <footer class="site-footer">

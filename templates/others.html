@@ -1,0 +1,6 @@
+{# The other plugins as cards: under a plugin's page, under its manual and on the 404. plugins_root is the way to plugins/ from the page. #}
+  <ul>
+    {% for other in others %}
+    <li><a href="{{ plugins_root }}{{ other.slug }}/"><span class="other-name">{{ other.name }}</span>{% if other.tagline %} <span class="other-tagline">{{ other.tagline }}</span>{% endif %}</a></li>
+    {% endfor %}
+  </ul>

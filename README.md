@@ -66,15 +66,17 @@ text:
 - Each page has one title, one meta description on one line, a canonical link, Open Graph and
   `twitter:card` tags with the picture's size and alt text.
 - Structured data: `SoftwareApplication` on a plugin's page (version, date, download, price 0),
-  `Organization` and `WebSite` on the front page. No rating: there is none, and a made-up one is
-  never added.
+  `BreadcrumbList` and `TechArticle` on its manual page, `Organization` and `WebSite` on the front
+  page. No rating: there is none, and a made-up one is never added. No `FAQPage` or `HowTo`: Google
+  shows neither any more.
+- A manual page's pictures carry their width and height, and all but the first load lazily.
 - `sitemap.xml` (the front page, every plugin's page and manual page, dated by the latest release),
   `robots.txt`, `404.html` and `plugins/index.html`, which sends `/plugins/` to the front page.
 - **By hand:** the front page's title, description, heading, lead and About paragraph in
   `templates/index.html` say what the plugins do. Go through them when a plugin joins or leaves.
 
 The words follow one rule (the SEO plan of 2026-11-14): free, CLAP, Linux and what the plugin does.
-Never "open source" (the source is private) and never VST (none ships).
+Never "open source" (the source is private), and VST only where a README's FAQ says none ships.
 
 ## Files
 

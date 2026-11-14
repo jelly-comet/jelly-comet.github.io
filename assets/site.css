@@ -115,7 +115,7 @@ h1, h2, h3 { font-weight: 300; line-height: 1.25; }
 .feature h2 { margin: 0 0 6px; font-size: clamp(30px, 4vw, 42px); }
 .feature h2 a { color: var(--text); }
 .feature h2 a:hover { color: var(--glow); }
-.feature .tagline { margin: 0 0 6px; font-size: 17px; }
+.feature h2 .tagline { display: block; margin-top: 2px; font-size: 17px; line-height: 1.4; }
 .feature .actions { margin-bottom: 16px; }
 .more { font-size: 15px; }
 .more::after { content: " →"; }
@@ -216,12 +216,13 @@ pre {
 .manual h1 { margin: 0 0 12px; font-size: clamp(32px, 5vw, 44px); }
 .manual img { margin: 20px 0; border-radius: var(--radius-display); }
 .manual .actions { margin: 20px 0 8px; }
+.manual-others { max-width: 820px; margin-inline: auto; }
 .toc ul { margin: 0 0 8px; }
 
 /* The front page's closing paragraph. */
 .about { max-width: 46em; margin-top: 56px; color: var(--text-dim); }
 .about h2 { margin: 0 0 8px; font-size: 22px; color: var(--text); }
-.about p { margin: 0; font-size: 17px; }
+.about p { margin: 0 0 10px; font-size: 17px; }
 
 /* The other plugins, under a plugin's page and on the 404. */
 .others { margin-top: 64px; }

@@ -20,7 +20,59 @@
 <meta name="theme-color" content="#0a0e15">
 <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
-<link rel="stylesheet" href="../../../assets/site.css?v=825372ba17">
+<link rel="stylesheet" href="../../../assets/site.css?v=c5ab4e1b61">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "OrbitLoopBtw",
+          "item": "https://jelly-comet.github.io/plugins/orbitloopbtw/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manual"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "OrbitLoopBtw manual",
+      "description": "The OrbitLoopBtw manual: every control and how to use it. OrbitLoopBtw is a free CLAP plugin: half-speed, reverse, stutter and tape-stop loop effects for Linux.",
+      "url": "https://jelly-comet.github.io/plugins/orbitloopbtw/manual/",
+      "image": "https://jelly-comet.github.io/plugins/orbitloopbtw/images/screenshot.png",
+      "dateModified": "2026-11-14",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "OrbitLoopBtw",
+        "url": "https://jelly-comet.github.io/plugins/orbitloopbtw/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
@@ -40,7 +92,7 @@
   
 <p><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
 one puck that blends them.</strong></p>
-<p>Version 1.0.1. To install it, see the <a href="../">README</a>.</p>
+<p>Version 1.0.1. To install it, see the <a href="../#install">install steps</a>.</p>
 <h2 id="contents">Contents</h2>
 <ul>
 <li><a href="#getting-started">Getting started</a></li>
@@ -61,7 +113,7 @@ bar line. Now drag the puck towards REVERSE: the beats come backward, and betwee
 both, as loud as either alone.</p>
 <p>For the quickest idea of what it does, open the PRESET list and pick <strong>Four Corners</strong>: the puck
 goes round the pad once in four bars, a bar in each corner.</p>
-<p><img alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" src="../images/screenshot.png" /></p>
+<p><img alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" src="../images/screenshot.png" width="1260" height="846"></p>
 <h2 id="the-controls">The controls</h2>
 <p>From the top of the window.</p>
 <table>
@@ -226,8 +278,8 @@ corner's chip shows its share as a bar.</p>
 </thead>
 <tbody>
 <tr>
-<td><img alt="The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it" src="../images/screenshot-orbit-circle.png" /></td>
-<td><img alt="The puck going back and forth along the pad's top between HALF and REVERSE, as the Half And Back preset sets it" src="../images/screenshot-orbit-line.png" /></td>
+<td><img alt="The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it" src="../images/screenshot-orbit-circle.png" width="1260" height="846" loading="lazy"></td>
+<td><img alt="The puck going back and forth along the pad's top between HALF and REVERSE, as the Half And Back preset sets it" src="../images/screenshot-orbit-line.png" width="1260" height="846" loading="lazy"></td>
 </tr>
 <tr>
 <td>Four Corners: both radii at 50 %, a round through every corner in four bars</td>
@@ -235,7 +287,7 @@ corner's chip shows its share as a bar.</p>
 </tr>
 </tbody>
 </table>
-<p><img alt="The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs" src="../images/screenshot-orbit-panel.png" /></p>
+<p><img alt="The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs" src="../images/screenshot-orbit-panel.png" width="1260" height="846" loading="lazy"></p>
 <p>The orbit is two radii, each a sideways (X) and an up-and-down (Y) part, from −100 to 100 % of the
 pad. One radius alone draws a line through the puck's place; two at right angles draw a circle or
 an ellipse; two that lean the same way a tilted ellipse. A negative value turns that radius round:
@@ -271,16 +323,16 @@ BOUNCE is a switch. A changed setting is heard from the next slice, never in the
 </thead>
 <tbody>
 <tr>
-<td><img alt="The HALF page" src="../images/screenshot-half.png" /></td>
-<td><img alt="The REVERSE page" src="../images/screenshot.png" /></td>
+<td><img alt="The HALF page" src="../images/screenshot-half.png" width="1260" height="846" loading="lazy"></td>
+<td><img alt="The REVERSE page" src="../images/screenshot.png" width="1260" height="846" loading="lazy"></td>
 </tr>
 <tr>
 <td>HALF at its defaults: the bar read at half speed, the faint lines 1.5x and 4x</td>
 <td>REVERSE at its defaults: each beat backward from its end</td>
 </tr>
 <tr>
-<td><img alt="The STUTTER page" src="../images/screenshot-stutter.png" /></td>
-<td><img alt="The STOP page" src="../images/screenshot-stop.png" /></td>
+<td><img alt="The STUTTER page" src="../images/screenshot-stutter.png" width="1260" height="846" loading="lazy"></td>
+<td><img alt="The STOP page" src="../images/screenshot-stop.png" width="1260" height="846" loading="lazy"></td>
 </tr>
 <tr>
 <td>STUTTER at its defaults: the loop's last quarter repeated in 16ths</td>
@@ -396,6 +448,18 @@ reverse_bounce off
 <li><strong>It doesn't load:</strong> the plugin needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015) and glibc 2.31 or newer.</li>
 </ul>
 </article>
+
+<section class="others manual-others">
+  <h2>More from JellyComet</h2>
+
+  <ul>
+    
+    <li><a href="../../jellypitchbtw/"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span></a></li>
+    
+    <li><a href="../../easymodebtw/"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span></a></li>
+    
+  </ul></section>
+
 
 </main>
 <footer class="site-footer">

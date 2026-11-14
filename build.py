@@ -71,6 +71,7 @@ FORMATS_LINE = re.compile(r"\s*(CLAP(?:\s+and\s+VST3)?)\s+for\s+Linux\.\s*$")
 # The account's earlier name in a link, with or without a path after it.
 OLD_ACCOUNT = re.compile(r"github\.com/rmnhofma(?![\w-])")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
+IMG_TAG = re.compile(r'<img\b[^>]*?\bsrc="([^"]+)"[^>]*?/?>')
 LINK_ATTR = re.compile(r'(href|src)="([^"]*)"')
 TAG = re.compile(r"<[^>]+>")
 DISCONTINUED = re.compile(r"^> \*\*Discontinued\b")
@@ -213,6 +214,25 @@ def read_site(source, name):
     if len(site.get("description", "")) > 160:
         print(f"  warning: {name}'s site.toml description is {len(site['description'])} characters, a search result shows about 160")
     return site
+
+
+def size_images(rendered, source):
+    """Gives every picture in rendered Markdown its width and height, so the page doesn't jump while
+    they load, and lets all but the first load when they come into view."""
+    seen = 0
+
+    def replace(match):
+        nonlocal seen
+        tag, target = match.group(0), html.unescape(match.group(1))
+        path = source / target
+        width, height = image_size(path) if path.is_file() else (None, None)
+        extra = f' width="{width}" height="{height}"' if width else ""
+        if seen:
+            extra += ' loading="lazy"'
+        seen += 1
+        return re.sub(r"\s*/?>$", f"{extra}>", tag)
+
+    return IMG_TAG.sub(replace, rendered)
 
 
 def image_size(path):
@@ -431,10 +451,11 @@ def render(path, template, root, page_url=None, **context):
     write_checked(path, page)
 
 
-def build_manual_page(plugin, out):
+def build_manual_page(plugin, others, out):
     """manual.md as a page of the site, plugins/<name>/manual/: the same text as the PDF, for reading
     in a browser and for a search engine."""
     body, toc = render_markdown(plugin["manual"])
+    body = size_images(body, plugin["source"])
     body = rewrite_links(body, lambda t: web_manual_link(plugin["repo"], t))
     heading, end, rest = body.partition("</h1>")
     if not end:
@@ -449,7 +470,29 @@ def build_manual_page(plugin, out):
         "../../../",
         f"{plugin['url']}manual/",
         plugin=plugin,
+        others=others,
+        plugins_root="../../",
         share=plugin["share"],
+        structured=json_ld(
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "JellyComet", "item": f"{SITE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": plugin["name"], "item": plugin["url"]},
+                    {"@type": "ListItem", "position": 3, "name": "Manual"},
+                ],
+            },
+            {
+                "@type": "TechArticle",
+                "headline": f"{plugin['name']} manual",
+                "description": plugin["manual_description"],
+                "url": f"{plugin['url']}manual/",
+                "image": plugin["share"]["url"],
+                "dateModified": plugin["latest"]["day"],
+                "about": {"@type": "SoftwareApplication", "name": plugin["name"], "url": plugin["url"]},
+                "publisher": ORGANIZATION,
+            },
+        ),
         heading=Markup(heading + end),
         body=Markup(rest),
     )
@@ -463,7 +506,7 @@ def build_plugin(plugin, others, hashes):
         shutil.rmtree(images)
     shutil.copytree(plugin["source"] / "images", images)
     build_manual(plugin, out, hashes)
-    build_manual_page(plugin, out)
+    build_manual_page(plugin, others, out)
     render(
         out / "index.html",
         "plugin.html",
@@ -471,6 +514,7 @@ def build_plugin(plugin, others, hashes):
         plugin["url"],
         plugin=plugin,
         others=others,
+        plugins_root="../",
         share=plugin["share"],
         structured=plugin["structured"],
     )
@@ -536,7 +580,7 @@ def main():
     PLUGINS.mkdir(exist_ok=True)
     render(PLUGINS / "index.html", "moved.html", "../", home, share=SHARE)
     # GitHub Pages serves 404.html for every address that has no file, wherever it is: its links start at the root.
-    render(ROOT / "404.html", "404.html", "/", plugins=plugins)
+    render(ROOT / "404.html", "404.html", "/", others=plugins, plugins_root="/plugins/")
     write_checked(ROOT / "sitemap.xml", sitemap(plugins))
     write_checked(ROOT / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
     for plugin in plugins:

@@ -8,11 +8,6 @@
 </section>
 <section class="others">
   <h2>The plugins</h2>
-  <ul>
-    {% for other in plugins %}
-    <li><a href="/plugins/{{ other.slug }}/"><span class="other-name">{{ other.name }}</span>{% if other.tagline %} <span class="other-tagline">{{ other.tagline }}</span>{% endif %}</a></li>
-    {% endfor %}
-  </ul>
-  <p class="links"><a href="/">All plugins on the front page</a></p>
+{% include "others.html" %}  <p class="links"><a href="/">All plugins on the front page</a></p>
 </section>
 {% endblock %}
