@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JellyPitchBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The JellyPitchBtw manual: every control and how to use it. JellyPitchBtw is a free CLAP plugin: vocal pitch correction for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/jellypitchbtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/jellypitchbtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JellyPitchBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="The JellyPitchBtw manual: every control and how to use it. JellyPitchBtw is a free CLAP plugin: vocal pitch correction for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellypitchbtw/images/screenshot.png">
+<meta property="og:image:width" content="1260">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#0a0e15">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=825372ba17">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+<header class="site-header">
+  <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+</header>
+<main>
+
+
+<nav class="back"><a href="../">JellyPitchBtw</a></nav>
+<article class="prose manual">
+  <h1 id="jellypitchbtw-manual">JellyPitchBtw manual</h1>
+  <div class="actions">
+    <a class="button primary" href="https://github.com/jelly-comet/JellyPitchBtw-release/releases/download/v1.3.0/JellyPitchBtw-1.3.0-linux-x86_64.tar.gz">Download JellyPitchBtw v1.3.0 <span class="button-note">5.3 MB</span></a>
+    <a class="button" href="../JellyPitchBtw-manual.pdf" download>This manual <span class="button-note">PDF</span></a>
+  </div>
+  
+<p><strong>Pitch correction for one voice, steered by a jellyfish.</strong> One puck sets how fast a note is
+pulled in and how far off its note a voice may be and be left alone, and a display shows the voice
+as sung and as corrected.</p>
+<p>Version 1.3.0. To install it, see the <a href="../">README</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Put JellyPitchBtw on a track with one voice on it: a lead vocal, a backing vocal, a solo
+instrument that plays one note at a time. Choose the song's key and scale at the top left, play
+the track, and watch the display: the blue line is the voice as sung, the bright line as it comes
+out, and each note it is pulled to sits behind them as a bar.</p>
+<p>At the defaults (the puck at the bottom of the pad, half way across) a note is pulled in over
+25 ms and every note is corrected. Drag the puck to the bottom left corner to hear the hard,
+robotic snap; up and to the right for a correction you barely notice.</p>
+<p><img alt="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right" src="../images/screenshot.png" /></p>
+<h2 id="the-controls">The controls</h2>
+<p>From the top left of the window.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Power switch</strong> (top right)</td>
+<td>On / Off</td>
+<td>On</td>
+<td>Off, the voice passes through uncorrected, as late as the latency the plugin reports, so the track stays in time.</td>
+</tr>
+<tr>
+<td><strong>Key and scale</strong></td>
+<td>C to B; 13 scales</td>
+<td>C, Chromatic</td>
+<td>The notes a voice is pulled to. Chromatic is every note: plain tuning.</td>
+</tr>
+<tr>
+<td><strong>VOICE</strong> (beside the scale)</td>
+<td>Low, Normal, High</td>
+<td>Normal</td>
+<td>Where the voice is looked for: Low 50 to 400 Hz, Normal 80 to 800 Hz, High 150 to 1500 Hz.</td>
+</tr>
+<tr>
+<td><strong>The pad: SPEED</strong> (left to right)</td>
+<td>0 to 200 ms</td>
+<td>25 ms</td>
+<td>How fast a new note is pulled in. 0 ms snaps at once; 200 ms glides.</td>
+</tr>
+<tr>
+<td><strong>The pad: HUMANIZE</strong> (bottom to top)</td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>How far off its note a voice may be and be left alone, up to 50 cents at 100 %. 0 % corrects every note.</td>
+</tr>
+<tr>
+<td><strong>STRENGTH</strong> (display)</td>
+<td>0 to 100 %</td>
+<td>100 %</td>
+<td>How much of the correction is applied. 0 % leaves the pitch as sung.</td>
+</tr>
+<tr>
+<td><strong>DETUNE</strong> (display)</td>
+<td>−100 to +100 cents</td>
+<td>0 ct</td>
+<td>Moves the corrected voice off the note, for a slightly flat or sharp double.</td>
+</tr>
+<tr>
+<td><strong>A4</strong> (display)</td>
+<td>415 to 466 Hz</td>
+<td>440.0 Hz</td>
+<td>The tuning reference, for a band or a recording tuned off 440.</td>
+</tr>
+<tr>
+<td><strong>Zoom</strong> (top right)</td>
+<td>100 to 200 %</td>
+<td>100 %</td>
+<td>The window's size, kept with the project.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="the-pad">The pad</h3>
+<p>The puck's two directions are the two things that make correction sound natural or not.</p>
+<ul>
+<li><strong>Left and right is SPEED:</strong> how long a new note takes to be pulled in. Fast (left) is the
+  stepping, robotic effect; slow (right) lets the singer's own slide into a note through.</li>
+<li><strong>Up and down is HUMANIZE:</strong> how far off its note a voice may be and be left alone. At the
+  bottom every note is corrected; higher up, notes already close stay as sung, so a held note keeps
+  its life and only the ones that are clearly off get moved.</li>
+</ul>
+<p>Press anywhere on the pad and the puck jumps there and follows you; press on the puck itself to
+take hold of it where it is. Shift makes a drag ten times finer, and a double-click puts the puck
+back to the defaults. The values under the pad move on their own: drag one up or down, use the
+wheel over it, right-click it to type a value, or double-click to reset it.</p>
+<p>The note follows the pitch as it is sung: a wide vibrato that reaches past the half-way point
+swings to the next note and back, the sound of a hard-tuned vocal. Settings to start from:</p>
+<table>
+<thead>
+<tr>
+<th>For</th>
+<th>SPEED</th>
+<th>HUMANIZE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The hard, stepping effect</td>
+<td>0 to 1 ms</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>A tight pop vocal</td>
+<td>10 to 25 ms</td>
+<td>0 to 20 %</td>
+</tr>
+<tr>
+<td>A natural fix you shouldn't hear</td>
+<td>50 to 120 ms</td>
+<td>20 to 40 %</td>
+</tr>
+</tbody>
+</table>
+<h3 id="voice">VOICE</h3>
+<p>VOICE, beside the key and scale, says where to look for the voice. Click it for its list: Low,
+Normal and High, each with its range in Hz. Normal fits most singers; take Low for a bass voice
+that the plugin misses, and High for a high soprano or a whistle. The latency is the same in all
+three. VOICE isn't automatable: set it and leave it.</p>
+<h3 id="the-display">The display</h3>
+<p>The display shows the last four seconds, the newest at the right: the blue line is the voice as
+sung, the bright line as corrected, the glow between them the correction, and the bars behind them
+the notes it was pulled to. A rail lies on each note of the scale, the key's brighter. At the
+lines' head a chip names the note and how far the voice is off it, <code>G1 +7 ct</code>.</p>
+<p>The values along its top and bottom edges are its controls: drag one up or down, use the wheel
+over it, or double-click it to reset; Shift is finer.</p>
+<ul>
+<li><strong>STRENGTH</strong> below 100 % pulls only part of the way, for a voice that is helped rather than
+  fixed.</li>
+<li><strong>DETUNE</strong> moves the result off the note: a copy of the vocal at +8 ct under the original
+  thickens it.</li>
+<li><strong>A4</strong> is the tuning reference.</li>
+</ul>
+<h3 id="the-jellyfish">The jellyfish</h3>
+<p>The jellyfish listens too. Its bell pulses and lights with the level, and its tentacles hang calm
+while the voice is on its note (within 5 cents) and stir more the further it is off, all the way
+from 50 cents. Switched off, it rests.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>Latency:</strong> 0.25 ms in every VOICE. The host is told, and lines the track up. While a voice is
+  being tuned the sound runs a little further behind, 3.8 ms on average: to move a note the plugin
+  repeats or drops one cycle of the voice now and then, so it is about 2 to 3 ms for a high voice
+  and 5 to 6 ms for a low one.</li>
+<li><strong>Automation:</strong> every parameter but VOICE can be automated.</li>
+<li><strong>From 1.2:</strong> every setting is kept. The latency was 1 ms.</li>
+<li><strong>From 1.1:</strong> every setting is kept. The latency was 3.75 to 10.75 ms by VOICE.</li>
+<li><strong>From 1.0:</strong> a project saved with 1.0 opens with its key, scale, SPEED, STRENGTH, DETUNE, A4
+  and VOICE. REALTIME, VIBRATO, FORMANT and HOLD are gone, and HUMANIZE starts at 0 %.</li>
+<li><strong>Saved with the project:</strong> every setting and the zoom.</li>
+<li><strong>CPU:</strong> 0.13 % of a core at the defaults. It needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015).</li>
+<li><strong>One voice:</strong> chords, a choir on one track or a mix go wrong. Correct each voice on its own
+  track.</li>
+<li><strong>Zoom:</strong> the project remembers it, and a new window opens at the zoom you last chose in any
+  JellyComet plugin.</li>
+<li><strong>Hosts:</strong> the CLAP passes <code>clap-validator</code>.</li>
+<li><strong>Display:</strong> X11, or XWayland on a Wayland desktop, with a Vulkan driver.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>No correction, the display stays empty:</strong> check that the power switch is on and that the
+  voice is in VOICE's range; a low voice may need Low.</li>
+<li><strong>Notes jump to the wrong note:</strong> the key or scale is wrong for the song. Chromatic corrects to
+  the nearest note whatever the key.</li>
+<li><strong>The track sounds late against the others:</strong> the host has to compensate the plugin's latency;
+  check that its latency compensation is on.</li>
+<li><strong>The plugin doesn't load:</strong> it needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015) and
+  can't run on an older one; <code>grep -c avx2 /proc/cpuinfo</code> prints 0 there. 1.1.0 runs without it.</li>
+<li><strong>The window stays black:</strong> the editor needs a Vulkan driver (<code>vulkaninfo</code> should list your
+  GPU).</li>
+</ul>
+</article>
+
+</main>
+<footer class="site-footer">
+  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
+  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
+</footer>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

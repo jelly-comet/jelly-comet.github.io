@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ plugin.name }} Manual – Controls, How to Use It, Troubleshooting{% endblock %}
+{% block description %}{{ plugin.manual_description }}{% endblock %}
+{% block main %}
+{% set latest = plugin.latest %}
+<nav class="back"><a href="../">{{ plugin.name }}</a></nav>
+<article class="prose manual">
+  {{ heading }}
+  <div class="actions">
+    <a class="button primary" href="{{ latest.download }}">Download {{ plugin.name }} {{ latest.version }}{% if latest.size %} <span class="button-note">{{ latest.size }}</span>{% endif %}</a>
+    <a class="button" href="../{{ plugin.pdf }}" download>This manual <span class="button-note">PDF</span></a>
+  </div>
+  {{ body }}
+</article>
+{% endblock %}
+{% block scripts %}<script src="../../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

@@ -3,13 +3,20 @@
 
 Every public repository of OWNER named <Name>-release with a published release becomes a plugin:
 a card on index.html and a page in plugins/<name>/ with its README, release notes, images and a
-PDF of its manual. There is nothing to configure: run it after a release and commit the result.
+PDF of its manual, which is also a page of its own in plugins/<name>/manual/. Beside the pages it
+writes what a crawler reads: sitemap.xml, robots.txt, 404.html and plugins/index.html. There is
+nothing to configure: run it after a release and commit the result. A release repository's optional
+site.toml gives its page a search title, a tagline and a meta description.
+
+    ./build.py                      from the release repositories as they are on GitHub
+    ./build.py --local ../releases  from the checkouts in that folder, to look before they are pushed
 
 A plugin whose README has a Discontinued notice right under its title (discontinue-plugin.md in
 FrameworkBtw), or whose repository is archived, is left off: no card and no page (owner,
 2026-11-13).
 """
 
+import argparse
 import hashlib
 import html
 import json
@@ -20,6 +27,7 @@ import struct
 import subprocess
 import sys
 import tempfile
+import tomllib
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -34,11 +42,34 @@ ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / ".cache"
 PLUGINS = ROOT / "plugins"
 HASHES = ROOT / ".manual-hashes.json"
+# --local: a folder of <Name>-release checkouts read in place of the clones from GitHub.
+LOCAL = None
+# What a release repository's site.toml may set, all optional: the search title after the name
+# ("JellyPitchBtw – <title>"), the line under the name in the page's heading, the meta description.
+SITE_FIELDS = ("title", "tagline", "description")
+# The share picture of the pages that have no screenshot of their own.
+SHARE = {
+    "url": f"{SITE_URL}/assets/share.png",
+    "width": 1200,
+    "height": 630,
+    "alt": "The JellyComet logo, a jellyfish with a comet's tail, and the words: Audio plugins for Linux",
+}
+ORGANIZATION = {
+    "@type": "Organization",
+    "@id": f"{SITE_URL}/#organization",
+    "name": "JellyComet",
+    "url": f"{SITE_URL}/",
+    "logo": f"{SITE_URL}/assets/logo-mark.svg",
+    "sameAs": [f"https://github.com/{OWNER}"],
+}
 
 # Source repositories are private: nothing on the site may link one (release-repo.md in FrameworkBtw).
 PRIVATE_LINK = re.compile(rf"{OWNER}/[A-Za-z]+Btw([^-\w]|$)|FrameworkBtw", re.M)
 # The README's formats line, "CLAP and VST3 for Linux." before 2026-11-06, "CLAP for Linux." since.
-FORMATS_LINE = re.compile(r"\s*(CLAP(?: and VST3)?) for Linux\.\s*$")
+# A README wraps its lines where it likes, so any whitespace separates the words.
+FORMATS_LINE = re.compile(r"\s*(CLAP(?:\s+and\s+VST3)?)\s+for\s+Linux\.\s*$")
+# The account's earlier name in a link, with or without a path after it.
+OLD_ACCOUNT = re.compile(r"github\.com/rmnhofma(?![\w-])")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 LINK_ATTR = re.compile(r'(href|src)="([^"]*)"')
 TAG = re.compile(r"<[^>]+>")
@@ -74,7 +105,11 @@ def api(path):
 
 
 def checkout(repo):
-    """The repository's default branch as it is on GitHub, in a shallow clone under .cache/."""
+    """The repository's default branch as it is on GitHub, in a shallow clone under .cache/;
+    with --local, the checkout of that name as it lies there."""
+    if LOCAL and (LOCAL / repo["name"]).is_dir():
+        print(f"  {repo['name']}: from {LOCAL / repo['name']}")
+        return LOCAL / repo["name"]
     path = CACHE / repo["name"]
     branch = repo["default_branch"]
     if path.exists():
@@ -91,9 +126,7 @@ def checkout(repo):
 def render_markdown(text):
     # The account was rmnhofma until 2026-11-13; archived release repositories and old release
     # notes still say so, and rmnhofma.github.io no longer exists.
-    text = text.replace("rmnhofma.github.io", "jelly-comet.github.io").replace(
-        "github.com/rmnhofma/", f"github.com/{OWNER}/"
-    )
+    text = OLD_ACCOUNT.sub(f"github.com/{OWNER}", text.replace("rmnhofma.github.io", "jelly-comet.github.io"))
     md = markdown.Markdown(
         extensions=["fenced_code", "tables", "sane_lists", "toc"], extension_configs={"toc": {"toc_depth": "2-2"}}
     )
@@ -118,8 +151,8 @@ def repo_link(repo, target):
 
 def page_link(repo, name, target):
     """A README's relative link, seen from the plugin's page."""
-    if target == "manual.md":
-        return f"{name}-manual.pdf"
+    if target.startswith("manual.md"):
+        return "manual/" + target.removeprefix("manual.md")
     if target.startswith("README.md"):
         return target.removeprefix("README.md") or "./"
     if target.startswith("images/"):
@@ -134,6 +167,52 @@ def manual_link(repo, name, target):
     if target.startswith("README.md"):
         return f"{SITE_URL}/plugins/{name.lower()}/" + target.removeprefix("README.md")
     return repo_link(repo, target)
+
+
+def web_manual_link(repo, target):
+    """A manual's relative link, seen from its page, one folder below the plugin's."""
+    if target.startswith("images/"):
+        return f"../{target}"
+    if target.startswith("README.md"):
+        return "../" + target.removeprefix("README.md")
+    if target.startswith("manual.md"):
+        return target.removeprefix("manual.md") or "./"
+    return repo_link(repo, target)
+
+
+def one_line(text):
+    return " ".join(text.split())
+
+
+def lower_first(text):
+    """A tagline inside a sentence: "Vocal pitch" to "vocal pitch", "MIDI scales" as it is."""
+    return text[:1].lower() + text[1:] if text[1:2].islower() else text
+
+
+def json_ld(*things):
+    """Structured data for a page's head, one thing or several."""
+    data = {"@context": "https://schema.org", **things[0]} if len(things) == 1 else {
+        "@context": "https://schema.org",
+        "@graph": list(things),
+    }
+    return Markup(json.dumps(data, ensure_ascii=False, indent=2).replace("</", "<\\/"))
+
+
+def read_site(source, name):
+    """A release repository's site.toml: the page's search title, tagline and meta description."""
+    path = source / "site.toml"
+    if not path.exists():
+        return {}
+    site = tomllib.loads(path.read_text())
+    if unknown := sorted(set(site) - set(SITE_FIELDS)):
+        sys.exit(f"{name}: site.toml has {', '.join(unknown)}; it knows {', '.join(SITE_FIELDS)}")
+    for field, value in site.items():
+        if not isinstance(value, str) or not value.strip():
+            sys.exit(f"{name}: site.toml's {field} must be a line of text")
+    site = {field: one_line(value) for field, value in site.items()}
+    if len(site.get("description", "")) > 160:
+        print(f"  warning: {name}'s site.toml description is {len(site['description'])} characters, a search result shows about 160")
+    return site
 
 
 def image_size(path):
@@ -164,7 +243,7 @@ def parse_readme(text, name):
     body = rest[: image.start()] + rest[image.end() :]
     return {
         "summary": summary_html,
-        "formats": formats.group(1) if formats else "CLAP and VST3",
+        "formats": one_line(formats.group(1)) if formats else "CLAP",
         "notice": notice,
         "alt": image.group(1),
         "image": image.group(2),
@@ -191,6 +270,7 @@ def parse_release(release, repo):
     return {
         "version": release["tag_name"],
         "published": published,
+        "day": published.date().isoformat(),
         "date": f"{published.day} {published:%b %Y}",
         "url": release["html_url"],
         "notes": Markup(parse_notes(release["body"], repo)),
@@ -223,25 +303,60 @@ def collect(repo):
     if repo["archived"] or readme["notice"] is not None:
         print(f"  {name}: skipped, discontinued")
         return None
+    site = read_site(source, name)
+    if missing := [field for field in SITE_FIELDS if field not in site]:
+        print(f"  note: {name} has no {', '.join(missing)} in a site.toml: its page's search text comes from the README")
     manual = (source / "manual.md").read_text()
     width, height = image_size(source / readme["image"])
     parsed = [parse_release(r, repo) for r in releases]
     latest = parsed[0]
     if latest["version"].lstrip("v") not in (source / "README.md").read_text():
         print(f"  warning: {name}'s README doesn't mention its latest version, {latest['version']}")
-    body, _ = render_markdown(readme["body"])
+    slug = name.lower()
+    url = f"{SITE_URL}/plugins/{slug}/"
+    # A README's paragraph that opens with a link to this page is for a reader on GitHub: here it would point at itself.
+    own_page = re.compile(rf"\*{{0,2}}\[[^\]]*\]\({re.escape(url)}?\)")
+    paragraphs = [p for p in readme["body"].split("\n\n") if not own_page.match(p)]
+    body, _ = render_markdown("\n\n".join(paragraphs))
     body = rewrite_links(body, lambda t: page_link(repo, name, t))
     # The screenshots go after the README's opening paragraphs, before its first section (Features).
     cut = body.find("<h2")
     intro, sections = (body[:cut], body[cut:]) if cut >= 0 else (body, "")
+    description = site.get("description") or one_line(html.unescape(TAG.sub("", readme["summary"])))
+    tagline = site.get("tagline")
     return {
         "name": name,
-        "slug": name.lower(),
+        "slug": slug,
+        "url": url,
         "repo": repo,
         "source": source,
         "summary": Markup(readme["summary"]),
         "formats": readme["formats"],
-        "description": html.unescape(TAG.sub("", readme["summary"])),
+        "title": f"{name} – {site['title']}" if "title" in site else name,
+        "tagline": tagline,
+        "description": description,
+        "manual_description": f"The {name} manual: every control and how to use it. {name} is a free "
+        + (f"CLAP plugin: {lower_first(tagline)}." if tagline else "CLAP plugin for Linux."),
+        "share": {"url": f"{url}{readme['image']}", "width": width, "height": height, "alt": readme["alt"]},
+        "structured": json_ld(
+            {
+                "@type": "SoftwareApplication",
+                "name": name,
+                "description": description,
+                "url": url,
+                "applicationCategory": "MultimediaApplication",
+                "operatingSystem": "Linux",
+                "softwareVersion": latest["version"].lstrip("v"),
+                "datePublished": latest["day"],
+                "downloadUrl": latest["download"],
+                "screenshot": f"{url}{readme['image']}",
+                "softwareHelp": {"@type": "CreativeWork", "url": f"{url}manual/"},
+                "license": repo_link(repo, "LICENSE"),
+                "isAccessibleForFree": True,
+                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                "author": {"@type": "Organization", "name": "JellyComet", "url": f"{SITE_URL}/"},
+            }
+        ),
         "image": readme["image"],
         "alt": readme["alt"],
         "width": width,
@@ -309,7 +424,38 @@ def build_manual(plugin, out, hashes):
     hashes[name] = digest
 
 
-def build_plugin(plugin, hashes):
+def render(path, template, root, page_url=None, **context):
+    """A page from its template. page_url is its address for search engines; a page without one
+    (the 404) asks them to leave it out."""
+    page = env.get_template(template).render(root=root, site_url=SITE_URL, owner=OWNER, page_url=page_url, **context)
+    write_checked(path, page)
+
+
+def build_manual_page(plugin, out):
+    """manual.md as a page of the site, plugins/<name>/manual/: the same text as the PDF, for reading
+    in a browser and for a search engine."""
+    body, toc = render_markdown(plugin["manual"])
+    body = rewrite_links(body, lambda t: web_manual_link(plugin["repo"], t))
+    heading, end, rest = body.partition("</h1>")
+    if not end:
+        sys.exit(f"{plugin['name']}: manual.md doesn't start with a '# ' title")
+    # A manual without a Contents section of its own gets the one the PDF has.
+    if 'id="contents"' not in rest:
+        rest = rest.replace("<h2", toc + "<h2", 1)
+    (out / "manual").mkdir(exist_ok=True)
+    render(
+        out / "manual" / "index.html",
+        "manual-page.html",
+        "../../../",
+        f"{plugin['url']}manual/",
+        plugin=plugin,
+        share=plugin["share"],
+        heading=Markup(heading + end),
+        body=Markup(rest),
+    )
+
+
+def build_plugin(plugin, others, hashes):
     out = PLUGINS / plugin["slug"]
     out.mkdir(parents=True, exist_ok=True)
     images = out / "images"
@@ -317,13 +463,45 @@ def build_plugin(plugin, hashes):
         shutil.rmtree(images)
     shutil.copytree(plugin["source"] / "images", images)
     build_manual(plugin, out, hashes)
-    write_checked(
+    build_manual_page(plugin, out)
+    render(
         out / "index.html",
-        env.get_template("plugin.html").render(plugin=plugin, root="../../", site_url=SITE_URL, owner=OWNER),
+        "plugin.html",
+        "../../",
+        plugin["url"],
+        plugin=plugin,
+        others=others,
+        share=plugin["share"],
+        structured=plugin["structured"],
     )
 
 
+def sitemap(plugins):
+    """Every page with the day it last changed: a plugin's with its latest release, the front page
+    with the newest of them."""
+    pages = [(f"{SITE_URL}/", max(plugin["latest"]["day"] for plugin in plugins))] if plugins else []
+    for plugin in plugins:
+        pages.append((plugin["url"], plugin["latest"]["day"]))
+        pages.append((f"{plugin['url']}manual/", plugin["latest"]["day"]))
+    urls = "".join(f"  <url><loc>{html.escape(loc)}</loc><lastmod>{day}</lastmod></url>\n" for loc, day in pages)
+    return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
+
+
 def main():
+    global LOCAL
+    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    parser.add_argument(
+        "--local",
+        metavar="FOLDER",
+        type=Path,
+        help="read README, manual, images and site.toml from the <Name>-release checkouts in FOLDER, "
+        "to look at a change before it is pushed; build again without it before committing the site",
+    )
+    LOCAL = parser.parse_args().local
+    if LOCAL and not LOCAL.is_dir():
+        sys.exit(f"{LOCAL} is not a folder")
+    LOCAL = LOCAL.resolve() if LOCAL else None
+
     repos = api(f"users/{OWNER}/repos?per_page=100&type=owner")
     repos = [r for r in repos if r["name"].endswith("-release") and not r["private"]]
     print(f"{len(repos)} release repositories")
@@ -332,26 +510,39 @@ def main():
 
     hashes = json.loads(HASHES.read_text()) if HASHES.exists() else {}
     for plugin in plugins:
-        build_plugin(plugin, hashes)
+        build_plugin(plugin, [other for other in plugins if other is not plugin], hashes)
     current = {plugin["slug"] for plugin in plugins}
     if PLUGINS.exists():
         for old in PLUGINS.iterdir():
-            if old.name not in current:
+            if old.is_dir() and old.name not in current:
                 print(f"  removing {old.name}: discontinued, or its repository is gone or has no release")
                 shutil.rmtree(old)
     hashes = {plugin["name"]: hashes[plugin["name"]] for plugin in plugins}
     HASHES.write_text(json.dumps(hashes, indent=2, sort_keys=True) + "\n")
-    write_checked(
+    home = f"{SITE_URL}/"
+    render(
         ROOT / "index.html",
-        env.get_template("index.html").render(
-            plugins=plugins,
-            root="",
-            site_url=SITE_URL,
-            owner=OWNER,
+        "index.html",
+        "",
+        home,
+        plugins=plugins,
+        share=SHARE,
+        structured=json_ld(
+            ORGANIZATION,
+            {"@type": "WebSite", "name": "JellyComet", "url": home, "publisher": {"@id": ORGANIZATION["@id"]}},
         ),
     )
+    # /plugins/ has no page of its own: it sends a visitor, and a search engine, to the front page.
+    PLUGINS.mkdir(exist_ok=True)
+    render(PLUGINS / "index.html", "moved.html", "../", home, share=SHARE)
+    # GitHub Pages serves 404.html for every address that has no file, wherever it is: its links start at the root.
+    render(ROOT / "404.html", "404.html", "/", plugins=plugins)
+    write_checked(ROOT / "sitemap.xml", sitemap(plugins))
+    write_checked(ROOT / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
     for plugin in plugins:
         print(f"  {plugin['name']} {plugin['latest']['version']} ({plugin['latest']['date']})")
+    if LOCAL:
+        print(f"Built from the checkouts in {LOCAL}: push them and build again without --local before committing.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyModeBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The EasyModeBtw manual: every control and how to use it. EasyModeBtw is a free CLAP plugin: MIDI scales, chords and arpeggios for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/easymodebtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/easymodebtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EasyModeBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="The EasyModeBtw manual: every control and how to use it. EasyModeBtw is a free CLAP plugin: MIDI scales, chords and arpeggios for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/easymodebtw/images/screenshot.png">
+<meta property="og:image:width" content="1260">
+<meta property="og:image:height" content="846">
+<meta property="og:image:alt" content="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#0a0e15">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=825372ba17">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+<header class="site-header">
+  <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+</header>
+<main>
+
+
+<nav class="back"><a href="../">EasyModeBtw</a></nav>
+<article class="prose manual">
+  <h1 id="easymodebtw-manual">EasyModeBtw manual</h1>
+  <div class="actions">
+    <a class="button primary" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.6/EasyModeBtw-1.2.6-linux-x86_64.tar.gz">Download EasyModeBtw v1.2.6 <span class="button-note">5.1 MB</span></a>
+    <a class="button" href="../EasyModeBtw-manual.pdf" download>This manual <span class="button-note">PDF</span></a>
+  </div>
+  
+<p><strong>Play any scale on the white keys, as chords, strums or arpeggios.</strong> A MIDI effect for Linux:
+the white keys play the notes of the scale you pick with its root on middle C, and each key can
+play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat.</p>
+<p>Version 1.2.6. To install it, see the <a href="../">README</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</div>
+<h2 id="getting-started">Getting started</h2>
+<p>EasyModeBtw goes <strong>in front of an instrument</strong>, because it changes the notes the instrument
+receives.</p>
+<ul>
+<li><strong>Bitwig Studio:</strong> put it in the Note FX slot of an instrument track, or anywhere before the
+  instrument in the device chain.</li>
+<li><strong>Other hosts:</strong> use it as a MIDI effect (a CLAP note effect) in front of an instrument.</li>
+</ul>
+<p>Choose a KEY and a SCALE, then play the white keys from middle C upwards: every note is in the
+scale. Then set CHORDS to Triads and play the white keys again: each one plays a chord. Open the
+PLAY page to see which notes every key sends.</p>
+<p><img alt="The PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" src="../images/screenshot.png" /></p>
+<h2 id="the-controls">The controls</h2>
+<p>The header holds the zoom select and the power switch. Below it one row holds three selectors, the
+key and scale, CHORDS and ARP, and the HOLD pedal. A click on a selector's icon or caption shows its
+page (PLAY, CHORDS or ARP), and a click on its value opens its list of tiles. The scales and chord
+sets have a little keyboard with their notes lit, the chord sets showing what they play on the key
+you last held; the arp orders have their stairs. Hover a tile and it performs. Under the row is the
+page. Rest the pointer on any control and a tooltip says what it does.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Power switch</strong> (top right)</td>
+<td>On / Off</td>
+<td>On</td>
+<td>Off, every event passes through unchanged.</td>
+</tr>
+<tr>
+<td><strong>KEY</strong></td>
+<td>C to B</td>
+<td>C</td>
+<td>The scale's root: the note middle C plays.</td>
+</tr>
+<tr>
+<td><strong>SCALE</strong></td>
+<td>20 scales</td>
+<td>Chromatic</td>
+<td>The scale the white keys walk through.</td>
+</tr>
+<tr>
+<td><strong>CHORDS</strong></td>
+<td>Off, Triads, Sevenths, Sus2, Sus4, Add9, Jazz, Bossa, Soul, Folk, Power, Thirds, Sixths, Octaves</td>
+<td>Off</td>
+<td>Off plays one note per key; the others a chord, or a note with a partner, on every key.</td>
+</tr>
+<tr>
+<td><strong>ARP</strong></td>
+<td>Off, Up, Down, Up-Down, Converge, As Played, Chord, Random, Piano</td>
+<td>Off</td>
+<td>Off sends each key's note or chord at once; the others play it one note after another on the beat.</td>
+</tr>
+<tr>
+<td><strong>Strum switch</strong> (CHORDS page)</td>
+<td>On / Off</td>
+<td>Off</td>
+<td>Off, a chord's notes start together.</td>
+</tr>
+<tr>
+<td><strong>STRUM</strong> (CHORDS page)</td>
+<td>0 to 100 ms</td>
+<td>20 ms</td>
+<td>How long a three-note chord takes to strum, first note to last. Drag on the strum display to set it.</td>
+</tr>
+<tr>
+<td><strong>Strum direction</strong> (CHORDS page)</td>
+<td>Up and down, Up, Down, Random</td>
+<td>Up and down</td>
+<td>Which way the strums go. Random, the dice, tosses it for each strum.</td>
+</tr>
+<tr>
+<td><strong>RATE</strong> (ARP page)</td>
+<td>1/4, 1/8., 1/8, 1/8T, 1/16, 1/16T, 1/32</td>
+<td>1/16</td>
+<td>How far apart the arp's steps are.</td>
+</tr>
+<tr>
+<td><strong>RANGE</strong> (ARP page)</td>
+<td>1 to 4</td>
+<td>1</td>
+<td>How many times the run plays, each time higher.</td>
+</tr>
+<tr>
+<td><strong>STEP</strong> (ARP page)</td>
+<td>Octave, 2nd, 3rd, 4th, 5th, 6th</td>
+<td>Octave</td>
+<td>How far each repeat climbs: an octave, or that far up the scale, so it never leaves the key.</td>
+</tr>
+<tr>
+<td><strong>GATE LENGTH</strong> (ARP page)</td>
+<td>5 to 100 %</td>
+<td>50 %</td>
+<td>How long each note lasts, as a share of its step. 100 % lasts until the next note.</td>
+</tr>
+<tr>
+<td><strong>SWING</strong> (ARP page)</td>
+<td>Off, 54 %, 58 %, 62 %, 66 %, 71 %</td>
+<td>Off</td>
+<td>Pushes every second step later. 66 % is about a triplet feel.</td>
+</tr>
+<tr>
+<td><strong>HOLD</strong> (the sustain pedal, right of ARP)</td>
+<td>On / Off</td>
+<td>Off</td>
+<td>Let go and what the keys play goes on, until your next press with every key up replaces it. In every mode.</td>
+</tr>
+<tr>
+<td><strong>Rhythm shelf</strong> (ARP page)</td>
+<td>Straight and 25 rhythms</td>
+<td></td>
+<td>Loads a rhythm into the step ring.</td>
+</tr>
+<tr>
+<td><strong>Step ring</strong> (ARP page)</td>
+<td>1 to 32 steps</td>
+<td>16, all playing</td>
+<td>Which steps play and how loud. Saved with the project.</td>
+</tr>
+<tr>
+<td><strong>Zoom</strong> (header)</td>
+<td>100 to 200 %</td>
+<td>100 %</td>
+<td>Sizes the window.</td>
+</tr>
+</tbody>
+</table>
+<p>The version is in the bottom-right corner, and clicking the logo opens
+<a href="https://jelly-comet.github.io/plugins/easymodebtw/">the plugin's page</a>.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="what-the-white-keys-play">What the white keys play</h3>
+<p>Every white key is one step of the scale. Middle C (C3, MIDI note 60) plays the root, the next
+white key up plays the next note of the scale, and white keys below middle C walk down it. With
+CHORDS off, black keys play nothing.</p>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>White keys C3 D3 E3 F3 G3 A3 B3 C4 play</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C Major</td>
+<td>C3 D3 E3 F3 G3 A3 B3 C4 (unchanged)</td>
+</tr>
+<tr>
+<td>F Natural Minor</td>
+<td>F3 G3 Ab3 Bb3 C4 Db4 Eb4 F4</td>
+</tr>
+<tr>
+<td>G Major</td>
+<td>G2 A2 B2 C3 D3 E3 F#3 G3</td>
+</tr>
+</tbody>
+</table>
+<p>Roots C to F sit on or above middle C, and F# to B just below it, so the playable range stays
+centred. A five-note pentatonic repeats every five white keys, so your hands cover more than an
+octave for the same reach, which makes fast runs easy.</p>
+<p><strong>Chromatic</strong>, where a new instance starts, plays every key, black ones too, each its own note moved
+so middle C plays the root: in C, the keyboard as it is.</p>
+<p>Click the value on the PLAY selector for its list: the twelve keys along the top, and a tile for
+each scale, naming its notes in your key and lighting them on a little keyboard.</p>
+<p><img alt="The PLAY selector's list in F: the twelve keys and a tile for every scale" src="../images/scales-list.png" /></p>
+<h3 id="chords">Chords</h3>
+<p>With CHORDS on, each key plays a chord built on its note.</p>
+<ul>
+<li><strong>Triads, Sevenths, Sus2, Sus4, Add9:</strong> the scale's own chords. In C major the white keys play
+  C Dm Em F G Am B°.</li>
+<li><strong>Jazz, Bossa, Soul, Folk:</strong> the chord that genre most often puts on each note, counted from
+  thousands of lead sheets. In C major, Jazz plays Dm7 on D, G7 on G, Cmaj7 on C and A7 on A.</li>
+<li><strong>Power:</strong> the root and a perfect fifth on every key, as rock plays it.</li>
+<li><strong>Thirds, Sixths, Octaves:</strong> the key's own note with one partner above it, for a melody that
+  comes out harmonised: the third or the sixth from the scale, or the octave. A black key takes a
+  major third or a major sixth. The key map names each key's two notes; no chord is named or
+  suggested. With the strum on, the partner follows like a grace note, and the arp runs over the
+  two.</li>
+</ul>
+<p>In Double Harmonic and Hungarian Minor a few chords have no name: their keys show the notes they
+play.</p>
+<p>The black keys play a major chord on their own note (bII, bIII, #IV, bVI, bVII), the chords songs
+borrow from outside the key. Each chord plays in root position on the note its key plays alone, the
+same notes the arp plays from.</p>
+<p>The <strong>CHORDS page</strong> shows the last four seconds of notes with each chord's name, the strum, and a
+key map: one octave of keys, each naming the chord it plays. The chord sounding glows on its key,
+and three chords that would sound good next are lit on theirs and named after NEXT. Where a white
+and a black key play the same chord, the white one lights. Click a key on the map to hear its
+chord, in the octave of the last note you played: near its top it plays soft, near its foot loud.</p>
+<p><img alt="The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice" src="../images/chords.png" /></p>
+<p>The list on the CHORDS selector has a tile for each chord set, showing what it plays on the key you
+last held, so you can compare them before you choose.</p>
+<p><img alt="The CHORDS selector's list after E3 in F minor: what every chord set plays on that key" src="../images/chords-list.png" /></p>
+<h3 id="strum">Strum</h3>
+<p>Turn on the switch on the strum display and a chord's notes start one after another, as a
+guitarist strums. STRUM is a three-note chord's strum; more notes take longer, fewer less. Low to
+high the notes come evenly; high to low they speed up, as an up stroke does. Start around 20 to
+40 ms for a soft strum and 60 to 100 ms for a slow, harp-like one.</p>
+<p>The direction select picks up and down in turn, only up, only down, or the dice: each strum goes up
+or down at random, over the length you set. The strum only delays notes, so it adds no latency.</p>
+<h3 id="arpeggiator">Arpeggiator</h3>
+<p>With ARP on, each key's note, or with CHORDS its chord, plays one note after another on the host's
+beat. While the transport stands it runs at the host's tempo from the first key.</p>
+<ul>
+<li><strong>Up, Down, Up-Down, Converge, As Played, Random:</strong> the chord's notes in that order.</li>
+<li><strong>Chord:</strong> the whole chord on every step; with the strum on, each step is strummed the way the
+  direction select says, up and down in turn like a strumming hand to begin with. On the dice, each
+  step tosses its own.</li>
+<li><strong>Piano:</strong> the way pop pianists break a chord: root, fifth, octave, then the third and fifth
+  above, weaving back down, the top note loudest.</li>
+</ul>
+<p>The list on the ARP selector draws each order as stairs. Hover one and it performs.</p>
+<p><img alt="The ARP selector's list: every order as stairs, Piano performing under the pointer" src="../images/arp-list.png" /></p>
+<p>RANGE plays the run up to four times, each time higher by STEP. A chord played a little late still
+starts on its root.</p>
+<p>The <strong>ARP page</strong> shows the stairs: what the arp plays over one turn of its rhythm, a ball hopping
+from note to note with the note's name and the ring's rests as gaps. RATE, RANGE, STEP, GATE LENGTH
+and SWING are in their header: click one for its menu, or drag it up and down, or scroll. Drag the
+end of any note to set GATE LENGTH, and click a dot under the stairs to add that step to the rhythm
+or take it out.</p>
+<p>Beside the stairs is the step ring. Click a step to turn it on or off, drag it towards the centre
+to make it softer and away to make it louder, and double-click it for full. Drag around the ring
+elsewhere to turn the rhythm, and drag the number of steps up or down to change it. Right-click a
+step that plays to roll it: it plays its note two, three or four times in its own length, one more
+with each click, and after four once again. Its dot is cut into as many slices, the stairs show as
+many short notes, and hovering it says <code>3x</code>. GATE LENGTH is each strike's share of its part of the
+step; with ARP on Chord the whole chord is struck again. A roll is saved with the rhythm. The shelf of
+tiny rings loads a pattern into it: hover one to see it over the big ring with its name, and click
+to load it. Its first row has Straight, eight of the commonest broken-chord bars in pop piano, and
+the tresillo, cinquillo, bossa and bell rhythms. Its second row has thirteen more, most of them
+traditional rhythms from around the world, from Cumbia (4 steps) to Central Africa (16); each one's
+tooltip says where it comes from.</p>
+<p>Below are the keys from the CHORDS page, playable with the mouse, with the chords to play next lit
+on them; with CHORDS Off each key names the note it plays. With ARP Off these keys are off, as the
+CHORDS page's are with CHORDS Off.</p>
+<p><img alt="The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing" src="../images/arp.png" /></p>
+<h3 id="hold">HOLD</h3>
+<p>HOLD is the sustain pedal at the end of the selector row, on every page. Click to stomp it, and it
+stays down. Let go of the keys and what they play goes on, until your next press with every key up
+replaces it. With ARP on the arp plays on; with ARP Off the notes and chords you let go keep
+sounding.</p>
+<h3 id="the-play-page">The PLAY page</h3>
+<p>The PLAY page shows what EasyModeBtw does to your playing. The keys you press are on the lower
+keyboard, the notes sent on the upper one, with a thread from each key to every note it started,
+and the notes sent rise above. Click or drag on the lower keyboard to play with the mouse.</p>
+<p>Notes played with the mouse go out of the plugin like any it sends; a DAW records them only where
+it records the plugin's output.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>Latency:</strong> none. The strum and the arp only delay notes.</li>
+<li><strong>Automation:</strong> KEY, SCALE, CHORDS and ARP changes take effect at the exact sample they are drawn
+  at.</li>
+<li><strong>Saved projects:</strong> a project saved with 1.1 keeps its settings, but one with the strum on Guitar
+  now plays Close, and one with HOLD on and ARP Off now holds its notes. A project saved with 1.0
+  has the same changes, and its chords now play in root position on each key's own note, so one
+  using CHORDS sounds different. A GATE LENGTH saved above 100 % keeps its value until you touch the
+  control. A project saved with 0.1.x plays as before, except one saved with SCALE on Chromatic,
+  which now plays every key.</li>
+<li><strong>Changing settings while you play:</strong> a held note keeps sounding until you let go of its key, and
+  then the right notes end, so nothing gets stuck. Switching ARP or the power switch ends what
+  sounds; press the keys again.</li>
+<li><strong>Other MIDI:</strong> pitch bend, mod wheel and other CCs, channel pressure and program changes pass
+  through untouched.</li>
+<li><strong>Zoom:</strong> the project remembers it, and a new window opens at the zoom you last chose in any
+  JellyComet plugin.</li>
+<li><strong>Hosts:</strong> the CLAP passes <code>clap-validator</code>.</li>
+<li><strong>Display:</strong> X11, or XWayland on a Wayland desktop, with a Vulkan driver.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>The plugin doesn't show up:</strong> check that <code>easymodebtw.clap</code> is in <code>~/.clap</code> or
+  <code>/usr/lib/clap</code>, then rescan plugins in your DAW.</li>
+<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed.
+  The <code>vulkaninfo</code> tool from <code>vulkan-tools</code> should list your GPU. Bitwig Studio writes plugin
+  errors to <code>~/.BitwigStudio/log/engine.log</code>.</li>
+</ul>
+</article>
+
+</main>
+<footer class="site-footer">
+  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
+  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
+</footer>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

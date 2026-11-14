@@ -1,14 +1,13 @@
 {% extends "base.html" %}
-{% block title %}JellyComet · hand-made by tentacles{% endblock %}
-{% block description %}Hand-made by tentacles, free for humans: audio plugins for Linux.{% endblock %}
-{% block meta %}<meta property="og:url" content="{{ site_url }}/">
-<meta property="og:image" content="{{ site_url }}/assets/share.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">{% endblock %}
+{# The title, the description, the heading, the lead and the About paragraph name what the plugins do:
+   go through them when a plugin joins or leaves (release-repo.md and discontinue-plugin.md in FrameworkBtw). #}
+{% block title %}JellyComet – Free CLAP Audio Plugins for Linux{% endblock %}
+{% block description %}Free CLAP audio plugins for Linux: vocal pitch correction, half-speed, reverse, stutter and tape-stop loop effects, and a MIDI scale, chord and arpeggio tool.{% endblock %}
 {% block main %}
 <section class="intro hello">
-  <h1>Hand-made by <span class="tentacles">tentacles</span>, <span class="nowrap">free for humans.</span></h1>
-  <p>Glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
+  <h1>Free CLAP audio plugins for Linux</h1>
+  <p class="display">Hand-made by <span class="tentacles">tentacles</span>, <span class="nowrap">free for humans.</span></p>
+  <p>Vocal pitch correction, loop effects and a MIDI chord tool: glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
 </section>
 {% macro feature(plugin, eager) %}
   <li class="feature">
@@ -17,7 +16,8 @@
     </a>
     <div class="feature-text">
       <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a></h2>
-      <p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }}</p>
+      {% if plugin.tagline %}<p class="tagline">{{ plugin.tagline }}</p>
+      {% endif %}<p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }} · Free</p>
       <p class="summary">{{ plugin.summary }}</p>
       <div class="actions">
         <a class="button primary" href="{{ plugin.latest.download }}">Download{% if plugin.latest.size %} <span class="button-note">{{ plugin.latest.size }}</span>{% endif %}</a>
@@ -31,4 +31,8 @@
 {% for plugin in plugins %}{{ feature(plugin, loop.first) }}
 {% endfor %}
 </ul>
+<section class="about">
+  <h2>About JellyComet</h2>
+  <p>JellyComet makes small, free audio plugins for Linux. Each does one job with one unusual control: a jellyfish pad for vocal pitch correction, an orbiting puck for loop effects, and white keys that play any scale or chord. All are CLAP plugins for x86-64 Linux, MIT-licensed, each with a manual.</p>
+</section>
 {% endblock %}

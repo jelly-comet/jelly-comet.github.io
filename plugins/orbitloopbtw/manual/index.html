@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OrbitLoopBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The OrbitLoopBtw manual: every control and how to use it. OrbitLoopBtw is a free CLAP plugin: half-speed, reverse, stutter and tape-stop loop effects for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/orbitloopbtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/orbitloopbtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OrbitLoopBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="The OrbitLoopBtw manual: every control and how to use it. OrbitLoopBtw is a free CLAP plugin: half-speed, reverse, stutter and tape-stop loop effects for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/orbitloopbtw/images/screenshot.png">
+<meta property="og:image:width" content="1260">
+<meta property="og:image:height" content="846">
+<meta property="og:image:alt" content="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#0a0e15">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=825372ba17">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+<header class="site-header">
+  <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+</header>
+<main>
+
+
+<nav class="back"><a href="../">OrbitLoopBtw</a></nav>
+<article class="prose manual">
+  <h1 id="orbitloopbtw-manual">OrbitLoopBtw manual</h1>
+  <div class="actions">
+    <a class="button primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download OrbitLoopBtw v1.0.1 <span class="button-note">5.4 MB</span></a>
+    <a class="button" href="../OrbitLoopBtw-manual.pdf" download>This manual <span class="button-note">PDF</span></a>
+  </div>
+  
+<p><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
+one puck that blends them.</strong></p>
+<p>Version 1.0.1. To install it, see the <a href="../">README</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#the-pad-and-the-orbit">The pad and the orbit</a></li>
+<li><a href="#the-pages">The pages</a></li>
+<li><a href="#loop-and-hold">LOOP and HOLD</a></li>
+<li><a href="#the-band-and-mix">The band and MIX</a></li>
+<li><a href="#presets">Presets</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Put OrbitLoopBtw on a drum bus, a vocal or a whole mix and press play in your DAW. A new instance
+has the puck in the HALF corner, so you hear the last bar played at half speed, starting on every
+bar line. Now drag the puck towards REVERSE: the beats come backward, and between the two you hear
+both, as loud as either alone.</p>
+<p>For the quickest idea of what it does, open the PRESET list and pick <strong>Four Corners</strong>: the puck
+goes round the pad once in four bars, a bar in each corner.</p>
+<p><img alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" src="../images/screenshot.png" /></p>
+<h2 id="the-controls">The controls</h2>
+<p>From the top of the window.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Power switch</strong> (header)</td>
+<td>On / Off</td>
+<td>On</td>
+<td>Off fades to the dry input over 20 ms. The loops keep running, so switching on needs no warm-up.</td>
+</tr>
+<tr>
+<td><strong>Zoom</strong> (header)</td>
+<td>100 to 200 %</td>
+<td>100 %</td>
+<td>The window's size, kept with the project.</td>
+</tr>
+<tr>
+<td><strong>PRESET</strong> (top row)</td>
+<td>Init, eight built in, your own</td>
+<td>Init</td>
+<td>Sets the pad, the orbit, LOOP, every page, the band and MIX at once; the disk saves them under a name.</td>
+</tr>
+<tr>
+<td><strong>Pages</strong> (top row)</td>
+<td>HALF, REVERSE, STUTTER, STOP</td>
+<td>HALF</td>
+<td>Which effect the display shows. Only a view: it doesn't follow the puck.</td>
+</tr>
+<tr>
+<td><strong>The pad</strong></td>
+<td>the four corners</td>
+<td>on HALF</td>
+<td>The blend: each corner's chip shows its share and lights while that corner is cutting.</td>
+</tr>
+<tr>
+<td><strong>Orbit</strong> (throw the puck)</td>
+<td>two radii, −100 to 100 % of the pad</td>
+<td>none</td>
+<td>Where the puck travels round the place you set.</td>
+</tr>
+<tr>
+<td><strong>ORBIT</strong> (right-click the pad)</td>
+<td>1/8, 1/4, 1/2, 1 Bar, 2, 4, 8, 16 Bars</td>
+<td>4 Bars</td>
+<td>How long the orbit takes to go round once.</td>
+</tr>
+<tr>
+<td><strong>LOOP</strong></td>
+<td>1/2, 1 Bar, 2 Bars, 4 Bars</td>
+<td>1 Bar</td>
+<td>The loop all four effects play over.</td>
+</tr>
+<tr>
+<td><strong>HOLD</strong></td>
+<td>On / Off</td>
+<td>Off</td>
+<td>The last loop goes round in place of the input, and the effects play on it.</td>
+</tr>
+<tr>
+<td><strong>SLOW</strong> (HALF)</td>
+<td>1.5x, 2x, 4x</td>
+<td>2x</td>
+<td>How much slower HALF plays.</td>
+</tr>
+<tr>
+<td><strong>SMOOTH</strong> (HALF)</td>
+<td>0 to 100 %</td>
+<td>30 %</td>
+<td>HALF's fade back to the present at the loop's end, up to a quarter of the loop.</td>
+</tr>
+<tr>
+<td><strong>LENGTH</strong> (REVERSE)</td>
+<td>1/16, 1/8, 1/4, 1/2, 1 Bar</td>
+<td>1/4</td>
+<td>How much plays backward at a time; at most the loop.</td>
+</tr>
+<tr>
+<td><strong>BOUNCE</strong> (REVERSE)</td>
+<td>On / Off</td>
+<td>Off</td>
+<td>Backward, then forward again, over twice LENGTH.</td>
+</tr>
+<tr>
+<td><strong>SIZE</strong> (STUTTER)</td>
+<td>1/4, 1/8, 1/8T, 1/16, 1/16T, 1/32, 1/64</td>
+<td>1/16</td>
+<td>The slice that repeats.</td>
+</tr>
+<tr>
+<td><strong>SPAN</strong> (STUTTER)</td>
+<td>1/8, 1/4, 1/2, All of the loop</td>
+<td>1/4</td>
+<td>How much of the loop's end stutters.</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong> (STUTTER)</td>
+<td>Even, Faster, Slower</td>
+<td>Even</td>
+<td>Slices of one size, or each 0.75 or 1.33 times the one before.</td>
+</tr>
+<tr>
+<td><strong>PITCH</strong> (STUTTER)</td>
+<td>−12, 0, +12</td>
+<td>0</td>
+<td>The repeats an octave down or up. The first slice stays the input.</td>
+</tr>
+<tr>
+<td><strong>SPAN</strong> (STOP)</td>
+<td>1/8, 1/4, 1/2, All of the loop</td>
+<td>1/4</td>
+<td>How much of the loop's end brakes.</td>
+</tr>
+<tr>
+<td><strong>CURVE</strong> (STOP)</td>
+<td>0 to 100 %</td>
+<td>50 %</td>
+<td>From a straight fall in speed to a slowing tape.</td>
+</tr>
+<tr>
+<td><strong>BAND</strong> (Band Low, Band High)</td>
+<td>20 Hz to 20 kHz</td>
+<td>open</td>
+<td>The range the effect plays in; outside it the dry input passes. An edge at its end is off.</td>
+</tr>
+<tr>
+<td><strong>MIX</strong></td>
+<td>0 to 100 %</td>
+<td>100 %</td>
+<td>How much of the effect is heard inside the band; 0 % is the dry input.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="the-pad-and-the-orbit">The pad and the orbit</h3>
+<p>Each corner is one effect: HALF at the top left, REVERSE at the top right, STUTTER at the bottom
+right, STOP at the bottom left. Where the puck is decides how much of each you hear, and each
+corner's chip shows its share as a bar.</p>
+<ul>
+<li><strong>Drag the puck</strong> to blend. Click a corner's chip for all of that corner; double-click the pad to
+  reset the puck.</li>
+<li><strong>Throw it:</strong> let go while it moves and it keeps going, round a circle or along a line through
+  the place you let go. Press to catch it. Right-click the pad for the orbit panel: ORBIT (how many
+  bars one round takes) and four knobs for the orbit's two radii.</li>
+<li>The orbit's place comes from the song position, so the same bar sounds the same every time you
+  play it, and a bounce matches what you heard. With the transport stopped it runs on at the
+  host's tempo.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it" src="../images/screenshot-orbit-circle.png" /></td>
+<td><img alt="The puck going back and forth along the pad's top between HALF and REVERSE, as the Half And Back preset sets it" src="../images/screenshot-orbit-line.png" /></td>
+</tr>
+<tr>
+<td>Four Corners: both radii at 50 %, a round through every corner in four bars</td>
+<td>Half And Back: one radius only, a line along the top between HALF and REVERSE</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs" src="../images/screenshot-orbit-panel.png" /></p>
+<p>The orbit is two radii, each a sideways (X) and an up-and-down (Y) part, from −100 to 100 % of the
+pad. One radius alone draws a line through the puck's place; two at right angles draw a circle or
+an ellipse; two that lean the same way a tilted ellipse. A negative value turns that radius round:
+on the first, the puck starts its round on the other side; on the second, it goes round the other
+way. Throwing the puck sets them for you; the panel sets them exactly.</p>
+<p>Corners that are playing the input at a given moment count as one voice, and the voices add by
+equal power, so a blend stays about as loud as its corners. Four different signals can still peak a
+few dB over the input in the pad's middle; there is no limiter after it.</p>
+<p>A corner's pin and name light while that effect is actually cutting: STUTTER and STOP play the
+plain input for most of the loop, and the light shows when they take over.</p>
+<h3 id="the-pages">The pages</h3>
+<p>The page buttons choose which effect the big display shows: where that corner's read head goes
+over the loop. Its settings are in the row at the display's top: drag a value up or down (Shift for
+finer steps), click a stepped one for its list, turn the wheel over it, double-click to reset;
+BOUNCE is a switch. A changed setting is heard from the next slice, never in the middle of one.</p>
+<ul>
+<li><strong>HALF</strong> starts on the loop's line and plays at SLOW's speed, then fades back to the present
+  over SMOOTH before the next line. 2x is the classic half-time; 4x a deep drag.</li>
+<li><strong>REVERSE</strong> plays each LENGTH backward from its end. 1/4 reverses each beat; 1 Bar the whole
+  bar. BOUNCE plays each piece backward then forward again.</li>
+<li><strong>STUTTER</strong> plays the input, then repeats one slice over the loop's last SPAN. Faster makes each
+  slice shorter than the one before, the classic build into a drop; Slower the other way. PITCH
+  plays the repeats an octave down or up.</li>
+<li><strong>STOP</strong> plays the input, then brakes over the last SPAN until the tape stands still. CURVE 0 %
+  slows down evenly, like a pitch glide; 100 % holds on longer and then sinks, like a tape machine.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="The HALF page" src="../images/screenshot-half.png" /></td>
+<td><img alt="The REVERSE page" src="../images/screenshot.png" /></td>
+</tr>
+<tr>
+<td>HALF at its defaults: the bar read at half speed, the faint lines 1.5x and 4x</td>
+<td>REVERSE at its defaults: each beat backward from its end</td>
+</tr>
+<tr>
+<td><img alt="The STUTTER page" src="../images/screenshot-stutter.png" /></td>
+<td><img alt="The STOP page" src="../images/screenshot-stop.png" /></td>
+</tr>
+<tr>
+<td>STUTTER at its defaults: the loop's last quarter repeated in 16ths</td>
+<td>STOP at its defaults: a tape stop over the loop's last quarter</td>
+</tr>
+</tbody>
+</table>
+<h3 id="loop-and-hold">LOOP and HOLD</h3>
+<p>LOOP is how long the loop is that all four corners play over, from half a bar to four bars. A
+corner takes a new LOOP at its next slice, so changing it never cuts a slice short.</p>
+<p>HOLD freezes the last loop: it goes round in place of the input, the same every time, and all four
+effects keep playing on it, while the dry signal (outside the band, or with MIX below 100 %) stays
+the song. Use it for an ending, or a bar that won't let go. It holds the last loop from the moment
+you press it, so press on a bar line for a loop that starts on one. It needs a whole loop to have
+come in first, up to four bars with LOOP at 4 Bars. Letting go fades back to the input.</p>
+<h3 id="the-band-and-mix">The band and MIX</h3>
+<p>BAND, under the display, shows the effect's spectrum and selects where the effect plays: drag its edges, or the band between them
+to move it whole; double-click an edge to reset it, or the band to reset both. Outside the band you
+hear the dry input; inside it the effect, mixed with the dry input by MIX. With the band set on the
+middle, the kick and the cymbals keep playing straight while the rest is cut up (the <strong>Band Chop</strong>
+preset).</p>
+<p>While an edge is set, the dry input keeps its level at every frequency but not its exact phase, so
+it may sound slightly different from the plugin switched off. With the band open and MIX at 100 %
+you hear the effect alone.</p>
+<h3 id="presets">Presets</h3>
+<p>Choose one in the PRESET list or step with the arrows. A preset sets the pad, the orbit, LOOP,
+every page, the band and MIX; it leaves the power switch and HOLD where they are, so you can change
+presets while holding a loop.</p>
+<p>Built in beside Init:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bar-End Roll</strong></td>
+<td>The last beat of every bar rolls in, faster and faster.</td>
+</tr>
+<tr>
+<td><strong>Octave Roll</strong></td>
+<td>The same roll an octave up, every second bar.</td>
+</tr>
+<tr>
+<td><strong>Tape Ending</strong></td>
+<td>The fourth bar winds down like a tape.</td>
+</tr>
+<tr>
+<td><strong>Four Corners</strong></td>
+<td>Round the pad once in four bars, a bar in each corner: HALF, REVERSE, STUTTER, STOP.</td>
+</tr>
+<tr>
+<td><strong>Half And Back</strong></td>
+<td>Half speed on the first bar, backward on the second.</td>
+</tr>
+<tr>
+<td><strong>Band Chop</strong></td>
+<td>Only the middle is cut up: the kick and the air pass.</td>
+</tr>
+<tr>
+<td><strong>Bounce Under</strong></td>
+<td>Each half bar backward and forward again, under the dry signal.</td>
+</tr>
+<tr>
+<td><strong>Slow Swirl</strong></td>
+<td>A small, slow circle near HALF, eight bars round, that only brushes the others.</td>
+</tr>
+</tbody>
+</table>
+<p>The disk saves the current settings under a name; Enter saves. In the list your favourites come
+first, with a star, and the bin deletes one of yours. Presets are small text files in
+<code>~/.local/share/OrbitLoopBtw/presets/</code>, shared by every project, one <code>id value</code> line a setting:</p>
+<pre><code class="language-text">blend_x 0.25
+loop 2
+half_slow x2
+reverse_bounce off
+</code></pre>
+<p>A line a file doesn't have leaves its setting alone, so a preset can set only a few things.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>Latency:</strong> none. What isn't being cut plays as it comes in.</li>
+<li><strong>Time:</strong> a bar is four quarter notes, whatever the host's time signature, so in 3/4 the loop
+  runs across the bar lines.</li>
+<li><strong>Automation:</strong> every control can be automated, the pad's two values and the orbit's radii too.</li>
+<li><strong>Saved with the project:</strong> every setting, the page shown and the zoom.</li>
+<li><strong>CPU:</strong> about 0.8 % of a core at 48 kHz stereo; RAM about 8 MB an instance at 48 kHz (a 20 s
+  buffer).</li>
+<li><strong>Mono or stereo,</strong> at any sample rate.</li>
+<li><strong>Hosts:</strong> the CLAP passes <code>clap-validator</code>, and REAPER renders it the same every time at any
+  block size. Some hosts keep keystrokes for themselves; then a preset can't be named in the
+  editor (write the file by hand).</li>
+<li><strong>Display:</strong> X11, or XWayland on a Wayland desktop, with a Vulkan driver.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>A setting changes a moment later:</strong> a page setting is heard from the next slice, and a new
+  LOOP from each corner's next slice, up to a whole loop later. Nothing is cut mid-slice.</li>
+<li><strong>The puck in the middle is louder at the peaks:</strong> four different signals can peak a few dB over
+  the input. Lower MIX or the track's level if it clips.</li>
+<li><strong>HOLD does nothing at first:</strong> it waits until a whole loop has come in.</li>
+<li><strong>A held loop's join is in the middle of the bar:</strong> it holds the last loop from where you
+  pressed. Press on the bar line.</li>
+<li><strong>It keeps moving with the transport stopped:</strong> the loop and the orbit run on at the host's tempo
+  while the host keeps the plugin running.</li>
+<li><strong>Typing a preset's name does nothing:</strong> the host keeps the keystrokes. Write the preset file by
+  hand.</li>
+<li><strong>A preset doesn't show up:</strong> its file must end in <code>.preset</code> and can't have a built-in preset's
+  name. The list is read when the editor opens and after a save.</li>
+<li><strong>The window stays black:</strong> the editor needs a Vulkan driver (<code>vulkaninfo</code> should list your
+  GPU).</li>
+<li><strong>It doesn't load:</strong> the plugin needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015) and glibc 2.31 or newer.</li>
+</ul>
+</article>
+
+</main>
+<footer class="site-footer">
+  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
+  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
+</footer>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>
