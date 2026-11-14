@@ -83,6 +83,8 @@ Never "open source" (the source is private) and never VST (none ships).
 - `templates/`: the pages and the PDF's style. `assets/`: the site's CSS, logo and font.
 - Generated, committed because Pages serves them: `index.html`, `plugins/`, `404.html`,
   `sitemap.xml`, `robots.txt`, `.manual-hashes.json`. Don't edit these by hand. `.nojekyll` makes Pages serve the files as they are.
+- `googleec76a87cafc4f47f.html`: Google Search Console's proof that the site is the owner's. The build
+  leaves it alone; removing it loses the verification.
 - `.cache/`, not committed: shallow clones of the release repositories.
 
 The colors and the font are the ones the plugins use. Ubuntu Light is under the Ubuntu Font Licence,
