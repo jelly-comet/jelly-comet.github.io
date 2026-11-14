@@ -1,120 +1,56 @@
-<!doctype html><html lang="en" data-type="software" data-radius="soft" data-buttons="arrow" data-ground="sky" data-motion>
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>EasyModeBtw: Play any scale on the white keys, as chords, strums or arpeggios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyModeBtw</title>
 <meta name="description" content="Play any scale on the white keys, as chords, strums or arpeggios. A MIDI effect for Linux:
 the white keys play the notes of the scale you pick with its root on middle C, and each key can
 play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EasyModeBtw: Play any scale on the white keys, as chords, strums or arpeggios">
+<meta property="og:title" content="EasyModeBtw">
 <meta property="og:site_name" content="JellyComet">
 <meta property="og:description" content="Play any scale on the white keys, as chords, strums or arpeggios. A MIDI effect for Linux:
 the white keys play the notes of the scale you pick with its root on middle C, and each key can
 play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat.">
-<meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://jelly-comet.github.io/plugins/easymodebtw/">
 <meta property="og:image" content="https://jelly-comet.github.io/plugins/easymodebtw/images/screenshot.png">
-<meta name="theme-color" content="#0a0d14">
-<meta name="site-kind" content="software">
-<meta name="page-type" content="software">
+<meta name="theme-color" content="#0a0e15">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/kit/system.css?v=e164293d4a">
-<link rel="stylesheet" href="../../assets/kit/ui/cards.css?v=e164293d4a">
-<link rel="stylesheet" href="../../assets/kit/motion/motion.css?v=e164293d4a">
-<link rel="stylesheet" href="../../assets/kit/backgrounds/backgrounds.css?v=e164293d4a">
-<link rel="stylesheet" href="../../assets/kit/layout/layout.css?v=e164293d4a">
-<link rel="stylesheet" href="../../assets/kit/icons/icon.css?v=e164293d4a">
-<style>
-:root {
-  --p-bg: #0a0d14; --p-surface: #131824; --p-ink: #e9edf3; --p-muted: #8891a1;
-  --p-accent: #5ab9fc; --p-accent-ink: #0a0d14; --p-action: #5ab9fc; --p-action-ink: #0a0d14;
-  --p-inv-bg: #e9edf3; --p-inv-surface: #d7dbe1; --p-inv-ink: #0a0d14; --p-inv-muted: #54575f;
-  --p-inv-accent: #0a0d14; --p-inv-accent-ink: #e9edf3; --p-inv-action: #0a0d14; --p-inv-action-ink: #e9edf3;
-  --font-display: "Funnel Display", system-ui, sans-serif;
-  --font-text: "Funnel Sans", system-ui, sans-serif;
-  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --display-weight: 400;
-  --display-tracking: -0.03em;
-  --display-tracking-xl: -0.04em;
-  --ly-scale: 0.98;
-}
-</style>
-<link rel="stylesheet" href="../../assets/site.css?v=752db1df7e">
-<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="../../assets/kit/backgrounds/backgrounds.js?v=e164293d4a"></script>
-
+<link rel="stylesheet" href="../../assets/site.css?v=fd4984ddae">
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="32" height="32">Jelly<span class="comet">Comet</span></a>
-    <nav class="nav__links" aria-label="Main">
-      <div class="nav__item">
-        <a class="nav__link" href="../../#plugins">Plugins <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="nav__menu">
-          <div class="wrap grid">
-            <div class="menu-col span-6">
-              <p class="t-label">Plugins, newest first</p>
-              <a href="../../plugins/orbitloopbtw/">OrbitLoopBtw<span>v1.0.0 · 13 Nov 2026</span></a>
-              <a href="../../plugins/jellypitchbtw/">JellyPitchBtw<span>v1.0.0 · 13 Nov 2026</span></a>
-              <a href="../../plugins/easymodebtw/">EasyModeBtw<span>v1.2.5 · 13 Nov 2026</span></a>
-              
-            </div>
-            
-            <a class="menu-card span-3 start-10" href="../../plugins/orbitloopbtw/">
-              <div class="panel"><img class="shot" src="../../plugins/orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></div>
-              <span class="t-card">OrbitLoopBtw v1.0.0</span>
-              <span class="t-small muted">Released 13 Nov 2026</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="nav__item"><a class="nav__link" href="../../#licence">Licence</a></div>
-      <div class="nav__item"><a class="nav__link" href="../../#faq">Questions</a></div>
-      <div class="nav__item"><a class="nav__link" href="https://github.com/jelly-comet">GitHub</a></div>
-      <div class="nav__item"><a class="nav__link" href="https://paypal.me/jellycomet">Donations</a></div>
-    </nav>
-    <div class="nav__actions">
-      <a class="btn btn--primary" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz">Download EasyModeBtw</a>
-    </div>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
-  </div>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+<header class="site-header">
+  <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
 </header>
+<main>
 
-<main id="top">
 
-  <section class="hero hero--split plugin-hero" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>v1.2.5 · 13 Nov 2026 · Linux x86_64</p>
-        <h1 id="hero-h">EasyModeBtw</h1>
-        <p class="hero__lead"><strong>Play any scale on the white keys, as chords, strums or arpeggios.</strong> A MIDI effect for Linux:
+<nav class="back"><a href="../../">All plugins</a></nav>
+<section class="hero">
+  <img class="hero-image" src="images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846">
+  <div class="hero-text">
+    <h1>EasyModeBtw</h1>
+    <p class="summary"><strong>Play any scale on the white keys, as chords, strums or arpeggios.</strong> A MIDI effect for Linux:
 the white keys play the notes of the scale you pick with its root on middle C, and each key can
 play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz">Download EasyModeBtw<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="EasyModeBtw-manual.pdf" download>Get the manual PDF</a>
-        </div>
-        <p class="plugin-links t-small muted">
-          5.2 MB · <a href="https://github.com/jelly-comet/EasyModeBtw-release/releases">All releases</a> · <a href="https://github.com/jelly-comet/EasyModeBtw-release/issues">Support</a> · <a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz.sha256">SHA-256</a>
-        </p>
-      </div>
-      <div class="hero__media span-6 start-7 hero__media--whole">
-        <img class="hero-image" src="images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846" fetchpriority="high">
-      </div>
-    </div></div>
-  </section><div class="doc">
-    <div class="wrap grid grid--top">
-      <article class="prose span-7">
-        <p>Pick F minor, and the white keys from C3 upwards play F G Ab Bb C Db Eb F. Put EasyModeBtw in
+    <p class="meta"><span class="version">v1.2.5</span> · 13 Nov 2026 · CLAP for Linux</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz">Download v1.2.5 <span class="button-note">5.2 MB</span></a>
+      <a class="button" href="EasyModeBtw-manual.pdf" download>Manual <span class="button-note">PDF</span></a>
+    </div>
+    <p class="links">
+      <a href="https://github.com/jelly-comet/EasyModeBtw-release/releases">All releases</a>
+      <a href="https://github.com/jelly-comet/EasyModeBtw-release/issues">Support</a>
+      <a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz.sha256">SHA-256</a>
+      <a href="https://github.com/jelly-comet/EasyModeBtw-release">Release repository</a>
+    </p>
+  </div>
+</section>
+<div class="columns">
+  <article class="prose">
+    <p>Pick F minor, and the white keys from C3 upwards play F G Ab Bb C Db Eb F. Put EasyModeBtw in
 front of any instrument and you can't play a wrong note. Turn on CHORDS and every white key plays
 the scale's chord on its note; turn on the strum or the ARP and those chords come out one note at
 a time. It works like the Easy Mode of Native
@@ -122,22 +58,38 @@ Instruments' Smart Play. It has no audio inputs or outputs: it only rewrites MID
 <p>It runs natively on Linux, with no network access and no telemetry.</p>
 <p><strong><a href="EasyModeBtw-manual.pdf">Read the manual</a></strong> for every control and how to use it.</p>
 
-        <h2 id="screenshots">Screenshots</h2>
-        <div class="gallery">
-          
-          <a class="gallery__shot" href="images/scales-list.png"><img src="images/scales-list.png" alt="The PLAY selector&#39;s list in F: the twelve keys and a tile for every scale" width="1260" height="846" loading="lazy"></a>
-          
-          <a class="gallery__shot" href="images/chords.png"><img src="images/chords.png" alt="The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice" width="1260" height="846" loading="lazy"></a>
-          
-          <a class="gallery__shot" href="images/chords-list.png"><img src="images/chords-list.png" alt="The CHORDS selector&#39;s list after E3 in F minor: what every chord set plays on that key" width="1260" height="846" loading="lazy"></a>
-          
-          <a class="gallery__shot" href="images/arp-list.png"><img src="images/arp-list.png" alt="The ARP selector&#39;s list: every order as stairs, Piano performing under the pointer" width="1260" height="846" loading="lazy"></a>
-          
-          <a class="gallery__shot" href="images/arp.png"><img src="images/arp.png" alt="The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing" width="1260" height="846" loading="lazy"></a>
-          
-        </div>
-        
-        <h2 id="features">Features</h2>
+    
+    <h2 id="screenshots">Screenshots</h2>
+    <div class="gallery">
+      
+      <figure>
+        <a href="images/scales-list.png"><img src="images/scales-list.png" alt="The PLAY selector&#39;s list in F: the twelve keys and a tile for every scale" width="1260" height="846" loading="lazy"></a>
+        <figcaption>The PLAY selector&#39;s list in F: the twelve keys and a tile for every scale</figcaption>
+      </figure>
+      
+      <figure>
+        <a href="images/chords.png"><img src="images/chords.png" alt="The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice" width="1260" height="846" loading="lazy"></a>
+        <figcaption>The CHORDS page in F minor, triads strummed over 60 ms with the direction on the dice</figcaption>
+      </figure>
+      
+      <figure>
+        <a href="images/chords-list.png"><img src="images/chords-list.png" alt="The CHORDS selector&#39;s list after E3 in F minor: what every chord set plays on that key" width="1260" height="846" loading="lazy"></a>
+        <figcaption>The CHORDS selector&#39;s list after E3 in F minor: what every chord set plays on that key</figcaption>
+      </figure>
+      
+      <figure>
+        <a href="images/arp-list.png"><img src="images/arp-list.png" alt="The ARP selector&#39;s list: every order as stairs, Piano performing under the pointer" width="1260" height="846" loading="lazy"></a>
+        <figcaption>The ARP selector&#39;s list: every order as stairs, Piano performing under the pointer</figcaption>
+      </figure>
+      
+      <figure>
+        <a href="images/arp.png"><img src="images/arp.png" alt="The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing" width="1260" height="846" loading="lazy"></a>
+        <figcaption>The ARP page playing Up-Down over two octaves, in the Gallop rhythm with 58 % swing</figcaption>
+      </figure>
+      
+    </div>
+    
+    <h2 id="features">Features</h2>
 <ul>
 <li><strong>20 scales on 12 keys:</strong> Chromatic, Major, Natural, Harmonic and Melodic Minor, Dorian, Phrygian, Lydian, Mixolydian, Locrian, Major and Minor Pentatonic, Blues, Whole Tone, Spanish Phrygian, Double Harmonic, Hungarian Minor, Hirajoshi, In Sen and Lydian Dominant.</li>
 <li><strong>Chords on every key:</strong> Triads, Sevenths, Sus2, Sus4, Add9 or Power, or the chord Jazz, Bossa, Soul or Folk most often puts on that note. Or Thirds, Sixths and Octaves: each key's note with one partner above it, for a harmonised melody. The black keys play borrowed major chords.</li>
@@ -188,10 +140,10 @@ updates; a project that used it takes the CLAP in its place. To remove the old c
 <p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard
 by the free-audio project. Smart Play is a product feature of Native Instruments. EasyModeBtw is
 an independent project, not affiliated with or endorsed by Steinberg or Native Instruments.</p>
-      </article>
-      <aside class="notes-panel span-4 start-9">
-        <h2>What's new in v1.2.5</h2>
-        <div class="notes"><p>EasyModeBtw 1.2.5 brings six more scales, melodies in thirds, sixths and octaves, and steps that roll.</p>
+  </article>
+  <aside class="panel changes">
+    <h2>What's new in v1.2.5</h2>
+    <div class="notes"><p>EasyModeBtw 1.2.5 brings six more scales, melodies in thirds, sixths and octaves, and steps that roll.</p>
 <ul>
 <li><strong>Six more scales:</strong> Spanish Phrygian (Phrygian dominant, flamenco's scale), Double Harmonic, Hungarian Minor, Hirajoshi and In Sen (two Japanese five-note scales) and Lydian Dominant, after Whole Tone in the list. The fourteen before them are where they were, so a saved project and its automation keep their scale. In Double Harmonic and Hungarian Minor a few chords have no name: their keys show the notes they play.</li>
 <li><strong>Thirds, Sixths and Octaves:</strong> three more CHORDS choices that play a key's own note with one partner above it, for a melody that comes out harmonised: the third or the sixth from the scale, or the octave. A black key takes a major third or a major sixth. With the strum on, the partner follows like a grace note, and the arp runs over the two.</li>
@@ -199,13 +151,13 @@ an independent project, not affiliated with or endorsed by Steinberg or Native I
 <li>The key map no longer lights the last chord's key as held while you hold notes that are no chord.</li>
 <li>The CHORDS and ARP pages draw as cheaply with Thirds, Sixths or Octaves as with any other chords.</li>
 </ul></div>
-        <p><a class="link" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.2.5">Read the release on GitHub</a></p>
-        
-        <details>
-          <summary>Earlier versions</summary>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.2.0">v1.2.0</a> <span class="muted">9 Nov 2026</span></h3>
-          <div class="notes"><p>EasyModeBtw 1.2 strums at random, holds in every mode and swings.</p>
+    <p class="links"><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.2.5">Release on GitHub</a></p>
+    
+    <details>
+      <summary>Earlier versions</summary>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.2.0">v1.2.0</a> <span class="date">9 Nov 2026</span></h3>
+      <div class="notes"><p>EasyModeBtw 1.2 strums at random, holds in every mode and swings.</p>
 <ul>
 <li><strong>Random strum:</strong> a dice in the direction select sends each strum up or down at random, over the length you set. With ARP on Chord each step tosses its own.</li>
 <li><strong>HOLD everywhere:</strong> the sustain pedal moved to the selector row, on every page, and works in every mode. With ARP Off, notes and chords you let go play on until your next press with every key up.</li>
@@ -219,9 +171,9 @@ an independent project, not affiliated with or endorsed by Steinberg or Native I
 <li><strong>Changed:</strong> <strong>a project saved with HOLD on and ARP Off now holds its notes.</strong></li>
 <li><strong>Changed:</strong> with ARP Off the ARP page's keys are off, as the CHORDS page's are with CHORDS Off.</li>
 </ul></div>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.1.0">v1.1.0</a> <span class="muted">8 Nov 2026</span></h3>
-          <div class="notes"><p>EasyModeBtw 1.1 has a new ARP page, and chords that play where you expect them.</p>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.1.0">v1.1.0</a> <span class="date">8 Nov 2026</span></h3>
+      <div class="notes"><p>EasyModeBtw 1.1 has a new ARP page, and chords that play where you expect them.</p>
 <ul>
 <li><strong>New ARP page:</strong> stairs show what the arp plays over one turn of its rhythm, with RATE, RANGE, STEP and GATE LENGTH in their header. Rhythms are a shelf of tiny rings: hover one to see it, click to load it. The key map can be played here too, and HOLD is a sustain pedal beside it.</li>
 <li><strong>Selector row:</strong> PLAY sits on the key and scale selector, CHORDS and ARP on their own. A click on an icon or caption shows that page; the page select in the header is gone.</li>
@@ -232,9 +184,9 @@ an independent project, not affiliated with or endorsed by Steinberg or Native I
 <li><strong>Changed:</strong> GATE LENGTH, LENGTH in 1.0, reads in percent of a step and goes up to 100 %. A project saved above that keeps its value until you touch the control.</li>
 <li><strong>Changed:</strong> a new instance starts on Chromatic, so every key plays its own note until you pick a scale. A saved project keeps its scale.</li>
 </ul></div>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.0.0">v1.0.0</a> <span class="muted">7 Nov 2026</span></h3>
-          <div class="notes"><p>EasyModeBtw 1.0 turns the scale mapper into a chord, strum and arpeggio player.</p>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v1.0.0">v1.0.0</a> <span class="date">7 Nov 2026</span></h3>
+      <div class="notes"><p>EasyModeBtw 1.0 turns the scale mapper into a chord, strum and arpeggio player.</p>
 <ul>
 <li><strong>Chords:</strong> CHORDS makes each key play a chord of the scale (Triads, Sevenths, Sus2, Sus4, Add9, Power), or the chord a genre most often puts there (Jazz, Bossa, Soul, Folk). Black keys play borrowed major chords. Chords are voiced to move as little as they can.</li>
 <li><strong>Strum:</strong> a chord's notes start one after another like a guitarist's (up to 100 ms), up and down in turn or one way, Close or Guitar voicing. Adds no latency.</li>
@@ -244,61 +196,30 @@ an independent project, not affiliated with or endorsed by Steinberg or Native I
 <li><strong>Changed:</strong> with SCALE on Chromatic every key now plays, black ones too (until now black keys were silent and white keys walked up by semitones), so <strong>a project saved with Chromatic plays differently</strong>. Everything else in a saved project sounds as before: CHORDS and ARP start off. Clicking the keyboard no longer picks the root.</li>
 <li><strong>CLAP only:</strong> this release has no VST3. A VST3 from an earlier release keeps working but no longer updates; a project using it takes the CLAP in its place. To remove the old copy: <code>rm -rf ~/.vst3/easymodebtw.vst3</code> (or <code>sudo rm -rf /usr/lib/vst3/easymodebtw.vst3</code>).</li>
 </ul></div>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.5">v0.1.5</a> <span class="muted">2 Nov 2026</span></h3>
-          <div class="notes"><p>The logo in the editor now opens the plugin's page, https://jelly-comet.github.io/plugins/easymodebtw/. Nothing else changed from 0.1.4.</p></div>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.4">v0.1.4</a> <span class="muted">2 Nov 2026</span></h3>
-          <div class="notes"><p>The logo in the editor now opens this repository at its new address: the GitHub account was renamed to <a href="https://github.com/rmnhofma">rmnhofma</a>. Nothing else changed from 0.1.3.</p></div>
-          
-          <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.3">v0.1.3</a> <span class="muted">2 Nov 2026</span></h3>
-          <div class="notes"><p>First release from this repository: the CLAP and VST3 plugins for Linux x86-64, glibc 2.31 or newer.</p>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.5">v0.1.5</a> <span class="date">2 Nov 2026</span></h3>
+      <div class="notes"><p>The logo in the editor now opens the plugin's page, https://jelly-comet.github.io/plugins/easymodebtw/. Nothing else changed from 0.1.4.</p></div>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.4">v0.1.4</a> <span class="date">2 Nov 2026</span></h3>
+      <div class="notes"><p>The logo in the editor now opens this repository at its new address: the GitHub account was renamed to <a href="https://github.com/rmnhofma">rmnhofma</a>. Nothing else changed from 0.1.3.</p></div>
+      
+      <h3><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases/tag/v0.1.3">v0.1.3</a> <span class="date">2 Nov 2026</span></h3>
+      <div class="notes"><p>First release from this repository: the CLAP and VST3 plugins for Linux x86-64, glibc 2.31 or newer.</p>
 <ul>
 <li>The logo in the editor opens this repository.</li>
 <li>Archives contain only the plugins, their licenses and install instructions. The Standalone app is no longer included.</li>
 </ul></div>
-          
-        </details>
-        
-      </aside>
-    </div>
-  </div>
+      
+    </details>
+    
+  </aside>
+</div>
 
 </main>
-
-<footer class="footer closing footer--statement" id="contact" aria-labelledby="close-h">
-  <div class="wrap">
-    <div class="closing__cta close--type">
-      
-      <div class="section-head">
-        <h2 id="close-h">Get EasyModeBtw v1.2.5</h2>
-        <p class="t-small muted">Linux on x86_64, 5.2 MB.</p>
-      </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="https://github.com/jelly-comet/EasyModeBtw-release/releases/download/v1.2.5/EasyModeBtw-1.2.5-linux-x86_64.tar.gz">Download EasyModeBtw<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-
-    </div>
-    <div class="closing__links">
-      <div class="grid">
-        <div class="span-4 stack-4">
-          <a class="nav__logo" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="32" height="32">Jelly<span class="comet">Comet</span></a>
-          <p class="footer__lede">Audio plugins for Linux, made one at a time.</p>
-        </div>
-        <div class="span-2 footer__col"><h3>Plugins</h3><ul><li><a href="../../plugins/orbitloopbtw/">OrbitLoopBtw</a></li><li><a href="../../plugins/jellypitchbtw/">JellyPitchBtw</a></li><li><a href="../../plugins/easymodebtw/">EasyModeBtw</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Manuals</h3><ul><li><a href="../../plugins/orbitloopbtw/OrbitLoopBtw-manual.pdf">OrbitLoopBtw</a></li><li><a href="../../plugins/jellypitchbtw/JellyPitchBtw-manual.pdf">JellyPitchBtw</a></li><li><a href="../../plugins/easymodebtw/EasyModeBtw-manual.pdf">EasyModeBtw</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Releases</h3><ul><li><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">OrbitLoopBtw</a></li><li><a href="https://github.com/jelly-comet/JellyPitchBtw-release/releases">JellyPitchBtw</a></li><li><a href="https://github.com/jelly-comet/EasyModeBtw-release/releases">EasyModeBtw</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>About</h3><ul><li><a href="../../#licence">Licence</a></li><li><a href="../../#faq">Questions</a></li><li><a href="https://github.com/jelly-comet">GitHub</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>&copy; 2026 JellyComet &nbsp; Product names and logos are trademarks of their owners</span>
-        <div class="socials"></div>
-      </div>
-    </div>
-  </div>
+<footer class="site-footer">
+  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
+  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
 </footer>
-
-<script type="module" src="../../assets/kit/system.js?v=e164293d4a"></script>
-<script type="module" src="../../assets/kit/motion/motion.js?v=e164293d4a"></script>
-<script type="module" src="../../assets/kit/layout/layout.js?v=e164293d4a"></script>
 <script src="../../assets/lightbox.js?v=dbf0dab692" defer></script>
 </body>
 </html>

@@ -1,72 +1,59 @@
 {% extends "base.html" %}
-{% set latest = plugin.latest %}
-{% block title %}{{ plugin.name }}: {{ plugin.headline }}{% endblock %}
+{% block title %}{{ plugin.name }}{% endblock %}
 {% block description %}{{ plugin.description }}{% endblock %}
 {% block meta %}<meta property="og:url" content="{{ site_url }}/plugins/{{ plugin.slug }}/">
 <meta property="og:image" content="{{ site_url }}/plugins/{{ plugin.slug }}/{{ plugin.image }}">{% endblock %}
-{% block nav_action %}<a class="btn btn--primary" href="{{ latest.download }}">Download {{ plugin.name }}</a>{% endblock %}
-
 {% block main %}
-  <section class="hero hero--split plugin-hero" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>{{ latest.version }} · {{ latest.date }} · Linux x86_64</p>
-        <h1 id="hero-h">{{ plugin.name }}</h1>
-        <p class="hero__lead">{{ plugin.summary }}</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="{{ latest.download }}">Download {{ plugin.name }}<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="{{ plugin.pdf }}" download>Get the manual PDF</a>
-        </div>
-        <p class="plugin-links t-small muted">
-          {% if latest.size %}{{ latest.size }} · {% endif %}<a href="{{ plugin.repo.html_url }}/releases">All releases</a> · <a href="{{ plugin.repo.html_url }}/issues">Support</a>{% if latest.checksum %} · <a href="{{ latest.checksum }}">SHA-256</a>{% endif %}
-        </p>
-      </div>
-      <div class="hero__media span-6 start-7 hero__media--whole">
-        <img class="hero-image" src="{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}" fetchpriority="high">
-      </div>
-    </div></div>
-  </section>
-
-  {#- The README and the notes are long text: they run in blocks of their own height, not in screens. -#}
-  <div class="doc">
-    <div class="wrap grid grid--top">
-      <article class="prose span-7">
-        {{ plugin.intro }}
-        {#- the screenshots between the description and its first section (Features), as on the old site -#}
-        {% if plugin.gallery %}
-        <h2 id="screenshots">Screenshots</h2>
-        <div class="gallery">
-          {% for shot in plugin.gallery %}
-          <a class="gallery__shot" href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
-          {% endfor %}
-        </div>
-        {% endif %}
-        {{ plugin.sections }}
-      </article>
-      <aside class="notes-panel span-4 start-9">
-        <h2>What's new in {{ latest.version }}</h2>
-        <div class="notes">{{ latest.notes }}</div>
-        <p><a class="link" href="{{ latest.url }}">Read the release on GitHub</a></p>
-        {% if plugin.earlier %}
-        <details>
-          <summary>Earlier versions</summary>
-          {% for release in plugin.earlier %}
-          <h3><a href="{{ release.url }}">{{ release.version }}</a> <span class="muted">{{ release.date }}</span></h3>
-          <div class="notes">{{ release.notes }}</div>
-          {% endfor %}
-        </details>
-        {% endif %}
-      </aside>
+{% set latest = plugin.latest %}
+<nav class="back"><a href="../../">All plugins</a></nav>
+<section class="hero">
+  <img class="hero-image" src="{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}">
+  <div class="hero-text">
+    <h1>{{ plugin.name }}</h1>
+    <p class="summary">{{ plugin.summary }}</p>
+    <p class="meta"><span class="version">{{ latest.version }}</span> · {{ latest.date }} · {{ plugin.formats }} for Linux</p>
+    <div class="actions">
+      <a class="button primary" href="{{ latest.download }}">Download {{ latest.version }}{% if latest.size %} <span class="button-note">{{ latest.size }}</span>{% endif %}</a>
+      <a class="button" href="{{ plugin.pdf }}" download>Manual <span class="button-note">PDF</span></a>
     </div>
+    <p class="links">
+      <a href="{{ plugin.repo.html_url }}/releases">All releases</a>
+      <a href="{{ plugin.repo.html_url }}/issues">Support</a>
+      {% if latest.checksum %}<a href="{{ latest.checksum }}">SHA-256</a>{% endif %}
+      <a href="{{ plugin.repo.html_url }}">Release repository</a>
+    </p>
   </div>
+</section>
+<div class="columns">
+  <article class="prose">
+    {{ plugin.intro }}
+    {% if plugin.gallery %}
+    <h2 id="screenshots">Screenshots</h2>
+    <div class="gallery">
+      {% for shot in plugin.gallery %}
+      <figure>
+        <a href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
+        <figcaption>{{ shot.alt }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {{ plugin.sections }}
+  </article>
+  <aside class="panel changes">
+    <h2>What's new in {{ latest.version }}</h2>
+    <div class="notes">{{ latest.notes }}</div>
+    <p class="links"><a href="{{ latest.url }}">Release on GitHub</a></p>
+    {% if plugin.earlier %}
+    <details>
+      <summary>Earlier versions</summary>
+      {% for release in plugin.earlier %}
+      <h3><a href="{{ release.url }}">{{ release.version }}</a> <span class="date">{{ release.date }}</span></h3>
+      <div class="notes">{{ release.notes }}</div>
+      {% endfor %}
+    </details>
+    {% endif %}
+  </aside>
+</div>
 {% endblock %}
-
-{% block close %}
-      <div class="section-head">
-        <h2 id="close-h">Get {{ plugin.name }} {{ latest.version }}</h2>
-        <p class="t-small muted">Linux on x86_64{% if latest.size %}, {{ latest.size }}{% endif %}.</p>
-      </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="{{ latest.download }}">Download {{ plugin.name }}<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-{% endblock %}
-
 {% block scripts %}<script src="../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

@@ -1,164 +1,34 @@
 {% extends "base.html" %}
-{%- set count = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"][plugins|length] if plugins|length < 10 else plugins|length -%}
-{%- set latest = plugins[0] -%}
-{% block title %}JellyComet: free audio plugins for Linux musicians{% endblock %}
-{% block description %}{{ count|capitalize }} CLAP plugins for Linux, free under the MIT licence: {% for p in plugins %}{{ p.name }}{{ ", " if loop.revindex > 2 else (" and " if loop.revindex == 2 else "") }}{% endfor %}.{% endblock %}
+{% block title %}JellyComet · hand-made by tentacles{% endblock %}
+{% block description %}Hand-made by tentacles, free for humans: audio plugins for Linux.{% endblock %}
 {% block meta %}<meta property="og:url" content="{{ site_url }}/">
 <meta property="og:image" content="{{ site_url }}/assets/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">{% endblock %}
-{% block head %}<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
-<link rel="modulepreload" href="assets/kit/moments/moments.js?v={{ kit_version }}">
-<link rel="modulepreload" href="assets/kit/moments/lib.js?v={{ kit_version }}">{% endblock %}
-
-{% macro manual(p) %}<a class="link" href="plugins/{{ p.slug }}/{{ p.pdf }}">Read the {{ p.name }} manual</a>{% endmacro %}
-{% macro page(p) %}<a class="link" href="plugins/{{ p.slug }}/">Open the {{ p.name }} page</a>{% endmacro %}
-
 {% block main %}
-  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>{{ latest.name }} {{ latest.latest.version|replace("v", "") }}, out {{ latest.latest.date }}</p>
-        <h1 id="hero-h">Free audio plugins for Linux musicians</h1>
-        <p class="hero__lead">{{ count|capitalize }} CLAP plugins, free under the MIT licence: {% for p in plugins %}{{ p.name }}{{ ", " if loop.revindex > 2 else (" and " if loop.revindex == 2 else "") }}{% endfor %}.</p>
-        <div class="btn-row"><a class="btn btn--primary" href="#plugins">Get the plugins<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="plugins/{{ latest.slug }}/">See {{ latest.name }}</a></div>
+<section class="intro hello">
+  <h1>Hand-made by <span class="tentacles">tentacles</span>, <span class="nowrap">free for humans.</span></h1>
+  <p>Glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
+</section>
+{% macro feature(plugin, eager) %}
+  <li class="feature">
+    <a class="feature-image" href="plugins/{{ plugin.slug }}/">
+      <img src="plugins/{{ plugin.slug }}/{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}" {% if not eager %}loading="lazy"{% endif %}>
+    </a>
+    <div class="feature-text">
+      <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a></h2>
+      <p class="meta">{{ plugin.latest.version }} · {{ plugin.latest.date }}</p>
+      <p class="summary">{{ plugin.summary }}</p>
+      <div class="actions">
+        <a class="button primary" href="{{ plugin.latest.download }}">Download{% if plugin.latest.size %} <span class="button-note">{{ plugin.latest.size }}</span>{% endif %}</a>
+        <a class="button" href="plugins/{{ plugin.slug }}/{{ plugin.pdf }}" download>Manual <span class="button-note">PDF</span></a>
       </div>
-      <div class="hero__media span-6 start-7">
-        <img src="plugins/{{ latest.slug }}/{{ latest.image }}" alt="{{ latest.alt }}" width="{{ latest.width }}" height="{{ latest.height }}" style="--ly-pos: 0% 0%" fetchpriority="high">
-      </div>
-    </div></div>
-  </section>
-
-  {% set span = (12 // plugins|length) if plugins|length <= 4 else 4 %}
-  <section class="section" id="plugins" style="--hm: 2" aria-labelledby="plugins-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="plugins-h">{{ count|capitalize }} plugins, one archive each. <span class="muted">CLAP for Linux on x86_64.</span></h2>
-      </div>
-      <div class="grid">
-        {% for p in plugins %}
-        <article class="card card--row card--open span-{{ span }}">
-          <a class="panel" href="plugins/{{ p.slug }}/"><img class="shot" src="plugins/{{ p.slug }}/{{ p.image }}" alt="{{ p.alt }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy"></a>
-          <h3><a href="plugins/{{ p.slug }}/">{{ p.name }} {{ p.latest.version|replace("v", "") }}</a></h3>
-          <p>{{ p.headline }}.</p>
-          <div class="card__links"><a class="link" href="plugins/{{ p.slug }}/">See {{ p.name }}</a></div>
-        </article>
-        {% endfor %}
-      </div>
+      <a class="more" href="plugins/{{ plugin.slug }}/">Everything about {{ plugin.name }}</a>
     </div>
-  </section>
-
-  {% for p in plugins %}
-  {% set shots = p.gallery %}
-  {% set layout = loop.index0 % 3 %}
-  {% if layout == 2 and shots|length < 3 %}{% set layout = 0 %}{% endif %}
-
-  {% if layout == 0 %}
-  {#- split: the words left, one window right -#}
-  {% set shot = shots[0] if shots else {"src": p.image, "alt": p.alt, "width": p.width, "height": p.height} %}
-  <section class="section" id="{{ p.slug }}" aria-labelledby="{{ p.slug }}-h">
-    <div class="wrap">
-      <div class="grid fill">
-        <div class="span-5 stack-6">
-          <h2 id="{{ p.slug }}-h">{{ p.name }}</h2>
-          <p class="t-lead">{{ p.headline }}.</p>
-          <p>{{ p.rest }}</p>
-          <p class="stack-3">{{ page(p) }}<br>{{ manual(p) }}</p>
-        </div>
-        <a class="frame frame--photo frame--split span-6 start-7" href="plugins/{{ p.slug }}/">
-          <img class="frame__img" src="plugins/{{ p.slug }}/{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  {% elif layout == 1 %}
-  {#- the light band: the heading and its line on top, the window wide under them -#}
-  <section class="section ground-inverse" id="{{ p.slug }}" aria-labelledby="{{ p.slug }}-h">
-    <div class="wrap">
-      <div class="grid">
-        <h2 class="span-5" id="{{ p.slug }}-h">{{ p.name }}</h2>
-        <div class="span-6 start-7 stack-4"><p class="t-lead">{{ p.headline }}.</p><p>{{ p.rest }}</p><p>{{ page(p) }}</p></div>
-      </div>
-      <a class="frame frame--photo wide-frame" href="plugins/{{ p.slug }}/">
-        <img class="frame__img" src="plugins/{{ p.slug }}/{{ p.image }}" alt="{{ p.alt }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy">
-      </a>
-    </div>
-  </section>
-
-  {% else %}
-  {#- four windows: the main one and three pages from the manual -#}
-  {% set four = [{"src": p.image, "alt": p.alt}] + shots[:3] %}
-  <section class="section g2" id="{{ p.slug }}" aria-labelledby="{{ p.slug }}-h">
-    <div class="wrap">
-      <div class="group">
-        <div class="section-head">
-          <h2 id="{{ p.slug }}-h">{{ p.name }}</h2>
-          <p class="t-lead">{{ p.headline }}.</p>
-          <p>{{ p.rest }}</p>
-        </div>
-        <div class="grid">
-          {% for s in four[:2] %}
-          <a class="card card--row card--open span-6" href="plugins/{{ p.slug }}/"><div class="panel"><img class="shot" src="plugins/{{ p.slug }}/{{ s.src }}" alt="{{ s.alt }}" width="1260" height="846" loading="lazy"></div></a>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="grid">
-        {% for s in four[2:] %}
-        <a class="card card--row card--open span-6" href="plugins/{{ p.slug }}/"><div class="panel"><img class="shot" src="plugins/{{ p.slug }}/{{ s.src }}" alt="{{ s.alt }}" width="1260" height="846" loading="lazy"></div></a>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-  {% if loop.index == 2 or (loop.last and loop.index < 2) %}
-  <section class="section" id="licence" data-moment="liquid-type" aria-labelledby="licence-h">
-    <div class="wrap">
-      <div class="grid">
-        <h2 class="span-8 statement__type mo-lt__type" id="licence-h">Free plugins under the MIT licence</h2>
-        <img class="span-3 start-10 statement__mark" src="assets/logo-mark.svg" alt="The JellyComet mark: a jellyfish trailing like a comet" width="64" height="64" loading="lazy">
-      </div>
-      <dl class="grid facts">
-        <div class="span-4"><dt class="t-label muted">Price</dt><dd class="t-lead">Nothing, no account</dd></div>
-        <div class="span-4"><dt class="t-label muted">Format</dt><dd class="t-lead">CLAP, Linux x86_64</dd></div>
-        <div class="span-4"><dt class="t-label muted">Install</dt><dd class="t-lead">One file into ~/.clap</dd></div>
-      </dl>
-    </div>
-  </section>
-  {% endif %}
-  {% endfor %}
-
-  <section class="section" id="faq" aria-labelledby="faq-h">
-    <div class="wrap">
-      <div class="grid grid--top">
-        <div class="span-5 stack-4">
-          <h2 id="faq-h">Questions</h2>
-          <p class="muted">Each plugin's manual has every control in full.</p>
-          {{ manual(latest) }}
-          <div class="icon-row">
-            <span class="ic-tile ic-tile--48"><img class="ic ic-48" src="assets/kit/icons/linux-tux.svg" alt="Linux" width="41" height="48"></span>
-            <span class="ic-tile ic-tile--48"><img class="ic ic-48 ic-land" src="assets/kit/icons/bitwig.svg" alt="Bitwig" width="48" height="28"></span>
-            <span class="ic-tile ic-tile--48"><img class="ic ic-48 ic-ink" src="assets/kit/icons/github.svg" alt="GitHub" width="48" height="47"></span>
-            <span class="ic-tile ic-tile--48"><img class="ic ic-48" src="assets/kit/icons/zip.svg" alt="Zip archive" width="48" height="48"></span>
-          </div>
-        </div>
-        <div class="faq span-6 start-7">
-          <div class="faq__item"><h3>How do I install a plugin?</h3><p>Unpack the archive, copy the .clap file into ~/.clap and rescan plugins in your DAW.</p></div>
-          <div class="faq__item"><h3>Which hosts load them?</h3><p>Any CLAP host on Linux, such as Bitwig Studio and REAPER.</p></div>
-          <div class="faq__item"><h3>Is there a VST3 or a Windows build?</h3><p>No. Releases are the Linux CLAP only, for x86_64.</p></div>
-          <div class="faq__item"><h3>Do the plugins use the network?</h3><p>No. None of them goes online or sends telemetry.</p></div>
-          <div class="faq__item"><h3>How do I check a download?</h3><p>Every release has a .sha256 file beside the archive. Run sha256sum -c on it.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-{% endblock %}
-
-{% block close %}
-      <div class="section-head">
-        <h2 id="close-h">Get all {{ count }} plugins for Linux</h2>
-        <p class="t-small muted">One archive per plugin, from the plugins above.</p>
-      </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="#plugins">Get the plugins<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+  </li>
+{%- endmacro -%}
+<ul class="features">
+{% for plugin in plugins %}{{ feature(plugin, loop.first) }}
+{% endfor %}
+</ul>
 {% endblock %}

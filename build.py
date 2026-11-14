@@ -38,7 +38,7 @@ HASHES = ROOT / ".manual-hashes.json"
 # Source repositories are private: nothing on the site may link one (release-repo.md in FrameworkBtw).
 PRIVATE_LINK = re.compile(rf"{OWNER}/[A-Za-z]+Btw([^-\w]|$)|FrameworkBtw", re.M)
 # The README's formats line, "CLAP and VST3 for Linux." before 2026-11-06, "CLAP for Linux." since.
-FORMATS_LINE = re.compile(r"\s*(CLAP(?:\s+and\s+VST3)?)\s+for\s+Linux\.\s*$")
+FORMATS_LINE = re.compile(r"\s*(CLAP(?: and VST3)?) for Linux\.\s*$")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 LINK_ATTR = re.compile(r'(href|src)="([^"]*)"')
 TAG = re.compile(r"<[^>]+>")
@@ -48,10 +48,6 @@ env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select
 # The stylesheet's and the lightbox script's links carry a hash of the file, so a browser fetches the new one when it changes
 # instead of laying out new pages with the cached old one (GitHub Pages lets it keep it 10 minutes).
 env.globals["css_version"] = hashlib.sha256((ROOT / "assets" / "site.css").read_bytes()).hexdigest()[:10]
-# The design kit in assets/kit (tasteskill, MIT): one hash over all its files, for the same reason.
-env.globals["kit_version"] = hashlib.sha256(
-    b"".join(path.read_bytes() for path in sorted((ROOT / "assets" / "kit").rglob("*")) if path.is_file())
-).hexdigest()[:10]
 env.globals["js_version"] = hashlib.sha256((ROOT / "assets" / "lightbox.js").read_bytes()).hexdigest()[:10]
 
 
@@ -216,13 +212,6 @@ def gallery(manual, source, main_image):
     return shots
 
 
-def headline(summary):
-    match = re.match(r"\s*<strong>(.*?)</strong>\s*(.*)", summary, re.S)
-    if not match:
-        return {"headline": Markup(summary), "rest": Markup("")}
-    return {"headline": Markup(match.group(1).rstrip(".")), "rest": Markup(match.group(2).strip())}
-
-
 def collect(repo):
     name = repo["name"].removesuffix("-release")
     releases = [r for r in api(f"repos/{repo['full_name']}/releases?per_page=100") if not (r["draft"] or r["prerelease"])]
@@ -251,8 +240,6 @@ def collect(repo):
         "repo": repo,
         "source": source,
         "summary": Markup(readme["summary"]),
-        # The summary's bold first sentence and the rest, for the home page's heading and line under it.
-        **headline(readme["summary"]),
         "formats": readme["formats"],
         "description": html.unescape(TAG.sub("", readme["summary"])),
         "image": readme["image"],
@@ -322,7 +309,7 @@ def build_manual(plugin, out, hashes):
     hashes[name] = digest
 
 
-def build_plugin(plugin, hashes, plugins):
+def build_plugin(plugin, hashes):
     out = PLUGINS / plugin["slug"]
     out.mkdir(parents=True, exist_ok=True)
     images = out / "images"
@@ -332,7 +319,7 @@ def build_plugin(plugin, hashes, plugins):
     build_manual(plugin, out, hashes)
     write_checked(
         out / "index.html",
-        env.get_template("plugin.html").render(plugin=plugin, plugins=plugins, root="../../", site_url=SITE_URL, owner=OWNER),
+        env.get_template("plugin.html").render(plugin=plugin, root="../../", site_url=SITE_URL, owner=OWNER),
     )
 
 
@@ -345,7 +332,7 @@ def main():
 
     hashes = json.loads(HASHES.read_text()) if HASHES.exists() else {}
     for plugin in plugins:
-        build_plugin(plugin, hashes, plugins)
+        build_plugin(plugin, hashes)
     current = {plugin["slug"] for plugin in plugins}
     if PLUGINS.exists():
         for old in PLUGINS.iterdir():

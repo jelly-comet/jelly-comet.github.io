@@ -1,125 +1,236 @@
-/* The redesign's page CSS (branch redesign). The system itself, grid, type, buttons, nav, sections and
-   footer, is the tasteskill kit in assets/kit; this file holds only what sits inside the site's own
-   pictures and long text: the plugins' windows, the README prose, the release notes and the lightbox. */
-
-/* Sections as tall as what they hold (owner, 2026-11-13: the kit's one-screen sections left whole
-   screens empty in a tall window). The kit's own rules size them to the screen; these win by one
-   more element in the selector, and one even gap parts every section. */
-html main > :is(section, .section):not(.hero), html footer.closing { height: auto; min-height: 0; display: block; padding: var(--s-9) 0; }
-html main > :is(section, .section):not(.hero) > :is(.wrap, .container), html footer.closing > .wrap { height: auto; }
-html main > :is(section, .section).g2 > :is(.wrap, .container) { display: flex; flex-direction: column; row-gap: var(--s-6); }
-html main > :is(section, .section):not(.hero) .fill { flex: none; }
-html main > :is(section, .section):not(.ground-inverse) + :is(section, .section):not(.ground-inverse) { padding-top: 0; }
-html main > .hero:not(.plugin-hero) { height: min(100svh, 960px); }
-html footer.closing .closing__links { margin-top: var(--s-9); }
-@media (max-width: 639px) {
-  html main > :is(section, .section):not(.hero), html footer.closing { padding: var(--s-8) 0; }
-  html main > .hero:not(.plugin-hero) { height: auto; min-height: 0; }
+/* The plugins' design tokens on the web; the type sizes above 13px are the site's own,
+   for reading at length. */
+:root {
+  color-scheme: dark;
+  --background: #0a0e15;
+  --surface: #111824;
+  --raised: #1a2333;
+  --raised-hover: #222e43;
+  --edge: #263247;
+  --display: #07101f;
+  --accent: #3d9bff;
+  --accent-halo-strong: #3d9bff2e;
+  --glow: #5fd0ff;
+  --text: #e3eaf5;
+  --text-dim: #8a95a9;
+  --radius-control: 7px;
+  --radius-display: 12px;
+  --radius-panel: 14px;
+  --font-sans: "Ubuntu", sans-serif;
+  --font-mono: ui-monospace, "DejaVu Sans Mono", monospace;
+  --page: 1120px;
 }
 
-.nav__logo img { width: 32px; height: 32px; }
-.nav__logo .comet { color: var(--p-accent); }
-.closing .nav__logo .comet { color: inherit; }
-
-/* The plugins' windows: screenshots shown whole, or cut by their frame from the top left. */
-.shot { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 0% 0%); }
-.panel { position: relative; overflow: hidden; }
-a.panel { display: block; }
-.panel > .shot { position: absolute; inset: 0; }
-.frame__img { object-position: var(--pos, 0% 0%); }
-/* No border, line or ground round a screenshot: the plugin's window has its own edge (owner, 2026-11-14). */
-.panel:has(> .shot)::before, .panel:has(> .shot)::after { display: none; }
-.panel:has(> .shot), .frame:has(> .frame__img), .hero__media { border: 0; background: none; box-shadow: none; }
-.card__links { display: flex; gap: var(--s-5); flex-wrap: wrap; margin-top: auto; }
-.card h3 a { color: inherit; text-decoration: none; }
-/* The plugins' cards: each window whole, all at one shape and height, so the titles under them line
-   up; the words sit a little in from the window's edge. */
-#plugins .card > .panel { flex: none; min-height: 0; aspect-ratio: 1260 / 846; border-radius: var(--r-lg); background: none; }
-#plugins .card > .panel > .shot { object-fit: contain; object-position: 50% 0%; }
-#plugins .card > :not(.panel) { padding-inline: var(--s-3); }
-.section.g2 .card .panel { --p-h: 300px; }
-.wide-frame { display: block; height: 400px; margin-top: var(--s-7); }
-.icon-row { display: flex; gap: var(--s-4); flex-wrap: wrap; margin-top: var(--s-6); }
-
-/* The licence statement */
-.statement__type { font: var(--display-weight) clamp(44px, 7vw, 112px)/1.02 var(--font-display); letter-spacing: var(--display-tracking-xl); margin: 0; max-width: 14ch; }
-.statement__mark { width: 100%; height: auto; align-self: start; }
-.facts { margin-top: var(--s-8); }
-.facts dd { margin: 0; }
-
-@media (min-width: 1024px) and (max-width: 1279px) { .section.g2 .card--open > .panel { --p-h: 200px; } }
-@media (max-width: 639px) {
-  .prose .gallery { grid-template-columns: minmax(0, 1fr); }
-  header.nav .nav__bar > .nav__actions { display: none; }
-  .section.g2 .card--open > .panel { --p-h: 190px; }
-  .frame--split { --ratio: 50%; }
-  .wide-frame { height: 220px; }
-  .statement__mark { max-width: none; margin-top: var(--s-6); grid-column: 1 / -1; }
+@font-face {
+  font-family: "Ubuntu";
+  src: url("fonts/Ubuntu-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
 }
 
-/* A plugin page: the window whole in the first screen, then the README and the notes as long text. */
-/* A plugin page's first block ends with its content: no screen-tall hero, the README right under it. */
-main > .hero.plugin-hero { height: auto; min-height: 0; padding-bottom: 0; }
-.plugin-hero .hero-text, .plugin-hero .hero__grid { height: auto; min-height: 0; }
-.plugin-hero + .doc { padding-top: var(--s-9); }
-/* the plugin's name is one word: smaller on a narrow column, never broken inside */
-.plugin-hero h1 { font-size: clamp(40px, 4.6vw, 72px); hyphens: none; overflow-wrap: normal; word-break: keep-all; }
-.hero--split .hero__media.hero__media--whole { height: auto; align-self: start; background: none; }
-.hero__media--whole > img.hero-image { position: static; width: 100%; height: auto; object-fit: contain; cursor: zoom-in; }
-.plugin-links { margin-top: var(--s-5); }
-.plugin-links a { color: inherit; }
-.doc { padding: var(--s-9) 0; }
-.doc + .doc { padding-top: 0; }
-.prose { font-size: 17px; line-height: 1.7; }
-.prose h2 { font: var(--display-weight) var(--t-h3)/1.2 var(--font-display); letter-spacing: var(--display-tracking); margin: var(--s-8) 0 var(--s-4); }
-.prose h2:first-child { margin-top: 0; }
-.prose p, .prose ul, .prose ol { margin: 0 0 var(--s-4); }
-.prose ul, .prose ol, .notes-panel ul, .notes-panel ol { list-style: disc; padding-left: 1.2em; }
-.prose ol { list-style: decimal; }
-.prose li { margin-bottom: var(--s-2); }
-.prose a { color: var(--p-accent); }
-.prose img { max-width: 100%; height: auto; border-radius: var(--r-md); cursor: zoom-in; }
-.prose code { font: 0.9em var(--font-mono); }
-.prose pre { overflow-x: auto; padding: var(--s-5); border-radius: var(--r-md); background: var(--p-surface); font-size: 14px; line-height: 1.6; }
-.prose pre code { font-size: inherit; }
-.prose table { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: var(--s-5); }
-.prose th, .prose td { text-align: left; padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); vertical-align: top; }
-.notes-panel { position: sticky; top: calc(var(--nav) + var(--s-5)); padding: var(--s-6); border-radius: var(--r-lg); background: var(--p-surface); font-size: 15px; line-height: 1.6; }
-.notes-panel h2 { font: var(--display-weight) var(--t-card)/1.3 var(--font-display); margin: 0 0 var(--s-4); }
-.notes-panel h3 { font-size: 15px; font-weight: 500; margin: var(--s-5) 0 var(--s-2); }
-.notes-panel h3 a { color: inherit; }
-.notes-panel ul { padding-left: 1.2em; margin: 0 0 var(--s-3); }
-.notes-panel summary { cursor: pointer; margin-top: var(--s-5); font-weight: 500; }
-.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); margin: 0 0 var(--s-4); }
-.gallery__shot { display: block; overflow: hidden; border-radius: var(--r-lg); }
-.gallery__shot img { display: block; width: 100%; height: auto; cursor: zoom-in; transition: transform .4s ease; }
-.gallery__shot:hover img { transform: scale(1.02); }
-@media (max-width: 1023px) {
-  .notes-panel { position: static; order: -1; margin-bottom: var(--s-8); }
-  .prose, .notes-panel { grid-column: 1 / -1; }
+* { box-sizing: border-box; }
+
+/* The starfield behind every page (stars.py draws the tiles): three layers, far to near, each
+   drifting up and to the right by exactly one tile before it starts over, so it never jumps. Smooth
+   at the screen's rate for everyone (owner, 2026-11-12: always 60 fps, no fallback). Only transform
+   and opacity move; still for anyone who asks for less motion. */
+.sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.stars { position: absolute; top: 0; left: 0; background-repeat: repeat; will-change: transform; }
+.far { width: calc(100% + 360px); height: calc(100% + 360px); background-image: url("stars-far.svg"); animation: drift-far 180s linear infinite; }
+.mid { width: calc(100% + 720px); height: calc(100% + 720px); background-image: url("stars-mid.svg"); animation: drift-mid 180s linear infinite; }
+.near { width: calc(100% + 1080px); height: calc(100% + 1080px); background-image: url("stars-near.svg"); animation: drift-near 180s linear infinite, twinkle 5s ease-in-out infinite alternate; }
+@keyframes drift-far { from { transform: translate3d(-360px, 0, 0); } to { transform: translate3d(0, -360px, 0); } }
+@keyframes drift-mid { from { transform: translate3d(-720px, 0, 0); } to { transform: translate3d(0, -720px, 0); } }
+@keyframes drift-near { from { transform: translate3d(-1080px, 0, 0); } to { transform: translate3d(0, -1080px, 0); } }
+@keyframes twinkle { from { opacity: 0.55; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .stars { animation: none; } }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 300 16px/1.6 var(--font-sans);
+}
+
+main, .site-header, .site-footer {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--glow); }
+:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+strong { font-weight: 700; }
+h1, h2, h3 { font-weight: 300; line-height: 1.25; }
+
+.site-header { padding-block: 24px; text-align: center; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-size: 22px;
+}
+.brand:hover { color: var(--text); }
+.brand .comet { color: var(--accent); }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 24px;
+  margin-top: 72px;
+  padding-block: 24px;
+  border-top: 1px solid var(--edge);
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.github { display: inline-flex; align-items: center; gap: 8px; }
+
+.version { color: var(--text-dim); font-size: 13px; white-space: nowrap; }
+
+/* Overview */
+.intro { padding-block: 32px 40px; }
+/* The greeting: big. */
+.hello { padding-block: 40px 56px; }
+.hello h1 { font-size: clamp(36px, 7vw, 64px); max-width: 14em; }
+.hello p { max-width: 36em; font-size: clamp(17px, 2vw, 20px); line-height: 1.5; }
+.tentacles { color: var(--glow); }
+.nowrap { white-space: nowrap; }
+
+/* The plugins still being made: one wide panel each, the picture big, the download right there. */
+.features { display: grid; gap: 32px; margin: 0; padding: 0; list-style: none; }
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  align-items: center;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-panel);
+}
+.feature:nth-child(even) .feature-image { order: 2; }
+.feature-image img { width: 100%; border-radius: var(--radius-display); }
+.feature-image:hover img { box-shadow: 0 0 0 3px var(--accent-halo-strong); }
+.feature h2 { margin: 0 0 6px; font-size: clamp(30px, 4vw, 42px); }
+.feature h2 a { color: var(--text); }
+.feature h2 a:hover { color: var(--glow); }
+.feature .actions { margin-bottom: 16px; }
+.more { font-size: 15px; }
+.more::after { content: " →"; }
+.intro h1 { margin: 0 0 8px; font-size: clamp(32px, 6vw, 48px); }
+.intro p { margin: 0; color: var(--text-dim); font-size: 18px; }
+
+/* A plugin's page */
+.back { padding-block: 4px 20px; font-size: 14px; }
+.back a::before { content: "← "; }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 48px;
+}
+.hero-image { width: 100%; border-radius: var(--radius-panel); }
+.hero h1 { margin: 0 0 12px; font-size: clamp(32px, 5vw, 44px); }
+.summary { margin: 0 0 16px; font-size: 18px; line-height: 1.5; color: var(--text-dim); }
+.summary strong { color: var(--text); font-weight: 300; }
+.meta { margin: 0 0 20px; color: var(--text-dim); font-size: 14px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-control);
+  background: var(--raised);
+  color: var(--text);
+}
+.button:hover { background: var(--raised-hover); color: var(--text); }
+.button-note { font-size: 13px; color: var(--text-dim); }
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--background);
+  box-shadow: 0 0 0 3px var(--accent-halo-strong);
+}
+.button.primary:hover { background: var(--glow); border-color: var(--glow); color: var(--background); }
+.button.primary .button-note { color: var(--background); }
+
+.links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; font-size: 14px; }
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-panel);
+  padding: 20px 24px;
+}
+.changes { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; font-size: 15px; }
+.changes h2 { margin: 0 0 12px; font-size: 18px; }
+.changes h3 { margin: 16px 0 4px; font-size: 15px; }
+.changes .date { color: var(--text-dim); font-size: 13px; margin-left: 6px; }
+.notes p, .notes ul { margin: 0 0 10px; }
+.notes ul { padding-left: 20px; }
+.changes .links { margin-bottom: 4px; }
+.changes details { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.changes summary { cursor: pointer; color: var(--text-dim); }
+
+.prose { min-width: 0; }
+.prose > :first-child { margin-top: 0; }
+.prose h2 { margin: 40px 0 12px; font-size: 26px; }
+.prose li { margin-bottom: 6px; }
+.prose ul { padding-left: 22px; }
+code { font-family: var(--font-mono); font-size: 0.875em; }
+p code, li code { padding: 1px 5px; background: var(--raised); border-radius: 4px; }
+pre {
+  margin: 12px 0 20px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  background: var(--display);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-display);
+  line-height: 1.5;
 }
 
 /* The lightbox (lightbox.js): a plugin page's pictures over the page, big. */
+.zoomable { cursor: zoom-in; }
 .lightbox-open { overflow: hidden; }
 .lightbox {
   width: 100%; height: 100%; max-width: 100%; max-height: 100%;
   margin: 0; padding: 0; border: 0;
-  background: transparent; color: var(--p-ink);
+  background: transparent; color: var(--text);
 }
 .lightbox::backdrop { background: rgba(5, 8, 13, 0.97); }
 .lightbox figure {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
   height: 100%; margin: 0; padding: 56px 72px 40px;
 }
-.lightbox img { max-width: 100%; max-height: calc(100% - 48px); width: auto; height: auto; object-fit: contain; border-radius: var(--r-md); }
-.lightbox figcaption { max-width: 60em; color: var(--p-muted); font-size: 15px; line-height: 1.4; text-align: center; }
-.lightbox-count { position: absolute; top: 18px; left: 24px; margin: 0; color: var(--p-muted); font-size: 14px; }
+.lightbox img {
+  max-width: 100%; max-height: calc(100% - 48px); width: auto; height: auto; object-fit: contain;
+  border-radius: var(--radius-display); box-shadow: 0 0 0 1px var(--edge);
+}
+.lightbox figcaption { max-width: 60em; color: var(--text-dim); font-size: 15px; line-height: 1.4; text-align: center; }
+.lightbox-count { position: absolute; top: 18px; left: 24px; margin: 0; color: var(--text-dim); font-size: 14px; }
 .lightbox button {
   position: absolute; display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
-  border: 1px solid var(--line); border-radius: 50%; background: var(--p-surface); color: var(--p-ink);
-  font: 400 26px/1 var(--font-text); cursor: pointer;
+  border: 1px solid var(--edge); border-radius: 50%; background: var(--raised); color: var(--text);
+  font: 300 26px/1 var(--font-sans); cursor: pointer;
 }
-.lightbox button:hover { color: var(--p-accent); }
+.lightbox button:hover { background: var(--raised-hover); color: var(--glow); }
 .lightbox-close { top: 12px; right: 16px; }
 .lightbox-prev { left: 16px; top: calc(50% - 22px); }
 .lightbox-next { right: 16px; top: calc(50% - 22px); }
@@ -129,4 +240,18 @@ main > .hero.plugin-hero { height: auto; min-height: 0; padding-bottom: 0; }
   .lightbox-prev, .lightbox-next { top: auto; bottom: 14px; }
   .lightbox-prev { left: calc(50% - 56px); }
   .lightbox-next { right: calc(50% - 56px); }
+}
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 20px; }
+.gallery figure { margin: 0; }
+.gallery img { border-radius: var(--radius-display); }
+.gallery figcaption { margin-top: 8px; color: var(--text-dim); font-size: 13px; line-height: 1.4; }
+
+@media (max-width: 900px) {
+  main, .site-header, .site-footer { padding-inline: 16px; }
+  .hero, .columns, .feature { grid-template-columns: minmax(0, 1fr); }
+  .feature { gap: 20px; padding: 16px 16px 20px; }
+  .feature:nth-child(even) .feature-image { order: 0; }
+  .hero { gap: 24px; padding-bottom: 32px; }
+  .changes { position: static; max-height: none; order: -1; }
 }
