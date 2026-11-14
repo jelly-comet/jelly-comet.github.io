@@ -57,8 +57,6 @@ The colors and the font are the ones the plugins use. Ubuntu Light is under the 
 
 ## The starfield
 
-Every page has a slowly drifting starfield behind it: `assets/stars-{far,mid,near}.svg`, drawn by
-`python3 -I stars.py`, tiled and moved by `site.css`. Capped for everyone (the owner's choice,
-2026-11-14): all three layers step together twice a second, by 1, 2 and 3 whole pixels, about 6 % of
-a core where moving them smoothly costs about 60 % (a browser without a graphics card; headless
-Chromium at 1920 x 1080, 2026-11-12). Still for anyone who asks for less motion.
+Every page has a still starfield behind it: `assets/stars-{far,mid,near}.svg`, drawn by
+`python3 -I stars.py` and tiled by `site.css`. It doesn't move (the owner's choice, 2026-11-14), so it
+costs nothing once the page is drawn.

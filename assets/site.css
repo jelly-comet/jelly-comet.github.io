@@ -30,23 +30,13 @@
 
 * { box-sizing: border-box; }
 
-/* The starfield behind every page (stars.py draws the tiles): three layers, far to near, each
-   drifting up and to the right by exactly one tile before it starts over, so it never jumps. Capped
-   for everyone (owner, 2026-11-14): all three step together twice a second, by 1, 2 and 3 whole
-   pixels with the twinkle on the same beat, about 6 % of a core even without a graphics card
-   (60 % smooth). Only transform and opacity move; still for anyone who asks for less motion. */
+/* The starfield behind every page (stars.py draws the tiles): three still layers, far to near,
+   tiled over the window (owner, 2026-11-14: static, no drift or twinkle). */
 .sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.stars { position: absolute; top: 0; left: 0; background-repeat: repeat; will-change: transform; }
-.far { width: calc(100% + 360px); height: calc(100% + 360px); background-image: url("stars-far.svg"); animation: drift-far 180s linear infinite; }
-.mid { width: calc(100% + 720px); height: calc(100% + 720px); background-image: url("stars-mid.svg"); animation: drift-mid 180s linear infinite; }
-.near { width: calc(100% + 1080px); height: calc(100% + 1080px); background-image: url("stars-near.svg"); animation: drift-near 180s linear infinite, twinkle 5s ease-in-out infinite alternate; }
-@keyframes drift-far { from { transform: translate3d(-360px, 0, 0); } to { transform: translate3d(0, -360px, 0); } }
-@keyframes drift-mid { from { transform: translate3d(-720px, 0, 0); } to { transform: translate3d(0, -720px, 0); } }
-@keyframes drift-near { from { transform: translate3d(-1080px, 0, 0); } to { transform: translate3d(0, -1080px, 0); } }
-@keyframes twinkle { from { opacity: 0.55; } to { opacity: 1; } }
-.far, .mid { animation-timing-function: steps(360); }
-.near { animation-timing-function: steps(360), steps(10); }
-@media (prefers-reduced-motion: reduce) { .stars { animation: none; } }
+.stars { position: absolute; inset: 0; background-repeat: repeat; }
+.far { background-image: url("stars-far.svg"); }
+.mid { background-image: url("stars-mid.svg"); }
+.near { background-image: url("stars-near.svg"); }
 
 body {
   margin: 0;
