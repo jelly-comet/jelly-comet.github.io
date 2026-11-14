@@ -35,15 +35,15 @@ Linux.">
     <p class="summary"><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
 one puck that blends them.</strong> For fills, breakdowns and endings that move with the song. CLAP for
 Linux.</p>
-    <p class="meta"><span class="version">v1.0.0</span> · 13 Nov 2026 · CLAP and VST3 for Linux</p>
+    <p class="meta"><span class="version">v1.0.1</span> · 14 Nov 2026 · CLAP and VST3 for Linux</p>
     <div class="actions">
-      <a class="button primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.0/OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <span class="button-note">5.4 MB</span></a>
+      <a class="button primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download v1.0.1 <span class="button-note">5.4 MB</span></a>
       <a class="button" href="OrbitLoopBtw-manual.pdf" download>Manual <span class="button-note">PDF</span></a>
     </div>
     <p class="links">
       <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">All releases</a>
       <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/issues">Support</a>
-      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.0/OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz.sha256">SHA-256</a>
+      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256">SHA-256</a>
       <a href="https://github.com/jelly-comet/OrbitLoopBtw-release">Release repository</a>
     </p>
   </div>
@@ -121,10 +121,10 @@ plays the last loop of what comes in.</p>
 <h2 id="install">Install</h2>
 <p>Download the latest version from the <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">Releases page</a>,
 or with these commands:</p>
-<pre><code class="language-bash">curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.0/OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz
-curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.0/OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz.sha256
-sha256sum -c OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf OrbitLoopBtw-1.0.0-linux-x86_64.tar.gz
-cd OrbitLoopBtw-1.0.0-linux-x86_64
+<pre><code class="language-bash">curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz
+curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256
+sha256sum -c OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz
+cd OrbitLoopBtw-1.0.1-linux-x86_64
 </code></pre>
 <p>Install for your user:</p>
 <pre><code class="language-bash">mkdir -p ~/.clap
@@ -143,8 +143,8 @@ in your DAW.</p>
 them gone.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>Linux x86-64 with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer), on a CPU
-  with SSE4.1 (Intel from 2008, AMD from 2011)</li>
+<li>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer
+  (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</li>
 <li>A CLAP host</li>
 <li>X11 or XWayland, and a Vulkan driver for the editor</li>
 </ul>
@@ -156,8 +156,19 @@ them gone.</p>
 affiliated with or endorsed by the makers of any other loop or stutter effect.</p>
   </article>
   <aside class="panel changes">
-    <h2>What's new in v1.0.0</h2>
-    <div class="notes"><p>OrbitLoopBtw 1.0: one loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and one puck that blends them.</p>
+    <h2>What's new in v1.0.1</h2>
+    <div class="notes"><p>OrbitLoopBtw 1.0.1 is built for newer CPUs.</p>
+<ul>
+<li><strong>It needs a CPU with AVX2</strong> now (Intel Core from 2013, AMD from 2015), where 1.0.0 needed SSE4.1. On an older CPU, stay with 1.0.0.</li>
+<li>It uses 2 % less CPU (0.80 % of a core where it was 0.82 %), and every sample is the same.</li>
+</ul></div>
+    <p class="links"><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.1">Release on GitHub</a></p>
+    
+    <details>
+      <summary>Earlier versions</summary>
+      
+      <h3><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.0">v1.0.0</a> <span class="date">13 Nov 2026</span></h3>
+      <div class="notes"><p>OrbitLoopBtw 1.0: one loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and one puck that blends them.</p>
 <ul>
 <li><strong>Four loop effects at once:</strong> HALF (1.5x to 4x slower), REVERSE (1/16 to 1 bar backward, or back and forth), STUTTER (slices of 1/4 to 1/64, even, faster or slower, an octave down or up) and STOP (a tape stop over the loop's end).</li>
 <li><strong>One puck blends them,</strong> as loud as its corners. Throw it and it orbits, locked to the song, once in 1/8 to 16 bars: the same bar sounds the same every time.</li>
@@ -167,7 +178,8 @@ affiliated with or endorsed by the makers of any other loop or stutter effect.</
 <li><strong>Presets:</strong> eight built in beside Init, from a bar-end roll to a tape ending, and your own.</li>
 <li>About 0.8 % of a CPU core at 48 kHz stereo. Needs a CPU with SSE4.1.</li>
 </ul></div>
-    <p class="links"><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.0">Release on GitHub</a></p>
+      
+    </details>
     
   </aside>
 </div>
