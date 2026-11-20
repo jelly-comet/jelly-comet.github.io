@@ -50,7 +50,8 @@ before committing the site.
 | Page title, after the name | `site.toml`'s `title`; without it the bare name |
 | Tagline in the page's heading, on the card and in "More from JellyComet" | `site.toml`'s `tagline`; without it none |
 | Meta description | `site.toml`'s `description`; without it the README's first paragraph on one line |
-| Main image, also the share picture | the README's first image |
+| Main image | the README's first image, with a WebP copy beside every PNG of `images/` (a browser that shows WebP loads that, about an eighth of the size) and a 480 px one for the cards |
+| Share picture, `plugins/<name>/share.png` | the name, kind, tagline and main image on 1200 x 630 (`templates/share.html`), drawn with Chromium, redrawn only when they change |
 | Page text | the rest of the README, without a paragraph that opens with a link to this page |
 | Screenshots | the other images `manual.md` uses, captioned with their alt text |
 | Manual page, `plugins/<name>/manual/` | `manual.md`; the README's link to `manual.md` goes there |
@@ -93,12 +94,15 @@ The build writes it all, for every plugin, with nothing to keep up by hand excep
 text:
 
 - Each page has one title, one meta description on one line, a canonical link, Open Graph and
-  `twitter:card` tags with the picture's size and alt text.
-- Structured data: `SoftwareApplication` on a plugin's page (version, date, download, price 0),
-  `BreadcrumbList` and `TechArticle` on its manual page, `Organization` and `WebSite` on the front
+  `twitter:card` tags with the picture's size, type and alt text.
+- Structured data: `SoftwareApplication` and `BreadcrumbList` on a plugin's page (version, first and
+  latest release, download and its size, price 0, the Features labels, the Requirements, the install
+  section), `BreadcrumbList` and `TechArticle` on its manual page, `Organization` and `WebSite` on the front
   page. No rating: there is none, and a made-up one is never added. No `FAQPage` or `HowTo`: Google
   shows neither any more.
-- A manual page's pictures carry their width and height, and all but the first load lazily.
+- A manual page's pictures carry their width and height, and all but the first load lazily. A page's
+  biggest picture (the front page's first window, a plugin page's main image) is fetched first
+  (`fetchpriority`).
 - `sitemap.xml` (the front page, every plugin's page and manual page, dated by the latest release),
   `robots.txt`, `404.html` and `plugins/index.html`, which sends `/plugins/` to the front page.
 - **By hand:** the front page's title, description, heading, lead and About paragraph in
@@ -110,15 +114,19 @@ Never "open source" (the source is private), and VST only where a README's FAQ s
 ## Files
 
 - `build.py`: the generator. Needs `/usr/bin/python3` with `python-markdown` and `python-jinja`,
-  `git` and `chromium`. It uses `gh`'s token if there is one, only for the API's rate limit.
+  `git`, `chromium` and ImageMagick's `magick`. It uses `gh`'s token if there is one, only for the API's rate limit.
 - `highlights.toml`: each plugin's kind, colour and facts, by hand (above).
 - `templates/`: the pages and the PDF's style; `icons.html` holds the icons every page draws.
   `assets/`: the site's CSS, `site.js` (the window switcher, install tabs, Copy buttons and the
   plugin page's section bar; every page works without it), `lightbox.js`, logo and fonts.
 - Generated, committed because Pages serves them: `index.html`, `plugins/`, `404.html`,
   `sitemap.xml`, `robots.txt`, `.manual-hashes.json`. Don't edit these by hand. `.nojekyll` makes Pages serve the files as they are.
-- `googleec76a87cafc4f47f.html`: Google Search Console's proof that the site is the owner's. The build
-  leaves it alone; removing it loses the verification.
+- `googleec76a87cafc4f47f.html` and `BingSiteAuth.xml`: Google Search Console's and Bing Webmaster
+  Tools' proof that the site is the owner's. The build leaves them alone; removing one loses its
+  verification.
+- `favicon.ico`, `apple-touch-icon.png`, `site.webmanifest` and `assets/icon-{192,512}.png`: the icons
+  browsers and phones ask for, drawn once from `assets/favicon.svg` and `assets/logo-mark.svg` with
+  `magick`; the build leaves them alone.
 - `.cache/`, not committed: shallow clones of the release repositories.
 
 The blue and the font are the ones the plugins use. Ubuntu (Light, Regular and Medium for the pages,

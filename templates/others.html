@@ -1,6 +1,7 @@
+{% from "picture.html" import picture %}
 {# The other plugins as cards: under a plugin's page, under its manual and on the 404. plugins_root is the way to plugins/ from the page. #}
   <ul class="more-grid">
     {% for other in others %}
-    <li><a class="more-card" href="{{ plugins_root }}{{ other.slug }}/" style="--accent:{{ other.accent }}"><img src="{{ plugins_root }}{{ other.slug }}/{{ other.image }}" alt="" width="{{ other.width }}" height="{{ other.height }}" loading="lazy"><span class="more-text"><span class="other-name">{{ other.name }}</span>{% if other.tagline %} <span class="other-tagline">{{ other.tagline }}</span>{% endif %}<span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="{{ plugins_root }}{{ other.slug }}/" style="--accent:{{ other.accent }}">{{ picture(plugins_root ~ other.slug ~ "/" ~ other.image, "", other.width, other.height, lazy=true, small=true) }}<span class="more-text"><span class="other-name">{{ other.name }}</span>{% if other.tagline %} <span class="other-tagline">{{ other.tagline }}</span>{% endif %}<span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     {% endfor %}
   </ul>

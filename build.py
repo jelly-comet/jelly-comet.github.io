@@ -52,8 +52,15 @@ SHARE = {
     "url": f"{SITE_URL}/assets/share.png",
     "width": 1200,
     "height": 630,
+    "type": "image/png",
     "alt": "The JellyComet logo, a jellyfish with a comet's tail, and the words: Audio plugins for Linux",
 }
+# The screenshots' WebP copies: lossy at this quality, the windows' text and lines look the same as the PNG's.
+WEBP_QUALITY = 88
+# The width of the main screenshot's small copy: a card shows it at most 180 px wide, twice that on a sharp screen.
+THUMB_WIDTH = 480
+# A plugin's share picture (plugins/<name>/share.png): the size Slack, Discord, X and Mastodon show whole.
+SHARE_SIZE = (1200, 630)
 ORGANIZATION = {
     "@type": "Organization",
     "@id": f"{SITE_URL}/#organization",
@@ -198,6 +205,11 @@ def one_line(text):
     return " ".join(text.split())
 
 
+def plain(rendered):
+    """Rendered HTML as one line of plain text, for structured data."""
+    return one_line(html.unescape(TAG.sub("", rendered)))
+
+
 def lower_first(text):
     """A tagline inside a sentence: "Vocal pitch" to "vocal pitch", "MIDI scales" as it is."""
     return text[:1].lower() + text[1:] if text[1:2].islower() else text
@@ -326,6 +338,51 @@ def size_images(rendered, source):
     return IMG_TAG.sub(replace, rendered)
 
 
+def webp(src):
+    """The WebP copy build_plugin makes beside every PNG of a plugin's images."""
+    return re.sub(r"\.png$", ".webp", src)
+
+
+def thumb(src):
+    """The small WebP copy of a plugin's main screenshot, for the cards of the other plugins."""
+    return re.sub(r"\.png$", f"-{THUMB_WIDTH}.webp", src)
+
+
+env.filters["webp"] = webp
+env.filters["thumb"] = thumb
+
+
+def pictures(rendered):
+    """Wraps every PNG of the plugin's own images in rendered HTML in a <picture> with its WebP copy first:
+    a browser that shows WebP loads that, about an eighth of the PNG."""
+
+    def replace(match):
+        tag, src = match.group(0), html.unescape(match.group(1))
+        if re.match(r"[a-z]+:", src) or not src.endswith(".png"):
+            return tag
+        return f'<picture><source type="image/webp" srcset="{html.escape(webp(src))}">{tag}</picture>'
+
+    return IMG_TAG.sub(replace, rendered)
+
+
+def make_webp(images, main_image):
+    """A WebP copy of every PNG in a plugin's images, and a small one of its main screenshot. The PNGs stay:
+    the PDF, the share pictures and a browser without WebP use them. The same PNG gives the same file every run."""
+    if not shutil.which("magick"):
+        sys.exit("build.py needs ImageMagick's magick for the WebP copies of the screenshots")
+    for png in sorted(images.rglob("*.png")):
+        subprocess.run(
+            ["magick", png, "-strip", "-quality", str(WEBP_QUALITY), "-define", "webp:method=6", png.with_suffix(".webp")],
+            check=True,
+        )
+    main = images.parent / main_image
+    subprocess.run(
+        ["magick", main, "-strip", "-resize", f"{THUMB_WIDTH}x", "-quality", "82", "-define", "webp:method=6",
+         images.parent / thumb(main_image)],
+        check=True,
+    )
+
+
 def image_size(path):
     with open(path, "rb") as file:
         header = file.read(24)
@@ -429,7 +486,7 @@ def collect(repo):
     own_page = re.compile(rf"\*{{0,2}}\[[^\]]*\]\({re.escape(url)}?\)")
     paragraphs = [p for p in readme["body"].split("\n\n") if not own_page.match(p)]
     body, _ = render_markdown("\n\n".join(paragraphs))
-    body = rewrite_links(body, lambda t: page_link(repo, name, t))
+    body = pictures(rewrite_links(body, lambda t: page_link(repo, name, t)))
     # The screenshots go after the README's opening paragraphs, before its first section (Features).
     cut = body.find("<h2")
     intro, sections = (body[:cut], body[cut:]) if cut >= 0 else (body, "")
@@ -438,6 +495,39 @@ def collect(repo):
     # The front page's install window: the archive, the folder it unpacks to and the file to copy.
     archive = latest["download"].rsplit("/", 1)[-1] if latest["download"].endswith(".tar.gz") else f"{name}.tar.gz"
     clap_file = CLAP_FILE.search(readme["body"])
+    parts = parts_of(sections)
+    features = next((part["entries"] for part in parts if part["kind"] == "features"), [])
+    requirements = next((part["entries"] for part in parts if part["kind"] == "requirements"), [])
+    software = {
+        "@type": "SoftwareApplication",
+        "@id": f"{url}#software",
+        "name": name,
+        "description": description,
+        "url": url,
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Audio plugin (CLAP)",
+        "operatingSystem": "Linux",
+        "softwareVersion": latest["version"].lstrip("v"),
+        "datePublished": parsed[-1]["day"],
+        "dateModified": latest["day"],
+        "downloadUrl": latest["download"],
+        "screenshot": f"{url}{readme['image']}",
+        "image": f"{url}share.png",
+        "softwareHelp": {"@type": "CreativeWork", "url": f"{url}manual/"},
+        "license": repo_link(repo, "LICENSE"),
+        "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": ORGANIZATION,
+        "publisher": {"@id": ORGANIZATION["@id"]},
+    }
+    if features:
+        software["featureList"] = [plain(entry["lead"]).rstrip(":.,; ") for entry in features]
+    if requirements:
+        software["softwareRequirements"] = "; ".join(plain(entry).rstrip(". ") for entry in requirements)
+    if latest["size"]:
+        software["fileSize"] = latest["size"]
+    if 'id="install"' in sections:
+        software["installUrl"] = f"{url}#install"
     return {
         "name": name,
         "slug": slug,
@@ -451,25 +541,22 @@ def collect(repo):
         "description": description,
         "manual_description": f"The {name} manual: every control and how to use it. {name} is a free "
         + (f"CLAP plugin: {lower_first(tagline)}." if tagline else "CLAP plugin for Linux."),
-        "share": {"url": f"{url}{readme['image']}", "width": width, "height": height, "alt": readme["alt"]},
+        "share": {
+            "url": f"{url}share.png",
+            "width": SHARE_SIZE[0],
+            "height": SHARE_SIZE[1],
+            "type": "image/png",
+            "alt": f"{name}, {lower_first(tagline) if tagline else 'a free CLAP plugin for Linux'}, beside its window",
+        },
         "structured": json_ld(
             {
-                "@type": "SoftwareApplication",
-                "name": name,
-                "description": description,
-                "url": url,
-                "applicationCategory": "MultimediaApplication",
-                "operatingSystem": "Linux",
-                "softwareVersion": latest["version"].lstrip("v"),
-                "datePublished": latest["day"],
-                "downloadUrl": latest["download"],
-                "screenshot": f"{url}{readme['image']}",
-                "softwareHelp": {"@type": "CreativeWork", "url": f"{url}manual/"},
-                "license": repo_link(repo, "LICENSE"),
-                "isAccessibleForFree": True,
-                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-                "author": {"@type": "Organization", "name": "JellyComet", "url": f"{SITE_URL}/"},
-            }
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "JellyComet", "item": f"{SITE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": name},
+                ],
+            },
+            software,
         ),
         "image": readme["image"],
         "alt": readme["alt"],
@@ -477,7 +564,7 @@ def collect(repo):
         "height": height,
         "intro": Markup(intro),
         "sections": Markup(sections),
-        "parts": parts_of(sections),
+        "parts": parts,
         "install": {
             "archive": archive,
             "folder": archive.removesuffix(".tar.gz"),
@@ -544,6 +631,48 @@ def build_manual(plugin, out, hashes):
     hashes[name] = digest
 
 
+def build_share(plugin, out, hashes):
+    """The plugin's share picture, plugins/<name>/share.png: its name, tagline and window on 1200 x 630,
+    the shape a link preview shows whole (its screenshot alone is cropped there). Chromium draws
+    templates/share.html; like the PDF, it is redone only when its inputs changed."""
+    name, source = plugin["name"], plugin["source"]
+    page = env.get_template("share.html").render(
+        plugin=plugin,
+        width=SHARE_SIZE[0],
+        height=SHARE_SIZE[1],
+        screenshot=(source / plugin["image"]).as_uri(),
+        logo=(ROOT / "assets" / "logo-mark.svg").as_uri(),
+        fonts=(ROOT / "assets" / "fonts").as_uri(),
+    )
+    digest = hashlib.sha256(page.encode())
+    digest.update((source / plugin["image"]).read_bytes())
+    digest = digest.hexdigest()
+    share = out / "share.png"
+    key = f"{name} share"
+    if hashes.get(key) == digest and share.exists():
+        return
+    print(f"  {name}: drawing the share picture")
+    temporary = source / ".share.html"
+    temporary.write_text(page)
+    with tempfile.TemporaryDirectory() as profile:
+        subprocess.run(
+            [
+                "chromium",
+                "--headless=new",
+                "--disable-gpu",
+                f"--user-data-dir={profile}",
+                "--hide-scrollbars",
+                f"--window-size={SHARE_SIZE[0]},{SHARE_SIZE[1]}",
+                f"--screenshot={share}",
+                temporary.as_uri(),
+            ],
+            check=True,
+            capture_output=True,
+        )
+    temporary.unlink()
+    hashes[key] = digest
+
+
 def render(path, template, root, page_url=None, **context):
     """A page from its template. page_url is its address for search engines; a page without one
     (the 404) asks them to leave it out."""
@@ -556,7 +685,7 @@ def build_manual_page(plugin, others, out):
     in a browser and for a search engine."""
     body, toc = render_markdown(plugin["manual"])
     body = size_images(body, plugin["source"])
-    body = rewrite_links(body, lambda t: web_manual_link(plugin["repo"], t))
+    body = pictures(rewrite_links(body, lambda t: web_manual_link(plugin["repo"], t)))
     heading, end, rest = body.partition("</h1>")
     if not end:
         sys.exit(f"{plugin['name']}: manual.md doesn't start with a '# ' title")
@@ -589,7 +718,7 @@ def build_manual_page(plugin, others, out):
                 "url": f"{plugin['url']}manual/",
                 "image": plugin["share"]["url"],
                 "dateModified": plugin["latest"]["day"],
-                "about": {"@type": "SoftwareApplication", "name": plugin["name"], "url": plugin["url"]},
+                "about": {"@type": "SoftwareApplication", "@id": f"{plugin['url']}#software", "name": plugin["name"], "url": plugin["url"]},
                 "publisher": ORGANIZATION,
             },
         ),
@@ -605,6 +734,8 @@ def build_plugin(plugin, others, hashes):
     if images.exists():
         shutil.rmtree(images)
     shutil.copytree(plugin["source"] / "images", images)
+    make_webp(images, plugin["image"])
+    build_share(plugin, out, hashes)
     build_manual(plugin, out, hashes)
     build_manual_page(plugin, others, out)
     render(
@@ -667,7 +798,8 @@ def main():
             if old.is_dir() and old.name not in current:
                 print(f"  removing {old.name}: discontinued, or its repository is gone or has no release")
                 shutil.rmtree(old)
-    hashes = {plugin["name"]: hashes[plugin["name"]] for plugin in plugins}
+    keys = [key for plugin in plugins for key in (plugin["name"], f"{plugin['name']} share")]
+    hashes = {key: hashes[key] for key in keys}
     HASHES.write_text(json.dumps(hashes, indent=2, sort_keys=True) + "\n")
     home = f"{SITE_URL}/"
     render(

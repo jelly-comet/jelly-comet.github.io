@@ -1,0 +1,5 @@
+{# A plugin's screenshot: its WebP copy for a browser that shows WebP, the PNG for one that doesn't.
+   small: the 480 px copy, for the cards. first: the page's biggest picture, fetched before the rest. #}
+{% macro picture(src, alt, width, height, lazy=false, first=false, small=false, class=none) -%}
+<picture><source type="image/webp" srcset="{{ src|thumb if small else src|webp }}"><img{% if class %} class="{{ class }}"{% endif %} src="{{ src }}" alt="{{ alt }}" width="{{ width }}" height="{{ height }}"{% if lazy %} loading="lazy"{% endif %}{% if first %} fetchpriority="high"{% endif %}></picture>
+{%- endmacro %}

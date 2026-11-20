@@ -10,19 +10,23 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="JellyComet – Free CLAP Audio Plugins for Linux">
 <meta property="og:site_name" content="JellyComet">
+<meta property="og:locale" content="en_US">
 <meta property="og:description" content="Free CLAP audio plugins for Linux: a reverb, an 808 bass, an optical compressor, a tube EQ, vocal pitch correction, stutter loops and a MIDI chord tool.">
 <meta property="og:image" content="https://jelly-comet.github.io/assets/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="The JellyComet logo, a jellyfish with a comet&#39;s tail, and the words: Audio plugins for Linux">
 <meta name="twitter:card" content="summary_large_image">
 
 <meta name="theme-color" content="#060a11">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=f274eef954">
+<link rel="stylesheet" href="assets/site.css?v=194d11ae32">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -108,7 +112,7 @@
     <div class="hero-shots">
       
       <div class="shot" data-shot="0" style="--accent:#8fb8ff">
-        <a class="shot-frame tilt" href="plugins/jellyreverbbtw/" tabindex="0"><img src="plugins/jellyreverbbtw/images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924"></a>
+        <a class="shot-frame tilt" href="plugins/jellyreverbbtw/" tabindex="0"><picture><source type="image/webp" srcset="plugins/jellyreverbbtw/images/screenshot.webp"><img src="plugins/jellyreverbbtw/images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924" fetchpriority="high"></picture></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>256 rooms on one pad</span>
         <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.38 % of a CPU core</span>
@@ -116,7 +120,7 @@
       </div>
       
       <div class="shot is-hidden" data-shot="1" style="--accent:#ff9a5c">
-        <a class="shot-frame tilt" href="plugins/tubeeqbtw/" tabindex="-1"><img src="plugins/tubeeqbtw/images/screenshot.png" alt="TubeEqBtw on the Kick Trick preset with music playing: the low boost and cut at 60 Hz making their dip in the low mids, the knobs of the unit below, DRIVE at the left" width="1260" height="1014" loading="lazy"></a>
+        <a class="shot-frame tilt" href="plugins/tubeeqbtw/" tabindex="-1"><picture><source type="image/webp" srcset="plugins/tubeeqbtw/images/screenshot.webp"><img src="plugins/tubeeqbtw/images/screenshot.png" alt="TubeEqBtw on the Kick Trick preset with music playing: the low boost and cut at 60 Hz making their dip in the low mids, the knobs of the unit below, DRIVE at the left" width="1260" height="1014" loading="lazy"></picture></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency at 1x</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>Low boost and cut at once</span>
         <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.82 % of a CPU core</span>
@@ -124,7 +128,7 @@
       </div>
       
       <div class="shot is-hidden" data-shot="2" style="--accent:#7cf2b0">
-        <a class="shot-frame tilt" href="plugins/optocompbtw/" tabindex="-1"><img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" loading="lazy"></a>
+        <a class="shot-frame tilt" href="plugins/optocompbtw/" tabindex="-1"><picture><source type="image/webp" srcset="plugins/optocompbtw/images/screenshot.webp"><img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" loading="lazy"></picture></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>One knob, auto gain</span>
         <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.59 % of a CPU core</span>
@@ -145,7 +149,7 @@
   <div class="section-head">
     <div>
       <p class="eyebrow">The plugins</p>
-      <p class="h2">Small tools, one job each.</p>
+      <h2 class="h2">Small tools, one job each.</h2>
     </div>
     <p class="section-note">Each does one thing with one unusual control, and comes with a manual to read here or as a PDF.</p>
   </div>
@@ -153,7 +157,7 @@
 
   <li class="feature" style="--accent:#8fb8ff">
     <a class="feature-image" href="plugins/jellyreverbbtw/">
-      <img src="plugins/jellyreverbbtw/images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924" >
+      <picture><source type="image/webp" srcset="plugins/jellyreverbbtw/images/screenshot.webp"><img src="plugins/jellyreverbbtw/images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.1 · 20 Nov 2026</span><span class="card-type">Reverb</span></div>
@@ -176,7 +180,7 @@ sixteen sizes up.</strong></p>
 
   <li class="feature" style="--accent:#ff9a5c">
     <a class="feature-image" href="plugins/tubeeqbtw/">
-      <img src="plugins/tubeeqbtw/images/screenshot.png" alt="TubeEqBtw on the Kick Trick preset with music playing: the low boost and cut at 60 Hz making their dip in the low mids, the knobs of the unit below, DRIVE at the left" width="1260" height="1014" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/tubeeqbtw/images/screenshot.webp"><img src="plugins/tubeeqbtw/images/screenshot.png" alt="TubeEqBtw on the Kick Trick preset with music playing: the low boost and cut at 60 Hz making their dip in the low mids, the knobs of the unit below, DRIVE at the left" width="1260" height="1014" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.0 · 20 Nov 2026</span><span class="card-type">Equalizer</span></div>
@@ -199,7 +203,7 @@ and the low boost and cut that make the kick trick.</strong></p>
 
   <li class="feature" style="--accent:#7cf2b0">
     <a class="feature-image" href="plugins/optocompbtw/">
-      <img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/optocompbtw/images/screenshot.webp"><img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.0 · 20 Nov 2026</span><span class="card-type">Compressor</span></div>
@@ -222,7 +226,7 @@ cell rides a vocal, a bass or a bus smoothly, and a display shows every decibel 
 
   <li class="feature" style="--accent:#ff7eb6">
     <a class="feature-image" href="plugins/jellysubbtw/">
-      <img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/jellysubbtw/images/screenshot.webp"><img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.0 · 20 Nov 2026</span><span class="card-type">Instrument</span></div>
@@ -246,7 +250,7 @@ how much dirt and how much chorus, flanger or phaser it gets.</p>
 
   <li class="feature" style="--accent:#6fd8ff">
     <a class="feature-image" href="plugins/jellypitchbtw/">
-      <img src="plugins/jellypitchbtw/images/screenshot.png" alt="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right" width="1260" height="720" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/jellypitchbtw/images/screenshot.webp"><img src="plugins/jellypitchbtw/images/screenshot.png" alt="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right" width="1260" height="720" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.3.0 · 14 Nov 2026</span><span class="card-type">Vocal effect</span></div>
@@ -270,7 +274,7 @@ as sung and as corrected.</p>
 
   <li class="feature" style="--accent:#b49bff">
     <a class="feature-image" href="plugins/orbitloopbtw/">
-      <img src="plugins/orbitloopbtw/images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/orbitloopbtw/images/screenshot.webp"><img src="plugins/orbitloopbtw/images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.1 · 14 Nov 2026</span><span class="card-type">Loop effect</span></div>
@@ -293,7 +297,7 @@ one puck that blends them.</strong> For fills, breakdowns and endings that move 
 
   <li class="feature" style="--accent:#ffc46b">
     <a class="feature-image" href="plugins/easymodebtw/">
-      <img src="plugins/easymodebtw/images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846" loading="lazy">
+      <picture><source type="image/webp" srcset="plugins/easymodebtw/images/screenshot.webp"><img src="plugins/easymodebtw/images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846" loading="lazy"></picture>
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.2.6 · 14 Nov 2026</span><span class="card-type">MIDI effect</span></div>

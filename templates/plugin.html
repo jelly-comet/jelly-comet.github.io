@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "picture.html" import picture %}
 {% block title %}{{ plugin.title }}{% endblock %}
 {% block description %}{{ plugin.description }}{% endblock %}
 {% block header_action %}<a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>{% endblock %}
@@ -38,7 +39,7 @@
   </div>
   <div class="product-shot">
     <div class="ring"></div>
-    <div class="shot-frame"><img class="hero-image" src="{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}"></div>
+    <div class="shot-frame">{{ picture(plugin.image, plugin.alt, plugin.width, plugin.height, first=true, class="hero-image") }}</div>
     {% for chip in plugin.chips %}<span class="stat-chip chip-{{ loop.index }}"><svg><use href="#i-{{ chip.icon }}"/></svg>{{ chip.text }}</span>
     {% endfor %}
   </div>
@@ -66,7 +67,7 @@
       <div class="gallery">
         {% for shot in plugin.gallery %}
         <figure>
-          <a href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
+          <a href="{{ shot.src }}">{{ picture(shot.src, shot.alt, shot.width, shot.height, lazy=true) }}</a>
           <figcaption>{{ shot.alt }}</figcaption>
         </figure>
         {% endfor %}

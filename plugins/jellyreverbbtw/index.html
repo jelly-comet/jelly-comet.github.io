@@ -10,48 +10,103 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="JellyReverbBtw – Free Algorithmic Reverb for Linux (CLAP)">
 <meta property="og:site_name" content="JellyComet">
+<meta property="og:locale" content="en_US">
 <meta property="og:description" content="Free algorithmic reverb for Linux (CLAP). Pick from 256 rooms with a jellyfish, walk between them without clicks, keep the lows dry, and duck or gate the tail.">
-<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellyreverbbtw/images/screenshot.png">
-<meta property="og:image:width" content="1260">
-<meta property="og:image:height" content="924">
-<meta property="og:image:alt" content="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellyreverbbtw/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="JellyReverbBtw, reverb on a jellyfish pad for Linux, beside its window">
 <meta name="twitter:card" content="summary_large_image">
 
 <meta name="theme-color" content="#060a11">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
 <link rel="preload" href="../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/site.css?v=f274eef954">
+<link rel="stylesheet" href="../../assets/site.css?v=194d11ae32">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "JellyReverbBtw",
-  "description": "Free algorithmic reverb for Linux (CLAP). Pick from 256 rooms with a jellyfish, walk between them without clicks, keep the lows dry, and duck or gate the tail.",
-  "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/",
-  "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Linux",
-  "softwareVersion": "1.0.1",
-  "datePublished": "2026-11-20",
-  "downloadUrl": "https://github.com/jelly-comet/JellyReverbBtw-release/releases/download/v1.0.1/JellyReverbBtw-1.0.1-linux-x86_64.tar.gz",
-  "screenshot": "https://jelly-comet.github.io/plugins/jellyreverbbtw/images/screenshot.png",
-  "softwareHelp": {
-    "@type": "CreativeWork",
-    "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/manual/"
-  },
-  "license": "https://github.com/jelly-comet/JellyReverbBtw-release/blob/main/LICENSE",
-  "isAccessibleForFree": true,
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JellyComet",
-    "url": "https://jelly-comet.github.io/"
-  }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JellyReverbBtw"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://jelly-comet.github.io/plugins/jellyreverbbtw/#software",
+      "name": "JellyReverbBtw",
+      "description": "Free algorithmic reverb for Linux (CLAP). Pick from 256 rooms with a jellyfish, walk between them without clicks, keep the lows dry, and duck or gate the tail.",
+      "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Audio plugin (CLAP)",
+      "operatingSystem": "Linux",
+      "softwareVersion": "1.0.1",
+      "datePublished": "2026-11-20",
+      "dateModified": "2026-11-20",
+      "downloadUrl": "https://github.com/jelly-comet/JellyReverbBtw-release/releases/download/v1.0.1/JellyReverbBtw-1.0.1-linux-x86_64.tar.gz",
+      "screenshot": "https://jelly-comet.github.io/plugins/jellyreverbbtw/images/screenshot.png",
+      "image": "https://jelly-comet.github.io/plugins/jellyreverbbtw/share.png",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/manual/"
+      },
+      "license": "https://github.com/jelly-comet/JellyReverbBtw-release/blob/main/LICENSE",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      },
+      "publisher": {
+        "@id": "https://jelly-comet.github.io/#organization"
+      },
+      "featureList": [
+        "256 rooms on one pad",
+        "A room switch that follows the jellyfish",
+        "BAND",
+        "DECAY from 0.2 to 20 s",
+        "DUCK and GATE",
+        "SOFT S",
+        "MOTION",
+        "A window that shows the room",
+        "No latency",
+        "Light",
+        "Stereo, and mono in to stereo out",
+        "Presets",
+        "Zoom",
+        "No network access and no telemetry"
+      ],
+      "softwareRequirements": "Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer); A CLAP host. Tried in REAPER; X11 or XWayland, and a Vulkan driver for the editor",
+      "fileSize": "5.4 MB",
+      "installUrl": "https://jelly-comet.github.io/plugins/jellyreverbbtw/#install"
+    }
+  ]
 }
 </script>
 </head>
@@ -112,7 +167,7 @@ sixteen sizes up.</strong></p>
   </div>
   <div class="product-shot">
     <div class="ring"></div>
-    <div class="shot-frame"><img class="hero-image" src="images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924"></div>
+    <div class="shot-frame"><picture><source type="image/webp" srcset="images/screenshot.webp"><img class="hero-image" src="images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924" fetchpriority="high"></picture></div>
     <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
     <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>256 rooms on one pad</span>
     <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.38 % of a CPU core</span>
@@ -153,17 +208,17 @@ convolution reverb and not a delay: every room is an algorithmic one, and you ch
       <div class="gallery">
         
         <figure>
-          <a href="images/screenshot-flung.png"><img src="images/screenshot-flung.png" alt="Flung across the pad: the rooms the jellyfish passed through still ring, dimmer, under the room it rests on" width="840" height="616" loading="lazy"></a>
+          <a href="images/screenshot-flung.png"><picture><source type="image/webp" srcset="images/screenshot-flung.webp"><img src="images/screenshot-flung.png" alt="Flung across the pad: the rooms the jellyfish passed through still ring, dimmer, under the room it rests on" width="840" height="616" loading="lazy"></picture></a>
           <figcaption>Flung across the pad: the rooms the jellyfish passed through still ring, dimmer, under the room it rests on</figcaption>
         </figure>
         
         <figure>
-          <a href="images/screenshot-vocal-space.png"><img src="images/screenshot-vocal-space.png" alt="The Vocal Space preset: Bright · 2 Rooms at 20.5 ms, DECAY 1.6 s, DUCK 40 %, the band from 200 Hz up" width="840" height="616" loading="lazy"></a>
+          <a href="images/screenshot-vocal-space.png"><picture><source type="image/webp" srcset="images/screenshot-vocal-space.webp"><img src="images/screenshot-vocal-space.png" alt="The Vocal Space preset: Bright · 2 Rooms at 20.5 ms, DECAY 1.6 s, DUCK 40 %, the band from 200 Hz up" width="840" height="616" loading="lazy"></picture></a>
           <figcaption>The Vocal Space preset: Bright · 2 Rooms at 20.5 ms, DECAY 1.6 s, DUCK 40 %, the band from 200 Hz up</figcaption>
         </figure>
         
         <figure>
-          <a href="images/screenshot-gate.png"><img src="images/screenshot-gate.png" alt="GATE at 80 % and SOFT S on: a short dark room on a drum bus" width="840" height="616" loading="lazy"></a>
+          <a href="images/screenshot-gate.png"><picture><source type="image/webp" srcset="images/screenshot-gate.webp"><img src="images/screenshot-gate.png" alt="GATE at 80 % and SOFT S on: a short dark room on a drum bus" width="840" height="616" loading="lazy"></picture></a>
           <figcaption>GATE at 80 % and SOFT S on: a short dark room on a drum bus</figcaption>
         </figure>
         
@@ -341,19 +396,20 @@ makers of any other reverb.</p>
   <p class="eyebrow">More from JellyComet</p>
   <h2 class="h2">More strange little tools</h2>
 
+
   <ul class="more-grid">
     
-    <li><a class="more-card" href="../tubeeqbtw/" style="--accent:#ff9a5c"><img src="../tubeeqbtw/images/screenshot.png" alt="" width="1260" height="1014" loading="lazy"><span class="more-text"><span class="other-name">TubeEqBtw</span> <span class="other-tagline">Passive tube EQ for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../tubeeqbtw/" style="--accent:#ff9a5c"><picture><source type="image/webp" srcset="../tubeeqbtw/images/screenshot-480.webp"><img src="../tubeeqbtw/images/screenshot.png" alt="" width="1260" height="1014" loading="lazy"></picture><span class="more-text"><span class="other-name">TubeEqBtw</span> <span class="other-tagline">Passive tube EQ for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a class="more-card" href="../optocompbtw/" style="--accent:#7cf2b0"><img src="../optocompbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"><span class="more-text"><span class="other-name">OptoCompBtw</span> <span class="other-tagline">Optical compressor for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../optocompbtw/" style="--accent:#7cf2b0"><picture><source type="image/webp" srcset="../optocompbtw/images/screenshot-480.webp"><img src="../optocompbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"></picture><span class="more-text"><span class="other-name">OptoCompBtw</span> <span class="other-tagline">Optical compressor for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a class="more-card" href="../jellysubbtw/" style="--accent:#ff7eb6"><img src="../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../jellysubbtw/" style="--accent:#ff7eb6"><picture><source type="image/webp" srcset="../jellysubbtw/images/screenshot-480.webp"><img src="../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"></picture><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><picture><source type="image/webp" srcset="../jellypitchbtw/images/screenshot-480.webp"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a class="more-card" href="../orbitloopbtw/" style="--accent:#b49bff"><img src="../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../orbitloopbtw/" style="--accent:#b49bff"><picture><source type="image/webp" srcset="../orbitloopbtw/images/screenshot-480.webp"><img src="../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><picture><source type="image/webp" srcset="../easymodebtw/images/screenshot-480.webp"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
   </ul></section>
 
