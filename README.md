@@ -12,8 +12,8 @@ git add -A && git commit -m "Site: <what changed>" && git push
 ```
 
 That is all, also for a new plugin: every public repository of `jelly-comet` named `<Name>-release`
-with a published release gets a panel on the front page, a place in its window switcher and install
-window, a page and a manual page. One without a release is skipped until it has one. Run it after
+with a published release gets a panel on the front page, a place in its install window, a page and a
+manual page, and the three latest releases a place in the front page's window switcher (owner, 2026-11-20). One without a release is skipped until it has one. Run it after
 `gh release create`, since the version, the notes and the download link come from the release.
 
 For a new plugin, two things are by hand:

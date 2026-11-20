@@ -23,8 +23,9 @@
   </div>
   <div class="hero-visual">
     <div class="ring ring-a"></div><div class="ring ring-b"></div>
+    {# The window switcher shows the latest three releases only (owner, 2026-11-20); the list below has them all. #}
     <div class="hero-shots">
-      {% for plugin in plugins %}
+      {% for plugin in plugins[:3] %}
       <div class="shot{% if not loop.first %} is-hidden{% endif %}" data-shot="{{ loop.index0 }}" style="--accent:{{ plugin.accent }}">
         <a class="shot-frame tilt" href="plugins/{{ plugin.slug }}/" tabindex="{% if loop.first %}0{% else %}-1{% endif %}"><img src="plugins/{{ plugin.slug }}/{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}"{% if not loop.first %} loading="lazy"{% endif %}></a>
         {% for chip in plugin.chips %}<span class="stat-chip chip-{{ loop.index }}"><svg><use href="#i-{{ chip.icon }}"/></svg>{{ chip.text }}</span>
@@ -33,7 +34,7 @@
       {% endfor %}
     </div>
     <nav class="plugin-switch" aria-label="Show a plugin">
-      {% for plugin in plugins %}<a href="plugins/{{ plugin.slug }}/" data-shot="{{ loop.index0 }}" style="--c:{{ plugin.accent }}"{% if loop.first %} aria-current="true"{% endif %}><i></i><b>{{ plugin.name }}</b>{% if plugin.short %}<span>{{ plugin.short }}</span>{% endif %}</a>
+      {% for plugin in plugins[:3] %}<a href="plugins/{{ plugin.slug }}/" data-shot="{{ loop.index0 }}" style="--c:{{ plugin.accent }}"{% if loop.first %} aria-current="true"{% endif %}><i></i><b>{{ plugin.name }}</b>{% if plugin.short %}<span>{{ plugin.short }}</span>{% endif %}</a>
       {% endfor %}
     </nav>
   </div>
