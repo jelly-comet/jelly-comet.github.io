@@ -42,3 +42,14 @@ chips = [
   { icon = "loop", text = "Eight arp patterns" },
 ]
 glance = { Audio = "None, MIDI in and out" }
+
+[JellySubBtw]
+kind = "Instrument"
+short = "Bass"
+accent = "#ff7eb6"
+chips = [
+  { icon = "clock", text = "No latency" },
+  { icon = "spark", text = "Five kinds of dirt" },
+  { icon = "cpu", text = "0.29 % of a CPU core" },
+]
+glance = { Latency = "None", CPU = "0.29 % of a core", Audio = "Notes in, stereo out" }

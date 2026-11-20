@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JellySubBtw – Free 808 Bass Instrument for Linux (CLAP)</title>
+<meta name="description" content="Free 808 bass instrument for Linux (CLAP). Slides, an ADSR, a resonant low-pass and five kinds of dirt, with chorus, flanger or phaser kept above the sub.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/jellysubbtw/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/jellysubbtw/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JellySubBtw – Free 808 Bass Instrument for Linux (CLAP)">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="Free 808 bass instrument for Linux (CLAP). Slides, an ADSR, a resonant low-pass and five kinds of dirt, with chorus, flanger or phaser kept above the sub.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellysubbtw/images/screenshot.png">
+<meta property="og:image:width" content="1896">
+<meta property="og:image:height" content="996">
+<meta property="og:image:alt" content="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+<link rel="preload" href="../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=615eea6d7a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JellySubBtw",
+  "description": "Free 808 bass instrument for Linux (CLAP). Slides, an ADSR, a resonant low-pass and five kinds of dirt, with chorus, flanger or phaser kept above the sub.",
+  "url": "https://jelly-comet.github.io/plugins/jellysubbtw/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Linux",
+  "softwareVersion": "1.0.0",
+  "datePublished": "2026-11-20",
+  "downloadUrl": "https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz",
+  "screenshot": "https://jelly-comet.github.io/plugins/jellysubbtw/images/screenshot.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://jelly-comet.github.io/plugins/jellysubbtw/manual/"
+  },
+  "license": "https://github.com/jelly-comet/JellySubBtw-release/blob/main/LICENSE",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "JellyComet",
+    "url": "https://jelly-comet.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../#plugins">Plugins</a>
+      <a href="../../#install">Install</a>
+      <a href="../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+
+<div class="plugin-page" style="--accent:#ff7eb6">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../">Home</a><span class="sep">/</span><a href="../../#plugins">Plugins</a><span class="sep">/</span><span class="here">JellySubBtw</span></nav>
+<section class="product-hero wrap" id="overview">
+  <div class="product-copy">
+    <p class="eyebrow"><span class="dot"></span>Instrument · CLAP · Free</p>
+    <h1>JellySubBtw <span class="product-sub">808 bass with dirt for Linux</span></h1>
+    <p class="product-summary"><strong>An 808 bass instrument with five kinds of dirt and one jellyfish pad.</strong> A sine or a wave with more
+harmonics rings out like an 808 or holds under an ADSR, glides into the next key, and one puck sets
+how much dirt and how much chorus, flanger or phaser it gets.</p>
+    <ul class="meta-chips">
+      <li>v1.0.0</li><li>20 Nov 2026</li><li>CLAP</li><li>Linux x86-64</li><li>MIT</li>
+    </ul>
+    <div class="product-actions">
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <span class="note">5.5 MB</span></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <a class="text-link dim" href="JellySubBtw-manual.pdf" download>Manual as PDF</a>
+    </div>
+  </div>
+  <div class="product-shot">
+    <div class="ring"></div>
+    <div class="shot-frame"><img class="hero-image" src="images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996"></div>
+    <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
+    <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>Five kinds of dirt</span>
+    <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.29 % of a CPU core</span>
+    
+  </div>
+</section>
+
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav-inner">
+    <div class="subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#what-its-for">What it's for</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      
+      <a href="#whats-new">What's new</a>
+    </div>
+    <a class="btn btn-sm btn-primary" href="https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz">Download <span class="note">5.5 MB</span></a>
+  </div>
+</nav>
+
+<div class="product-layout wrap">
+  <article class="article prose">
+    <div class="intro-text"><p>JellySubBtw plays one bass note at a time. A resonant low-pass shapes it, then one of five kinds of
+dirt drives it (Soft, Clip, Tube, Fold, Crush), on the whole bass or only above the sub, and DRIVE
+changes the tone without making it louder. After the dirt a chorus, a flanger or a phaser plays in a
+band of its own, from 200 Hz up by default, so the sub stays in the middle and mono-safe. The DIRT
+display reads how much of the note a laptop or phone speaker gets, so you can tell whether the bass
+will be heard on one. It has no latency. It is not a kick drum and not a sampler: it plays one bass
+voice from your notes.</p>
+<p><strong><a href="manual/">Read the manual</a></strong> for every control and how to use it.</p>
+</div>
+    
+    <section id="screenshots" class="part">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        
+        <figure>
+          <a href="images/screenshot-fold.png"><img src="images/screenshot-fold.png" alt="Fold Growl: Fold at DRIVE 55 % from 150 Hz, the low-pass at 2.5 kHz with ENV 40 %, MOD 0 %" width="1896" height="996" loading="lazy"></a>
+          <figcaption>Fold Growl: Fold at DRIVE 55 % from 150 Hz, the low-pass at 2.5 kHz with ENV 40 %, MOD 0 %</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-chorus.png"><img src="images/screenshot-chorus.png" alt="Wide Chorus: Soft at DRIVE 30 % from 120 Hz, the chorus at MOD 50 % from 220 Hz" width="1896" height="996" loading="lazy"></a>
+          <figcaption>Wide Chorus: Soft at DRIVE 30 % from 120 Hz, the chorus at MOD 50 % from 220 Hz</figcaption>
+        </figure>
+        
+      </div>
+    </section>
+    
+    
+    
+    
+    <section id="what-its-for" class="part part-uses">
+      <h2>What it's for</h2>
+      
+      <div class="use-grid">
+        <div class="use-card"><span class="use-num">01</span><b>Trap and drill 808s</b><span>A long sine that rings out, a slide bent late into the next note, and a little dirt so it
+  is heard on small speakers.</span></div>
+        <div class="use-card"><span class="use-num">02</span><b>Sliding bass lines</b><span>Play a key under a held one and it glides, or turn EVERY on and every note slides from the
+  last.</span></div>
+        <div class="use-card"><span class="use-num">03</span><b>Distorted and growling sub bass</b><span>Clip, tube, fold or crush the note above the sub and keep the fundamental
+  clean, with the low-pass opened by the note's envelope.</span></div>
+        <div class="use-card"><span class="use-num">04</span><b>A wide bass that stays mono-safe</b><span>Chorus, flanger or phaser only above the sub, synced to the song.</span></div>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="features" class="part part-features">
+      <h2>Features</h2>
+      
+      <ul class="feature-cols">
+        <li><svg><use href="#i-check"/></svg><span><b>One 808 voice:</b> one note at a time, a hit starting on its note with no pitch drop and no click. GLIDE from 0 to
+  400 ms, bent early or late; OCTAVE keeps every key between B0 and A♯1.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>An ADSR drawn as it sounds:</b> WAVE draws the chosen wave along the envelope, with grips to drag. SUSTAIN 0 rings
+  out like an 808.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Eight waves:</b> a sine and seven waves with more and more harmonics.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A resonant low-pass into the dirt:</b> 24 dB an octave, RESO up to +17.7 dB at the cutoff, ENV opening it by up to
+  5 octaves with the note's envelope.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Five kinds of dirt</b> in a band of their own: Soft, Clip, Tube, Fold and Crush. DRIVE keeps the loudness within
+  0.2 LU from 0 to 100 %, so it changes the tone, not the level.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Chorus, flanger or phaser above the sub:</b> each with its own pad, RATE and DEPTH, and SYNC to lock the sweep to
+  the song. With the band from 200 Hz the side stays 56 dB or more under the mid below 60 Hz.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>The laptop check:</b> DIRT's spectrum marks 150 and 400 Hz and reads how much of the note a speaker that starts
+  there gets.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Presets:</b> seven built in beside Init, your own, and a dice that rolls a new sound.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No latency.</b> Nothing passes 0 dBFS: a soft clip at full scale comes last.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Light:</b> 0.29 % of a CPU core at the defaults, 0.68 % with everything on, at 48 kHz.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Zoom</b> from 100 to 150 %.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No network access and no telemetry.</b> </span></li>
+        
+      </ul>
+      
+    </section>
+    
+    
+    <section id="install" class="part part-prose">
+      <h2>Install</h2>
+      
+      <p>Download the latest version from the <a href="https://github.com/jelly-comet/JellySubBtw-release/releases">Releases page</a>,
+or with these commands:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">curl -LO https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz
+curl -LO https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz.sha256
+sha256sum -c JellySubBtw-1.0.0-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf JellySubBtw-1.0.0-linux-x86_64.tar.gz
+cd JellySubBtw-1.0.0-linux-x86_64
+</code></pre></div>
+<p>Install for your user:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">mkdir -p ~/.clap
+rm -f ~/.clap/JellySubBtw.clap &amp;&amp; cp JellySubBtw.clap ~/.clap/
+</code></pre></div>
+<p>Or for all users:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">sudo mkdir -p /usr/lib/clap
+sudo rm -f /usr/lib/clap/JellySubBtw.clap &amp;&amp; sudo cp JellySubBtw.clap /usr/lib/clap/
+</code></pre></div>
+<p>Removing the old copy first avoids overwriting a file a running host has loaded. Then rescan plugins
+in your DAW.</p>
+<p>To uninstall:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">rm -f ~/.clap/JellySubBtw.clap
+</code></pre></div>
+<p>Your presets stay in <code>~/.local/share/JellySubBtw/presets/</code>; delete that folder too if you want them gone.</p>
+      
+    </section>
+    
+    
+    <section id="faq" class="part part-faq">
+      <h2>FAQ</h2>
+      
+      <div class="faq">
+        <details open><summary>Is it free?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Yes. The download is free and MIT-licensed.</p></div></details>
+        <details><summary>Is there a VST3 or LV2 version?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. Releases contain the CLAP plugin only.</p></div></details>
+        <details><summary>Does it run on ARM, like a Raspberry Pi or Apple Silicon?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It needs Linux on x86-64, on a CPU with AVX2.</p></div></details>
+        <details><summary>Which hosts does it work in?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Any CLAP host. It was tried in Bitwig Studio and REAPER.</p></div></details>
+        <details><summary>Does it work on Wayland?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Through XWayland. The editor also needs a Vulkan driver.</p></div></details>
+        <details><summary>Does it make kick drums or play samples?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It plays one bass voice from your notes: a sine or a wave with more harmonics, with no pitch drop and no click
+at its start. Put it beside your kick, not in its place.</p></div></details>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="whats-new" class="part">
+      <h2>What's new in v1.0.0</h2>
+      <p class="release-date">20 Nov 2026 · <a href="https://github.com/jelly-comet/JellySubBtw-release/releases/tag/v1.0.0">Release on GitHub</a></p>
+      <div class="notes"><p>JellySubBtw 1.0: an 808 bass instrument with five kinds of dirt, a chorus, flanger or phaser above the sub, and one jellyfish pad for both.</p>
+<ul>
+<li><strong>One 808 voice:</strong> a sine or one of seven waves with more harmonics, under an ADSR drawn as it sounds, with grips to drag. A hit starts on its note, with no pitch drop and no click.</li>
+<li><strong>Slides:</strong> a key under a held one glides over GLIDE (0 to 400 ms), bent early or late; with EVERY on, every note slides from the last. OCTAVE keeps every key between B0 and A♯1.</li>
+<li><strong>A resonant low-pass into the dirt:</strong> 24 dB an octave, RESO up to +17.7 dB, ENV opening it with each hit.</li>
+<li><strong>Five kinds of dirt:</strong> Soft, Clip, Tube, Fold and Crush, on the whole bass or only above the sub. DRIVE changes the tone, not the loudness (within 0.2 LU from 0 to 100 %).</li>
+<li><strong>Chorus, flanger or phaser in a band of their own,</strong> from 200 Hz by default, so the sub stays in the middle; SYNC locks the sweep to the song.</li>
+<li><strong>The laptop check:</strong> DIRT's spectrum reads how much of the note a laptop or phone speaker gets.</li>
+<li><strong>Presets:</strong> seven built in beside Init, your own, and a dice that rolls a new sound.</li>
+<li>No latency. Nothing passes 0 dBFS. 0.29 % of a CPU core at the defaults, 0.68 % with everything on, at 48 kHz. Needs a CPU with AVX2.</li>
+</ul></div>
+      
+    </section>
+
+    <section id="license" class="part part-prose">
+      <h2>License</h2>
+      
+      <p>MIT, see <a href="https://github.com/jelly-comet/JellySubBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
+<code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. Ableton Live is a trademark of Ableton AG; the MOD pads follow Live 9's layout and nothing
+else. JellySubBtw is an independent project, not affiliated with or endorsed by Steinberg or Ableton, and "808"
+names a kind of bass, not a product.</p>
+      
+    </section>
+    
+    
+  </article>
+
+  <aside class="rail">
+    <div class="rail-card">
+      <h2>At a glance</h2>
+      <dl class="glance">
+        <div><dt>Version</dt><dd>v1.0.0</dd></div>
+        <div><dt>Released</dt><dd>20 Nov 2026</dd></div>
+        <div><dt>Format</dt><dd>CLAP</dd></div>
+        <div><dt>System</dt><dd>Linux x86-64</dd></div>
+        <div><dt>License</dt><dd class="green">MIT, free</dd></div>
+        <div><dt>Download</dt><dd>5.5 MB</dd></div>
+        <div><dt>Latency</dt><dd>None</dd></div>
+        <div><dt>CPU</dt><dd>0.29 % of a core</dd></div>
+        <div><dt>Audio</dt><dd>Notes in, stereo out</dd></div>
+        
+      </dl>
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <svg><use href="#i-download"/></svg></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <p class="rail-foot"><a href="https://github.com/jelly-comet/JellySubBtw-release/releases">All releases</a> · <a href="https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz.sha256">SHA-256</a> · <a href="https://github.com/jelly-comet/JellySubBtw-release/issues">Support</a></p>
+    </div>
+    
+    <div class="rail-card" id="requirements">
+      <h2>Requirements</h2>
+      <ul class="req">
+        <li><svg><use href="#i-check"/></svg><span>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</span></li>
+        <li><svg><use href="#i-check"/></svg><span>A CLAP host. Tried in Bitwig Studio and REAPER.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>X11 or XWayland, and a Vulkan driver for the editor</span></li>
+        
+      </ul>
+      <div class="rail-foot"><p>Releases contain the CLAP plugin only.</p></div>
+    </div>
+    
+  </aside>
+</div>
+
+
+<section class="more-plugins wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../orbitloopbtw/" style="--accent:#b49bff"><img src="../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../plugins/jellysubbtw/">JellySubBtw</a>
+        <a href="../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../plugins/jellysubbtw/manual/">JellySubBtw</a>
+        <a href="../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/site.js?v=4a716bab96" defer></script>
+<script src="../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

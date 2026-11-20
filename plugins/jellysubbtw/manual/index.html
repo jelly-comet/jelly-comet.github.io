@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JellySubBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The JellySubBtw manual: every control and how to use it. JellySubBtw is a free CLAP plugin: 808 bass with dirt for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/jellysubbtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/jellysubbtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JellySubBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="The JellySubBtw manual: every control and how to use it. JellySubBtw is a free CLAP plugin: 808 bass with dirt for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellysubbtw/images/screenshot.png">
+<meta property="og:image:width" content="1896">
+<meta property="og:image:height" content="996">
+<meta property="og:image:alt" content="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="preload" href="../../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/site.css?v=615eea6d7a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JellySubBtw",
+          "item": "https://jelly-comet.github.io/plugins/jellysubbtw/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manual"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "JellySubBtw manual",
+      "description": "The JellySubBtw manual: every control and how to use it. JellySubBtw is a free CLAP plugin: 808 bass with dirt for Linux.",
+      "url": "https://jelly-comet.github.io/plugins/jellysubbtw/manual/",
+      "image": "https://jelly-comet.github.io/plugins/jellysubbtw/images/screenshot.png",
+      "dateModified": "2026-11-20",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "JellySubBtw",
+        "url": "https://jelly-comet.github.io/plugins/jellysubbtw/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../../#plugins">Plugins</a>
+      <a href="../../../#install">Install</a>
+      <a href="../../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+<div class="plugin-page" style="--accent:#ff7eb6">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../../">Home</a><span class="sep">/</span><a href="../">JellySubBtw</a><span class="sep">/</span><span class="here">Manual</span></nav>
+<article class="prose manual wrap">
+  <h1 id="jellysubbtw-manual">JellySubBtw manual</h1>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://github.com/jelly-comet/JellySubBtw-release/releases/download/v1.0.0/JellySubBtw-1.0.0-linux-x86_64.tar.gz">Download JellySubBtw v1.0.0 <span class="note">5.5 MB</span></a>
+    <a class="btn btn-ghost" href="../JellySubBtw-manual.pdf" download>This manual as PDF</a>
+  </div>
+  
+<p><strong>An 808 bass instrument with five kinds of dirt and one jellyfish pad.</strong> A sine or a wave with more
+harmonics rings out like an 808 or holds under an ADSR, glides into the next key, and one puck sets
+how much dirt and how much chorus, flanger or phaser it gets.</p>
+<p>Version 1.0.0. To install it, see the <a href="../#install">install steps</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Put JellySubBtw on an instrument track and play a bass line in the first two octaves. At the defaults
+it is a clean sine that rings out like an 808, through a low-pass at 200 Hz. Then:</p>
+<ul>
+<li>Drag the puck on the jellyfish pad to the right for dirt (DRIVE), and up for the chorus (MOD).</li>
+<li>Pick another kind of dirt in DIRT: Clip or Fold for a hard, buzzy bass, Tube for a warm one.</li>
+<li>Press a key while another is held and the note slides into it.</li>
+<li>Or open PRESET and try the seven built-in sounds, or roll the dice beside it.</li>
+</ul>
+<p>The window runs along the signal, left to right and top to bottom: the note (WAVE), the dirt (DIRT),
+the effect (MOD), the pad and the level (OUT).</p>
+<p><img alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" src="../images/screenshot.png" width="1896" height="996"></p>
+<h2 id="the-controls">The controls</h2>
+<p>From the left of WAVE to OUT, along the signal.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HARMONICS</strong></td>
+<td>0 to 7</td>
+<td>0</td>
+<td>The wave: 0 is a sine, 1 to 7 have more and more harmonics. Takes effect on the next hit.</td>
+</tr>
+<tr>
+<td><strong>OCTAVE</strong></td>
+<td>off, on</td>
+<td>off</td>
+<td>Keeps every key's fundamental between B0 and A♯1, wherever you play it.</td>
+</tr>
+<tr>
+<td><strong>ATTACK</strong></td>
+<td>1 ms to 2 s</td>
+<td>1 ms</td>
+<td>The rise to the peak. On WAVE: the peak's grip, dragged along.</td>
+</tr>
+<tr>
+<td><strong>DECAY</strong></td>
+<td>10 ms to 8 s</td>
+<td>2.00 s</td>
+<td>The fall to SUSTAIN. On WAVE: the knee's grip, along.</td>
+</tr>
+<tr>
+<td><strong>SUSTAIN</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>The level held while the key is. 0 rings out like an 808. On WAVE: the knee's grip, up.</td>
+</tr>
+<tr>
+<td><strong>RELEASE</strong></td>
+<td>5 ms to 4 s</td>
+<td>60 ms</td>
+<td>The fall after the key is let go. On WAVE: the end's grip, along.</td>
+</tr>
+<tr>
+<td><strong>EVERY</strong></td>
+<td>off, on</td>
+<td>off</td>
+<td>On: every note slides from the last one, not only a key pressed under a held one.</td>
+</tr>
+<tr>
+<td><strong>GLIDE</strong></td>
+<td>0 to 400 ms</td>
+<td>60 ms</td>
+<td>How long a slide takes; 0 jumps. Its plot's grip, along.</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong></td>
+<td>Late 100 % to Early 100 %</td>
+<td>Straight</td>
+<td>A slide's bend: Early rushes and settles, Late holds and swoops in. GLIDE's grip, up or down.</td>
+</tr>
+<tr>
+<td><strong>CUTOFF</strong></td>
+<td>20 Hz to 20 kHz, Off</td>
+<td>200 Hz</td>
+<td>The low-pass before the dirt, 24 dB an octave. Off, at the top, is no filter at all. Its grip, along.</td>
+</tr>
+<tr>
+<td><strong>RESO</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>The resonance at the cutoff, up to +17.7 dB. Its grip, up.</td>
+</tr>
+<tr>
+<td><strong>ENV</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>How far the note's envelope opens the low-pass, up to 5 octaves.</td>
+</tr>
+<tr>
+<td><strong>DIRT</strong></td>
+<td>Soft, Clip, Tube, Fold, Crush</td>
+<td>Soft</td>
+<td>The kind of dirt; each has a tooltip.</td>
+</tr>
+<tr>
+<td><strong>DRIVE</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>How hard the dirt is driven: the pad across, the grip in the middle of DIRT's curve, or DRIVE in the bar under the pad. 0 is the clean note.</td>
+</tr>
+<tr>
+<td><strong>DIRT's band</strong></td>
+<td>Off (20 Hz) to 20 kHz</td>
+<td>Off</td>
+<td>Where the dirt plays: above this edge, the clean note under it. Off is the whole bass. The round grip on DIRT's spectrum.</td>
+</tr>
+<tr>
+<td><strong>MOD</strong></td>
+<td>Chorus, Flanger, Phaser</td>
+<td>Chorus</td>
+<td>The effect after the dirt.</td>
+</tr>
+<tr>
+<td><strong>MOD (mix)</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>How much of the effect is heard inside its band: the pad up, or MOD in the bar under the pad. Hosts show it as Mod Mix.</td>
+</tr>
+<tr>
+<td><strong>MOD's band</strong></td>
+<td>Off (20 Hz) to 20 kHz</td>
+<td>200 Hz</td>
+<td>Where the effect plays: under this edge always the dry note. The round grip on MOD's display.</td>
+</tr>
+<tr>
+<td><strong>SYNC</strong></td>
+<td>off, on</td>
+<td>on</td>
+<td>Each RATE snaps to the nearest of 1/8 note to 8 bars, and the sweep follows the song's position while it plays.</td>
+</tr>
+<tr>
+<td><strong>Chorus AMOUNT, RATE</strong></td>
+<td>0 to 3.4 ms; 0.05 to 5 Hz</td>
+<td>1.85 ms; 0.51 Hz</td>
+<td>The chorus's pad: how far its delay sweeps either way, and how fast.</td>
+</tr>
+<tr>
+<td><strong>Flanger DELAY TIME, FEEDBACK</strong></td>
+<td>0.2 to 12 ms; 0 to 95 %</td>
+<td>1.58 ms; 50 %</td>
+<td>The flanger's pad: the delay its sweep centres on, and the feedback.</td>
+</tr>
+<tr>
+<td><strong>Flanger RATE, DEPTH</strong></td>
+<td>0.05 to 5 Hz; 0 to 100 %</td>
+<td>0.25 Hz; 100 %</td>
+<td>The flanger's sweep, under its display.</td>
+</tr>
+<tr>
+<td><strong>Phaser FREQUENCY, FEEDBACK</strong></td>
+<td>50 Hz to 20 kHz; 0 to 95 %</td>
+<td>894 Hz; 30 %</td>
+<td>The phaser's pad: the frequency its sweep centres on, and the feedback.</td>
+</tr>
+<tr>
+<td><strong>Phaser RATE, DEPTH</strong></td>
+<td>0.05 to 5 Hz; 0 to 100 %</td>
+<td>0.50 Hz; 100 %</td>
+<td>The phaser's sweep, under its display.</td>
+</tr>
+<tr>
+<td><strong>OUT</strong></td>
+<td>−24 to 0 dB</td>
+<td>0 dB</td>
+<td>The level into the last soft clip: the tall fader, or OUT under it. The fader's thin line is the output's peak; its top lights when the clip takes some off.</td>
+</tr>
+<tr>
+<td><strong>SOUND</strong> (the dice)</td>
+<td>a button</td>
+<td></td>
+<td>Rolls a new sound (see <a href="#the-dice">The dice</a>).</td>
+</tr>
+<tr>
+<td><strong>PRESET</strong></td>
+<td>a list</td>
+<td>Init</td>
+<td>See <a href="#presets">Presets</a>.</td>
+</tr>
+<tr>
+<td><strong>Zoom</strong></td>
+<td>100, 125, 150 %</td>
+<td>100 %</td>
+<td>The window's size, kept with the project.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mouse:</strong> drag a value, a grip or a pad; hold Shift for fine steps; the scroll wheel steps;
+double-click resets to the default; right-click a value to type it (<code>180 ms</code>, <code>2 s</code>, <code>1.2k</code>, <code>30%</code>).
+A click anywhere on a pad moves its puck there. The host can automate every parameter.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="the-note-wave">The note: WAVE</h3>
+<p>WAVE draws the note as your settings will make it: the chosen wave along the attack, decay, sustain
+and release, stage by stage, and a dot riding the curve while a note sounds. Drag its three grips to
+shape the envelope. With SUSTAIN at 0 the note rings out and dies on its own, the classic 808; raise
+SUSTAIN for a bass that holds as long as the key.</p>
+<p>HARMONICS picks the wave. A sine (0) is the pure sub, felt more than heard on small speakers; 1 to 3
+add the overtones that make a bass audible on a laptop; 5 to 7 are bright and buzzy before any dirt.</p>
+<h3 id="slides">Slides</h3>
+<p>Press a key while another is held and the note slides to it over GLIDE, without a new hit. With
+EVERY on, every note slides from the last one, even after a gap, as many trap 808s do. SHAPE bends
+the slide: Late holds the old note and swoops in at the end, the typical 808 slide; Early rushes to
+the new note and settles.</p>
+<h3 id="the-low-pass">The low-pass</h3>
+<p>CUTOFF and RESO set a 24 dB an octave low-pass before the dirt, on its own display at WAVE's right
+end, with the note's partials drawn behind. Lower it to darken a wave with many harmonics before it
+is driven; ENV opens it with each hit and closes it as the note dies, for a bass that growls on its
+attack. At Off the filter is out of the way entirely.</p>
+<h3 id="the-dirt-dirt">The dirt: DIRT</h3>
+<ul>
+<li><strong>Soft:</strong> a gentle rounding that thickens the note.</li>
+<li><strong>Clip:</strong> hard edges, loud and buzzy, the clipped trap 808.</li>
+<li><strong>Tube:</strong> a warm, uneven drive, like a valve.</li>
+<li><strong>Fold:</strong> the wave folds over itself as DRIVE rises, a metallic growl.</li>
+<li><strong>Crush:</strong> fewer bits and a slower clock, gritty and lo-fi.</li>
+</ul>
+<p>DRIVE changes the tone and not the loudness: the dirt is held at the clean note's loudness, so you
+can judge it by ear without being fooled by a louder signal.</p>
+<p>DIRT's band keeps the dirt off the sub. Drag its round grip on the spectrum up to 120 or 150 Hz, and
+the fundamental stays clean while everything above it is driven: a bass that is clean on a big
+system and heard on a small one. Fold in particular can take the fundamental away on the whole bass;
+give it a band.</p>
+<p><strong>The laptop check:</strong> DIRT's spectrum marks 150 Hz and 400 Hz, where a laptop and a phone speaker
+start, and reads how much of the note gets through to each. If the readout is low, add HARMONICS or
+DRIVE until it isn't.</p>
+<h3 id="the-effect-mod">The effect: MOD</h3>
+<p>Pick Chorus, Flanger or Phaser. Each has its own small pad, laid out as in Ableton Live 9 (the
+chorus's AMOUNT and RATE, the flanger's DELAY TIME and FEEDBACK, the phaser's FREQUENCY and
+FEEDBACK), and its response beside it, moving with the sweep. The flanger and the phaser also have
+RATE and DEPTH under the response.</p>
+<p>The effect plays only above MOD's band edge, 200 Hz by default; under it the note stays dry and in
+the middle, so the low end is as mono as before. Moving the edge under 200 Hz widens the low end;
+from 100 Hz the side below 60 Hz is only 34 to 40 dB under the mid, where from 200 Hz it is 56 or
+more.</p>
+<p>With SYNC on (the default) every RATE snaps to a note length, and while the song plays the sweep
+sits on its position, so the same bar sounds the same every time.</p>
+<h3 id="the-jellyfish-pad">The jellyfish pad</h3>
+<p>One puck for the two amounts that matter most: across is DRIVE, up is MOD's mix. Press anywhere on
+the pad and the puck jumps there; drag it while a note plays to hear the bass go from clean to
+dirty to wide. DRIVE and MOD are also in the bar under the pad to drag or type.</p>
+<p><img alt="Fold Growl: Fold at DRIVE 55 % from 150 Hz, the low-pass at 2.5 kHz with ENV 40 %, MOD 0 %" src="../images/screenshot-fold.png" width="1896" height="996" loading="lazy"></p>
+<h3 id="out">OUT</h3>
+<p>The level into a soft clip at full scale, the last thing in the plugin: nothing passes 0 dBFS. At
+OUT 0 dB, the default, a note at full velocity reaches the clip's knee and it rounds the peaks a
+little, up to about 1.2 dB with the built-in presets. Its top lights when it does. Bring OUT down to
+−3 dB if you want it untouched.</p>
+<h3 id="presets">Presets</h3>
+<p>The PRESET list holds Init (every default), your favourites, the seven built-in presets and then
+your own. The arrows step through them, the disk saves the current settings under a name, and
+PRESET reads <code>Custom</code> once a setting differs from every preset.</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trap Glide</td>
+<td>The long trap 808: a sine, no filter, a little Soft on the whole bass, a slide bent late.</td>
+</tr>
+<tr>
+<td>Clipped Sub</td>
+<td>Clip at DRIVE 60 % above 120 Hz: the fundamental clean, the clip heard on a laptop.</td>
+</tr>
+<tr>
+<td>Warm Tube</td>
+<td>Tube on HARMONICS 2 through a low-pass at 900 Hz, held a little.</td>
+</tr>
+<tr>
+<td>Fold Growl</td>
+<td>Fold above 150 Hz, the low-pass opened by the note's envelope: it growls as it hits.</td>
+</tr>
+<tr>
+<td>Crushed Pluck</td>
+<td>A short crushed pluck with a flanger above 300 Hz.</td>
+</tr>
+<tr>
+<td>Wide Chorus</td>
+<td>Soft on HARMONICS 1, a wide chorus above 220 Hz, the sub in the middle.</td>
+</tr>
+<tr>
+<td>Phased Hold</td>
+<td>A held, clipped bass with a slow phaser above 180 Hz and EVERY on.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Wide Chorus: Soft at DRIVE 30 % from 120 Hz, the chorus at MOD 50 % from 220 Hz" src="../images/screenshot-chorus.png" width="1896" height="996" loading="lazy"></p>
+<p>Your presets are text files in <code>~/.local/share/JellySubBtw/presets/</code>, one <code>id value</code> line a
+parameter, shared by every project:</p>
+<pre><code class="language-text">drive 0.35
+dirt soft
+harmonics 0
+</code></pre>
+<p>A line a file doesn't have leaves its parameter alone, and a line it doesn't know is skipped.</p>
+<h3 id="the-dice">The dice</h3>
+<p>SOUND, left of PRESET, rolls every setting that shapes the sound: the wave, the envelope, the slide,
+the filter, the dirt and the effect. It keeps OUT, OCTAVE, SYNC and EVERY as they are, and never
+starts MOD's band under 100 Hz, so the sub stays in the middle. Roll until something sounds good,
+then save it.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>No latency:</strong> a note sounds on its own sample, and the host has nothing to compensate.</li>
+<li><strong>Light:</strong> about 0.29 % of a CPU core at the defaults and 0.68 % with everything on, at 48 kHz. In
+  a long silence it costs next to nothing, and it tells the host when it is silent.</li>
+<li><strong>Click-free changes:</strong> settings glide over 20 ms, a change of DIRT crossfades over 10 ms, a
+  change of MOD over 20 ms, so you can automate them while notes play.</li>
+<li><strong>Velocity</strong> spans 12 dB; the pitch wheel bends ±2 semitones.</li>
+<li><strong>Mono up to MOD, stereo after it.</strong></li>
+<li><strong>No oversampling,</strong> for the zero latency: hard dirt on high notes aliases a little at 44.1 kHz,
+  under −52 dB; on bass notes, and at 48 kHz, it stays under −60 dB.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>The plugin doesn't show up:</strong> check that the bundle is in <code>~/.clap</code> or <code>/usr/lib/clap</code>, then
+  rescan plugins in your DAW. It needs a CPU with AVX2.</li>
+<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed. The
+  <code>vulkaninfo</code> tool from <code>vulkan-tools</code> should list your GPU.</li>
+<li><strong>A note doesn't slide:</strong> only a key pressed while another is held slides, unless EVERY is on;
+  GLIDE 0 jumps.</li>
+<li><strong>The bass is thin with Fold:</strong> on the whole bass Fold can take the fundamental away. Move DIRT's
+  band up to 120 Hz or more.</li>
+<li><strong>The low end goes wide or thin in mono:</strong> MOD's band reaches the sub. Keep its low edge at 200 Hz
+  or over.</li>
+<li><strong>The fader's top lights up:</strong> the last clip is rounding the peaks. Bring OUT down to −3 dB to
+  keep it off.</li>
+<li><strong>The note sounds dull:</strong> CUTOFF starts at 200 Hz. Turn it up, or all the way to Off.</li>
+<li><strong>Typing a preset's name does nothing:</strong> some hosts keep keystrokes for themselves. Write the
+  preset file by hand instead (see <a href="#presets">Presets</a>).</li>
+<li><strong>A preset doesn't show up in the menu:</strong> its file must end in <code>.preset</code>, and its name can't start
+  with a dot or be Init's or a built-in preset's. The editor reads the folder when it opens and
+  after a save, so reopen the editor after adding files by hand.</li>
+</ul>
+</article>
+
+<section class="more-plugins manual-others wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../orbitloopbtw/" style="--accent:#b49bff"><img src="../../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../easymodebtw/" style="--accent:#ffc46b"><img src="../../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../../plugins/jellysubbtw/">JellySubBtw</a>
+        <a href="../../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../../plugins/jellysubbtw/manual/">JellySubBtw</a>
+        <a href="../../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../../assets/site.js?v=4a716bab96" defer></script>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>
