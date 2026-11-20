@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JellyReverbBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The JellyReverbBtw manual: every control and how to use it. JellyReverbBtw is a free CLAP plugin: reverb on a jellyfish pad for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/jellyreverbbtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/jellyreverbbtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JellyReverbBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="The JellyReverbBtw manual: every control and how to use it. JellyReverbBtw is a free CLAP plugin: reverb on a jellyfish pad for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellyreverbbtw/images/screenshot.png">
+<meta property="og:image:width" content="1260">
+<meta property="og:image:height" content="924">
+<meta property="og:image:alt" content="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="preload" href="../../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/site.css?v=f274eef954">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JellyReverbBtw",
+          "item": "https://jelly-comet.github.io/plugins/jellyreverbbtw/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manual"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "JellyReverbBtw manual",
+      "description": "The JellyReverbBtw manual: every control and how to use it. JellyReverbBtw is a free CLAP plugin: reverb on a jellyfish pad for Linux.",
+      "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/manual/",
+      "image": "https://jelly-comet.github.io/plugins/jellyreverbbtw/images/screenshot.png",
+      "dateModified": "2026-11-20",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "JellyReverbBtw",
+        "url": "https://jelly-comet.github.io/plugins/jellyreverbbtw/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../../#plugins">Plugins</a>
+      <a href="../../../#install">Install</a>
+      <a href="../../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+<div class="plugin-page" style="--accent:#8fb8ff">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../../">Home</a><span class="sep">/</span><a href="../">JellyReverbBtw</a><span class="sep">/</span><span class="here">Manual</span></nav>
+<article class="prose manual wrap">
+  <h1 id="jellyreverbbtw-manual">JellyReverbBtw manual</h1>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://github.com/jelly-comet/JellyReverbBtw-release/releases/download/v1.0.0/JellyReverbBtw-1.0.0-linux-x86_64.tar.gz">Download JellyReverbBtw v1.0.0 <span class="note">5.4 MB</span></a>
+    <a class="btn btn-ghost" href="../JellyReverbBtw-manual.pdf" download>This manual as PDF</a>
+  </div>
+  
+<p><strong>A reverb whose room you pick with a jellyfish: 256 rooms on one pad, four kinds of walls and four shapes across,
+sixteen sizes up.</strong></p>
+<p>Version 1.0.0. To install it, see the <a href="../#install">install steps</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Put JellyReverbBtw on a send, or straight on a vocal, a drum bus or a synth, and play. At the defaults the jellyfish
+sits on Warm · Smooth at 23.9 ms with DECAY 2.5 s and MIX 30 %. Drag the jellyfish while the track plays: left for
+duller walls, right for brighter ones, down for a smaller room, up for a larger one. When you like the room, set DECAY
+for how long it rings and MIX for how much of it you hear. On a send, set MIX to 100 %.</p>
+<p>Or pick a room from the PRESET list, Drum Room or Vocal Space, and start from there.</p>
+<p><img alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room's 32 lines, the tail with SOFT S on its strip, and the band open" src="../images/screenshot.png" width="1260" height="924"></p>
+<h2 id="the-controls">The controls</h2>
+<p>From the top left of the window.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PRESET</strong></td>
+<td>a list</td>
+<td>Init</td>
+<td>See <a href="#presets">Presets</a>.</td>
+</tr>
+<tr>
+<td><strong>Zoom</strong></td>
+<td>100 to 200 %</td>
+<td>100 %</td>
+<td>The window's size, kept with the project.</td>
+</tr>
+<tr>
+<td><strong>Power switch</strong> (top right)</td>
+<td>on, off</td>
+<td>on</td>
+<td>Off, the input passes untouched, crossfaded over 20 ms, and the room stands still; on starts the tail from silence.</td>
+</tr>
+<tr>
+<td><strong>The pad: TYPE</strong> (across)</td>
+<td>16 types, Muffled · Smooth to Bright · Smooth</td>
+<td>Warm · Smooth</td>
+<td>Four zones of walls (Muffled, Dark, Warm, Bright), each with four shapes (Smooth, Echo, 2 Rooms, 4 Rooms).</td>
+</tr>
+<tr>
+<td><strong>The pad: SIZE</strong> (up)</td>
+<td>6.0 to 60 ms, 16 steps</td>
+<td>23.9 ms</td>
+<td>The same room smaller or larger. The scroll wheel over the pad steps it.</td>
+</tr>
+<tr>
+<td><strong>The room's lines</strong> (top right)</td>
+<td></td>
+<td></td>
+<td>The room's 32 delay lines as bars, brighter while they ring.</td>
+</tr>
+<tr>
+<td><strong>The tail</strong> (below them)</td>
+<td></td>
+<td></td>
+<td>The reverb's level over the last seconds and where it is going, on the song's beats.</td>
+</tr>
+<tr>
+<td><strong>SOFT S</strong> (on the tail's strip)</td>
+<td>on, off</td>
+<td>off</td>
+<td>De-esses the room's input, so s's splash less in the room; the dry is left alone.</td>
+</tr>
+<tr>
+<td><strong>DECAY</strong></td>
+<td>0.2 to 20 s</td>
+<td>2.5 s</td>
+<td>How long the room rings: the time its tail takes to fall 60 dB at 500 Hz.</td>
+</tr>
+<tr>
+<td><strong>MOTION</strong></td>
+<td>0 to 100 %</td>
+<td>0 %</td>
+<td>Lets the room's lines wander a little, so a long tail rings less metallic.</td>
+</tr>
+<tr>
+<td><strong>BAND</strong></td>
+<td>Off (20 Hz) to Off (20 kHz)</td>
+<td>Off, Off</td>
+<td>Where the reverb plays: outside it the input passes untouched. The strip shows the reverb's spectrum.</td>
+</tr>
+<tr>
+<td><strong>DUCK</strong></td>
+<td>−100 to 100 %</td>
+<td>0 %</td>
+<td>Right of its middle, pushes the room down while the input plays. Left of it, its caption reads GATE: the room shuts once the input stops.</td>
+</tr>
+<tr>
+<td><strong>MIX</strong></td>
+<td>0 to 100 %</td>
+<td>30 %</td>
+<td>How much of the room you hear inside the band. 0 % is the dry input.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mouse:</strong> drag the jellyfish, or press anywhere on the pad to move it there. Drag a knob or a band edge up or down;
+hold Shift for fine steps; turn the scroll wheel over it; double-click to reset to the default; right-click a knob to
+type a value (<code>2 s</code>, <code>30%</code>). Every control shows a one-line tooltip. The host can automate every parameter.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="picking-a-room-on-the-pad">Picking a room on the pad</h3>
+<p>The pad's columns of light are its four zones of walls: Muffled at the left, then Dark, Warm and Bright. The brighter
+the walls, the more of the tail's top end they keep: in the muffled rooms about a sixth of it is left at 5 kHz, in the
+bright ones about three fifths. Inside each zone the room takes four shapes:</p>
+<ul>
+<li><strong>Smooth:</strong> a dense, even tail.</li>
+<li><strong>Echo:</strong> the echoes build up slowly and are heard apart.</li>
+<li><strong>2 Rooms</strong> and <strong>4 Rooms:</strong> coupled spaces, close to Smooth in how fast they build up.</li>
+</ul>
+<p>The shapes are turned round in every other zone, so the jellyfish's neighbours differ in one thing only. Up the pad
+the same room grows: its first reflection comes later at every step, from 2.3 to 30.3 ms, and its echoes grow denser.</p>
+<p>Every preset is two notches on the pad's rulers, its TYPE below and its SIZE at the left. Hover one for its name and a
+crosshair to its room; click it to move the jellyfish there (TYPE and SIZE only, the rest stays).</p>
+<h3 id="walking-from-room-to-room">Walking from room to room</h3>
+<p>Drag the jellyfish while the track plays and the room follows: the new room fills while the ones you left ring out,
+up to eight at once, so there is no gap and no click. The room follows at most every 100 ms, so a fast drag plays a
+few of the rooms it crosses, and the room under the jellyfish plays within 100 ms of where it stops. This makes the
+pad playable: automate TYPE and SIZE and the space itself moves through a song.</p>
+<p><img alt="Flung across the pad: the rooms the jellyfish passed through still ring, dimmer, under the room it rests on" src="../images/screenshot-flung.png" width="840" height="616" loading="lazy"></p>
+<h3 id="decay-mix-and-motion">DECAY, MIX and MOTION</h3>
+<p>DECAY is how long the room rings, from a short 0.2 s knock to a 20 s wash, measured at 500 Hz; the walls set how much
+faster the top end dies. Type <code>1 bar</code>, <code>2 beats</code> or <code>1/4</code> into DECAY to set it at the song's tempo. The tail display
+then marks the song's beats and bars while the host plays, and its forecast shows where the tail will be at the next
+beats; a fainter dashed line shows how the top end (5 kHz) falls.</p>
+<p>MIX is equal-power: the room comes up as the dry goes down, without a dip in the middle. On a send, set it to 100 %.</p>
+<p>A long DECAY can ring metallic in a small room. MOTION lets a quarter of the room's lines wander a little, which
+smooths that ring; at 0 % the room stands still.</p>
+<h3 id="band-keep-the-low-end-dry">BAND: keep the low end dry</h3>
+<p>BAND picks where in the spectrum the reverb plays. Outside it the input passes as it is, whatever MIX says. Drag the
+low edge up to 150 or 200 Hz and a kick or a bass stays dry and tight while the rest gets the room; drag the high edge
+down for a darker reverb. Drag the middle to move the whole band. With both edges off, nothing is filtered.</p>
+<p><img alt="The Vocal Space preset: Bright · 2 Rooms at 20.5 ms, DECAY 1.6 s, DUCK 40 %, the band from 200 Hz up" src="../images/screenshot-vocal-space.png" width="840" height="616" loading="lazy"></p>
+<h3 id="duck-and-gate">DUCK and GATE</h3>
+<p>Turned right, DUCK pushes the room down while the input plays (within 5 ms) and lets it back up over 250 ms, so a
+vocal stays clear and the reverb blooms in the gaps. Vocal Space starts at 40 %.</p>
+<p>Turned left, its caption reads GATE: the room stays open while the input plays, holds 150 ms after it stops, then shuts
+in 40 ms. At 100 % that is the gated drum sound: a big room cut off after every hit. At 50 % the room drops 6 dB in the
+gaps instead of shutting.</p>
+<p><img alt="GATE at 80 % and SOFT S on: a short dark room on a drum bus" src="../images/screenshot-gate.png" width="840" height="616" loading="lazy"></p>
+<h3 id="soft-s">SOFT S</h3>
+<p>A singer's s's and t's splash loudly in a bright room. SOFT S de-esses only what goes into the room and leaves the dry
+voice alone: on a test of s's between vowels, the room's 4 to 10 kHz came down 3.6 dB and its vowels didn't move. It
+sits on the strip under the tail display. Presets leave it as it is.</p>
+<h3 id="presets">Presets</h3>
+<p>The PRESET list holds Init (every default), your favourites, the six built-in rooms and then your own. The arrows step
+through them, the disk saves the current settings under a name, and PRESET reads <code>Custom</code> once a setting differs from
+every preset. A preset is the room: TYPE, SIZE, DECAY, MOTION, DUCK and the band. It leaves MIX, SOFT S and the power
+switch alone, so it changes the room and not how much of it a track gets.</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>Room</th>
+<th>For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small Box</td>
+<td>Muffled · Smooth, 8.2 ms, 0.5 s</td>
+<td>A short dull knock behind a snare.</td>
+</tr>
+<tr>
+<td>Drum Room</td>
+<td>Dark · 2 Rooms, 15.1 ms, 0.9 s</td>
+<td>Dense and fast, dark enough not to splash.</td>
+</tr>
+<tr>
+<td>Echo Chamber</td>
+<td>Warm · Echo, 23.9 ms, 1.8 s</td>
+<td>The echoes heard apart.</td>
+</tr>
+<tr>
+<td>Warm Hall</td>
+<td>Warm · Smooth, 44.1 ms, 3.5 s, MOTION 30 %</td>
+<td>A warm hall without the metallic ring.</td>
+</tr>
+<tr>
+<td>Vocal Space</td>
+<td>Bright · 2 Rooms, 20.5 ms, 1.6 s, DUCK 40 %, from 200 Hz</td>
+<td>Bright and ducked under a voice, the low end dry.</td>
+</tr>
+<tr>
+<td>Stone Rooms</td>
+<td>Bright · 4 Rooms, 60 ms, 6 s, MOTION 20 %</td>
+<td>A big room of bright coupled spaces.</td>
+</tr>
+</tbody>
+</table>
+<p>Your presets are text files in <code>~/.local/share/JellyReverbBtw/presets/</code>, shared by every project.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>No latency:</strong> nothing for the host to compensate.</li>
+<li><strong>The tail is reported:</strong> the host keeps calling the plugin for 3 × DECAY after the input stops, so a tail at the end
+  of a song is rendered, and stops once it has rung out.</li>
+<li><strong>Mono or stereo:</strong> a mono input gives a stereo room.</li>
+<li><strong>Light:</strong> 0.38 % of a CPU core at the defaults, stereo at 48 kHz, 0.75 % with SOFT S. Flinging the jellyfish across
+  the pad at DECAY 20 s keeps eight rooms ringing, about 3.4 %. On silence, once the rooms have rung out, next to
+  nothing.</li>
+<li><strong>Click-free changes:</strong> MIX, DUCK and the power switch glide over 20 ms, DECAY over 50 ms, so you can automate them.</li>
+<li><strong>The power switch</strong> lets the room stand still: switching on again starts the tail from silence.</li>
+<li><strong>The built-in rooms are drafts,</strong> set from measurements of the map, not yet voiced by ear.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>The plugin doesn't show up:</strong> check that the bundle is in <code>~/.clap</code> or <code>/usr/lib/clap</code>, then rescan plugins in
+  your DAW. It needs a CPU with AVX2.</li>
+<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed. The <code>vulkaninfo</code> tool
+  from <code>vulkan-tools</code> should list your GPU.</li>
+<li><strong>The low end gets muddy:</strong> drag BAND's low edge up, to 150 or 200 Hz.</li>
+<li><strong>A fast drag skips rooms:</strong> the room follows the jellyfish at most every 100 ms, so the level holds while it moves.
+  Let it rest and the room under it plays within 100 ms.</li>
+<li><strong>The CPU climbs while the jellyfish moves at a long DECAY:</strong> up to eight rooms ring at once. It falls back as they
+  ring out.</li>
+<li><strong>The tail is gone after the power switch:</strong> off lets the room stand still, and on starts it from silence.</li>
+<li><strong>A preset doesn't change MIX:</strong> presets hold the room, not how much of it a track gets.</li>
+<li><strong>Typing a preset's name does nothing:</strong> some hosts keep keystrokes for themselves. Write the preset file by hand:
+  one <code>id value</code> line a parameter, such as <code>type 9</code>, <code>size 10</code> or <code>decay 2.5</code>.</li>
+<li><strong>A preset doesn't show up in the menu:</strong> its file must end in <code>.preset</code>, and its name can't be Init's or a built-in
+  room's. The editor reads the folder when it opens and after a save, so reopen it after adding files by hand.</li>
+</ul>
+</article>
+
+<section class="more-plugins manual-others wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../../tubeeqbtw/" style="--accent:#ff9a5c"><img src="../../tubeeqbtw/images/screenshot.png" alt="" width="1260" height="1014" loading="lazy"><span class="more-text"><span class="other-name">TubeEqBtw</span> <span class="other-tagline">Passive tube EQ for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../optocompbtw/" style="--accent:#7cf2b0"><img src="../../optocompbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"><span class="more-text"><span class="other-name">OptoCompBtw</span> <span class="other-tagline">Optical compressor for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../jellysubbtw/" style="--accent:#ff7eb6"><img src="../../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../orbitloopbtw/" style="--accent:#b49bff"><img src="../../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../easymodebtw/" style="--accent:#ffc46b"><img src="../../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../../plugins/jellyreverbbtw/">JellyReverbBtw</a>
+        <a href="../../../plugins/tubeeqbtw/">TubeEqBtw</a>
+        <a href="../../../plugins/optocompbtw/">OptoCompBtw</a>
+        <a href="../../../plugins/jellysubbtw/">JellySubBtw</a>
+        <a href="../../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../../plugins/jellyreverbbtw/manual/">JellyReverbBtw</a>
+        <a href="../../../plugins/tubeeqbtw/manual/">TubeEqBtw</a>
+        <a href="../../../plugins/optocompbtw/manual/">OptoCompBtw</a>
+        <a href="../../../plugins/jellysubbtw/manual/">JellySubBtw</a>
+        <a href="../../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../../assets/site.js?v=4a716bab96" defer></script>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

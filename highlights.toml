@@ -75,3 +75,14 @@ chips = [
   { icon = "cpu", text = "0.82 % of a CPU core" },
 ]
 glance = { Latency = "None at 1x, 43 or 50 samples at 2x or 4x", CPU = "0.82 % of a core" }
+
+[JellyReverbBtw]
+kind = "Reverb"
+short = "Reverb"
+accent = "#8fb8ff"
+chips = [
+  { icon = "clock", text = "No latency" },
+  { icon = "spark", text = "256 rooms on one pad" },
+  { icon = "cpu", text = "0.38 % of a CPU core" },
+]
+glance = { Latency = "None", CPU = "0.38 % of a core", Audio = "Stereo, or mono in to stereo out" }
