@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JellyComet – Free CLAP Audio Plugins for Linux</title>
-<meta name="description" content="Free CLAP audio plugins for Linux: an 808 bass instrument, vocal pitch correction, half-speed, reverse and stutter loop effects, a MIDI chord and arpeggio tool.">
+<meta name="description" content="Free CLAP audio plugins for Linux: an 808 bass, an optical compressor, vocal pitch correction, half-speed and stutter loop effects, a MIDI chord and arp tool.">
 <link rel="canonical" href="https://jelly-comet.github.io/">
 <meta property="og:url" content="https://jelly-comet.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JellyComet – Free CLAP Audio Plugins for Linux">
 <meta property="og:site_name" content="JellyComet">
-<meta property="og:description" content="Free CLAP audio plugins for Linux: an 808 bass instrument, vocal pitch correction, half-speed, reverse and stutter loop effects, a MIDI chord and arpeggio tool.">
+<meta property="og:description" content="Free CLAP audio plugins for Linux: an 808 bass, an optical compressor, vocal pitch correction, half-speed and stutter loop effects, a MIDI chord and arp tool.">
 <meta property="og:image" content="https://jelly-comet.github.io/assets/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -90,7 +90,7 @@
     <p class="eyebrow"><span class="dot"></span>CLAP · Linux · Free</p>
     <h1>Free CLAP audio plugins for <span class="grad">Linux</span></h1>
     <p class="hero-tag">Hand-made by <span class="tentacles">tentacles</span>, <span class="nowrap">free for humans.</span></p>
-    <p class="hero-sub">Vocal pitch correction, an 808 bass, loop effects and a MIDI chord tool: glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
+    <p class="hero-sub">Vocal pitch correction, an 808 bass, a compressor, loop effects and a MIDI chord tool: glowing little audio tools, built to nudge you somewhere you didn't plan to go.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#plugins">Explore the plugins <svg><use href="#i-arrow"/></svg></a>
       <a class="btn btn-ghost" href="#install">How to install</a>
@@ -99,22 +99,30 @@
       <li><strong>Format</strong>CLAP</li>
       <li><strong>System</strong>Linux x86-64</li>
       <li><strong>Price</strong>Free, MIT</li>
-      <li><strong>Plugins</strong>4</li>
+      <li><strong>Plugins</strong>5</li>
     </ul>
   </div>
   <div class="hero-visual">
     <div class="ring ring-a"></div><div class="ring ring-b"></div>
     <div class="hero-shots">
       
-      <div class="shot" data-shot="0" style="--accent:#ff7eb6">
-        <a class="shot-frame tilt" href="plugins/jellysubbtw/" tabindex="0"><img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996"></a>
+      <div class="shot" data-shot="0" style="--accent:#7cf2b0">
+        <a class="shot-frame tilt" href="plugins/optocompbtw/" tabindex="0"><img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660"></a>
+        <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
+        <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>One knob, auto gain</span>
+        <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.59 % of a CPU core</span>
+        
+      </div>
+      
+      <div class="shot is-hidden" data-shot="1" style="--accent:#ff7eb6">
+        <a class="shot-frame tilt" href="plugins/jellysubbtw/" tabindex="-1"><img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" loading="lazy"></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>Five kinds of dirt</span>
         <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.29 % of a CPU core</span>
         
       </div>
       
-      <div class="shot is-hidden" data-shot="1" style="--accent:#6fd8ff">
+      <div class="shot is-hidden" data-shot="2" style="--accent:#6fd8ff">
         <a class="shot-frame tilt" href="plugins/jellypitchbtw/" tabindex="-1"><img src="plugins/jellypitchbtw/images/screenshot.png" alt="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right" width="1260" height="720" loading="lazy"></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>0.25 ms latency</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>13 scales in every key</span>
@@ -122,7 +130,7 @@
         
       </div>
       
-      <div class="shot is-hidden" data-shot="2" style="--accent:#b49bff">
+      <div class="shot is-hidden" data-shot="3" style="--accent:#b49bff">
         <a class="shot-frame tilt" href="plugins/orbitloopbtw/" tabindex="-1"><img src="plugins/orbitloopbtw/images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846" loading="lazy"></a>
         <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
         <span class="stat-chip chip-2"><svg><use href="#i-loop"/></svg>Four effects, one puck</span>
@@ -130,7 +138,7 @@
         
       </div>
       
-      <div class="shot is-hidden" data-shot="3" style="--accent:#ffc46b">
+      <div class="shot is-hidden" data-shot="4" style="--accent:#ffc46b">
         <a class="shot-frame tilt" href="plugins/easymodebtw/" tabindex="-1"><img src="plugins/easymodebtw/images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846" loading="lazy"></a>
         <span class="stat-chip chip-1"><svg><use href="#i-keys"/></svg>20 scales on 12 keys</span>
         <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>Chords, strums, arpeggios</span>
@@ -140,10 +148,11 @@
       
     </div>
     <nav class="plugin-switch" aria-label="Show a plugin">
-      <a href="plugins/jellysubbtw/" data-shot="0" style="--c:#ff7eb6" aria-current="true"><i></i><b>JellySubBtw</b><span>Bass</span></a>
-      <a href="plugins/jellypitchbtw/" data-shot="1" style="--c:#6fd8ff"><i></i><b>JellyPitchBtw</b><span>Pitch</span></a>
-      <a href="plugins/orbitloopbtw/" data-shot="2" style="--c:#b49bff"><i></i><b>OrbitLoopBtw</b><span>Loops</span></a>
-      <a href="plugins/easymodebtw/" data-shot="3" style="--c:#ffc46b"><i></i><b>EasyModeBtw</b><span>MIDI</span></a>
+      <a href="plugins/optocompbtw/" data-shot="0" style="--c:#7cf2b0" aria-current="true"><i></i><b>OptoCompBtw</b><span>Comp</span></a>
+      <a href="plugins/jellysubbtw/" data-shot="1" style="--c:#ff7eb6"><i></i><b>JellySubBtw</b><span>Bass</span></a>
+      <a href="plugins/jellypitchbtw/" data-shot="2" style="--c:#6fd8ff"><i></i><b>JellyPitchBtw</b><span>Pitch</span></a>
+      <a href="plugins/orbitloopbtw/" data-shot="3" style="--c:#b49bff"><i></i><b>OrbitLoopBtw</b><span>Loops</span></a>
+      <a href="plugins/easymodebtw/" data-shot="4" style="--c:#ffc46b"><i></i><b>EasyModeBtw</b><span>MIDI</span></a>
       
     </nav>
   </div>
@@ -159,9 +168,32 @@
   </div>
 <ul class="features">
 
+  <li class="feature" style="--accent:#7cf2b0">
+    <a class="feature-image" href="plugins/optocompbtw/">
+      <img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" >
+    </a>
+    <div class="feature-text">
+      <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.0 · 20 Nov 2026</span><span class="card-type">Compressor</span></div>
+      <h2><a href="plugins/optocompbtw/">OptoCompBtw</a> <span class="tagline">Optical compressor for Linux</span></h2>
+      <p class="summary"><strong>An optical leveller: one knob for how hard it squeezes, its gain made up for you.</strong> A light
+cell rides a vocal, a bass or a bus smoothly, and a display shows every decibel it takes.</p>
+      <ul class="card-list">
+        <li><svg><use href="#i-check"/></svg>No latency</li>
+        <li><svg><use href="#i-check"/></svg>One knob, auto gain</li>
+        <li><svg><use href="#i-check"/></svg>0.59 % of a CPU core</li>
+        
+      </ul>
+      <div class="card-foot">
+        <a class="btn btn-sm btn-primary" href="https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz">Download <span class="note">4.9 MB</span></a>
+        <a class="btn btn-sm btn-ghost" href="plugins/optocompbtw/manual/">Manual</a>
+        <a class="text-link" href="plugins/optocompbtw/">Everything about OptoCompBtw <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </li>
+
   <li class="feature" style="--accent:#ff7eb6">
     <a class="feature-image" href="plugins/jellysubbtw/">
-      <img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" >
+      <img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" loading="lazy">
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">v1.0.0 · 20 Nov 2026</span><span class="card-type">Instrument</span></div>
@@ -270,16 +302,26 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
       <div class="term-bar"><i></i><i></i><i></i>
         <span class="term-name">bash</span>
         <div class="term-tabs" hidden>
-          <button type="button" data-pane="0" aria-pressed="true">JellySubBtw</button>
-          <button type="button" data-pane="1" aria-pressed="false">JellyPitchBtw</button>
-          <button type="button" data-pane="2" aria-pressed="false">OrbitLoopBtw</button>
-          <button type="button" data-pane="3" aria-pressed="false">EasyModeBtw</button>
+          <button type="button" data-pane="0" aria-pressed="true">OptoCompBtw</button>
+          <button type="button" data-pane="1" aria-pressed="false">JellySubBtw</button>
+          <button type="button" data-pane="2" aria-pressed="false">JellyPitchBtw</button>
+          <button type="button" data-pane="3" aria-pressed="false">OrbitLoopBtw</button>
+          <button type="button" data-pane="4" aria-pressed="false">EasyModeBtw</button>
           
         </div>
         <button class="copy" type="button" hidden>Copy</button>
       </div>
       
       <pre class="term-body" data-pane="0"><code><span class="c"># unpack the download</span>
+<span class="cmd">tar xzf <span class="hl">OptoCompBtw-1.0.0-linux-x86_64.tar.gz</span></span>
+<span class="cmd">cd OptoCompBtw-1.0.0-linux-x86_64</span>
+<span class="c"># copy it where CLAP hosts look, in place of an older copy</span>
+<span class="cmd">mkdir -p ~/.clap</span>
+<span class="cmd">rm -f ~/.clap/OptoCompBtw.clap</span>
+<span class="cmd">cp <span class="hl">OptoCompBtw.clap</span> ~/.clap/</span>
+<span class="c"># then rescan plugins in your DAW</span></code></pre>
+      
+      <pre class="term-body" data-pane="1" hidden><code><span class="c"># unpack the download</span>
 <span class="cmd">tar xzf <span class="hl">JellySubBtw-1.0.0-linux-x86_64.tar.gz</span></span>
 <span class="cmd">cd JellySubBtw-1.0.0-linux-x86_64</span>
 <span class="c"># copy it where CLAP hosts look, in place of an older copy</span>
@@ -288,7 +330,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
 <span class="cmd">cp <span class="hl">JellySubBtw.clap</span> ~/.clap/</span>
 <span class="c"># then rescan plugins in your DAW</span></code></pre>
       
-      <pre class="term-body" data-pane="1" hidden><code><span class="c"># unpack the download</span>
+      <pre class="term-body" data-pane="2" hidden><code><span class="c"># unpack the download</span>
 <span class="cmd">tar xzf <span class="hl">JellyPitchBtw-1.3.0-linux-x86_64.tar.gz</span></span>
 <span class="cmd">cd JellyPitchBtw-1.3.0-linux-x86_64</span>
 <span class="c"># copy it where CLAP hosts look, in place of an older copy</span>
@@ -297,7 +339,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
 <span class="cmd">cp <span class="hl">JellyPitchBtw.clap</span> ~/.clap/</span>
 <span class="c"># then rescan plugins in your DAW</span></code></pre>
       
-      <pre class="term-body" data-pane="2" hidden><code><span class="c"># unpack the download</span>
+      <pre class="term-body" data-pane="3" hidden><code><span class="c"># unpack the download</span>
 <span class="cmd">tar xzf <span class="hl">OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz</span></span>
 <span class="cmd">cd OrbitLoopBtw-1.0.1-linux-x86_64</span>
 <span class="c"># copy it where CLAP hosts look, in place of an older copy</span>
@@ -306,7 +348,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
 <span class="cmd">cp <span class="hl">OrbitLoopBtw.clap</span> ~/.clap/</span>
 <span class="c"># then rescan plugins in your DAW</span></code></pre>
       
-      <pre class="term-body" data-pane="3" hidden><code><span class="c"># unpack the download</span>
+      <pre class="term-body" data-pane="4" hidden><code><span class="c"># unpack the download</span>
 <span class="cmd">tar xzf <span class="hl">EasyModeBtw-1.2.6-linux-x86_64.tar.gz</span></span>
 <span class="cmd">cd EasyModeBtw-1.2.6-linux-x86_64</span>
 <span class="c"># copy it where CLAP hosts look, in place of an older copy</span>
@@ -325,7 +367,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
     <div>
       <p class="eyebrow">Who makes these</p>
       <h2>About JellyComet</h2>
-      <p class="lead">JellyComet makes small, free audio plugins for Linux. Each does one job with one unusual control: a jellyfish pad for vocal pitch correction and for an 808 bass's dirt, an orbiting puck for loop effects, and white keys that play any scale or chord. All are CLAP plugins for x86-64 Linux, MIT-licensed, each with a manual.</p>
+      <p class="lead">JellyComet makes small, free audio plugins for Linux. Each does one job with one unusual control: a jellyfish pad for vocal pitch correction and for an 808 bass's dirt, one knob for an optical compressor, an orbiting puck for loop effects, and white keys that play any scale or chord. All are CLAP plugins for x86-64 Linux, MIT-licensed, each with a manual.</p>
       <p class="lead">CLAP is an open plugin format that hosts such as Bitwig Studio and REAPER load natively on Linux. Every JellyComet plugin installs by copying one <code>.clap</code> file into <code>~/.clap</code>.</p>
       <div class="about-links">
         <a class="text-link" href="https://github.com/jelly-comet">GitHub <svg><use href="#i-external"/></svg></a>
@@ -350,6 +392,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
       </div>
       <div class="footer-col">
         <h2>Plugins</h2>
+        <a href="plugins/optocompbtw/">OptoCompBtw</a>
         <a href="plugins/jellysubbtw/">JellySubBtw</a>
         <a href="plugins/jellypitchbtw/">JellyPitchBtw</a>
         <a href="plugins/orbitloopbtw/">OrbitLoopBtw</a>
@@ -358,6 +401,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
       </div>
       <div class="footer-col">
         <h2>Manuals</h2>
+        <a href="plugins/optocompbtw/manual/">OptoCompBtw</a>
         <a href="plugins/jellysubbtw/manual/">JellySubBtw</a>
         <a href="plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
         <a href="plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>

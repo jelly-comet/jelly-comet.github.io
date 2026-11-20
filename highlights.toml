@@ -53,3 +53,14 @@ chips = [
   { icon = "cpu", text = "0.29 % of a CPU core" },
 ]
 glance = { Latency = "None", CPU = "0.29 % of a core", Audio = "Notes in, stereo out" }
+
+[OptoCompBtw]
+kind = "Compressor"
+short = "Comp"
+accent = "#7cf2b0"
+chips = [
+  { icon = "clock", text = "No latency" },
+  { icon = "spark", text = "One knob, auto gain" },
+  { icon = "cpu", text = "0.59 % of a CPU core" },
+]
+glance = { Latency = "None", CPU = "0.59 % of a core", Audio = "Mono or stereo" }

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OptoCompBtw – Free Optical Compressor for Linux (CLAP)</title>
+<meta name="description" content="Free optical compressor for Linux (CLAP). One knob levels vocals, bass and buses smoothly, auto gain makes it up, and a display shows every dB it takes.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/optocompbtw/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/optocompbtw/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OptoCompBtw – Free Optical Compressor for Linux (CLAP)">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:description" content="Free optical compressor for Linux (CLAP). One knob levels vocals, bass and buses smoothly, auto gain makes it up, and a display shows every dB it takes.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/optocompbtw/images/screenshot.png">
+<meta property="og:image:width" content="1350">
+<meta property="og:image:height" content="660">
+<meta property="og:image:alt" content="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+<link rel="preload" href="../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=615eea6d7a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "OptoCompBtw",
+  "description": "Free optical compressor for Linux (CLAP). One knob levels vocals, bass and buses smoothly, auto gain makes it up, and a display shows every dB it takes.",
+  "url": "https://jelly-comet.github.io/plugins/optocompbtw/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Linux",
+  "softwareVersion": "1.0.0",
+  "datePublished": "2026-11-20",
+  "downloadUrl": "https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz",
+  "screenshot": "https://jelly-comet.github.io/plugins/optocompbtw/images/screenshot.png",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://jelly-comet.github.io/plugins/optocompbtw/manual/"
+  },
+  "license": "https://github.com/jelly-comet/OptoCompBtw-release/blob/main/LICENSE",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "JellyComet",
+    "url": "https://jelly-comet.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../#plugins">Plugins</a>
+      <a href="../../#install">Install</a>
+      <a href="../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+
+<div class="plugin-page" style="--accent:#7cf2b0">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../">Home</a><span class="sep">/</span><a href="../../#plugins">Plugins</a><span class="sep">/</span><span class="here">OptoCompBtw</span></nav>
+<section class="product-hero wrap" id="overview">
+  <div class="product-copy">
+    <p class="eyebrow"><span class="dot"></span>Compressor · CLAP · Free</p>
+    <h1>OptoCompBtw <span class="product-sub">Optical compressor for Linux</span></h1>
+    <p class="product-summary"><strong>An optical leveller: one knob for how hard it squeezes, its gain made up for you.</strong> A light
+cell rides a vocal, a bass or a bus smoothly, and a display shows every decibel it takes.</p>
+    <ul class="meta-chips">
+      <li>v1.0.0</li><li>20 Nov 2026</li><li>CLAP</li><li>Linux x86-64</li><li>MIT</li>
+    </ul>
+    <div class="product-actions">
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <span class="note">4.9 MB</span></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <a class="text-link dim" href="OptoCompBtw-manual.pdf" download>Manual as PDF</a>
+    </div>
+  </div>
+  <div class="product-shot">
+    <div class="ring"></div>
+    <div class="shot-frame"><img class="hero-image" src="images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660"></div>
+    <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
+    <span class="stat-chip chip-2"><svg><use href="#i-spark"/></svg>One knob, auto gain</span>
+    <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.59 % of a CPU core</span>
+    
+  </div>
+</section>
+
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav-inner">
+    <div class="subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#what-its-for">What it's for</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      
+      <a href="#whats-new">What's new</a>
+    </div>
+    <a class="btn btn-sm btn-primary" href="https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz">Download <span class="note">4.9 MB</span></a>
+  </div>
+</nav>
+
+<div class="product-layout wrap">
+  <article class="article prose">
+    <div class="intro-text"><p>OptoCompBtw is a compressor of the slow, smooth kind. A light cell lit by the signal pulls the
+level down, catches a peak in a few milliseconds and lets go over tens of milliseconds after a word
+or seconds after a long loud passage, so it levels without sounding pumped. Turn PEAK REDUCTION and
+AUTO GAIN keeps the loudness about where it was, so you hear the levelling and not a louder signal.
+Two transformers and a tube stage colour it a little. FAST swaps in a quicker cell for drums and
+bass, CATCH adds a fast compressor for the spikes the cell lets through, and MIX blends in the dry
+signal. It has no latency. It is not a limiter and not a multiband compressor: one gain for the
+whole signal.</p>
+<p><strong><a href="manual/">Read the manual</a></strong> for every control and how to use it.</p>
+</div>
+    
+    <section id="screenshots" class="part">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        
+        <figure>
+          <a href="images/screenshot-drums.png"><img src="images/screenshot-drums.png" alt="Drum Room on a hip-hop loop: FAST and CATCH on, PEAK REDUCTION 80 %, MIX 50 %, the display at 36 dB" width="1350" height="660" loading="lazy"></a>
+          <figcaption>Drum Room on a hip-hop loop: FAST and CATCH on, PEAK REDUCTION 80 %, MIX 50 %, the display at 36 dB</figcaption>
+        </figure>
+        
+      </div>
+    </section>
+    
+    
+    
+    
+    <section id="what-its-for" class="part part-uses">
+      <h2>What it's for</h2>
+      
+      <div class="use-grid">
+        <div class="use-card"><span class="use-num">01</span><b>Vocal levelling</b><span>Even out a sung or spoken take so every line sits at the same level, with CATCH for the
+  plosives and shouts.</span></div>
+        <div class="use-card"><span class="use-num">02</span><b>Bass compression</b><span>Hold a bass guitar or a synth bass steady under the mix, with FAST for a quick attack.</span></div>
+        <div class="use-card"><span class="use-num">03</span><b>Parallel drum compression</b><span>Squeeze drums hard and blend them under the dry ones with MIX.</span></div>
+        <div class="use-card"><span class="use-num">04</span><b>Gentle bus glue</b><span>A little levelling on a group or the mix bus.</span></div>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="features" class="part part-features">
+      <h2>Features</h2>
+      
+      <ul class="feature-cols">
+        <li><svg><use href="#i-check"/></svg><span><b>One knob for the squeeze:</b> PEAK REDUCTION, with the release following the music: tens of milliseconds after a
+  word, seconds after a long loud passage.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>AUTO GAIN:</b> the makeup follows PEAK REDUCTION, so turning it doesn't make it louder. GAIN adds to it, or makes up
+  all of it with AUTO off.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>FAST:</b> a quicker cell, 11.7 dB down 1 ms after a hit where the slow cell is 1.4 dB down.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>CATCH:</b> a fast compressor ahead of the cell (−10 dBFS, 4:1); under its threshold the sound is untouched.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>MIX</b> for parallel compression, the levelled and the dry signal in phase.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A display that shows what it does:</b> the last 8 seconds of input, output and the reduction, the knobs on it,
+  meters beside it, the release the cell is on now and OUT/IN, the output's loudness against the input's, which a
+  click makes up.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A little colour:</b> two transformers and a tube stage, 0.5 % THD at a normal level.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No latency.</b> </span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Presets:</b> five built in beside Default, and your own; a preset never changes GAIN.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Light:</b> 0.59 % of a CPU core at the defaults, stereo at 48 kHz.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Zoom</b> from 100 to 200 %.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No network access and no telemetry.</b> </span></li>
+        
+      </ul>
+      
+    </section>
+    
+    
+    <section id="install" class="part part-prose">
+      <h2>Install</h2>
+      
+      <p>Download the latest version from the <a href="https://github.com/jelly-comet/OptoCompBtw-release/releases">Releases page</a>,
+or with these commands:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">curl -LO https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz
+curl -LO https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz.sha256
+sha256sum -c OptoCompBtw-1.0.0-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf OptoCompBtw-1.0.0-linux-x86_64.tar.gz
+cd OptoCompBtw-1.0.0-linux-x86_64
+</code></pre></div>
+<p>Install for your user:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">mkdir -p ~/.clap
+rm -f ~/.clap/OptoCompBtw.clap &amp;&amp; cp OptoCompBtw.clap ~/.clap/
+</code></pre></div>
+<p>Or for all users:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">sudo mkdir -p /usr/lib/clap
+sudo rm -f /usr/lib/clap/OptoCompBtw.clap &amp;&amp; sudo cp OptoCompBtw.clap /usr/lib/clap/
+</code></pre></div>
+<p>Removing the old copy first avoids overwriting a file a running host has loaded. Then rescan plugins
+in your DAW.</p>
+<p>To uninstall:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">rm -f ~/.clap/OptoCompBtw.clap
+</code></pre></div>
+<p>Your presets stay in <code>~/.local/share/OptoCompBtw/presets/</code>; delete that folder too if you want them gone.</p>
+      
+    </section>
+    
+    
+    <section id="faq" class="part part-faq">
+      <h2>FAQ</h2>
+      
+      <div class="faq">
+        <details open><summary>Is it free?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Yes. The download is free and MIT-licensed.</p></div></details>
+        <details><summary>Is there a VST3 or LV2 version?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. Releases contain the CLAP plugin only.</p></div></details>
+        <details><summary>Does it run on ARM, like a Raspberry Pi or Apple Silicon?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It needs Linux on x86-64, on a CPU with AVX2.</p></div></details>
+        <details><summary>Which hosts does it work in?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Any CLAP host. It was tried in REAPER.</p></div></details>
+        <details><summary>Does it work on Wayland?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Through XWayland. The editor also needs a Vulkan driver.</p></div></details>
+        <details><summary>Can I use it as a limiter on the master?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Not as a brickwall limiter: it levels slowly and smoothly, and a fast peak can get through. CATCH lowers the
+spikes, but put a limiter after it if nothing may pass 0 dBFS.</p></div></details>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="whats-new" class="part">
+      <h2>What's new in v1.0.0</h2>
+      <p class="release-date">20 Nov 2026 · <a href="https://github.com/jelly-comet/OptoCompBtw-release/releases/tag/v1.0.0">Release on GitHub</a></p>
+      <div class="notes"><p>OptoCompBtw 1.0: an optical leveller with one knob for how hard it squeezes, its gain made up for you, and a display that shows every decibel it takes.</p>
+<ul>
+<li><strong>PEAK REDUCTION:</strong> a light cell that catches a peak in a few milliseconds and lets go over tens of milliseconds after a word, seconds after a long loud passage, so it levels without pumping.</li>
+<li><strong>AUTO GAIN:</strong> the makeup follows PEAK REDUCTION, so turning it doesn't make it louder; GAIN on top, or all of it with AUTO off.</li>
+<li><strong>FAST:</strong> a quicker cell for drums and bass. <strong>CATCH:</strong> a fast compressor ahead of the cell for the spikes it lets through.</li>
+<li><strong>MIX</strong> for parallel compression, the levelled and the dry signal in phase.</li>
+<li><strong>The display:</strong> the last 8 seconds of input, output and reduction with the knobs on it, meters, the release the cell is on now, and OUT/IN, which a click makes up.</li>
+<li><strong>A little colour</strong> from two transformers and a tube stage.</li>
+<li><strong>Presets:</strong> five built in beside Default, and your own; a preset never changes GAIN.</li>
+<li>No latency. 0.59 % of a CPU core at the defaults, stereo at 48 kHz. Needs a CPU with AVX2.</li>
+</ul></div>
+      
+    </section>
+
+    <section id="license" class="part part-prose">
+      <h2>License</h2>
+      
+      <p>MIT, see <a href="https://github.com/jelly-comet/OptoCompBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
+<code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. OptoCompBtw is an independent project, not affiliated with or endorsed by the
+makers of any other compressor, and it models no particular unit.</p>
+      
+    </section>
+    
+    
+  </article>
+
+  <aside class="rail">
+    <div class="rail-card">
+      <h2>At a glance</h2>
+      <dl class="glance">
+        <div><dt>Version</dt><dd>v1.0.0</dd></div>
+        <div><dt>Released</dt><dd>20 Nov 2026</dd></div>
+        <div><dt>Format</dt><dd>CLAP</dd></div>
+        <div><dt>System</dt><dd>Linux x86-64</dd></div>
+        <div><dt>License</dt><dd class="green">MIT, free</dd></div>
+        <div><dt>Download</dt><dd>4.9 MB</dd></div>
+        <div><dt>Latency</dt><dd>None</dd></div>
+        <div><dt>CPU</dt><dd>0.59 % of a core</dd></div>
+        <div><dt>Audio</dt><dd>Mono or stereo</dd></div>
+        
+      </dl>
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <svg><use href="#i-download"/></svg></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <p class="rail-foot"><a href="https://github.com/jelly-comet/OptoCompBtw-release/releases">All releases</a> · <a href="https://github.com/jelly-comet/OptoCompBtw-release/releases/download/v1.0.0/OptoCompBtw-1.0.0-linux-x86_64.tar.gz.sha256">SHA-256</a> · <a href="https://github.com/jelly-comet/OptoCompBtw-release/issues">Support</a></p>
+    </div>
+    
+    <div class="rail-card" id="requirements">
+      <h2>Requirements</h2>
+      <ul class="req">
+        <li><svg><use href="#i-check"/></svg><span>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</span></li>
+        <li><svg><use href="#i-check"/></svg><span>A CLAP host. Tried in REAPER.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>X11 or XWayland, and a Vulkan driver for the editor</span></li>
+        
+      </ul>
+      <div class="rail-foot"><p>Releases contain the CLAP plugin only.</p></div>
+    </div>
+    
+  </aside>
+</div>
+
+
+<section class="more-plugins wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../jellysubbtw/" style="--accent:#ff7eb6"><img src="../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../orbitloopbtw/" style="--accent:#b49bff"><img src="../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../plugins/optocompbtw/">OptoCompBtw</a>
+        <a href="../../plugins/jellysubbtw/">JellySubBtw</a>
+        <a href="../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../plugins/optocompbtw/manual/">OptoCompBtw</a>
+        <a href="../../plugins/jellysubbtw/manual/">JellySubBtw</a>
+        <a href="../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/site.js?v=4a716bab96" defer></script>
+<script src="../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>
