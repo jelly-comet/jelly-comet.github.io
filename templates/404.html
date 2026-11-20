@@ -2,12 +2,13 @@
 {% block title %}Page not found – JellyComet{% endblock %}
 {% block description %}This page doesn't exist. JellyComet's free CLAP audio plugins for Linux are on the front page.{% endblock %}
 {% block main %}
-<section class="intro hello">
+<section class="intro wrap">
+  <p class="eyebrow"><span class="dot"></span>404</p>
   <h1>This page drifted off.</h1>
   <p>Nothing lives at this address. A link from before November 2026 may point at a plugin that has moved or is no longer made.</p>
 </section>
-<section class="others">
-  <h2>The plugins</h2>
-{% include "others.html" %}  <p class="links"><a href="/">All plugins on the front page</a></p>
+<section class="more-plugins wrap">
+  <p class="eyebrow">The plugins</p>
+{% include "others.html" %}  <p><a class="text-link" href="/">All plugins on the front page <svg><use href="#i-arrow"/></svg></a></p>
 </section>
 {% endblock %}

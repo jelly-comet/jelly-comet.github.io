@@ -81,6 +81,19 @@ env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select
 # instead of laying out new pages with the cached old one (GitHub Pages lets it keep it 10 minutes).
 env.globals["css_version"] = hashlib.sha256((ROOT / "assets" / "site.css").read_bytes()).hexdigest()[:10]
 env.globals["js_version"] = hashlib.sha256((ROOT / "assets" / "lightbox.js").read_bytes()).hexdigest()[:10]
+env.globals["site_js_version"] = hashlib.sha256((ROOT / "assets" / "site.js").read_bytes()).hexdigest()[:10]
+
+# The site's own words about each plugin beyond its README (highlights.toml): its kind, colour and a few facts.
+HIGHLIGHTS = tomllib.loads((ROOT / "highlights.toml").read_text())
+HIGHLIGHT_FIELDS = ("kind", "short", "accent", "chips", "glance")
+CHIP_ICONS = ("clock", "cpu", "spark", "keys", "loop", "mic", "shield")
+# The accents of plugins highlights.toml doesn't colour, in turn.
+ACCENTS = ("#6fd8ff", "#b49bff", "#ffc46b", "#6fe0b0", "#ff8577")
+H2 = re.compile(r'<h2 id="([^"]+)">(.*?)</h2>', re.S)
+H3 = re.compile(r"<h3[^>]*>(.*?)</h3>", re.S)
+LEAD_ITEM = re.compile(r"<li>\s*<strong>(.*?)</strong>\s*(.*?)</li>", re.S)
+ITEM = re.compile(r"<li>(.*?)</li>", re.S)
+CLAP_FILE = re.compile(r"\bcp (\S+\.clap) ~/\.clap/")
 
 
 def github_token():
@@ -216,6 +229,84 @@ def read_site(source, name):
     return site
 
 
+def read_highlights(name, index):
+    """What highlights.toml says about a plugin; a plugin it doesn't name gets a colour and nothing else."""
+    found = HIGHLIGHTS.get(name, {})
+    if unknown := sorted(set(found) - set(HIGHLIGHT_FIELDS)):
+        sys.exit(f"highlights.toml: {name} has {', '.join(unknown)}; it knows {', '.join(HIGHLIGHT_FIELDS)}")
+    if not found:
+        print(
+            f"  note: {name} has no entry in highlights.toml: its page shows no kind and no facts beside its window, "
+            f"and its colour is a stand-in ({ACCENTS[index % len(ACCENTS)]})"
+        )
+    chips = found.get("chips", [])
+    if len(chips) > 3 or any(chip.get("icon") not in CHIP_ICONS or not chip.get("text") for chip in chips):
+        sys.exit(f"highlights.toml: {name}'s chips must be at most three, each an icon of {', '.join(CHIP_ICONS)} and a text")
+    if "accent" in found and not re.fullmatch(r"#[0-9a-fA-F]{6}", found["accent"]):
+        sys.exit(f"highlights.toml: {name}'s accent must be a colour like #6fd8ff")
+    for field in ("kind", "short"):
+        if field in found and (not isinstance(found[field], str) or not found[field].strip()):
+            sys.exit(f"highlights.toml: {name}'s {field} must be a line of text")
+    if not all(isinstance(value, str) for value in found.get("glance", {}).values()):
+        sys.exit(f"highlights.toml: {name}'s glance rows must be texts, like Latency = \"0.25 ms\"")
+    return {
+        "kind": found.get("kind"),
+        "short": found.get("short"),
+        "accent": found.get("accent", ACCENTS[index % len(ACCENTS)]),
+        "chips": chips,
+        "glance": found.get("glance", {}),
+    }
+
+
+def terminal(rendered):
+    """A README's code blocks as small terminal windows, with a copy button site.js shows."""
+    return rendered.replace(
+        "<pre><code",
+        '<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span>'
+        '<button class="copy" type="button" hidden>Copy</button></div><pre><code',
+    ).replace("</code></pre>", "</code></pre></div>")
+
+
+def parts_of(sections):
+    """The README's sections after its intro, each as the page shows it: What it's for as tiles,
+    Features as a checklist, FAQ folded, Requirements in the side box, the rest as written."""
+    found = list(H2.finditer(sections))
+    parts = []
+    for number, heading in enumerate(found):
+        end = found[number + 1].start() if number + 1 < len(found) else len(sections)
+        body = sections[heading.end() : end].strip()
+        part = {"id": heading.group(1), "title": Markup(heading.group(2)), "kind": "prose", "html": Markup(terminal(body))}
+        items = ITEM.findall(body)
+        leads = LEAD_ITEM.findall(body)
+        only_list = re.fullmatch(r"<ul>.*</ul>", body, re.S)
+        if part["id"] == "what-its-for" and only_list and len(leads) == len(items):
+            part["kind"] = "uses"
+            # A tile's text stands alone under its label: "a slower SPEED" there reads "A slower SPEED".
+            part["entries"] = [
+                {"label": Markup(lead.rstrip(":")), "text": Markup(text[:1].upper() + text[1:])} for lead, text in leads
+            ]
+        elif part["id"] == "features" and only_list and len(leads) == len(items):
+            part["kind"] = "features"
+            part["entries"] = [{"lead": Markup(lead), "text": Markup(text)} for lead, text in leads]
+        elif part["id"] == "faq" and body.startswith("<h3"):
+            questions = list(H3.finditer(body))
+            part["kind"] = "faq"
+            part["entries"] = [
+                {
+                    "question": Markup(question.group(1)),
+                    "answer": Markup(body[question.end() : questions[n + 1].start() if n + 1 < len(questions) else len(body)].strip()),
+                }
+                for n, question in enumerate(questions)
+            ]
+        elif part["id"] == "requirements" and body.startswith("<ul>"):
+            ul_end = body.index("</ul>") + len("</ul>")
+            part["kind"] = "requirements"
+            part["entries"] = [Markup(item) for item in ITEM.findall(body[:ul_end])]
+            part["note"] = Markup(body[ul_end:].strip())
+        parts.append(part)
+    return parts
+
+
 def size_images(rendered, source):
     """Gives every picture in rendered Markdown its width and height, so the page doesn't jump while
     they load, and lets all but the first load when they come into view."""
@@ -344,6 +435,9 @@ def collect(repo):
     intro, sections = (body[:cut], body[cut:]) if cut >= 0 else (body, "")
     description = site.get("description") or one_line(html.unescape(TAG.sub("", readme["summary"])))
     tagline = site.get("tagline")
+    # The front page's install window: the archive, the folder it unpacks to and the file to copy.
+    archive = latest["download"].rsplit("/", 1)[-1] if latest["download"].endswith(".tar.gz") else f"{name}.tar.gz"
+    clap_file = CLAP_FILE.search(readme["body"])
     return {
         "name": name,
         "slug": slug,
@@ -383,6 +477,12 @@ def collect(repo):
         "height": height,
         "intro": Markup(intro),
         "sections": Markup(sections),
+        "parts": parts_of(sections),
+        "install": {
+            "archive": archive,
+            "folder": archive.removesuffix(".tar.gz"),
+            "clap": clap_file.group(1) if clap_file else f"{name}.clap",
+        },
         "manual": manual,
         "gallery": gallery(manual, source, readme["image"]),
         "pdf": f"{name}-manual.pdf",
@@ -551,6 +651,12 @@ def main():
     print(f"{len(repos)} release repositories")
     plugins = [plugin for repo in repos if (plugin := collect(repo))]
     plugins.sort(key=lambda plugin: plugin["latest"]["published"], reverse=True)
+    for index, plugin in enumerate(plugins):
+        plugin.update(read_highlights(plugin["name"], index))
+    if unknown := sorted(set(HIGHLIGHTS) - {plugin["name"] for plugin in plugins}):
+        print(f"  note: highlights.toml names {', '.join(unknown)}, which the site doesn't show")
+    # Every page's header and footer list the plugins.
+    env.globals["catalog"] = [{"name": plugin["name"], "slug": plugin["slug"]} for plugin in plugins]
 
     hashes = json.loads(HASHES.read_text()) if HASHES.exists() else {}
     for plugin in plugins:

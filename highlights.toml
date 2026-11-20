@@ -1,0 +1,44 @@
+# What the site says about each plugin beyond its README: hand-written, like the front page's text.
+# Every field is optional, and a plugin missing here still gets its card and page.
+#
+#   kind    what it is, above the name on its page ("Vocal effect")
+#   short   one word for the front page's switcher ("Pitch")
+#   accent  its colour on the site
+#   chips   up to three short facts beside its window, each with an icon:
+#           clock, cpu, spark, keys, loop, mic, shield
+#   glance  more rows for its page's "At a glance" box
+#
+# Every fact must be one its README states.
+
+[JellyPitchBtw]
+kind = "Vocal effect"
+short = "Pitch"
+accent = "#6fd8ff"
+chips = [
+  { icon = "clock", text = "0.25 ms latency" },
+  { icon = "spark", text = "13 scales in every key" },
+  { icon = "cpu", text = "0.13 % of a CPU core" },
+]
+glance = { Latency = "0.25 ms", CPU = "0.13 % of a core" }
+
+[OrbitLoopBtw]
+kind = "Loop effect"
+short = "Loops"
+accent = "#b49bff"
+chips = [
+  { icon = "clock", text = "No latency" },
+  { icon = "loop", text = "Four effects, one puck" },
+  { icon = "cpu", text = "About 0.8 % of a CPU core" },
+]
+glance = { Latency = "None", CPU = "About 0.8 % of a core" }
+
+[EasyModeBtw]
+kind = "MIDI effect"
+short = "MIDI"
+accent = "#ffc46b"
+chips = [
+  { icon = "keys", text = "20 scales on 12 keys" },
+  { icon = "spark", text = "Chords, strums, arpeggios" },
+  { icon = "loop", text = "Eight arp patterns" },
+]
+glance = { Audio = "None, MIDI in and out" }

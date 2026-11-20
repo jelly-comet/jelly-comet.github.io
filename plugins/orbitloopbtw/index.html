@@ -17,10 +17,12 @@
 <meta property="og:image:alt" content="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#0a0e15">
+<meta name="theme-color" content="#060a11">
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
-<link rel="stylesheet" href="../../assets/site.css?v=c5ab4e1b61">
+<link rel="preload" href="../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=615eea6d7a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,36 +57,88 @@
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
 <header class="site-header">
-  <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+  <div class="wrap header-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../#plugins">Plugins</a>
+      <a href="../../#install">Install</a>
+      <a href="../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>
+    </div>
+  </div>
 </header>
 <main>
 
 
-<nav class="back"><a href="../../">All plugins</a></nav>
-<section class="hero">
-  <img class="hero-image" src="images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846">
-  <div class="hero-text">
-    <h1>OrbitLoopBtw <span class="tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span></h1>
-    <p class="summary"><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
+
+<div class="plugin-page" style="--accent:#b49bff">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../">Home</a><span class="sep">/</span><a href="../../#plugins">Plugins</a><span class="sep">/</span><span class="here">OrbitLoopBtw</span></nav>
+<section class="product-hero wrap" id="overview">
+  <div class="product-copy">
+    <p class="eyebrow"><span class="dot"></span>Loop effect · CLAP · Free</p>
+    <h1>OrbitLoopBtw <span class="product-sub">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span></h1>
+    <p class="product-summary"><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
 one puck that blends them.</strong> For fills, breakdowns and endings that move with the song.</p>
-    <p class="meta"><span class="version">v1.0.1</span> · 14 Nov 2026 · Free · CLAP for Linux</p>
-    <div class="actions">
-      <a class="button primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download v1.0.1 <span class="button-note">5.4 MB</span></a>
-      <a class="button" href="OrbitLoopBtw-manual.pdf" download>Manual <span class="button-note">PDF</span></a>
+    <ul class="meta-chips">
+      <li>v1.0.1</li><li>14 Nov 2026</li><li>CLAP</li><li>Linux x86-64</li><li>MIT</li>
+    </ul>
+    <div class="product-actions">
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download v1.0.1 <span class="note">5.4 MB</span></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <a class="text-link dim" href="OrbitLoopBtw-manual.pdf" download>Manual as PDF</a>
     </div>
-    <p class="links">
-      <a href="manual/">Read the manual</a>
-      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">All releases</a>
-      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/issues">Support</a>
-      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256">SHA-256</a>
-      <a href="https://github.com/jelly-comet/OrbitLoopBtw-release">Release repository</a>
-    </p>
+  </div>
+  <div class="product-shot">
+    <div class="ring"></div>
+    <div class="shot-frame"><img class="hero-image" src="images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846"></div>
+    <span class="stat-chip chip-1"><svg><use href="#i-clock"/></svg>No latency</span>
+    <span class="stat-chip chip-2"><svg><use href="#i-loop"/></svg>Four effects, one puck</span>
+    <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>About 0.8 % of a CPU core</span>
+    
   </div>
 </section>
-<div class="columns">
-  <article class="prose">
-    <p>OrbitLoopBtw listens to what plays and loops it four ways at the same time: HALF plays it at half
+
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav-inner">
+    <div class="subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#what-its-for">What it's for</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      
+      <a href="#whats-new">What's new</a>
+    </div>
+    <a class="btn btn-sm btn-primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download <span class="note">5.4 MB</span></a>
+  </div>
+</nav>
+
+<div class="product-layout wrap">
+  <article class="article prose">
+    <div class="intro-text"><p>OrbitLoopBtw listens to what plays and loops it four ways at the same time: HALF plays it at half
 speed, REVERSE plays each beat backward, STUTTER repeats the end of the loop in ever shorter
 slices, and STOP brakes it like a tape machine switched off. Each effect sits in a corner of a pad,
 and one puck blends them. Leave the puck in a corner for one effect, put it between corners for a
@@ -93,137 +147,150 @@ its own page, a large display of where its read head goes over the loop. It has 
 isn't being cut plays as it comes in. It is not a sampler or a looper you record into: it always
 plays the last loop of what comes in.</p>
 <p><strong><a href="manual/">Read the manual</a></strong> for every control and how to use it.</p>
-
+</div>
     
-    <h2 id="screenshots">Screenshots</h2>
-    <div class="gallery">
-      
-      <figure>
-        <a href="images/screenshot-orbit-circle.png"><img src="images/screenshot-orbit-circle.png" alt="The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it</figcaption>
-      </figure>
-      
-      <figure>
-        <a href="images/screenshot-orbit-line.png"><img src="images/screenshot-orbit-line.png" alt="The puck going back and forth along the pad&#39;s top between HALF and REVERSE, as the Half And Back preset sets it" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The puck going back and forth along the pad&#39;s top between HALF and REVERSE, as the Half And Back preset sets it</figcaption>
-      </figure>
-      
-      <figure>
-        <a href="images/screenshot-orbit-panel.png"><img src="images/screenshot-orbit-panel.png" alt="The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs</figcaption>
-      </figure>
-      
-      <figure>
-        <a href="images/screenshot-half.png"><img src="images/screenshot-half.png" alt="The HALF page" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The HALF page</figcaption>
-      </figure>
-      
-      <figure>
-        <a href="images/screenshot-stutter.png"><img src="images/screenshot-stutter.png" alt="The STUTTER page" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The STUTTER page</figcaption>
-      </figure>
-      
-      <figure>
-        <a href="images/screenshot-stop.png"><img src="images/screenshot-stop.png" alt="The STOP page" width="1260" height="846" loading="lazy"></a>
-        <figcaption>The STOP page</figcaption>
-      </figure>
-      
-    </div>
+    <section id="screenshots" class="part">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        
+        <figure>
+          <a href="images/screenshot-orbit-circle.png"><img src="images/screenshot-orbit-circle.png" alt="The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The puck going round the whole pad, a bar in each corner, as the Four Corners preset sets it</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-orbit-line.png"><img src="images/screenshot-orbit-line.png" alt="The puck going back and forth along the pad&#39;s top between HALF and REVERSE, as the Half And Back preset sets it" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The puck going back and forth along the pad&#39;s top between HALF and REVERSE, as the Half And Back preset sets it</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-orbit-panel.png"><img src="images/screenshot-orbit-panel.png" alt="The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The orbit panel, opened by a right-click on the pad: ORBIT in bars a turn and the four radius knobs</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-half.png"><img src="images/screenshot-half.png" alt="The HALF page" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The HALF page</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-stutter.png"><img src="images/screenshot-stutter.png" alt="The STUTTER page" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The STUTTER page</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-stop.png"><img src="images/screenshot-stop.png" alt="The STOP page" width="1260" height="846" loading="lazy"></a>
+          <figcaption>The STOP page</figcaption>
+        </figure>
+        
+      </div>
+    </section>
     
-    <h2 id="what-its-for">What it's for</h2>
-<ul>
-<li><strong>Fills:</strong> a stutter at the end of the loop, a beat repeat in slices from 1/4 down to 1/64.</li>
-<li><strong>Transitions and breakdowns:</strong> drop a part to half-time, or play its beats in reverse.</li>
-<li><strong>Endings:</strong> a tape stop that brakes the music like a tape machine switched off.</li>
-<li><strong>Glitch effects that move:</strong> throw the puck and half speed, reverse, stutter and tape stop take turns, in time with the song.</li>
-</ul>
-<h2 id="features">Features</h2>
-<ul>
-<li><strong>Four loop effects at once:</strong> HALF (1.5x, 2x or 4x slower), REVERSE (each 1/16 to 1 bar
+    
+    
+    
+    <section id="what-its-for" class="part part-uses">
+      <h2>What it's for</h2>
+      
+      <div class="use-grid">
+        <div class="use-card"><span class="use-num">01</span><b>Fills</b><span>A stutter at the end of the loop, a beat repeat in slices from 1/4 down to 1/64.</span></div>
+        <div class="use-card"><span class="use-num">02</span><b>Transitions and breakdowns</b><span>Drop a part to half-time, or play its beats in reverse.</span></div>
+        <div class="use-card"><span class="use-num">03</span><b>Endings</b><span>A tape stop that brakes the music like a tape machine switched off.</span></div>
+        <div class="use-card"><span class="use-num">04</span><b>Glitch effects that move</b><span>Throw the puck and half speed, reverse, stutter and tape stop take turns, in time with the song.</span></div>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="features" class="part part-features">
+      <h2>Features</h2>
+      
+      <ul class="feature-cols">
+        <li><svg><use href="#i-check"/></svg><span><b>Four loop effects at once:</b> HALF (1.5x, 2x or 4x slower), REVERSE (each 1/16 to 1 bar
   backward, or back and forth), STUTTER (the loop's end repeated in slices of 1/4 to 1/64, even,
   faster or slower, as they are or an octave down or up) and STOP (a tape stop over the loop's end,
-  from a pitch glide to a slowing tape).</li>
-<li><strong>A blend that stays as loud as its corners:</strong> between corners it is within 0.2 LU of the
-  corners' own loudness. With the puck in a corner you hear that effect alone, bit for bit.</li>
-<li><strong>An orbit locked to the song:</strong> throw the puck and it keeps going, round a circle or along a
-  line, once in 1/8 to 16 bars. The same bar sounds the same every time, and a render repeats.</li>
-<li><strong>HOLD:</strong> freezes the loop that just played; all four effects keep playing on it while the dry
-  signal stays the song.</li>
-<li><strong>A band for the effect:</strong> choose the range the effect plays in, 24 dB/octave edges; outside it
-  the input passes. Keep the kick and the air, cut up the middle.</li>
-<li><strong>No latency and no clicks:</strong> joins fade over 2 ms, and a changed setting is heard from the next
-  slice, never mid-slice.</li>
-<li><strong>Presets</strong> of the pad, the orbit, LOOP, every page, the band and MIX: eight built in beside
-  Init, from a bar-end roll to a tape ending, and your own.</li>
-<li><strong>Light:</strong> about 0.8 % of a CPU core at 48 kHz stereo.</li>
-<li><strong>Zoom</strong> from 100 to 200 %, mono or stereo.</li>
-<li><strong>No network access and no telemetry.</strong></li>
-</ul>
-<h2 id="install">Install</h2>
-<p>Download the latest version from the <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">Releases page</a>,
+  from a pitch glide to a slowing tape).</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A blend that stays as loud as its corners:</b> between corners it is within 0.2 LU of the
+  corners' own loudness. With the puck in a corner you hear that effect alone, bit for bit.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>An orbit locked to the song:</b> throw the puck and it keeps going, round a circle or along a
+  line, once in 1/8 to 16 bars. The same bar sounds the same every time, and a render repeats.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>HOLD:</b> freezes the loop that just played; all four effects keep playing on it while the dry
+  signal stays the song.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A band for the effect:</b> choose the range the effect plays in, 24 dB/octave edges; outside it
+  the input passes. Keep the kick and the air, cut up the middle.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No latency and no clicks:</b> joins fade over 2 ms, and a changed setting is heard from the next
+  slice, never mid-slice.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Presets</b> of the pad, the orbit, LOOP, every page, the band and MIX: eight built in beside
+  Init, from a bar-end roll to a tape ending, and your own.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Light:</b> about 0.8 % of a CPU core at 48 kHz stereo.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Zoom</b> from 100 to 200 %, mono or stereo.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No network access and no telemetry.</b> </span></li>
+        
+      </ul>
+      
+    </section>
+    
+    
+    <section id="install" class="part part-prose">
+      <h2>Install</h2>
+      
+      <p>Download the latest version from the <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">Releases page</a>,
 or with these commands:</p>
-<pre><code class="language-bash">curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz
 curl -LO https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256
 sha256sum -c OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz
 cd OrbitLoopBtw-1.0.1-linux-x86_64
-</code></pre>
+</code></pre></div>
 <p>Install for your user:</p>
-<pre><code class="language-bash">mkdir -p ~/.clap
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">mkdir -p ~/.clap
 rm -f ~/.clap/OrbitLoopBtw.clap &amp;&amp; cp OrbitLoopBtw.clap ~/.clap/
-</code></pre>
+</code></pre></div>
 <p>Or for all users:</p>
-<pre><code class="language-bash">sudo mkdir -p /usr/lib/clap
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">sudo mkdir -p /usr/lib/clap
 sudo rm -f /usr/lib/clap/OrbitLoopBtw.clap &amp;&amp; sudo cp OrbitLoopBtw.clap /usr/lib/clap/
-</code></pre>
+</code></pre></div>
 <p>Removing the old copy first avoids overwriting a file a running host has loaded. Then rescan plugins
 in your DAW.</p>
 <p>To uninstall:</p>
-<pre><code class="language-bash">rm -f ~/.clap/OrbitLoopBtw.clap
-</code></pre>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">rm -f ~/.clap/OrbitLoopBtw.clap
+</code></pre></div>
 <p>Your presets stay in <code>~/.local/share/OrbitLoopBtw/presets/</code>; delete that folder too if you want
 them gone.</p>
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer
-  (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</li>
-<li>A CLAP host. Tried in Bitwig Studio and REAPER.</li>
-<li>X11 or XWayland, and a Vulkan driver for the editor</li>
-</ul>
-<p>Releases contain the CLAP plugin only.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="is-it-free">Is it free?</h3>
-<p>Yes. The download is free and MIT-licensed.</p>
-<h3 id="is-there-a-vst3-or-lv2-version">Is there a VST3 or LV2 version?</h3>
-<p>No. Releases contain the CLAP plugin only.</p>
-<h3 id="does-it-run-on-arm-like-a-raspberry-pi-or-apple-silicon">Does it run on ARM, like a Raspberry Pi or Apple Silicon?</h3>
-<p>No. It needs Linux on x86-64, on a CPU with AVX2.</p>
-<h3 id="which-hosts-does-it-work-in">Which hosts does it work in?</h3>
-<p>Any CLAP host. It was tried in Bitwig Studio and REAPER.</p>
-<h3 id="does-it-work-on-wayland">Does it work on Wayland?</h3>
-<p>Through XWayland. The editor also needs a Vulkan driver.</p>
-<h3 id="is-it-a-looper-i-record-into">Is it a looper I record into?</h3>
-<p>No. It always plays the last loop of what comes in, through its four effects. It is not a sampler.</p>
-<h2 id="license">License</h2>
-<p>MIT, see <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
-<code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
-<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
-free-audio project. OrbitLoopBtw is an independent project, not affiliated with or endorsed by the
-makers of any other loop or stutter effect.</p>
-  </article>
-  <aside class="panel changes">
-    <h2>What's new in v1.0.1</h2>
-    <div class="notes"><p>OrbitLoopBtw 1.0.1 is built for newer CPUs.</p>
+      
+    </section>
+    
+    
+    <section id="faq" class="part part-faq">
+      <h2>FAQ</h2>
+      
+      <div class="faq">
+        <details open><summary>Is it free?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Yes. The download is free and MIT-licensed.</p></div></details>
+        <details><summary>Is there a VST3 or LV2 version?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. Releases contain the CLAP plugin only.</p></div></details>
+        <details><summary>Does it run on ARM, like a Raspberry Pi or Apple Silicon?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It needs Linux on x86-64, on a CPU with AVX2.</p></div></details>
+        <details><summary>Which hosts does it work in?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Any CLAP host. It was tried in Bitwig Studio and REAPER.</p></div></details>
+        <details><summary>Does it work on Wayland?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Through XWayland. The editor also needs a Vulkan driver.</p></div></details>
+        <details><summary>Is it a looper I record into?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It always plays the last loop of what comes in, through its four effects. It is not a sampler.</p></div></details>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="whats-new" class="part">
+      <h2>What's new in v1.0.1</h2>
+      <p class="release-date">14 Nov 2026 · <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.1">Release on GitHub</a></p>
+      <div class="notes"><p>OrbitLoopBtw 1.0.1 is built for newer CPUs.</p>
 <ul>
 <li><strong>It needs a CPU with AVX2</strong> now (Intel Core from 2013, AMD from 2015), where 1.0.0 needed SSE4.1. On an older CPU, stay with 1.0.0.</li>
 <li>It uses 2 % less CPU (0.80 % of a core where it was 0.82 %), and every sample is the same.</li>
 </ul></div>
-    <p class="links"><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.1">Release on GitHub</a></p>
-    
-    <details>
-      <summary>Earlier versions</summary>
       
-      <h3><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.0">v1.0.0</a> <span class="date">13 Nov 2026</span></h3>
-      <div class="notes"><p>OrbitLoopBtw 1.0: one loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and one puck that blends them.</p>
+      <details class="earlier">
+        <summary>Earlier versions <svg><use href="#i-plus"/></svg></summary>
+        
+        <h3><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/tag/v1.0.0">v1.0.0</a> <span class="release-date">13 Nov 2026</span></h3>
+        <div class="notes"><p>OrbitLoopBtw 1.0: one loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and one puck that blends them.</p>
 <ul>
 <li><strong>Four loop effects at once:</strong> HALF (1.5x to 4x slower), REVERSE (1/16 to 1 bar backward, or back and forth), STUTTER (slices of 1/4 to 1/64, even, faster or slower, an octave down or up) and STOP (a tape stop over the loop's end).</li>
 <li><strong>One puck blends them,</strong> as loud as its corners. Throw it and it orbits, locked to the song, once in 1/8 to 16 bars: the same bar sounds the same every time.</li>
@@ -233,29 +300,108 @@ makers of any other loop or stutter effect.</p>
 <li><strong>Presets:</strong> eight built in beside Init, from a bar-end roll to a tape ending, and your own.</li>
 <li>About 0.8 % of a CPU core at 48 kHz stereo. Needs a CPU with SSE4.1.</li>
 </ul></div>
+        
+      </details>
       
-    </details>
+    </section>
+
+    <section id="license" class="part part-prose">
+      <h2>License</h2>
+      
+      <p>MIT, see <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
+<code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. OrbitLoopBtw is an independent project, not affiliated with or endorsed by the
+makers of any other loop or stutter effect.</p>
+      
+    </section>
+    
+    
+  </article>
+
+  <aside class="rail">
+    <div class="rail-card">
+      <h2>At a glance</h2>
+      <dl class="glance">
+        <div><dt>Version</dt><dd>v1.0.1</dd></div>
+        <div><dt>Released</dt><dd>14 Nov 2026</dd></div>
+        <div><dt>Format</dt><dd>CLAP</dd></div>
+        <div><dt>System</dt><dd>Linux x86-64</dd></div>
+        <div><dt>License</dt><dd class="green">MIT, free</dd></div>
+        <div><dt>Download</dt><dd>5.4 MB</dd></div>
+        <div><dt>Latency</dt><dd>None</dd></div>
+        <div><dt>CPU</dt><dd>About 0.8 % of a core</dd></div>
+        
+      </dl>
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download v1.0.1 <svg><use href="#i-download"/></svg></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <p class="rail-foot"><a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases">All releases</a> · <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz.sha256">SHA-256</a> · <a href="https://github.com/jelly-comet/OrbitLoopBtw-release/issues">Support</a></p>
+    </div>
+    
+    <div class="rail-card" id="requirements">
+      <h2>Requirements</h2>
+      <ul class="req">
+        <li><svg><use href="#i-check"/></svg><span>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer
+  (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</span></li>
+        <li><svg><use href="#i-check"/></svg><span>A CLAP host. Tried in Bitwig Studio and REAPER.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>X11 or XWayland, and a Vulkan driver for the editor</span></li>
+        
+      </ul>
+      <div class="rail-foot"><p>Releases contain the CLAP plugin only.</p></div>
+    </div>
     
   </aside>
 </div>
 
-<section class="others">
-  <h2>More from JellyComet</h2>
 
-  <ul>
+<section class="more-plugins wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+  <ul class="more-grid">
     
-    <li><a href="../jellypitchbtw/"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span></a></li>
+    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a href="../easymodebtw/"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span></a></li>
+    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
   </ul></section>
 
+</div>
 
 </main>
 <footer class="site-footer">
-  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
-  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
 </footer>
+<script src="../../assets/site.js?v=4a716bab96" defer></script>
 <script src="../../assets/lightbox.js?v=dbf0dab692" defer></script>
 </body>
 </html>

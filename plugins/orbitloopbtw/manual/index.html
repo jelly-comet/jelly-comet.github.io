@@ -17,10 +17,12 @@
 <meta property="og:image:alt" content="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#0a0e15">
+<meta name="theme-color" content="#060a11">
 <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
-<link rel="stylesheet" href="../../../assets/site.css?v=c5ab4e1b61">
+<link rel="preload" href="../../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/site.css?v=615eea6d7a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,18 +78,48 @@
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
 <header class="site-header">
-  <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+  <div class="wrap header-inner">
+    <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../../#plugins">Plugins</a>
+      <a href="../../../#install">Install</a>
+      <a href="../../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../../#plugins">All plugins</a>
+    </div>
+  </div>
 </header>
 <main>
 
 
-<nav class="back"><a href="../">OrbitLoopBtw</a></nav>
-<article class="prose manual">
+<div class="plugin-page" style="--accent:#b49bff">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../../">Home</a><span class="sep">/</span><a href="../">OrbitLoopBtw</a><span class="sep">/</span><span class="here">Manual</span></nav>
+<article class="prose manual wrap">
   <h1 id="orbitloopbtw-manual">OrbitLoopBtw manual</h1>
   <div class="actions">
-    <a class="button primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download OrbitLoopBtw v1.0.1 <span class="button-note">5.4 MB</span></a>
-    <a class="button" href="../OrbitLoopBtw-manual.pdf" download>This manual <span class="button-note">PDF</span></a>
+    <a class="btn btn-primary" href="https://github.com/jelly-comet/OrbitLoopBtw-release/releases/download/v1.0.1/OrbitLoopBtw-1.0.1-linux-x86_64.tar.gz">Download OrbitLoopBtw v1.0.1 <span class="note">5.4 MB</span></a>
+    <a class="btn btn-ghost" href="../OrbitLoopBtw-manual.pdf" download>This manual as PDF</a>
   </div>
   
 <p><strong>One loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and
@@ -449,23 +481,54 @@ reverse_bounce off
 </ul>
 </article>
 
-<section class="others manual-others">
-  <h2>More from JellyComet</h2>
+<section class="more-plugins manual-others wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
 
-  <ul>
+  <ul class="more-grid">
     
-    <li><a href="../../jellypitchbtw/"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span></a></li>
+    <li><a class="more-card" href="../../jellypitchbtw/" style="--accent:#6fd8ff"><img src="../../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
-    <li><a href="../../easymodebtw/"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span></a></li>
+    <li><a class="more-card" href="../../easymodebtw/" style="--accent:#ffc46b"><img src="../../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
     
   </ul></section>
 
+</div>
 
 </main>
 <footer class="site-footer">
-  <a class="github" href="https://github.com/jelly-comet"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>github.com/jelly-comet</a>
-  <a class="github donate" href="https://paypal.me/jellycomet"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M1.5 8.2C1.5 4.3 4.4 1.2 8 1.2s6.5 3.1 6.5 7c-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0-.9.6-1.7.6-2.6 0ZM8 7.3C6.1 6.1 5.6 5.2 6.1 4.4c.5-.7 1.4-.6 1.9.1.5-.7 1.4-.8 1.9-.1.5.8 0 1.7-1.9 2.9Z"/><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" d="M4.4 9.4c-.7 1.3.7 2.2 0 3.6M6.9 9.4c-.7 1.6.7 2.7 0 5M9.1 9.4c.7 1.6-.7 2.7 0 5M11.6 9.4c.7 1.3-.7 2.2 0 3.6"/></svg>Donations</a>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Plugins</h2>
+        <a href="../../../plugins/jellypitchbtw/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>Manuals</h2>
+        <a href="../../../plugins/jellypitchbtw/manual/">JellyPitchBtw</a>
+        <a href="../../../plugins/orbitloopbtw/manual/">OrbitLoopBtw</a>
+        <a href="../../../plugins/easymodebtw/manual/">EasyModeBtw</a>
+        
+      </div>
+      <div class="footer-col">
+        <h2>JellyComet</h2>
+        <a href="../../../#about">About</a>
+        <a href="https://github.com/jelly-comet">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
+    </div>
+  </div>
 </footer>
+<script src="../../../assets/site.js?v=4a716bab96" defer></script>
 <script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
 </body>
 </html>

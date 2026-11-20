@@ -1,21 +1,25 @@
 {% extends "base.html" %}
 {% block title %}{{ plugin.name }} Manual – Controls, How to Use It, Troubleshooting{% endblock %}
 {% block description %}{{ plugin.manual_description }}{% endblock %}
+{% block header_action %}<a class="btn btn-sm btn-ghost" href="../../../#plugins">All plugins</a>{% endblock %}
 {% block main %}
 {% set latest = plugin.latest %}
-<nav class="back"><a href="../">{{ plugin.name }}</a></nav>
-<article class="prose manual">
+<div class="plugin-page" style="--accent:{{ plugin.accent }}">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../../">Home</a><span class="sep">/</span><a href="../">{{ plugin.name }}</a><span class="sep">/</span><span class="here">Manual</span></nav>
+<article class="prose manual wrap">
   {{ heading }}
   <div class="actions">
-    <a class="button primary" href="{{ latest.download }}">Download {{ plugin.name }} {{ latest.version }}{% if latest.size %} <span class="button-note">{{ latest.size }}</span>{% endif %}</a>
-    <a class="button" href="../{{ plugin.pdf }}" download>This manual <span class="button-note">PDF</span></a>
+    <a class="btn btn-primary" href="{{ latest.download }}">Download {{ plugin.name }} {{ latest.version }}{% if latest.size %} <span class="note">{{ latest.size }}</span>{% endif %}</a>
+    <a class="btn btn-ghost" href="../{{ plugin.pdf }}" download>This manual as PDF</a>
   </div>
   {{ body }}
 </article>
 {% if others %}
-<section class="others manual-others">
-  <h2>More from JellyComet</h2>
+<section class="more-plugins manual-others wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
 {% include "others.html" %}</section>
 {% endif %}
+</div>
 {% endblock %}
 {% block scripts %}<script src="../../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

@@ -1,63 +1,142 @@
 {% extends "base.html" %}
 {% block title %}{{ plugin.title }}{% endblock %}
 {% block description %}{{ plugin.description }}{% endblock %}
+{% block header_action %}<a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>{% endblock %}
 {% block main %}
 {% set latest = plugin.latest %}
-<nav class="back"><a href="../../">All plugins</a></nav>
-<section class="hero">
-  <img class="hero-image" src="{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}">
-  <div class="hero-text">
-    <h1>{{ plugin.name }}{% if plugin.tagline %} <span class="tagline">{{ plugin.tagline }}</span>{% endif %}</h1>
-    <p class="summary">{{ plugin.summary }}</p>
-    <p class="meta"><span class="version">{{ latest.version }}</span> · {{ latest.date }} · Free · {{ plugin.formats }} for Linux</p>
-    <div class="actions">
-      <a class="button primary" href="{{ latest.download }}">Download {{ latest.version }}{% if latest.size %} <span class="button-note">{{ latest.size }}</span>{% endif %}</a>
-      <a class="button" href="{{ plugin.pdf }}" download>Manual <span class="button-note">PDF</span></a>
+{% macro whats_new() %}
+    <section id="whats-new" class="part">
+      <h2>What's new in {{ latest.version }}</h2>
+      <p class="release-date">{{ latest.date }} · <a href="{{ latest.url }}">Release on GitHub</a></p>
+      <div class="notes">{{ latest.notes }}</div>
+      {% if plugin.earlier %}
+      <details class="earlier">
+        <summary>Earlier versions <svg><use href="#i-plus"/></svg></summary>
+        {% for release in plugin.earlier %}
+        <h3><a href="{{ release.url }}">{{ release.version }}</a> <span class="release-date">{{ release.date }}</span></h3>
+        <div class="notes">{{ release.notes }}</div>
+        {% endfor %}
+      </details>
+      {% endif %}
+    </section>
+{% endmacro %}
+<div class="plugin-page" style="--accent:{{ plugin.accent }}">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../">Home</a><span class="sep">/</span><a href="../../#plugins">Plugins</a><span class="sep">/</span><span class="here">{{ plugin.name }}</span></nav>
+<section class="product-hero wrap" id="overview">
+  <div class="product-copy">
+    <p class="eyebrow"><span class="dot"></span>{% if plugin.kind %}{{ plugin.kind }} · {% endif %}{{ plugin.formats }} · Free</p>
+    <h1>{{ plugin.name }}{% if plugin.tagline %} <span class="product-sub">{{ plugin.tagline }}</span>{% endif %}</h1>
+    <p class="product-summary">{{ plugin.summary }}</p>
+    <ul class="meta-chips">
+      <li>{{ latest.version }}</li><li>{{ latest.date }}</li><li>{{ plugin.formats }}</li><li>Linux x86-64</li><li>MIT</li>
+    </ul>
+    <div class="product-actions">
+      <a class="btn btn-primary" href="{{ latest.download }}">Download {{ latest.version }}{% if latest.size %} <span class="note">{{ latest.size }}</span>{% endif %}</a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <a class="text-link dim" href="{{ plugin.pdf }}" download>Manual as PDF</a>
     </div>
-    <p class="links">
-      <a href="manual/">Read the manual</a>
-      <a href="{{ plugin.repo.html_url }}/releases">All releases</a>
-      <a href="{{ plugin.repo.html_url }}/issues">Support</a>
-      {% if latest.checksum %}<a href="{{ latest.checksum }}">SHA-256</a>{% endif %}
-      <a href="{{ plugin.repo.html_url }}">Release repository</a>
-    </p>
+  </div>
+  <div class="product-shot">
+    <div class="ring"></div>
+    <div class="shot-frame"><img class="hero-image" src="{{ plugin.image }}" alt="{{ plugin.alt }}" width="{{ plugin.width }}" height="{{ plugin.height }}"></div>
+    {% for chip in plugin.chips %}<span class="stat-chip chip-{{ loop.index }}"><svg><use href="#i-{{ chip.icon }}"/></svg>{{ chip.text }}</span>
+    {% endfor %}
   </div>
 </section>
-<div class="columns">
-  <article class="prose">
-    {{ plugin.intro }}
-    {% if plugin.gallery %}
-    <h2 id="screenshots">Screenshots</h2>
-    <div class="gallery">
-      {% for shot in plugin.gallery %}
-      <figure>
-        <a href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
-        <figcaption>{{ shot.alt }}</figcaption>
-      </figure>
+
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav-inner">
+    <div class="subnav-links">
+      <a href="#overview">Overview</a>
+      {% if plugin.gallery %}<a href="#screenshots">Screenshots</a>{% endif %}
+      {% for part in plugin.parts if part.kind != "requirements" and part.id != "license" %}<a href="#{{ part.id }}">{{ part.title }}</a>
       {% endfor %}
+      <a href="#whats-new">What's new</a>
     </div>
+    <a class="btn btn-sm btn-primary" href="{{ latest.download }}">Download{% if latest.size %} <span class="note">{{ latest.size }}</span>{% endif %}</a>
+  </div>
+</nav>
+
+<div class="product-layout wrap">
+  <article class="article prose">
+    <div class="intro-text">{{ plugin.intro }}</div>
+    {% if plugin.gallery %}
+    <section id="screenshots" class="part">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        {% for shot in plugin.gallery %}
+        <figure>
+          <a href="{{ shot.src }}"><img src="{{ shot.src }}" alt="{{ shot.alt }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy"></a>
+          <figcaption>{{ shot.alt }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </section>
     {% endif %}
-    {{ plugin.sections }}
+    {% set ns = namespace(news=false) %}
+    {% for part in plugin.parts if part.kind != "requirements" %}
+    {% if part.id == "license" and not ns.news %}{% set ns.news = true %}{{ whats_new() }}{% endif %}
+    <section id="{{ part.id }}" class="part part-{{ part.kind }}">
+      <h2>{{ part.title }}</h2>
+      {% if part.kind == "uses" %}
+      <div class="use-grid">
+        {% for entry in part.entries %}<div class="use-card"><span class="use-num">{{ "%02d" | format(loop.index) }}</span><b>{{ entry.label }}</b><span>{{ entry.text }}</span></div>
+        {% endfor %}
+      </div>
+      {% elif part.kind == "features" %}
+      <ul class="feature-cols">
+        {% for entry in part.entries %}<li><svg><use href="#i-check"/></svg><span><b>{{ entry.lead }}</b> {{ entry.text }}</span></li>
+        {% endfor %}
+      </ul>
+      {% elif part.kind == "faq" %}
+      <div class="faq">
+        {% for entry in part.entries %}<details{% if loop.first %} open{% endif %}><summary>{{ entry.question }}<svg><use href="#i-plus"/></svg></summary><div class="answer">{{ entry.answer }}</div></details>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ part.html }}
+      {% endif %}
+    </section>
+    {% endfor %}
+    {% if not ns.news %}{{ whats_new() }}{% endif %}
   </article>
-  <aside class="panel changes">
-    <h2>What's new in {{ latest.version }}</h2>
-    <div class="notes">{{ latest.notes }}</div>
-    <p class="links"><a href="{{ latest.url }}">Release on GitHub</a></p>
-    {% if plugin.earlier %}
-    <details>
-      <summary>Earlier versions</summary>
-      {% for release in plugin.earlier %}
-      <h3><a href="{{ release.url }}">{{ release.version }}</a> <span class="date">{{ release.date }}</span></h3>
-      <div class="notes">{{ release.notes }}</div>
-      {% endfor %}
-    </details>
-    {% endif %}
+
+  <aside class="rail">
+    <div class="rail-card">
+      <h2>At a glance</h2>
+      <dl class="glance">
+        <div><dt>Version</dt><dd>{{ latest.version }}</dd></div>
+        <div><dt>Released</dt><dd>{{ latest.date }}</dd></div>
+        <div><dt>Format</dt><dd>{{ plugin.formats }}</dd></div>
+        <div><dt>System</dt><dd>Linux x86-64</dd></div>
+        <div><dt>License</dt><dd class="green">MIT, free</dd></div>
+        {% if latest.size %}<div><dt>Download</dt><dd>{{ latest.size }}</dd></div>{% endif %}
+        {% for key, value in plugin.glance.items() %}<div><dt>{{ key }}</dt><dd>{{ value }}</dd></div>
+        {% endfor %}
+      </dl>
+      <a class="btn btn-primary" href="{{ latest.download }}">Download {{ latest.version }} <svg><use href="#i-download"/></svg></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <p class="rail-foot"><a href="{{ plugin.repo.html_url }}/releases">All releases</a>{% if latest.checksum %} · <a href="{{ latest.checksum }}">SHA-256</a>{% endif %} · <a href="{{ plugin.repo.html_url }}/issues">Support</a></p>
+    </div>
+    {% for part in plugin.parts if part.kind == "requirements" %}
+    <div class="rail-card" id="{{ part.id }}">
+      <h2>{{ part.title }}</h2>
+      <ul class="req">
+        {% for entry in part.entries %}<li><svg><use href="#i-check"/></svg><span>{{ entry }}</span></li>
+        {% endfor %}
+      </ul>
+      {% if part.note %}<div class="rail-foot">{{ part.note }}</div>{% endif %}
+    </div>
+    {% endfor %}
   </aside>
 </div>
+
 {% if others %}
-<section class="others">
-  <h2>More from JellyComet</h2>
+<section class="more-plugins wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
 {% include "others.html" %}</section>
 {% endif %}
+</div>
 {% endblock %}
 {% block scripts %}<script src="../../assets/lightbox.js?v={{ js_version }}" defer></script>{% endblock %}

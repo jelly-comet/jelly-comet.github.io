@@ -12,9 +12,16 @@ git add -A && git commit -m "Site: <what changed>" && git push
 ```
 
 That is all, also for a new plugin: every public repository of `jelly-comet` named `<Name>-release`
-with a published release gets a card and a page. One without a release is skipped until it has one.
-Run it after `gh release create`, since the version, the notes and the download link come from the
-release.
+with a published release gets a panel on the front page, a place in its window switcher and install
+window, a page and a manual page. One without a release is skipped until it has one. Run it after
+`gh release create`, since the version, the notes and the download link come from the release.
+
+For a new plugin, two things are by hand:
+
+- **An entry in `highlights.toml`** (see below): what kind of plugin it is, its colour, three facts
+  beside its window. The build notes a plugin that has none; it still gets its panel and page, with a
+  stand-in colour and no facts.
+- **The front page's words** in `templates/index.html` (see "What a search engine reads").
 
 To look at it first:
 
@@ -51,12 +58,34 @@ before committing the site.
 | Version, date, what's new, earlier versions | the GitHub releases and their notes, without the `Install:` paragraph |
 | Download button | the release's `.tar.gz` |
 
+A plugin's page lays out the README's sections by their headings: **What it's for** as tiles and
+**Features** as a checklist (each a list whose items open with a bold label), **FAQ** folded (one
+`###` per question), **Requirements** in the box beside the text, every code block as a small
+terminal with a Copy button. A section that doesn't match shows as written. The front page's install
+window takes the archive's name from the release and the `.clap` file's from the README's `cp … ~/.clap/`.
+
 A discontinued plugin (a `> **Discontinued** …` paragraph right under its README's title, see
 `discontinue-plugin.md` in FrameworkBtw, or an archived repository) is left off the site: no card
 and no page (owner, 2026-11-13).
 
 So a release repository that follows `release-repo.md` in FrameworkBtw needs nothing else. The build
 stops if anything would link a private source repository.
+
+## highlights.toml
+
+The site's own words about each plugin, beside what its release repository says. Every field is
+optional:
+
+| Field | Where it shows |
+| --- | --- |
+| `kind` | above the name on its page and on its front-page panel ("Vocal effect") |
+| `short` | one word beside its name in the front page's window switcher ("Pitch") |
+| `accent` | its colour: dots, lines, ticks and glows; `#rrggbb` |
+| `chips` | up to three facts beside its window, each `{ icon = "…", text = "…" }`; the icons are listed in the file |
+| `glance` | more rows of its page's "At a glance" box, like `Latency = "0.25 ms"` |
+
+Every fact must be one its README states. A name the site doesn't show (a discontinued plugin) gets a
+note from the build; take its entry out.
 
 ## What a search engine reads
 
@@ -82,15 +111,18 @@ Never "open source" (the source is private), and VST only where a README's FAQ s
 
 - `build.py`: the generator. Needs `/usr/bin/python3` with `python-markdown` and `python-jinja`,
   `git` and `chromium`. It uses `gh`'s token if there is one, only for the API's rate limit.
-- `templates/`: the pages and the PDF's style. `assets/`: the site's CSS, logo and font.
+- `highlights.toml`: each plugin's kind, colour and facts, by hand (above).
+- `templates/`: the pages and the PDF's style; `icons.html` holds the icons every page draws.
+  `assets/`: the site's CSS, `site.js` (the window switcher, install tabs, Copy buttons and the
+  plugin page's section bar; every page works without it), `lightbox.js`, logo and fonts.
 - Generated, committed because Pages serves them: `index.html`, `plugins/`, `404.html`,
   `sitemap.xml`, `robots.txt`, `.manual-hashes.json`. Don't edit these by hand. `.nojekyll` makes Pages serve the files as they are.
 - `googleec76a87cafc4f47f.html`: Google Search Console's proof that the site is the owner's. The build
   leaves it alone; removing it loses the verification.
 - `.cache/`, not committed: shallow clones of the release repositories.
 
-The colors and the font are the ones the plugins use. Ubuntu Light is under the Ubuntu Font Licence,
-`assets/fonts/UFL.txt`.
+The blue and the font are the ones the plugins use. Ubuntu (Light, Regular and Medium for the pages,
+Light alone for the PDFs) is under the Ubuntu Font Licence, `assets/fonts/UFL.txt`.
 
 ## The starfield
 
