@@ -28,7 +28,7 @@
     <div class="hero-shots">
       {% for plugin in plugins[:3] %}
       <div class="shot{% if not loop.first %} is-hidden{% endif %}" data-shot="{{ loop.index0 }}" style="--accent:{{ plugin.accent }}">
-        <a class="shot-frame tilt" href="plugins/{{ plugin.slug }}/" tabindex="{% if loop.first %}0{% else %}-1{% endif %}">{{ picture("plugins/" ~ plugin.slug ~ "/" ~ plugin.image, plugin.alt, plugin.width, plugin.height, lazy=not loop.first, first=loop.first) }}</a>
+        <a class="shot-frame tilt" href="plugins/{{ plugin.slug }}/" tabindex="{% if loop.first %}0{% else %}-1{% endif %}">{{ picture("plugins/" ~ plugin.slug ~ "/" ~ plugin.image, plugin.alt, plugin.width, plugin.height, lazy=not loop.first, first=loop.first, sizes="(max-width: 940px) 100vw, 640px") }}</a>
         {% for chip in plugin.chips %}<span class="stat-chip chip-{{ loop.index }}"><svg><use href="#i-{{ chip.icon }}"/></svg>{{ chip.text }}</span>
         {% endfor %}
       </div>
@@ -52,11 +52,11 @@
 {% macro feature(plugin, eager) %}
   <li class="feature" style="--accent:{{ plugin.accent }}">
     <a class="feature-image" href="plugins/{{ plugin.slug }}/">
-      {{ picture("plugins/" ~ plugin.slug ~ "/" ~ plugin.image, plugin.alt, plugin.width, plugin.height, lazy=not eager) }}
+      {{ picture("plugins/" ~ plugin.slug ~ "/" ~ plugin.image, plugin.alt, plugin.width, plugin.height, lazy=not eager, sizes="(max-width: 940px) 100vw, 640px") }}
     </a>
     <div class="feature-text">
       <div class="card-head"><span class="pdot"></span><span class="card-ver">{{ plugin.latest.version }} · {{ plugin.latest.date }}</span>{% if plugin.kind %}<span class="card-type">{{ plugin.kind }}</span>{% endif %}</div>
-      <h2><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a>{% if plugin.tagline %} <span class="tagline">{{ plugin.tagline }}</span>{% endif %}</h2>
+      <h3><a href="plugins/{{ plugin.slug }}/">{{ plugin.name }}</a>{% if plugin.tagline %} <span class="tagline">{{ plugin.tagline }}</span>{% endif %}</h3>
       <p class="summary">{{ plugin.summary }}</p>
       {% if plugin.chips %}<ul class="card-list">
         {% for chip in plugin.chips %}<li><svg><use href="#i-check"/></svg>{{ chip.text }}</li>

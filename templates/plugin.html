@@ -39,7 +39,7 @@
   </div>
   <div class="product-shot">
     <div class="ring"></div>
-    <div class="shot-frame">{{ picture(plugin.image, plugin.alt, plugin.width, plugin.height, first=true, class="hero-image") }}</div>
+    <div class="shot-frame">{{ picture(plugin.image, plugin.alt, plugin.width, plugin.height, first=true, sizes="(max-width: 940px) 100vw, 640px", class="hero-image") }}</div>
     {% for chip in plugin.chips %}<span class="stat-chip chip-{{ loop.index }}"><svg><use href="#i-{{ chip.icon }}"/></svg>{{ chip.text }}</span>
     {% endfor %}
   </div>

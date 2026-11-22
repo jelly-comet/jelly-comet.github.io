@@ -58,28 +58,12 @@
       <div class="footer-brand">
         <a class="brand" href="{{ root or './' }}"><img src="{{ root }}assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
         <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+        <p class="footer-note">MIT licensed · No cookies, no trackers.</p>
       </div>
-      <div class="footer-col">
-        <h2>Plugins</h2>
-        {% for item in catalog %}<a href="{{ root }}plugins/{{ item.slug }}/">{{ item.name }}</a>
-        {% endfor %}
-      </div>
-      <div class="footer-col">
-        <h2>Manuals</h2>
-        {% for item in catalog %}<a href="{{ root }}plugins/{{ item.slug }}/manual/">{{ item.name }}</a>
-        {% endfor %}
-      </div>
-      <div class="footer-col">
-        <h2>JellyComet</h2>
-        <a href="{{ root }}#about">About</a>
-        <a href="https://github.com/{{ owner }}">GitHub</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>JellyComet · MIT licensed · No cookies, no trackers.</span>
     </div>
   </div>
 </footer>
+<a class="to-top" href="#top" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></a>
 <script src="{{ root }}assets/site.js?v={{ site_js_version }}" defer></script>
 {% block scripts %}{% endblock %}
 </body>

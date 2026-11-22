@@ -59,6 +59,8 @@ SHARE = {
 WEBP_QUALITY = 88
 # The width of the main screenshot's small copy: a card shows it at most 180 px wide, twice that on a sharp screen.
 THUMB_WIDTH = 480
+# The width of its middle copy: what a phone or a half-width panel loads in place of the full screenshot.
+MID_WIDTH = 840
 # A plugin's share picture (plugins/<name>/share.png): the size Slack, Discord, X and Mastodon show whole.
 SHARE_SIZE = (1200, 630)
 ORGANIZATION = {
@@ -348,8 +350,16 @@ def thumb(src):
     return re.sub(r"\.png$", f"-{THUMB_WIDTH}.webp", src)
 
 
+def mid(src):
+    """The middle WebP copy of a plugin's main screenshot, for a phone or a half-width panel."""
+    return re.sub(r"\.png$", f"-{MID_WIDTH}.webp", src)
+
+
 env.filters["webp"] = webp
 env.filters["thumb"] = thumb
+env.filters["mid"] = mid
+env.globals["thumb_width"] = THUMB_WIDTH
+env.globals["mid_width"] = MID_WIDTH
 
 
 def pictures(rendered):
@@ -376,11 +386,12 @@ def make_webp(images, main_image):
             check=True,
         )
     main = images.parent / main_image
-    subprocess.run(
-        ["magick", main, "-strip", "-resize", f"{THUMB_WIDTH}x", "-quality", "82", "-define", "webp:method=6",
-         images.parent / thumb(main_image)],
-        check=True,
-    )
+    for width, name in ((THUMB_WIDTH, thumb(main_image)), (MID_WIDTH, mid(main_image))):
+        subprocess.run(
+            ["magick", main, "-strip", "-resize", f"{width}x", "-quality", "82", "-define", "webp:method=6",
+             images.parent / name],
+            check=True,
+        )
 
 
 def image_size(path):
@@ -573,6 +584,7 @@ def collect(repo):
         "manual": manual,
         "gallery": gallery(manual, source, readme["image"]),
         "pdf": f"{name}-manual.pdf",
+        "first_day": parsed[-1]["day"],
         "latest": latest,
         "earlier": parsed[1:],
     }
@@ -717,7 +729,10 @@ def build_manual_page(plugin, others, out):
                 "description": plugin["manual_description"],
                 "url": f"{plugin['url']}manual/",
                 "image": plugin["share"]["url"],
+                "datePublished": plugin["first_day"],
                 "dateModified": plugin["latest"]["day"],
+                "mainEntityOfPage": f"{plugin['url']}manual/",
+                "author": {"@id": ORGANIZATION["@id"]},
                 "about": {"@type": "SoftwareApplication", "@id": f"{plugin['url']}#software", "name": plugin["name"], "url": plugin["url"]},
                 "publisher": ORGANIZATION,
             },

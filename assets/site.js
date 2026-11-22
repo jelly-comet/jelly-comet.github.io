@@ -90,4 +90,18 @@
     }, { passive: true });
     mark();
   }
+  // Back to top: shown once the reader is a screen down.
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    toTop.hidden = false;
+    var place = function () { toTop.classList.toggle("is-shown", window.scrollY > window.innerHeight); };
+    window.addEventListener("scroll", place, { passive: true });
+    place();
+    toTop.addEventListener("click", function (event) {
+      event.preventDefault();
+      var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+      toTop.blur();
+    });
+  }
 })();
