@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JellyAirBtw Manual – Controls, How to Use It, Troubleshooting</title>
+<meta name="description" content="The JellyAirBtw manual: every control and how to use it. JellyAirBtw is a free CLAP plugin: air enhancer for vocals and mixes for Linux.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/jellyairbtw/manual/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/jellyairbtw/manual/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JellyAirBtw Manual – Controls, How to Use It, Troubleshooting">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="The JellyAirBtw manual: every control and how to use it. JellyAirBtw is a free CLAP plugin: air enhancer for vocals and mixes for Linux.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/jellyairbtw/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="JellyAirBtw, air enhancer for vocals and mixes for Linux, beside its window">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="preload" href="../../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/site.css?v=d30b7e0b64">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JellyAirBtw",
+          "item": "https://jelly-comet.github.io/plugins/jellyairbtw/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manual"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "JellyAirBtw manual",
+      "description": "The JellyAirBtw manual: every control and how to use it. JellyAirBtw is a free CLAP plugin: air enhancer for vocals and mixes for Linux.",
+      "url": "https://jelly-comet.github.io/plugins/jellyairbtw/manual/",
+      "image": "https://jelly-comet.github.io/plugins/jellyairbtw/share.png",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "mainEntityOfPage": "https://jelly-comet.github.io/plugins/jellyairbtw/manual/",
+      "author": {
+        "@id": "https://jelly-comet.github.io/#organization"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "@id": "https://jelly-comet.github.io/plugins/jellyairbtw/#software",
+        "name": "JellyAirBtw",
+        "url": "https://jelly-comet.github.io/plugins/jellyairbtw/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../../#plugins">Plugins</a>
+      <a href="../../../#install">Install</a>
+      <a href="../../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+<div class="plugin-page" style="--accent:#dff1ff">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../../">Home</a><span class="sep">/</span><a href="../">JellyAirBtw</a><span class="sep">/</span><span class="here">Manual</span></nav>
+<article class="prose manual wrap">
+  <h1 id="jellyairbtw-manual">JellyAirBtw manual</h1>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://github.com/jelly-comet/JellyAirBtw-release/releases/download/v1.0.0/JellyAirBtw-1.0.0-linux-x86_64.tar.gz">Download JellyAirBtw v1.0.0 <span class="note">5.3 MB</span></a>
+    <a class="btn btn-ghost" href="../JellyAirBtw-manual.pdf" download>This manual as PDF</a>
+  </div>
+  
+<p><strong>An air enhancer that lifts the top of a voice or a mix where it is quiet and backs off where it is already bright,
+steered with a jellyfish.</strong></p>
+<p>Version 1.0.0. To install it, see the <a href="../#install">install steps</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-controls">The controls</a></li>
+<li><a href="#how-to-use-it">How to use it</a></li>
+<li><a href="#good-to-know">Good to know</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Put JellyAirBtw on a vocal, an acoustic instrument or a mix bus, stereo or mono. It opens on Init: HIGH AIR +6 dB
+from 9 kHz and nothing else, so the jellyfish sits at the left edge of the pad. Play the track and drag the jellyfish
+up for more air, across for more presence. Bubbles rise from it while air goes in, more and faster the more of the
+lift you set reaches the sound.</p>
+<p>For a vocal, pick the <strong>Vocal</strong> preset from the PRESET list and switch the power button at the top right off and on to
+hear the difference. Air adds level, so for a fair comparison click the <strong>OUT/IN</strong> chip at the top right of the display
+once: it takes the difference off with TRIM.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-init.webp"><img alt="Init with a voice over a mix: the jellyfish at the pad's left edge, HIGH AIR +6 dB at 9 kHz" src="../images/screenshot-init.png" width="840" height="616"></picture></p>
+<h2 id="the-controls">The controls</h2>
+<p>In the order of the editor, left to right and top to bottom.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Range</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power</td>
+<td>on, off</td>
+<td>on</td>
+<td>At the top right. Off crossfades to the input over 20 ms; on starts the air from silence.</td>
+</tr>
+<tr>
+<td>Zoom</td>
+<td>100 to 200 %, steps of 25</td>
+<td>100 %</td>
+<td>The window's size, kept with the project.</td>
+</tr>
+<tr>
+<td>PRESET</td>
+<td>a list</td>
+<td>Init</td>
+<td>See <a href="#presets">Presets</a>.</td>
+</tr>
+<tr>
+<td>MID AIR</td>
+<td>0 to +12 dB</td>
+<td>0 dB</td>
+<td>The jellyfish across, or the lower dot on the display up and down: the presence band's lift while it is quiet against the whole.</td>
+</tr>
+<tr>
+<td>HIGH AIR</td>
+<td>0 to +15 dB</td>
+<td>+6 dB</td>
+<td>The jellyfish up, or the higher dot up and down: the air band's lift. The scroll wheel over the pad sets it.</td>
+</tr>
+<tr>
+<td>VINTAGE</td>
+<td>on, off</td>
+<td>off</td>
+<td>On the display's strip, top left. Reads the bands against a fixed level instead of the whole, so the lift follows the input's level, as hardware does.</td>
+</tr>
+<tr>
+<td>OUT/IN</td>
+<td>a readout</td>
+<td></td>
+<td>On the display's strip, top right, not a parameter: how much louder the output is than the input over the last 3 s, loudness-weighted, <code>–</code> until a second has played. A click lowers or raises TRIM by it, once.</td>
+</tr>
+<tr>
+<td>TAME</td>
+<td>0 to 12 dB</td>
+<td>0 dB</td>
+<td>The most the presence bell cuts, 2.5 to 5.5 kHz, where it sticks out: a belted note, a harsh guitar.</td>
+</tr>
+<tr>
+<td>SENSITIVITY</td>
+<td>−12 to +12 dB</td>
+<td>0 dB</td>
+<td>Where the air backs off: higher lifts more of the time, lower backs off sooner. At 0 each band backs off from its median level on sung voices.</td>
+</tr>
+<tr>
+<td>MID FREQ</td>
+<td>1 to 8 kHz</td>
+<td>3.0 kHz</td>
+<td>Where MID AIR's band starts: the presence it lifts. Its dot on the display moves it sideways.</td>
+</tr>
+<tr>
+<td>HIGH FREQ</td>
+<td>4 to 16 kHz</td>
+<td>9.0 kHz</td>
+<td>Where HIGH AIR's band starts: the air it lifts. Its dot moves it sideways.</td>
+</tr>
+<tr>
+<td>SHELF FREQ</td>
+<td>2.5, 5, 10, 20, 40 kHz</td>
+<td>20 kHz</td>
+<td>Where the static shelf turns. From 10 kHz up it tilts the top octaves, with no corner in the band.</td>
+</tr>
+<tr>
+<td>SHELF</td>
+<td>−15 to +15 dB</td>
+<td>0 dB</td>
+<td>A static shelf on top of the air: it lifts or cuts the top however loud it is.</td>
+</tr>
+<tr>
+<td>TRIM</td>
+<td>−12 to +12 dB</td>
+<td>0 dB</td>
+<td>The output's level, to match the input's. Presets leave it alone.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mouse:</strong> drag the jellyfish, or press anywhere on the pad to move it there; the scroll wheel over the pad sets HIGH
+AIR. On the display, drag a band's dot: sideways it moves the band's corner, up and down its air. Drag a knob, hold
+Shift for fine steps, turn the scroll wheel over it, double-click to reset it to its default (on the pad and on a dot,
+both values), and right-click a knob to type a value (<code>3 kHz</code>, <code>+4 dB</code>). Every control shows a one-line tooltip, and
+every parameter can be automated by the host.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="the-two-airs">The two airs</h3>
+<p><picture><source type="image/webp" srcset="../images/screenshot-acoustic-guitar.webp"><img alt="The Acoustic Guitar preset: MID AIR +3 dB at 5 kHz, HIGH AIR +6 dB at 12 kHz, TAME 2 dB" src="../images/screenshot-acoustic-guitar.png" width="840" height="616" loading="lazy"></picture></p>
+<p>Both bands are added to the input, each from its corner upwards. Each lifts its band by the full amount while the
+band is quiet against the whole signal and by less as it gets louder, so the vowels, the breaths and a dull passage
+get the air, and an s, a cymbal or a bright mix gets much less of it.</p>
+<ul>
+<li><strong>HIGH AIR</strong> (from HIGH FREQ, 4 to 16 kHz) is the air: breath, shine, the very top. Start at +6 to +8 dB from 9 kHz
+  on a voice; move HIGH FREQ above 10 kHz to keep it clear of the s's at 5 to 9 kHz.</li>
+<li><strong>MID AIR</strong> (from MID FREQ, 1 to 8 kHz) is presence. HIGH AIR's band dips the octave under its corner by about
+  1 dB, so a little MID AIR (+1 to +2 dB) gives a voice its presence back.</li>
+<li><strong>SENSITIVITY</strong> sets where the bands back off. Raise it if a quiet or bright source gets too little air; lower it if
+  the loud lines or the s's get brighter than you want.</li>
+</ul>
+<h3 id="the-display">The display</h3>
+<p>The display shows the spectrum of what plays, the curve you set and, lit, the curve the music gets now: where the
+two part, the air is backing off. Its two dots are the bands' corners: drag one sideways to move the corner, up and
+down to set its air.</p>
+<p><strong>Hear one part alone:</strong> hold the middle mouse button (or the left one with Alt) on a dot to hear only the air that
+band adds; drag sideways while you hold it to sweep the band as you listen. With TAME above 0, press TAME's column to
+hear only what TAME takes off. Let go and the output is as it was. Nothing is saved or automated.</p>
+<p>Under the display, three lanes show the last 4.5 s: HIGH's and MID's lift and TAME's cut. The bands' lanes are drawn
+at the knobs as they are, so turning SENSITIVITY or an air shows at once how the last seconds would have been lifted.</p>
+<h3 id="tame">TAME</h3>
+<p>TAME is a bell at about 3.7 kHz that cuts only while the presence, 2.5 to 5.5 kHz, sticks out of the whole: a belted
+note, a harsh guitar, a hard consonant. It cuts within 5 ms and lets go over 100 ms. Set the most it may cut, 2 to
+3 dB for a voice, up to 6 dB for a harsh one; its lane shows when it works. At 0 it is out of the path.</p>
+<h3 id="the-shelf">The shelf</h3>
+<p>SHELF is a static shelf after the airs: it lifts or cuts the top however loud it is. With SHELF FREQ at 2.5 or 5 kHz
+it is a classic high shelf; from 10 kHz up its pole sits above the corner you hear, so it tilts the top octaves
+gently with no bump in the band, the way a mastering air shelf does. Reach for it when a bright source alone gets
+little of the airs' lift, since read against the whole, a top that is the whole signal reads as loud.</p>
+<h3 id="vintage">VINTAGE</h3>
+<p>Off, the bands read their level against the whole signal, so a gain before JellyAirBtw changes nothing. On, they read
+it against a fixed level, as hardware does: the louder the input, the less air. Use it when you want the air to move
+with how hard the track is driven.</p>
+<h3 id="presets">Presets</h3>
+<p>The PRESET list holds Init (every default), your favourites, the six built-in presets and then your own. The arrows
+step through them, the disk saves the current settings under a name, and PRESET reads <code>Custom</code> once a setting differs
+from every preset. A preset is the air: both airs and their corners, SENSITIVITY, TAME, the shelf and VINTAGE. It
+leaves TRIM and the power switch alone, so it changes the air and not the level the track sends.</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>Settings</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vocal</td>
+<td>MID AIR +2 dB, HIGH AIR +8 dB, TAME 3 dB</td>
+<td>Air for the breaths and the ends of words, the s's nearly as they were.</td>
+</tr>
+<tr>
+<td>Breathy Vocal</td>
+<td>HIGH AIR +10 dB at 11 kHz, SENSITIVITY +4 dB</td>
+<td>More of the quiet lines, the corner above the s's.</td>
+</tr>
+<tr>
+<td>Harsh Vocal</td>
+<td>HIGH AIR +6 dB, SENSITIVITY −3 dB, TAME 6 dB</td>
+<td>No presence added, TAME cutting it where it sticks out, a loud line backing off sooner.</td>
+</tr>
+<tr>
+<td>Acoustic Guitar</td>
+<td>MID AIR +3 dB at 5 kHz, HIGH AIR +6 dB at 12 kHz, TAME 2 dB</td>
+<td>The strings' shine over the body.</td>
+</tr>
+<tr>
+<td>Dull Mix</td>
+<td>MID AIR +2 dB, HIGH AIR +8 dB, SHELF +2 dB at 40 kHz</td>
+<td>A dull mix gets more than a bright one; the tilt on top.</td>
+</tr>
+<tr>
+<td>Master</td>
+<td>MID AIR +1 dB, HIGH AIR +4 dB, SENSITIVITY −3 dB, TAME 2 dB, SHELF +1 dB at 40 kHz</td>
+<td>Gentle, so a master's bright moments back off.</td>
+</tr>
+</tbody>
+</table>
+<p>Your presets are text files in <code>~/.local/share/JellyAirBtw/presets/</code>, one <code>id value</code> line per parameter (SHELF FREQ
+by its step, <code>2k5</code> to <code>40k</code>, VINTAGE <code>on</code> or <code>off</code>), shared by every project:</p>
+<pre><code class="language-text">high_air 6
+shelf_freq 20k
+vintage off
+</code></pre>
+<p>A line a file doesn't have leaves its parameter alone, and a line it doesn't know is skipped.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+<li><strong>No latency:</strong> JellyAirBtw reports 0 samples, so it needs no delay compensation and is fine for live monitoring.</li>
+<li><strong>Everything at 0 is the input:</strong> both airs, TAME, SHELF and TRIM at 0 pass the input unchanged, to the bit.</li>
+<li><strong>The lift moves with the music,</strong> a little from moment to moment; that is how it follows the track. A static
+  shelf doesn't.</li>
+<li><strong>Air adds level.</strong> The OUT/IN chip shows how much; one click takes it off with TRIM.</li>
+<li><strong>Automation:</strong> every parameter can be automated. Moving a corner, the shelf or the pad, even over a bass note,
+  leaves no clicks.</li>
+<li><strong>CPU:</strong> about 0.18 % of a core at the defaults, 0.42 % with TAME on, stereo at 48 kHz; on silence it rests.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>The plugin doesn't show up:</strong> check that <code>JellyAirBtw.clap</code> is in <code>~/.clap</code> or <code>/usr/lib/clap</code>, then rescan
+  plugins in your DAW. It needs a CPU with AVX2.</li>
+<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed. The <code>vulkaninfo</code> tool
+  from <code>vulkan-tools</code> should list your GPU.</li>
+<li><strong>A bright source gets hardly any air:</strong> that is the bands backing off where the top is already loud. Raise
+  SENSITIVITY for more of the time, or add SHELF, which lifts however loud the top is.</li>
+<li><strong>The s's get brighter too:</strong> lower SENSITIVITY, so a loud band backs off sooner, or move HIGH FREQ up, above the
+  s's 5 to 9 kHz.</li>
+<li><strong>The voice loses some presence with HIGH AIR up:</strong> its band dips the octave under its corner by about 1 dB. Add a
+  little MID AIR.</li>
+<li><strong>The air changes when the input gets louder or quieter:</strong> VINTAGE is on. Turned off, the bands read against the
+  whole and a gain before the plugin changes nothing.</li>
+<li><strong>TAME seems to do nothing:</strong> it cuts only while the presence sticks out of the whole. The TAME lane under the
+  display shows when it does.</li>
+<li><strong>The track got louder:</strong> air adds level. Click OUT/IN, or bring TRIM down; presets leave it where it is.</li>
+<li><strong>Typing a preset's name does nothing:</strong> some hosts keep keystrokes for themselves. Write the preset file by hand
+  instead (see <a href="#presets">Presets</a>).</li>
+<li><strong>A preset doesn't show up in the list:</strong> its file must end in <code>.preset</code>, and its name can't start with a dot or be
+  Init's or a built-in preset's. The editor reads the folder when it opens and after a save, so reopen the editor
+  after adding files by hand.</li>
+</ul>
+</article>
+
+<section class="more-plugins manual-others wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../../jellyreverbbtw/" style="--accent:#8fb8ff"><picture><source type="image/webp" srcset="../../jellyreverbbtw/images/screenshot-480.webp"><img src="../../jellyreverbbtw/images/screenshot.png" alt="" width="1260" height="924" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyReverbBtw</span> <span class="other-tagline">Reverb on a jellyfish pad for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../tubeeqbtw/" style="--accent:#ff9a5c"><picture><source type="image/webp" srcset="../../tubeeqbtw/images/screenshot-480.webp"><img src="../../tubeeqbtw/images/screenshot.png" alt="" width="1260" height="1014" loading="lazy"></picture><span class="more-text"><span class="other-name">TubeEqBtw</span> <span class="other-tagline">Passive tube EQ for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../optocompbtw/" style="--accent:#7cf2b0"><picture><source type="image/webp" srcset="../../optocompbtw/images/screenshot-480.webp"><img src="../../optocompbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"></picture><span class="more-text"><span class="other-name">OptoCompBtw</span> <span class="other-tagline">Optical compressor for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../jellysubbtw/" style="--accent:#ff7eb6"><picture><source type="image/webp" srcset="../../jellysubbtw/images/screenshot-480.webp"><img src="../../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"></picture><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../jellypitchbtw/" style="--accent:#6fd8ff"><picture><source type="image/webp" srcset="../../jellypitchbtw/images/screenshot-480.webp"><img src="../../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../orbitloopbtw/" style="--accent:#b49bff"><picture><source type="image/webp" srcset="../../orbitloopbtw/images/screenshot-480.webp"><img src="../../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../../easymodebtw/" style="--accent:#ffc46b"><picture><source type="image/webp" srcset="../../easymodebtw/images/screenshot-480.webp"><img src="../../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../../"><img src="../../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+        <p class="footer-note">MIT licensed · No cookies, no trackers.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="to-top" href="#top" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></a>
+<script src="../../../assets/site.js?v=13f3d1418a" defer></script>
+<script src="../../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

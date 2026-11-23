@@ -86,3 +86,14 @@ chips = [
   { icon = "cpu", text = "0.38 % of a CPU core" },
 ]
 glance = { Latency = "None", CPU = "0.38 % of a core", Audio = "Stereo, or mono in to stereo out" }
+
+[JellyAirBtw]
+kind = "Air enhancer"
+short = "Air"
+accent = "#dff1ff"
+chips = [
+  { icon = "clock", text = "No latency" },
+  { icon = "mic", text = "Backs off on s's and bright tops" },
+  { icon = "cpu", text = "0.18 % of a CPU core" },
+]
+glance = { Latency = "None", CPU = "0.18 % of a core", Audio = "Mono or stereo" }
