@@ -97,3 +97,14 @@ chips = [
   { icon = "cpu", text = "0.18 % of a CPU core" },
 ]
 glance = { Latency = "None", CPU = "0.18 % of a core", Audio = "Mono or stereo" }
+
+[TrueClipBtw]
+kind = "Mastering clipper"
+short = "Clip"
+accent = "#ff6b6b"
+chips = [
+  { icon = "shield", text = "A true-peak ceiling that holds" },
+  { icon = "clock", text = "0.98 ms latency" },
+  { icon = "cpu", text = "0.25 % of a CPU core" },
+]
+glance = { Latency = "47 samples at 48 kHz (0.98 ms)", CPU = "0.25 % of a core" }
