@@ -60,7 +60,7 @@
       "url": "https://jelly-comet.github.io/plugins/tubeeqbtw/manual/",
       "image": "https://jelly-comet.github.io/plugins/tubeeqbtw/share.png",
       "datePublished": "2026-11-20",
-      "dateModified": "2026-11-20",
+      "dateModified": "2026-11-25",
       "mainEntityOfPage": "https://jelly-comet.github.io/plugins/tubeeqbtw/manual/",
       "author": {
         "@id": "https://jelly-comet.github.io/#organization"
@@ -128,35 +128,51 @@
 <article class="prose manual wrap">
   <h1 id="tubeeqbtw-manual">TubeEqBtw manual</h1>
   <div class="actions">
-    <a class="btn btn-primary" href="https://github.com/jelly-comet/TubeEqBtw-release/releases/download/v1.0.0/TubeEqBtw-1.0.0-linux-x86_64.tar.gz">Download TubeEqBtw v1.0.0 <span class="note">5.4 MB</span></a>
+    <a class="btn btn-primary" href="https://github.com/jelly-comet/TubeEqBtw-release/releases/download/v2.0.0/TubeEqBtw-2.0.0-linux-x86_64.tar.gz">Download TubeEqBtw v2.0.0 <span class="note">5.4 MB</span></a>
     <a class="btn btn-ghost" href="../TubeEqBtw-manual.pdf" download>This manual as PDF</a>
   </div>
   
-<p><strong>A passive program EQ with a tube stage: broad, gentle curves for a mix, drums, bass or a voice,
-and the low boost and cut that make the kick trick.</strong></p>
-<p>Version 1.0.0. To install it, see the <a href="../#install">install steps</a>.</p>
+<p><strong>A passive program EQ, mid-range EQ and high/low filter with a tube stage: broad, gentle curves for a mix, drums,
+bass or a voice, the low boost and cut that make the kick trick, and steep cuts that can ring.</strong></p>
+<p>Version 2.0.0. To install it, see the <a href="../#install">install steps</a>.</p>
 <h2 id="contents">Contents</h2>
 <ul>
 <li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-window">The window</a></li>
 <li><a href="#the-controls">The controls</a></li>
 <li><a href="#how-to-use-it">How to use it</a></li>
 <li><a href="#good-to-know">Good to know</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 <h2 id="getting-started">Getting started</h2>
-<p>Put TubeEqBtw on a drum bus, a bass, a voice or the mix and play it. At the defaults every dial is at 0
-and the curve is flat: you hear only the transformers and the tube pair, a trace of colour. Turn LOW
-BOOST up for weight, then LOW ATTEN for the kick trick; turn HIGH BOOST up for air and BANDWIDTH to
-make it broader. Switch AUTO GAIN on (top left of the display) to compare at the same loudness, and
-the power switch at the top right to hear it against the input.</p>
-<p>Or pick a preset from the PRESET list, Kick Trick or Vocal Air, and start from there.</p>
-<p><picture><source type="image/webp" srcset="../images/screenshot.webp"><img alt="TubeEqBtw on the Kick Trick preset with music playing: the low boost and cut at 60 Hz making their dip in the low mids, the knobs of the unit below, DRIVE at the left" src="../images/screenshot.png" width="1260" height="1014"></picture></p>
+<p>Put TubeEqBtw on a drum bus, a bass, a voice or the mix and play it. At the defaults every dial is at 0 and both cuts
+are off, so the curve is flat: you hear only the transformers and the tube pair, a trace of colour. Every band is a
+ring on the curve. Drag LOW's ring (at 60 Hz) up for weight, then drag it down with the right button for the kick
+trick; drag HIGH's ring (at 10 kHz) up for air. Right-click any ring for its steps and knobs. Switch AUTO GAIN on (top
+left of the display) to compare at the same loudness, and the power switch at the top right to hear it against the
+input.</p>
+<p>TubeEqBtw has no presets of its own since 2.0.0: your host's presets hold every setting. The
+<a href="#starting-points">starting points</a> below give the settings 1.0.0's presets had, and a few more.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot.webp"><img alt="TubeEqBtw at 150 % with music playing: the kick trick at 60 Hz, a dip at 300 Hz and a little presence at 3 kHz, and both cuts in RING, their corners peaking, eight rings on the curve heard" src="../images/screenshot.png" width="1896" height="1014"></picture></p>
+<h2 id="the-window">The window</h2>
+<ul>
+<li><strong>The header:</strong> INIT, undo and redo, the zoom and the power switch.</li>
+<li><strong>The display's top strip:</strong> AUTO GAIN on the left, the TUBE strip in the middle (the harmonics the tube adds and
+  their THD; a click opens the tube's panel), the display's scale on the right.</li>
+<li><strong>The display:</strong> the curve heard as the bright line, each band alone dashed under it, the output's spectrum behind,
+  and a ring on the curve for each band. A ring shows its band's shape (a shelf, a bell, a notch, a high- or low-pass),
+  grey while the band does nothing and blue once set.</li>
+<li><strong>The bottom strip:</strong> CHANNELS.</li>
+<li><strong>The bottom-right corner:</strong> drag it to resize the window.</li>
+</ul>
 <h2 id="the-controls">The controls</h2>
-<p>From the top left of the window.</p>
+<p>There are no knobs outside the display: each band's controls are on its ring and in its panel, which a right-click on
+the ring opens.</p>
 <table>
 <thead>
 <tr>
 <th>Control</th>
+<th>Where</th>
 <th>Range</th>
 <th>Default</th>
 <th>What it does</th>
@@ -164,173 +180,348 @@ the power switch at the top right to hear it against the input.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>PRESET</strong></td>
-<td>a list</td>
-<td>Default</td>
-<td>See <a href="#presets">Presets</a>.</td>
+<td><strong>INIT</strong></td>
+<td>header</td>
+<td></td>
+<td></td>
+<td>Every setting back to its default and the display's range to 12 dB, in one go. The window's size and zoom stay; undo takes it back.</td>
 </tr>
 <tr>
-<td><strong>CHANNELS</strong></td>
-<td>Stereo, Mid, Side, M/S</td>
-<td>Stereo</td>
-<td>What the EQ works on. Mid and Side leave the other part as it came; M/S puts the lows on the mid and the highs on the side.</td>
-</tr>
-<tr>
-<td><strong>OVERSAMPLING</strong></td>
-<td>1x, 2x, 4x</td>
-<td>1x</td>
-<td>The tube's rate. 1x has no latency, 2x 43 samples, 4x 50. Not automatable.</td>
+<td><strong>Undo, redo</strong></td>
+<td>header</td>
+<td>up to 100 steps</td>
+<td></td>
+<td>Step back and forward through what you changed in the window: a drag, a click or a spin of the wheel is one step each. Automation and the host's own undo aren't steps. Not saved with the project.</td>
 </tr>
 <tr>
 <td><strong>Zoom</strong></td>
+<td>header</td>
 <td>100 to 200 %</td>
 <td>100 %</td>
-<td>The window's size, kept with the project.</td>
+<td>Scales the whole window, kept with the project.</td>
 </tr>
 <tr>
-<td><strong>Power switch</strong> (top right)</td>
+<td><strong>Power switch</strong></td>
+<td>header, right</td>
 <td>on, off</td>
 <td>on</td>
 <td>Off, the input passes untouched, crossfaded over 20 ms.</td>
 </tr>
 <tr>
-<td><strong>AUTO GAIN</strong> (top left of the display)</td>
+<td><strong>AUTO GAIN</strong></td>
+<td>top strip, left</td>
 <td>off, on</td>
 <td>off</td>
 <td>Holds the loudness as the curve changes it; the chip beside it reads the gain in use.</td>
 </tr>
 <tr>
-<td><strong>Display scale</strong> (top right of the display)</td>
+<td><strong>DRIVE</strong></td>
+<td>tube's panel</td>
+<td>0 to +18 dB</td>
+<td>0 dB</td>
+<td>How hard the tube pair is driven; the level stays.</td>
+</tr>
+<tr>
+<td><strong>EVEN</strong></td>
+<td>tube's panel</td>
+<td>0 to 100 %</td>
+<td>5 %</td>
+<td>The tube pair's balance: at 0 matched, at 100 % one half alone.</td>
+</tr>
+<tr>
+<td><strong>OVERSAMPLING</strong></td>
+<td>tube's panel</td>
+<td>1x, 2x, 4x</td>
+<td>1x</td>
+<td>The tube's rate, with the latency beside it in ms. 1x has no latency, 2x 43 samples, 4x 50. Not automatable.</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>top strip, right</td>
 <td>3, 6, 12, 30 dB</td>
 <td>12 dB</td>
 <td>How far up and down the display shows, kept with the project.</td>
 </tr>
 <tr>
-<td><strong>DRIVE</strong> (the fader at the left)</td>
-<td>0 to +18 dB</td>
-<td>0 dB</td>
-<td>How hard the tube pair is driven; the level stays. Its edge glows as the tube rounds the peaks.</td>
+<td><strong>LOW FREQ</strong></td>
+<td>LOW's ring</td>
+<td>20, 30, 60, 100 Hz</td>
+<td>60 Hz</td>
+<td>Where LOW BOOST and LOW ATTEN work.</td>
 </tr>
 <tr>
 <td><strong>LOW BOOST</strong></td>
+<td>LOW's ring</td>
 <td>0 to 10</td>
 <td>0</td>
 <td>A shelf that lifts the lows from LOW FREQ down.</td>
 </tr>
 <tr>
 <td><strong>LOW ATTEN</strong></td>
+<td>LOW's ring</td>
 <td>0 to 10</td>
 <td>0</td>
 <td>A shelf that cuts the lows, a little above where LOW BOOST lifts.</td>
 </tr>
 <tr>
-<td><strong>HIGH BOOST</strong></td>
-<td>0 to 10</td>
-<td>0</td>
-<td>A peak at HIGH FREQ: up to 18.5 dB at its sharpest, 11.2 dB at its broadest.</td>
-</tr>
-<tr>
-<td><strong>HIGH ATTEN</strong></td>
-<td>0 to 10</td>
-<td>0</td>
-<td>A shelf that cuts the highs from ATTEN SEL up.</td>
-</tr>
-<tr>
-<td><strong>ATTEN SEL</strong></td>
-<td>5, 10, 20 kHz</td>
-<td>20 kHz</td>
-<td>Where HIGH ATTEN's shelf starts.</td>
-</tr>
-<tr>
-<td><strong>LOW FREQ</strong></td>
-<td>20, 30, 60, 100 Hz</td>
-<td>60 Hz</td>
-<td>Where LOW BOOST and LOW ATTEN work.</td>
-</tr>
-<tr>
-<td><strong>BANDWIDTH</strong></td>
-<td>0 (sharp) to 10 (broad)</td>
-<td>5</td>
-<td>HIGH BOOST's width. The peak lowers as it broadens.</td>
-</tr>
-<tr>
 <td><strong>HIGH FREQ</strong></td>
+<td>HIGH's ring</td>
 <td>3, 4, 5, 8, 10, 12, 16 kHz</td>
 <td>10 kHz</td>
 <td>Where HIGH BOOST peaks.</td>
 </tr>
 <tr>
-<td><strong>EVEN</strong></td>
-<td>0 to 100 %</td>
-<td>5 %</td>
-<td>The tube pair's balance: at 0 matched, at 100 % one half alone.</td>
+<td><strong>HIGH BOOST</strong></td>
+<td>HIGH's ring</td>
+<td>0 to 10</td>
+<td>0</td>
+<td>A peak at HIGH FREQ: up to 18.5 dB at its sharpest, 11.2 dB at its broadest.</td>
+</tr>
+<tr>
+<td><strong>BANDWIDTH</strong></td>
+<td>HIGH's ring</td>
+<td>0 (sharp) to 10 (broad)</td>
+<td>5</td>
+<td>HIGH BOOST's width. The peak lowers as it broadens.</td>
+</tr>
+<tr>
+<td><strong>ATTEN SEL</strong></td>
+<td>ATTEN's ring</td>
+<td>5, 10, 20 kHz</td>
+<td>20 kHz</td>
+<td>Where HIGH ATTEN's shelf starts.</td>
+</tr>
+<tr>
+<td><strong>HIGH ATTEN</strong></td>
+<td>ATTEN's ring</td>
+<td>0 to 10</td>
+<td>0</td>
+<td>A shelf that cuts the highs from ATTEN SEL up.</td>
+</tr>
+<tr>
+<td><strong>LOW PEAK FREQ</strong></td>
+<td>LOW PEAK's ring</td>
+<td>200, 300, 500, 700 Hz, 1 kHz</td>
+<td>300 Hz</td>
+<td>Where LOW PEAK lifts.</td>
+</tr>
+<tr>
+<td><strong>LOW PEAK</strong></td>
+<td>LOW PEAK's ring</td>
+<td>0 to 10</td>
+<td>0</td>
+<td>The mid-range EQ's low peak, up to +10.4 dB, wider as it rises.</td>
+</tr>
+<tr>
+<td><strong>DIP FREQ</strong></td>
+<td>DIP's ring</td>
+<td>200, 300, 500, 700 Hz, 1, 1.5, 2, 3, 4, 5, 7 kHz</td>
+<td>1 kHz</td>
+<td>Where DIP cuts.</td>
+</tr>
+<tr>
+<td><strong>DIP</strong></td>
+<td>DIP's ring</td>
+<td>0 to 10</td>
+<td>0</td>
+<td>The mid-range EQ's dip, down to −11.6 dB, narrower as it deepens; half its travel is about −6 dB.</td>
+</tr>
+<tr>
+<td><strong>HIGH PEAK FREQ</strong></td>
+<td>HIGH PEAK's ring</td>
+<td>1.5, 2, 3, 4, 5 kHz</td>
+<td>3 kHz</td>
+<td>Where HIGH PEAK lifts.</td>
+</tr>
+<tr>
+<td><strong>HIGH PEAK</strong></td>
+<td>HIGH PEAK's ring</td>
+<td>0 to 10</td>
+<td>0</td>
+<td>The mid-range EQ's high peak, up to +10.3 dB, narrower than the low one.</td>
+</tr>
+<tr>
+<td><strong>LOW CUT</strong></td>
+<td>LOW CUT's ring</td>
+<td>off, 50, 80, 100, 150, 250, 500, 750 Hz, 1, 1.5, 2 kHz</td>
+<td>off</td>
+<td>The filter's steep low cut. Off parks its ring at the display's left end.</td>
+</tr>
+<tr>
+<td><strong>LOW CUT TERM</strong></td>
+<td>LOW CUT's panel</td>
+<td>Matched, Bridged, Ring</td>
+<td>Matched</td>
+<td>What the low cut sits between: see <a href="#the-highlow-filter-and-its-terms">The high/low filter</a>.</td>
+</tr>
+<tr>
+<td><strong>HIGH CUT</strong></td>
+<td>HIGH CUT's ring</td>
+<td>1.5, 2, 3, 4, 5, 6, 8, 10, 12, 15 kHz, off</td>
+<td>off</td>
+<td>The filter's steep high cut. Off parks its ring at the display's right end.</td>
+</tr>
+<tr>
+<td><strong>HIGH CUT TERM</strong></td>
+<td>HIGH CUT's panel</td>
+<td>Matched, Bridged, Ring</td>
+<td>Matched</td>
+<td>The same for the high cut, on its own.</td>
+</tr>
+<tr>
+<td><strong>CHANNELS</strong></td>
+<td>bottom strip</td>
+<td>Stereo, Mid, Side, M/S</td>
+<td>Stereo</td>
+<td>What the EQ works on. Mid and Side leave the other part as it came; M/S puts the lows on the mid and the highs on the side.</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>bottom-right corner</td>
+<td>from 960 x 560</td>
+<td>1264 x 676</td>
+<td>Drag the corner, or the host's window edge: only the display grows, every control keeps its size. Kept with the project.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Mouse:</strong> drag a knob or the DRIVE fader up or down; hold Shift for fine steps; turn the scroll wheel
-over it; double-click to reset to the default; right-click to type a value (<code>10 kHz</code>, <code>5,5</code>, <code>+6 dB</code>).
-Every control shows a one-line tooltip. The host can automate every parameter but OVERSAMPLING.</p>
-<h2 id="how-to-use-it">How to use it</h2>
-<h3 id="the-lows-and-the-kick-trick">The lows and the kick trick</h3>
-<p>LOW FREQ picks where the lows work: 20 and 30 Hz for the lowest octave under a bass, 60 Hz for a kick,
-100 Hz for warmth. LOW BOOST lifts a shelf from there down. LOW ATTEN cuts a shelf that starts a little
-above it, so with both up at once the curve lifts the bottom and dips the low mids above: the kick
-trick. Both at 5 at 60 Hz lift 20 Hz by 2.3 dB and dip the low mids at 784 Hz. More LOW ATTEN than
-LOW BOOST makes it a cut with a little weight left under it.</p>
-<p>A low boost also drives the first transformer harder, so the bass thickens a little while the top stays
-clean.</p>
-<h3 id="the-highs-boost-and-cut">The highs: boost and cut</h3>
-<p>HIGH BOOST is a peak at HIGH FREQ, and BANDWIDTH sets how wide: sharp for a snare's crack at 5 kHz, broad
-for air over a voice at 12 or 16 kHz. As it broadens the peak lowers, as the circuit's does: 18.5 dB at
-the sharpest, 11.2 dB at the broadest. HIGH ATTEN cuts a shelf from ATTEN SEL up, on its own to soften
-a harsh top, or above a boost to ease the very top while the lift stays.</p>
-<p><picture><source type="image/webp" srcset="../images/screenshot-vocal-air.webp"><img alt="The Vocal Air preset: 12 kHz broad, HIGH BOOST 4, and HIGH ATTEN 2 at 20 kHz" src="../images/screenshot-vocal-air.png" width="840" height="676" loading="lazy"></picture></p>
-<h3 id="drive-even-and-oversampling">DRIVE, EVEN and OVERSAMPLING</h3>
-<p>DRIVE pushes the tube pair harder and brings the level back down by as much, so you hear the tube and
-not a louder signal: 0.053 % THD at −18 dBFS at DRIVE 0, 3.65 % at +18 dB. After a big move the level
-takes about a second to settle. The fader's edge glows as the tube rounds the peaks, fully from 3 dB.</p>
-<p>EVEN sets the balance of the tube pair. At 0 the two halves match and their even harmonics cancel,
-leaving a light, odd colour; the default 5 % is a real pair's small mismatch; toward 100 % one half
-works alone and its second harmonic leads, rounder and thicker.</p>
-<p>At 1x the tube runs at your session's rate with no latency, but with DRIVE up a high, loud tone
-aliases (−28.7 dB on a 15 kHz sine at +18 dB). 2x and 4x take that to −49.2 and −85.0 dB for 43 and 50
-samples of latency, which the host compensates. Set it before playing: the host restarts the plugin
-to take the new latency.</p>
-<p><picture><source type="image/webp" srcset="../images/screenshot-bass-weight.webp"><img alt="Bass Weight at DRIVE +6 dB and OVERSAMPLING 4x with AUTO GAIN on, reading −2.7 dB" src="../images/screenshot-bass-weight.png" width="840" height="676" loading="lazy"></picture></p>
-<h3 id="auto-gain">AUTO GAIN</h3>
-<p>A boost almost always sounds better at first, just because it is louder. AUTO GAIN holds the loudness
-as the curve changes it, within 0.23 LU of the power switch's on a mix, a voice and drums, so you judge
-the shape and not the level. The chip beside it reads the gain it uses. It meets a move at once and
-learns the rest over about a second, so let it settle before you compare. It is off by default.</p>
-<h3 id="channels-and-ms">CHANNELS and M/S</h3>
-<p>Mid works on what the two sides share (the centre: kick, bass, voice), Side on what differs (the width),
-each leaving the other part as it came. M/S splits the EQ: the lows (LOW FREQ, LOW BOOST, LOW ATTEN)
-on the mid and the highs on the side, so you can firm up the centre's low end and open the top of the
-stereo image in one go. The rings' readings then say MID and SIDE.</p>
-<p><picture><source type="image/webp" srcset="../images/screenshot-ms-listen.webp"><img alt="M/S with the kick trick under Vocal Air's lift, DRIVE +18 dB glowing, EVEN 40 %, and HIGH's ring held, listening" src="../images/screenshot-ms-listen.png" width="840" height="676" loading="lazy"></picture></p>
-<h3 id="the-display-and-its-rings">The display and its rings</h3>
-<p>The display shows the curve heard as the bright line, each band alone dashed under it, and the output's
-spectrum behind. Each band is a ring on the curve, and the rings move the knobs:</p>
-<ul>
-<li><strong>LOW's ring:</strong> the left button drags LOW BOOST, the right LOW ATTEN, up and down, from anywhere on it.</li>
-<li><strong>HIGH's ring:</strong> the left button drags HIGH BOOST, the right button or the scroll wheel BANDWIDTH.</li>
-<li><strong>The ring at ATTEN SEL:</strong> drag it down for HIGH ATTEN.</li>
-<li>Drag a ring across with the left button to snap its frequency to the next step. Double-click it to
-  reset it.</li>
-</ul>
-<p><strong>Listening:</strong> hold a ring with the middle button, or the left button with Alt, and you hear only where
-its band works, for as long as you hold it. Drag it across meanwhile to hear each frequency step. Let
-go and the sound is exactly what it would have been. It is the quickest way to pick LOW FREQ or HIGH
-FREQ by ear.</p>
-<h3 id="presets">Presets</h3>
-<p>The PRESET list holds Default, your favourites, the six built-in presets and then your own. The arrows
-step through them, the disk saves the current settings under a name, and PRESET reads <code>Custom</code> once a
-setting differs from every preset. A preset holds the eight dials and switches of the unit, DRIVE,
-CHANNELS and EVEN; it never changes OVERSAMPLING, AUTO GAIN or the power.</p>
+<p><strong>The rings with the mouse:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Preset</th>
+<th>Ring</th>
+<th>Left button</th>
+<th>Right button</th>
+<th>Across</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOW</td>
+<td>up and down: LOW BOOST</td>
+<td>up and down: LOW ATTEN</td>
+<td>LOW FREQ, with either button</td>
+</tr>
+<tr>
+<td>HIGH</td>
+<td>up and down: HIGH BOOST</td>
+<td>up or right: BANDWIDTH, broader; the scroll wheel too</td>
+<td>HIGH FREQ, with the left</td>
+</tr>
+<tr>
+<td>ATTEN</td>
+<td>down: HIGH ATTEN</td>
+<td></td>
+<td>ATTEN SEL</td>
+</tr>
+<tr>
+<td>LOW PEAK, HIGH PEAK</td>
+<td>up: the peak</td>
+<td></td>
+<td>its frequency</td>
+</tr>
+<tr>
+<td>DIP</td>
+<td>down: the dip</td>
+<td></td>
+<td>its frequency</td>
+</tr>
+<tr>
+<td>LOW CUT, HIGH CUT</td>
+<td></td>
+<td>up or right: the next TERM</td>
+<td>its frequency; dragged in from the end, it turns on</td>
+</tr>
+</tbody>
+</table>
+<p>Dragged across, a ring snaps to the next step. Double-click a ring to reset it (a cut's turns off). Rings on the same
+step stand side by side; a peak and the dip on one step share a ring, its upper half the peak and its lower half the
+dip. Hover a ring for its reading.</p>
+<p><strong>Knobs in the panels:</strong> drag up or down; hold Shift for fine steps; turn the scroll wheel over it; double-click to
+reset to the default; right-click to type a value (<code>10 kHz</code>, <code>5,5</code>, <code>+6 dB</code>). Every control shows a one-line tooltip.
+The host can automate every parameter but OVERSAMPLING.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<h3 id="a-rings-panel">A ring's panel</h3>
+<p>Right-click a ring and its panel opens beside it: the band's steps in a row, its knobs, and for a cut its TERM, each
+with its curve drawn beside its name. The headphone at the panel's top left keeps that band listening (see
+<a href="#listening-to-a-band">Listening to a band</a>). A click elsewhere or the panel's × closes it.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-panel.webp"><img alt="DIP's panel, opened by a right-click on its ring: its eleven steps from 200 Hz to 7 kHz, 300 Hz lit, and its knob at 6.0" src="../images/screenshot-panel.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="the-lows-and-the-kick-trick">The lows and the kick trick</h3>
+<p>LOW FREQ picks where the lows work: 20 and 30 Hz for the lowest octave under a bass, 60 Hz for a kick, 100 Hz for
+warmth. LOW BOOST lifts a shelf from there down. LOW ATTEN cuts a shelf that starts a little above it, so with both up
+at once the curve lifts the bottom and dips the low mids above: the kick trick. Both at 5 at 60 Hz lift 20 Hz by
+2.3 dB and dip the low mids at 784 Hz. More LOW ATTEN than LOW BOOST makes it a cut with a little weight left under it.</p>
+<p>On LOW's ring the left button drags LOW BOOST and the right button LOW ATTEN, up and down, from anywhere on the ring.</p>
+<p>A low boost also drives the first transformer harder, so the bass thickens a little while the top stays clean.</p>
+<h3 id="the-highs-boost-and-cut">The highs: boost and cut</h3>
+<p>HIGH BOOST is a peak at HIGH FREQ, and BANDWIDTH sets how wide: sharp for a snare's crack at 5 kHz, broad for air
+over a voice at 12 or 16 kHz. As it broadens the peak lowers, as the circuit's does: 18.5 dB at the sharpest, 11.2 dB
+at the broadest. HIGH ATTEN cuts a shelf from ATTEN SEL up, on its own to soften a harsh top, or above a boost to ease
+the very top while the lift stays.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-vocal-air.webp"><img alt="A broad lift at 12 kHz, HIGH BOOST 4, and HIGH ATTEN 2 at 20 kHz" src="../images/screenshot-vocal-air.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="the-mid-range-eq">The mid-range EQ</h3>
+<p>Three bands from the passive unit that sat under the program EQ: LOW PEAK from 200 Hz to 1 kHz, DIP from 200 Hz to
+7 kHz, HIGH PEAK from 1.5 to 5 kHz. They are three coils in one network, so they lean on each other: LOW PEAK and DIP
+both full on 500 Hz are 2.0 dB off their sum. Each one's width moves with its knob: LOW PEAK widens as it rises, DIP
+narrows as it deepens, and HIGH PEAK is the narrower peak. Half of DIP's travel is about −6 dB.</p>
+<p>DIP at 300 Hz takes the boxiness out of a kick, a guitar or a voice recorded close; at 500 Hz to 1 kHz the honk.
+HIGH PEAK at 3 kHz brings a voice or a guitar forward; at 4 or 5 kHz it adds bite. LOW PEAK at 200 or 300 Hz fills out
+a thin sound. With all three at 0 the mid-range EQ isn't in the path at all.</p>
+<h3 id="the-highlow-filter-and-its-terms">The high/low filter and its TERMs</h3>
+<p>A low cut and a high cut, each a steep third-order filter that only steps: LOW CUT from 50 Hz to 2 kHz, HIGH CUT from
+1.5 to 15 kHz. Off, a cut's ring sits hollow at the display's end; drag it in to turn it on.</p>
+<p>Each cut has its own TERM, what it sits between, in its panel or by dragging its ring with the right button:</p>
+<ul>
+<li><strong>Matched:</strong> a clean 16.5 dB an octave, the corner close to the panel's step.</li>
+<li><strong>Bridged:</strong> a softer 11.2 dB an octave, the corner further inside.</li>
+<li><strong>Ring:</strong> 13.5 dB an octave with a peak of about +14 dB at the corner: the honk of a telephone or a radio.</li>
+</ul>
+<p>LOW CUT at 500 Hz and HIGH CUT at 3 kHz, both in RING, is a telephone. With both cuts on one TERM they are one circuit,
+and cuts close together lean on each other; on two TERMs each is its own. A step runs the new cut through the last
+85 ms of the sound and crossfades to it over 20 ms, so stepping a cut, even under automation, doesn't click.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-high-cut.webp"><img alt="HIGH CUT's panel at 12 kHz, its own TERM Matched while the low cut rings at 80 Hz" src="../images/screenshot-high-cut.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="the-tube-drive-even-and-oversampling">The tube: DRIVE, EVEN and OVERSAMPLING</h3>
+<p>The TUBE strip at the top of the display shows the harmonics the tube pair adds, the second to the ninth, and their
+THD, at the level going into it. Click it for the tube's panel: DRIVE and EVEN on knobs, the tube's curve, one cycle
+of a sine through it, its harmonics numbered, and OVERSAMPLING with the latency in ms.</p>
+<p>DRIVE pushes the tube pair harder and brings the level back down by as much, so you hear the tube and not a louder
+signal: 0.053 % THD at −18 dBFS at DRIVE 0, 3.65 % at +18 dB. After a big move the level takes about a second to
+settle. DRIVE lifts the odd harmonics, EVEN the even ones.</p>
+<p>EVEN sets the balance of the tube pair. At 0 the two halves match and their even harmonics cancel, leaving a light,
+odd colour; the default 5 % is a real pair's small mismatch; toward 100 % one half works alone and its second harmonic
+leads, rounder and thicker.</p>
+<p>At 1x the tube runs at your session's rate with no latency, but with DRIVE up a high, loud tone aliases (−28.7 dB on a
+15 kHz sine at +18 dB). 2x and 4x take that to −49.2 and −85.0 dB for 43 and 50 samples of latency, which the host
+compensates. Set it before playing: the host restarts the plugin to take the new latency.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-tube.webp"><img alt="The tube's panel, opened by a click on the TUBE strip: DRIVE at +9 dB and EVEN at 5 % on knobs, the tube's curve, one cycle through it and its harmonics, OVERSAMPLING at 2x with 0.90 ms latency" src="../images/screenshot-tube.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="auto-gain">AUTO GAIN</h3>
+<p>A boost almost always sounds better at first, just because it is louder. AUTO GAIN holds the loudness as the curve
+changes it, within 0.23 LU of the power switch's on a mix, a voice and drums, so you judge the shape and not the level.
+The chip beside it reads the gain it uses. It meets a move at once and learns the rest over about a second, so let it
+settle before you compare. It is off by default.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-bass-weight.webp"><img alt="30 Hz, LOW BOOST 6 and LOW ATTEN 3, at DRIVE +6 dB and OVERSAMPLING 4x with AUTO GAIN on, reading −2.7 dB" src="../images/screenshot-bass-weight.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="channels-and-ms">CHANNELS and M/S</h3>
+<p>Mid works on what the two sides share (the centre: kick, bass, voice), Side on what differs (the width), each leaving
+the other part as it came. M/S splits the EQ: the lows on the mid (LOW, LOW PEAK, DIP and LOW CUT) and the highs on
+the side (HIGH, HIGH ATTEN, HIGH PEAK and HIGH CUT), so you can firm up the centre's low end and open the top of the
+stereo image in one go. Each ring then carries an M or an S, and its reading says MID or SIDE.</p>
+<p><picture><source type="image/webp" srcset="../images/screenshot-ms-listen.webp"><img alt="M/S with the kick trick on the mid under a broad lift at 12 kHz on the side, DRIVE +18 dB and EVEN 40 %, and HIGH's ring held, listening" src="../images/screenshot-ms-listen.png" width="1264" height="676" loading="lazy"></picture></p>
+<h3 id="listening-to-a-band">Listening to a band</h3>
+<p>Hold a ring with the middle button, or the left button with Alt, and you hear only where its band works, for as long
+as you hold it; a cut's ring plays what the cut takes away. Drag it across meanwhile to hear each step, the dials left
+alone. Or click the headphone at the top left of a ring's panel to keep listening to that band while you set it, panel
+open or closed; click it again to stop. Let go and the sound is exactly what it would have been. It is the quickest way
+to pick a frequency by ear.</p>
+<h3 id="size-zoom-undo-and-init">Size, zoom, undo and INIT</h3>
+<p>Drag the window's bottom-right corner, or the host's window edge, and only the display grows: a bigger display for
+finer moves, every control keeping its size. The zoom scales everything at once. Both are kept with the project.</p>
+<p>Undo and redo step through what you changed in the window, up to 100 steps. INIT sets every parameter back to its
+default and the display's range to 12 dB; undo brings it all back.</p>
+<h3 id="starting-points">Starting points</h3>
+<p>The settings 1.0.0's presets had, and three for the new units. Save the ones you like as your host's presets.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
 <th>Settings</th>
 <th>For</th>
 </tr>
@@ -343,7 +534,7 @@ CHANNELS and EVEN; it never changes OVERSAMPLING, AUTO GAIN or the power.</p>
 </tr>
 <tr>
 <td>Vocal Air</td>
-<td>12 kHz broad, HIGH BOOST 4; 20 kHz, HIGH ATTEN 2</td>
+<td>12 kHz, BANDWIDTH 10, HIGH BOOST 4; 20 kHz, HIGH ATTEN 2</td>
 <td>Air over a voice, its very top eased.</td>
 </tr>
 <tr>
@@ -366,40 +557,58 @@ CHANNELS and EVEN; it never changes OVERSAMPLING, AUTO GAIN or the power.</p>
 <td>10 kHz, HIGH ATTEN 3</td>
 <td>A gentle cut of the highs.</td>
 </tr>
+<tr>
+<td>Mud Out</td>
+<td>DIP 6 at 300 Hz</td>
+<td>The boxiness out of a close voice, a guitar or a kick.</td>
+</tr>
+<tr>
+<td>Presence</td>
+<td>HIGH PEAK 4 at 3 kHz</td>
+<td>A voice or a guitar brought forward.</td>
+</tr>
+<tr>
+<td>Telephone</td>
+<td>LOW CUT 500 Hz, HIGH CUT 3 kHz, both TERMs Ring</td>
+<td>A voice through a phone.</td>
+</tr>
 </tbody>
 </table>
-<p>Your presets are text files in <code>~/.local/share/TubeEqBtw/presets/</code>, shared by every project.</p>
 <h2 id="good-to-know">Good to know</h2>
 <ul>
 <li><strong>Latency:</strong> none at 1x. 2x and 4x add 43 and 50 samples, which the host compensates.</li>
 <li><strong>Mono or stereo:</strong> both work.</li>
-<li><strong>Light:</strong> 0.82 % of a CPU core at the defaults, stereo at 48 kHz, about 4 % while a knob moves (each
-  move designs a new curve), and next to nothing on silence once the last sound has died away.</li>
-<li><strong>Click-free changes:</strong> a new curve glides in over 20 ms, so a switch step is a crossfade and you can
-  automate every dial.</li>
-<li><strong>At 44.1 kHz</strong> the curve can't follow the network all the way up: on the deepest high cut it is
-  2.24 dB off at 20 kHz (0.93 dB at 48 kHz).</li>
-<li><strong>The presets are drafts,</strong> set from the curves, not yet voiced by ear.</li>
+<li><strong>Light:</strong> 0.74 % of a CPU core at the defaults, stereo at 48 kHz, 0.78 % with the mid-range EQ and both cuts on,
+  about 3.5 % while a knob moves (each move designs a new curve), and next to nothing on silence once the last sound
+  has died away.</li>
+<li><strong>Click-free changes:</strong> a new curve glides in over 20 ms, so a switch step is a crossfade and you can automate every
+  dial; a cut's step crossfades from a cut already running.</li>
+<li><strong>RING is loud:</strong> each corner peaks by about +14 dB. AUTO GAIN, off by default, takes the peak back.</li>
+<li><strong>At 44.1 kHz</strong> the curve can't follow the network all the way up: on the deepest high cut it is 2.24 dB off at
+  20 kHz (0.93 dB at 48 kHz).</li>
+<li><strong>Projects from 1.0.0</strong> sound the same, to the bit, with the new controls at their defaults.</li>
+<li><strong>No presets of its own:</strong> your host's presets hold every parameter. Presets saved with 1.0.0 stay in
+  <code>~/.local/share/TubeEqBtw/presets/</code>, which 2.0.0 no longer reads; the <a href="#starting-points">starting points</a> have the
+  built-in ones' settings.</li>
 </ul>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
-<li><strong>The plugin doesn't show up:</strong> check that the bundle is in <code>~/.clap</code> or <code>/usr/lib/clap</code>, then
-  rescan plugins in your DAW. It needs a CPU with AVX2.</li>
-<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed. The
-  <code>vulkaninfo</code> tool from <code>vulkan-tools</code> should list your GPU.</li>
+<li><strong>The plugin doesn't show up:</strong> check that the bundle is in <code>~/.clap</code> or <code>/usr/lib/clap</code>, then rescan plugins in
+  your DAW. It needs a CPU with AVX2.</li>
+<li><strong>The editor window stays black or doesn't open:</strong> check that a Vulkan driver is installed. The <code>vulkaninfo</code> tool
+  from <code>vulkan-tools</code> should list your GPU.</li>
 <li><strong>A boost sounds better just because it's louder:</strong> turn AUTO GAIN on; it's off by default.</li>
-<li><strong>The level drifts for a second after a big move:</strong> AUTO GAIN and DRIVE's level match learn over
-  about a second. Let it settle before comparing.</li>
+<li><strong>The level drifts for a second after a big move:</strong> AUTO GAIN and DRIVE's level match learn over about a second.
+  Let it settle before comparing.</li>
 <li><strong>The top fizzes with DRIVE up:</strong> set OVERSAMPLING to 2x or 4x.</li>
-<li><strong>The track restarts when OVERSAMPLING changes:</strong> the host restarts the plugin to take the new
-  latency. Set it before playing.</li>
-<li><strong>Holding a ring with Alt moves the window instead:</strong> some desktops move windows with Alt and a drag.
-  Hold the middle button instead.</li>
-<li><strong>Typing a preset's name does nothing:</strong> some hosts keep keystrokes for themselves. Write the preset
-  file by hand: one <code>id value</code> line a parameter, such as <code>low_freq hz60</code> or <code>low_boost 5</code>.</li>
-<li><strong>A preset doesn't show up in the menu:</strong> its file must end in <code>.preset</code>, and its name can't be a
-  built-in preset's. The editor reads the folder when it opens and after a save, so reopen it after
-  adding files by hand.</li>
+<li><strong>The track restarts when OVERSAMPLING changes:</strong> the host restarts the plugin to take the new latency. Set it
+  before playing.</li>
+<li><strong>A cut in RING is too loud:</strong> turn AUTO GAIN on, or choose MATCHED or BRIDGED.</li>
+<li><strong>The CPU climbs while a knob moves:</strong> each move designs a new curve, about 3.5 % of a core while it moves; it falls
+  back to under 1 % at rest.</li>
+<li><strong>Holding a ring with Alt moves the window instead:</strong> some desktops move windows with Alt and a drag. Hold the
+  middle button, or click the headphone in the ring's panel.</li>
+<li><strong>The window is too big or too small:</strong> drag its bottom-right corner, or pick another zoom.</li>
 </ul>
 </article>
 

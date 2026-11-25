@@ -72,7 +72,7 @@ accent = "#ff9a5c"
 chips = [
   { icon = "clock", text = "No latency at 1x" },
   { icon = "spark", text = "Low boost and cut at once" },
-  { icon = "cpu", text = "0.82 % of a CPU core" },
+  { icon = "cpu", text = "0.74 % of a CPU core" },
 ]
 glance = { Latency = "None at 1x, 43 or 50 samples at 2x or 4x", CPU = "0.82 % of a core" }
 
