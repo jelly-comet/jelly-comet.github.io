@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmoothBrainBtw – Free Resonance Suppressor for Linux (CLAP)</title>
+<meta name="description" content="Free resonance suppressor for Linux (CLAP). Tame harsh vocals, ringing guitars and cymbals only where and while they stick out, with a curve to say where.">
+<link rel="canonical" href="https://jelly-comet.github.io/plugins/smoothbrainbtw/">
+<meta property="og:url" content="https://jelly-comet.github.io/plugins/smoothbrainbtw/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SmoothBrainBtw – Free Resonance Suppressor for Linux (CLAP)">
+<meta property="og:site_name" content="JellyComet">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Free resonance suppressor for Linux (CLAP). Tame harsh vocals, ringing guitars and cymbals only where and while they stick out, with a curve to say where.">
+<meta property="og:image" content="https://jelly-comet.github.io/plugins/smoothbrainbtw/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="SmoothBrainBtw, resonance suppressor for Linux, beside its window">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#060a11">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="preload" href="../../assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=d30b7e0b64">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "JellyComet",
+          "item": "https://jelly-comet.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SmoothBrainBtw"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://jelly-comet.github.io/plugins/smoothbrainbtw/#software",
+      "name": "SmoothBrainBtw",
+      "description": "Free resonance suppressor for Linux (CLAP). Tame harsh vocals, ringing guitars and cymbals only where and while they stick out, with a curve to say where.",
+      "url": "https://jelly-comet.github.io/plugins/smoothbrainbtw/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Audio plugin (CLAP)",
+      "operatingSystem": "Linux",
+      "softwareVersion": "1.0.0",
+      "datePublished": "2026-11-27",
+      "dateModified": "2026-11-27",
+      "downloadUrl": "https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz",
+      "screenshot": "https://jelly-comet.github.io/plugins/smoothbrainbtw/images/screenshot.png",
+      "image": "https://jelly-comet.github.io/plugins/smoothbrainbtw/share.png",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://jelly-comet.github.io/plugins/smoothbrainbtw/manual/"
+      },
+      "license": "https://github.com/jelly-comet/SmoothBrainBtw-release/blob/main/LICENSE",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "@id": "https://jelly-comet.github.io/#organization",
+        "name": "JellyComet",
+        "url": "https://jelly-comet.github.io/",
+        "logo": "https://jelly-comet.github.io/assets/logo-mark.svg",
+        "sameAs": [
+          "https://github.com/jelly-comet"
+        ]
+      },
+      "publisher": {
+        "@id": "https://jelly-comet.github.io/#organization"
+      },
+      "featureList": [
+        "What sticks out, not the notes",
+        "High voices keep their notes",
+        "A curve to say where",
+        "Broad or narrow",
+        "Hear one point",
+        "DELTA",
+        "OUT/IN",
+        "STUDIO and LIVE",
+        "Nothing cut is the input to the bit",
+        "Light",
+        "Presets",
+        "A resizable window",
+        "No network access and no telemetry"
+      ],
+      "softwareRequirements": "Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer); A CLAP host. Tried in REAPER; X11 or XWayland, and a Vulkan driver for the editor",
+      "fileSize": "5.4 MB",
+      "installUrl": "https://jelly-comet.github.io/plugins/smoothbrainbtw/#install"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3z"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16M4 20v-4h4"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v7M12 6v7M16 6v7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13M9 7h6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../../#plugins">Plugins</a>
+      <a href="../../#install">Install</a>
+      <a href="../../#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-link" href="https://github.com/jelly-comet" aria-label="JellyComet on GitHub"><svg><use href="#i-github"/></svg></a>
+      <a class="btn btn-sm btn-ghost" href="../../#plugins">All plugins</a>
+    </div>
+  </div>
+</header>
+<main>
+
+
+
+<div class="plugin-page" style="--accent:#e59bff">
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><a href="../../">Home</a><span class="sep">/</span><a href="../../#plugins">Plugins</a><span class="sep">/</span><span class="here">SmoothBrainBtw</span></nav>
+<section class="product-hero wrap" id="overview">
+  <div class="product-copy">
+    <p class="eyebrow"><span class="dot"></span>Resonance suppressor · CLAP · Free</p>
+    <h1>SmoothBrainBtw <span class="product-sub">Resonance suppressor for Linux</span></h1>
+    <p class="product-summary"><strong>A resonance suppressor that takes down what sticks out of a voice, a guitar, a cymbal or a synth, only where and
+while it sticks out.</strong> It softens harsh frequencies without dulling the sound.</p>
+    <ul class="meta-chips">
+      <li>v1.0.0</li><li>27 Nov 2026</li><li>CLAP</li><li>Linux x86-64</li><li>MIT</li>
+    </ul>
+    <div class="product-actions">
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <span class="note">5.4 MB</span></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <a class="text-link dim" href="SmoothBrainBtw-manual.pdf" download>Manual as PDF</a>
+    </div>
+  </div>
+  <div class="product-shot">
+    <div class="ring"></div>
+    <div class="shot-frame"><picture><source type="image/webp" srcset="images/screenshot-480.webp 480w, images/screenshot-840.webp 840w, images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img class="hero-image" src="images/screenshot.png" alt="SmoothBrainBtw on the Vocal preset with a sung phrase: DEPTH 60 % in the strip along the display&#39;s bottom; on the curve the low and high cut as walls at 1.5 and 8 kHz and a point keener at 3.5 kHz over the voice&#39;s spectrum, and in the strip above it the cut, MAX CUT&#39;s dashed line at 9 dB" width="1260" height="1020" fetchpriority="high"></picture></div>
+    <span class="stat-chip chip-1"><svg><use href="#i-mic"/></svg>Cuts only where it sticks out</span>
+    <span class="stat-chip chip-2"><svg><use href="#i-clock"/></svg>32 ms look-ahead, or none</span>
+    <span class="stat-chip chip-3"><svg><use href="#i-cpu"/></svg>0.55 % of a CPU core</span>
+    
+  </div>
+</section>
+
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav-inner">
+    <div class="subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#what-its-for">What it's for</a>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      
+      <a href="#whats-new">What's new</a>
+    </div>
+    <a class="btn btn-sm btn-primary" href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz">Download <span class="note">5.4 MB</span></a>
+  </div>
+</nav>
+
+<div class="product-layout wrap">
+  <article class="article prose">
+    <div class="intro-text"><p>SmoothBrainBtw reads the line the partials of a note trace across the spectrum, and where a region bulges out of that
+line, a bite around 3 kHz on a voice or a ringing string, it turns that region down for as long as it bulges. The
+notes themselves are left alone, and so is the rest of the sound: on a sung phrase with a resonance put on it, it takes
+1.0 dB of the resonance back for 0.001 dB of the voice. The envelope's width follows the voice's pitch, so a high voice
+keeps its notes too. DEPTH sets how much, DETAIL how narrow, a curve with a low and a high cut and up to six points says
+where it works and how keenly, and DELTA plays only what it takes out. It is not an EQ you set once, and it doesn't
+fix a boomy bass note or a room mode in a mix: down there a frequency bin is wider than the resonance.</p>
+<p><strong><a href="manual/">Read the manual</a></strong> for every control and how to use it.</p>
+</div>
+    
+    <section id="screenshots" class="part">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        
+        <figure>
+          <a href="images/screenshot-point.png"><picture><source type="image/webp" srcset="images/screenshot-point.webp"><img src="images/screenshot-point.png" alt="The Vocal preset with the pointer on its point at 3.5 kHz: its frequency, height and width in a chip above it" width="840" height="680" loading="lazy"></picture></a>
+          <figcaption>The Vocal preset with the pointer on its point at 3.5 kHz: its frequency, height and width in a chip above it</figcaption>
+        </figure>
+        
+        <figure>
+          <a href="images/screenshot-track-delta.png"><picture><source type="image/webp" srcset="images/screenshot-track-delta.webp"><img src="images/screenshot-track-delta.png" alt="DEPTH 90 %, MAX CUT 18 dB, DELTA on, in LIVE: the latency reads 0 ms and MAX CUT&#39;s line sits at the strip&#39;s floor" width="840" height="680" loading="lazy"></picture></a>
+          <figcaption>DEPTH 90 %, MAX CUT 18 dB, DELTA on, in LIVE: the latency reads 0 ms and MAX CUT&#39;s line sits at the strip&#39;s floor</figcaption>
+        </figure>
+        
+      </div>
+    </section>
+    
+    
+    
+    
+    <section id="what-its-for" class="part part-uses">
+      <h2>What it's for</h2>
+      
+      <div class="use-grid">
+        <div class="use-card"><span class="use-num">01</span><b>Taming harsh vocals</b><span>Take the bite out of a voice around 2 to 5 kHz, only on the notes that have it.</span></div>
+        <div class="use-card"><span class="use-num">02</span><b>Resonance control on guitars</b><span>A whistling string or a ringing body comes down while the pick stays.</span></div>
+        <div class="use-card"><span class="use-num">03</span><b>Softening cymbals and overheads</b><span>A cymbal's ring down, the stick's attack kept.</span></div>
+        <div class="use-card"><span class="use-num">04</span><b>Smoothing synth leads</b><span>The resonant peaks of a moving filter, caught as they move.</span></div>
+        <div class="use-card"><span class="use-num">05</span><b>Gentle de-harshing on a mix bus</b><span>A light touch over a whole mix.</span></div>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="features" class="part part-features">
+      <h2>Features</h2>
+      
+      <ul class="feature-cols">
+        <li><svg><use href="#i-check"/></svg><span><b>What sticks out, not the notes:</b> on a sung phrase with a +8 dB resonance at 3 kHz, DEPTH 50 % takes back 1.04 dB of
+  it for 0.001 dB of the voice and DEPTH 75 % 2.02 dB for 0.14 dB.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>High voices keep their notes:</b> the same phrase an octave up loses 0.005 dB of the voice at DEPTH 50 %, where a fixed
+  width cost 2.31 dB.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A curve to say where:</b> a low and a high cut set the band it works in, and up to six points, each a bell with its
+  own width, make it keener or calmer where they stand. A point 6 dB up over the test resonance takes 4.9 dB of it back
+  where the defaults take 1.1.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Broad or narrow:</b> DETAIL from a broad hand on a whole bulge to single partials.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Hear one point:</b> hold a point with the middle button, or Alt and the left, and only its part of the spectrum plays;
+  drag it while holding to sweep.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>DELTA:</b> plays only what is taken out. DELTA plus the output is the input within 1e-6.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>OUT/IN:</b> reads how much louder the output is than the input over the last 3 seconds, and a click sets TRIM to
+  take the difference off, for a fair comparison.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>STUDIO and LIVE:</b> STUDIO catches a new resonance as it starts, behind 32 ms of latency at 48 kHz; LIVE has none, for
+  monitoring while recording. Both are reported to the host.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Nothing cut is the input to the bit:</b> with MAX CUT at 0 the output is the input, delayed by the latency.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Light:</b> 0.55 % of a CPU core at the defaults, stereo at 48 kHz, and 0.035 % on digital silence.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>Presets:</b> Init and five built in (Vocal, Guitar, Overheads, Synth Lead, Mix Bus), and your own.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>A resizable window</b> in which the display grows, and zoom from 100 to 200 %.</span></li>
+        <li><svg><use href="#i-check"/></svg><span><b>No network access and no telemetry.</b> </span></li>
+        
+      </ul>
+      
+    </section>
+    
+    
+    <section id="install" class="part part-prose">
+      <h2>Install</h2>
+      
+      <p>Download the latest version from the <a href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases">Releases page</a>,
+or with these commands:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">curl -LO https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz
+curl -LO https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz.sha256
+sha256sum -c SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz.sha256 &amp;&amp; tar xzf SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz
+cd SmoothBrainBtw-1.0.0-linux-x86_64
+</code></pre></div>
+<p>Install for your user:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">mkdir -p ~/.clap
+rm -f ~/.clap/SmoothBrainBtw.clap &amp;&amp; cp SmoothBrainBtw.clap ~/.clap/
+</code></pre></div>
+<p>Or for all users:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">sudo mkdir -p /usr/lib/clap
+sudo rm -f /usr/lib/clap/SmoothBrainBtw.clap &amp;&amp; sudo cp SmoothBrainBtw.clap /usr/lib/clap/
+</code></pre></div>
+<p>Removing the old copy first avoids overwriting a file a running host has loaded. Then rescan plugins
+in your DAW.</p>
+<p>To uninstall:</p>
+<div class="term"><div class="term-bar"><i></i><i></i><i></i><span class="term-name">bash</span><button class="copy" type="button" hidden>Copy</button></div><pre><code class="language-bash">rm -f ~/.clap/SmoothBrainBtw.clap
+</code></pre></div>
+<p>Your presets stay in <code>~/.local/share/SmoothBrainBtw/presets/</code>; delete that folder too if you want them gone.</p>
+      
+    </section>
+    
+    
+    <section id="faq" class="part part-faq">
+      <h2>FAQ</h2>
+      
+      <div class="faq">
+        <details open><summary>Is it free?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Yes. The download is free and MIT-licensed.</p></div></details>
+        <details><summary>Is there a VST3 or LV2 version?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. Releases contain the CLAP plugin only.</p></div></details>
+        <details><summary>Does it run on ARM, like a Raspberry Pi or Apple Silicon?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. It needs Linux on x86-64, on a CPU with AVX2.</p></div></details>
+        <details><summary>Which hosts does it work in?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Any CLAP host. It was tried in REAPER.</p></div></details>
+        <details><summary>Does it work on Wayland?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>Through XWayland. The editor also needs a Vulkan driver.</p></div></details>
+        <details><summary>Does it fix a boomy bass or a room mode?<svg><use href="#i-plus"/></svg></summary><div class="answer"><p>No. Down there a frequency bin is wider than a bass resonance, so it cuts the region around one about as much as the
+resonance. A dynamic EQ bell does that better.</p></div></details>
+        
+      </div>
+      
+    </section>
+    
+    
+    <section id="whats-new" class="part">
+      <h2>What's new in v1.0.0</h2>
+      <p class="release-date">27 Nov 2026 · <a href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases/tag/v1.0.0">Release on GitHub</a></p>
+      <div class="notes"><p>SmoothBrainBtw 1.0: a resonance suppressor that takes down what sticks out of a voice, a guitar, a cymbal or a synth, only where and while it sticks out.</p>
+<ul>
+<li><strong>What sticks out, not the notes:</strong> on a sung phrase with a +8 dB resonance at 3 kHz, DEPTH 50 % takes back 1.04 dB of it for 0.001 dB of the voice, DEPTH 75 % 2.02 dB for 0.14 dB. The envelope's width follows the voice's pitch, so a high voice keeps its notes (an octave up, 0.005 dB of the voice lost).</li>
+<li><strong>DEPTH and DETAIL:</strong> how much, and how narrow, from a broad hand on a whole bulge to single partials.</li>
+<li><strong>A curve to say where:</strong> a low and a high cut as walls, and up to six points, each a bell, that make it keener or calmer where they stand; the cut hangs in a strip above, down to MAX CUT's dashed line.</li>
+<li><strong>Hear what it does:</strong> DELTA plays only what is taken out; hold a point with the middle button (or Alt) to hear only its region and drag to sweep; OUT/IN reads the level it took, and a click makes it up with TRIM.</li>
+<li><strong>STUDIO and LIVE:</strong> STUDIO catches a new resonance as it starts, behind 1536 samples (32 ms at 48 kHz); LIVE has no latency, for monitoring while recording.</li>
+<li><strong>Presets:</strong> Init and five built in (Vocal, Guitar, Overheads, Synth Lead, Mix Bus), and your own.</li>
+<li>A resizable window and zoom from 100 to 200 %. 0.55 % of a CPU core at the defaults, stereo at 48 kHz, 0.035 % on digital silence. Needs a CPU with AVX2.</li>
+</ul></div>
+      
+    </section>
+
+    <section id="license" class="part part-prose">
+      <h2>License</h2>
+      
+      <p>MIT, see <a href="https://github.com/jelly-comet/SmoothBrainBtw-release/blob/main/LICENSE">LICENSE</a>. The licenses of the third-party code in the binaries are in
+<code>THIRD-PARTY-LICENSES.txt</code> in each release archive.</p>
+<p>VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. SmoothBrainBtw is an independent project and contains no other product's code.</p>
+      
+    </section>
+    
+    
+  </article>
+
+  <aside class="rail">
+    <div class="rail-card">
+      <h2>At a glance</h2>
+      <dl class="glance">
+        <div><dt>Version</dt><dd>v1.0.0</dd></div>
+        <div><dt>Released</dt><dd>27 Nov 2026</dd></div>
+        <div><dt>Format</dt><dd>CLAP</dd></div>
+        <div><dt>System</dt><dd>Linux x86-64</dd></div>
+        <div><dt>License</dt><dd class="green">MIT, free</dd></div>
+        <div><dt>Download</dt><dd>5.4 MB</dd></div>
+        <div><dt>Latency</dt><dd>1536 samples at 48 kHz (32 ms) in STUDIO, none in LIVE</dd></div>
+        <div><dt>CPU</dt><dd>0.55 % of a core</dd></div>
+        <div><dt>Audio</dt><dd>Mono or stereo</dd></div>
+        
+      </dl>
+      <a class="btn btn-primary" href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz">Download v1.0.0 <svg><use href="#i-download"/></svg></a>
+      <a class="btn btn-ghost" href="manual/">Read the manual</a>
+      <p class="rail-foot"><a href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases">All releases</a> · <a href="https://github.com/jelly-comet/SmoothBrainBtw-release/releases/download/v1.0.0/SmoothBrainBtw-1.0.0-linux-x86_64.tar.gz.sha256">SHA-256</a> · <a href="https://github.com/jelly-comet/SmoothBrainBtw-release/issues">Support</a></p>
+    </div>
+    
+    <div class="rail-card" id="requirements">
+      <h2>Requirements</h2>
+      <ul class="req">
+        <li><svg><use href="#i-check"/></svg><span>Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)</span></li>
+        <li><svg><use href="#i-check"/></svg><span>A CLAP host. Tried in REAPER.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>X11 or XWayland, and a Vulkan driver for the editor</span></li>
+        
+      </ul>
+      <div class="rail-foot"><p>Releases contain the CLAP plugin only.</p></div>
+    </div>
+    
+  </aside>
+</div>
+
+
+<section class="more-plugins wrap">
+  <p class="eyebrow">More from JellyComet</p>
+  <h2 class="h2">More strange little tools</h2>
+
+
+  <ul class="more-grid">
+    
+    <li><a class="more-card" href="../tubeeqbtw/" style="--accent:#ff9a5c"><picture><source type="image/webp" srcset="../tubeeqbtw/images/screenshot-480.webp"><img src="../tubeeqbtw/images/screenshot.png" alt="" width="1896" height="1014" loading="lazy"></picture><span class="more-text"><span class="other-name">TubeEqBtw</span> <span class="other-tagline">Passive tube EQ for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../trueclipbtw/" style="--accent:#ff6b6b"><picture><source type="image/webp" srcset="../trueclipbtw/images/screenshot-480.webp"><img src="../trueclipbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"></picture><span class="more-text"><span class="other-name">TrueClipBtw</span> <span class="other-tagline">True-peak mastering clipper for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../jellyairbtw/" style="--accent:#dff1ff"><picture><source type="image/webp" srcset="../jellyairbtw/images/screenshot-480.webp"><img src="../jellyairbtw/images/screenshot.png" alt="" width="1260" height="924" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyAirBtw</span> <span class="other-tagline">Air enhancer for vocals and mixes for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../jellyreverbbtw/" style="--accent:#8fb8ff"><picture><source type="image/webp" srcset="../jellyreverbbtw/images/screenshot-480.webp"><img src="../jellyreverbbtw/images/screenshot.png" alt="" width="1260" height="924" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyReverbBtw</span> <span class="other-tagline">Reverb on a jellyfish pad for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../optocompbtw/" style="--accent:#7cf2b0"><picture><source type="image/webp" srcset="../optocompbtw/images/screenshot-480.webp"><img src="../optocompbtw/images/screenshot.png" alt="" width="1350" height="660" loading="lazy"></picture><span class="more-text"><span class="other-name">OptoCompBtw</span> <span class="other-tagline">Optical compressor for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../jellysubbtw/" style="--accent:#ff7eb6"><picture><source type="image/webp" srcset="../jellysubbtw/images/screenshot-480.webp"><img src="../jellysubbtw/images/screenshot.png" alt="" width="1896" height="996" loading="lazy"></picture><span class="more-text"><span class="other-name">JellySubBtw</span> <span class="other-tagline">808 bass with dirt for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../jellypitchbtw/" style="--accent:#6fd8ff"><picture><source type="image/webp" srcset="../jellypitchbtw/images/screenshot-480.webp"><img src="../jellypitchbtw/images/screenshot.png" alt="" width="1260" height="720" loading="lazy"></picture><span class="more-text"><span class="other-name">JellyPitchBtw</span> <span class="other-tagline">Vocal pitch correction for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../orbitloopbtw/" style="--accent:#b49bff"><picture><source type="image/webp" srcset="../orbitloopbtw/images/screenshot-480.webp"><img src="../orbitloopbtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">OrbitLoopBtw</span> <span class="other-tagline">Half-speed, reverse, stutter and tape-stop loop effects for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+    <li><a class="more-card" href="../easymodebtw/" style="--accent:#ffc46b"><picture><source type="image/webp" srcset="../easymodebtw/images/screenshot-480.webp"><img src="../easymodebtw/images/screenshot.png" alt="" width="1260" height="846" loading="lazy"></picture><span class="more-text"><span class="other-name">EasyModeBtw</span> <span class="other-tagline">MIDI scales, chords and arpeggios for Linux</span><span class="arrow">See the plugin <svg><use href="#i-arrow"/></svg></span></span></a></li>
+    
+  </ul></section>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../"><img src="../../assets/logo-mark.svg" alt="" width="64" height="64"><span>Jelly<span class="comet">Comet</span></span></a>
+        <p>Small, free audio plugins for Linux. Hand-made by tentacles, free for humans.</p>
+        <p class="footer-note">MIT licensed · No cookies, no trackers.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="to-top" href="#top" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></a>
+<script src="../../assets/site.js?v=13f3d1418a" defer></script>
+<script src="../../assets/lightbox.js?v=dbf0dab692" defer></script>
+</body>
+</html>

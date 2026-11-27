@@ -108,3 +108,14 @@ chips = [
   { icon = "cpu", text = "0.25 % of a CPU core" },
 ]
 glance = { Latency = "47 samples at 48 kHz (0.98 ms)", CPU = "0.25 % of a core" }
+
+[SmoothBrainBtw]
+kind = "Resonance suppressor"
+short = "Smooth"
+accent = "#e59bff"
+chips = [
+  { icon = "mic", text = "Cuts only where it sticks out" },
+  { icon = "clock", text = "32 ms look-ahead, or none" },
+  { icon = "cpu", text = "0.55 % of a CPU core" },
+]
+glance = { Latency = "1536 samples at 48 kHz (32 ms) in STUDIO, none in LIVE", CPU = "0.55 % of a core", Audio = "Mono or stereo" }
