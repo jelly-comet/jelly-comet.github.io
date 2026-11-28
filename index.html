@@ -26,7 +26,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/ubuntu-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ubuntu-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=d30b7e0b64">
+<link rel="stylesheet" href="assets/site.css?v=4806aa6aa7">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,6 +57,7 @@
 <div class="sky" aria-hidden="true"><div class="stars far"></div><div class="stars mid"></div><div class="stars near"></div></div>
 
 <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
@@ -150,12 +151,17 @@
     <div>
       <p class="eyebrow">The plugins</p>
       <h2 class="h2">Small tools, one job each.</h2>
+      
+      <div class="plugin-search" hidden>
+        <svg><use href="#i-search"/></svg>
+        <input type="search" id="plugin-search" placeholder="Search by name, type or what it does" aria-label="Search the plugins" autocomplete="off" spellcheck="false">
+      </div>
     </div>
     <p class="section-note">Each does one thing with one unusual control, and comes with a manual to read here or as a PDF.</p>
   </div>
 <ul class="features">
 
-  <li class="feature" style="--accent:#e59bff">
+  <li class="feature" style="--accent:#e59bff" data-search="smoothbrainbtw resonance suppressor smooth resonance suppressor for linux a resonance suppressor that takes down what sticks out of a voice, a guitar, a cymbal or a synth, only where and while it sticks out. it softens harsh frequencies without dulling the sound. free resonance suppressor for linux (clap). tame harsh vocals, ringing guitars and cymbals only where and while they stick out, with a curve to say where.">
     <a class="feature-image" href="plugins/smoothbrainbtw/">
       <picture><source type="image/webp" srcset="plugins/smoothbrainbtw/images/screenshot-480.webp 480w, plugins/smoothbrainbtw/images/screenshot-840.webp 840w, plugins/smoothbrainbtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/smoothbrainbtw/images/screenshot.png" alt="SmoothBrainBtw on the Vocal preset with a sung phrase: DEPTH 60 % in the strip along the display&#39;s bottom; on the curve the low and high cut as walls at 1.5 and 8 kHz and a point keener at 3.5 kHz over the voice&#39;s spectrum, and in the strip above it the cut, MAX CUT&#39;s dashed line at 9 dB" width="1260" height="1020"></picture>
     </a>
@@ -178,7 +184,7 @@ while it sticks out.</strong> It softens harsh frequencies without dulling the s
     </div>
   </li>
 
-  <li class="feature" style="--accent:#ff9a5c">
+  <li class="feature" style="--accent:#ff9a5c" data-search="tubeeqbtw equalizer eq passive tube eq for linux a passive program eq, mid-range eq and high/low filter with a tube stage: broad, gentle curves for a mix, drums, bass or a voice, the low boost and cut that make the kick trick, and steep cuts that can ring. free passive tube eq for linux (clap): a program eq with the kick trick, a mid-range eq and steep high/low cuts, tube drive, m/s and auto gain, with no latency.">
     <a class="feature-image" href="plugins/tubeeqbtw/">
       <picture><source type="image/webp" srcset="plugins/tubeeqbtw/images/screenshot-480.webp 480w, plugins/tubeeqbtw/images/screenshot-840.webp 840w, plugins/tubeeqbtw/images/screenshot.webp 1896w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/tubeeqbtw/images/screenshot.png" alt="TubeEqBtw at 150 % with music playing: the kick trick at 60 Hz, a dip at 300 Hz and a little presence at 3 kHz, and both cuts in RING, their corners peaking, eight rings on the curve heard" width="1896" height="1014" loading="lazy"></picture>
     </a>
@@ -201,7 +207,7 @@ bass or a voice, the low boost and cut that make the kick trick, and steep cuts 
     </div>
   </li>
 
-  <li class="feature" style="--accent:#ff6b6b">
+  <li class="feature" style="--accent:#ff6b6b" data-search="trueclipbtw mastering clipper clip true-peak mastering clipper for linux a mastering clipper whose ceiling holds in true peak, with one dial from clip to limit. push a mix or a bus into the ceiling and the output stops there, between the samples too. free mastering clipper for linux (clap). push a mix into a true-peak ceiling that holds, one dial from clip to limit, with loudness matching and a lufs target.">
     <a class="feature-image" href="plugins/trueclipbtw/">
       <picture><source type="image/webp" srcset="plugins/trueclipbtw/images/screenshot-480.webp 480w, plugins/trueclipbtw/images/screenshot-840.webp 840w, plugins/trueclipbtw/images/screenshot.webp 1350w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/trueclipbtw/images/screenshot.png" alt="TrueClipBtw at the Init preset pushing a mix 6 dB into a −1 dBTP ceiling: the gain history with the ceiling across it, INPUT, RELEASE and CEILING on it, the input&#39;s meters at the left and the reduction&#39;s and the output&#39;s at the right" width="1350" height="660" loading="lazy"></picture>
     </a>
@@ -224,7 +230,7 @@ the ceiling and the output stops there, between the samples too.</p>
     </div>
   </li>
 
-  <li class="feature" style="--accent:#dff1ff">
+  <li class="feature" style="--accent:#dff1ff" data-search="jellyairbtw air enhancer air air enhancer for vocals and mixes for linux an air enhancer that lifts the top of a voice or a mix where it is quiet and backs off where it is already bright, steered with a jellyfish. free air enhancer for linux (clap). lifts the top of a voice or a mix where it is quiet and backs off where it is bright, set with a jellyfish, no latency.">
     <a class="feature-image" href="plugins/jellyairbtw/">
       <picture><source type="image/webp" srcset="plugins/jellyairbtw/images/screenshot-480.webp 480w, plugins/jellyairbtw/images/screenshot-840.webp 840w, plugins/jellyairbtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/jellyairbtw/images/screenshot.png" alt="JellyAirBtw on the Vocal preset with a voice over a mix: the jellyfish at MID AIR +2 dB and HIGH AIR +8 dB with air bubbles around it, the spectrum with the curve set and the curve now, and the last seconds of lift and TAME&#39;s cut" width="1260" height="924" loading="lazy"></picture>
     </a>
@@ -247,7 +253,7 @@ steered with a jellyfish.</strong></p>
     </div>
   </li>
 
-  <li class="feature" style="--accent:#8fb8ff">
+  <li class="feature" style="--accent:#8fb8ff" data-search="jellyreverbbtw reverb reverb reverb on a jellyfish pad for linux a reverb whose room you pick with a jellyfish: 256 rooms on one pad, four kinds of walls and four shapes across, sixteen sizes up. free algorithmic reverb for linux (clap). pick from 256 rooms with a jellyfish, walk between them without clicks, keep the lows dry, and duck or gate the tail.">
     <a class="feature-image" href="plugins/jellyreverbbtw/">
       <picture><source type="image/webp" srcset="plugins/jellyreverbbtw/images/screenshot-480.webp 480w, plugins/jellyreverbbtw/images/screenshot-840.webp 840w, plugins/jellyreverbbtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/jellyreverbbtw/images/screenshot.png" alt="JellyReverbBtw at its defaults with music playing: the jellyfish on Warm · Smooth at 23.9 ms, the room&#39;s 32 lines, the tail with SOFT S on its strip, and the band open" width="1260" height="924" loading="lazy"></picture>
     </a>
@@ -270,7 +276,7 @@ sixteen sizes up.</strong></p>
     </div>
   </li>
 
-  <li class="feature" style="--accent:#7cf2b0">
+  <li class="feature" style="--accent:#7cf2b0" data-search="optocompbtw compressor comp optical compressor for linux an optical leveller: one knob for how hard it squeezes, its gain made up for you. a light cell rides a vocal, a bass or a bus smoothly, and a display shows every decibel it takes. free optical compressor for linux (clap). one knob levels vocals, bass and buses smoothly, auto gain makes it up, and a display shows every db it takes.">
     <a class="feature-image" href="plugins/optocompbtw/">
       <picture><source type="image/webp" srcset="plugins/optocompbtw/images/screenshot-480.webp 480w, plugins/optocompbtw/images/screenshot-840.webp 840w, plugins/optocompbtw/images/screenshot.webp 1350w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/optocompbtw/images/screenshot.png" alt="OptoCompBtw levelling a sung phrase with the Vocal preset: the gain history across the display, PEAK REDUCTION, GAIN and MIX on it, the meters at the right" width="1350" height="660" loading="lazy"></picture>
     </a>
@@ -293,7 +299,7 @@ cell rides a vocal, a bass or a bus smoothly, and a display shows every decibel 
     </div>
   </li>
 
-  <li class="feature" style="--accent:#ff7eb6">
+  <li class="feature" style="--accent:#ff7eb6" data-search="jellysubbtw instrument bass 808 bass with dirt for linux an 808 bass instrument with five kinds of dirt and one jellyfish pad. a sine or a wave with more harmonics rings out like an 808 or holds under an adsr, glides into the next key, and one puck sets how much dirt and how much chorus, flanger or phaser it gets. free 808 bass instrument for linux (clap). slides, an adsr, a resonant low-pass and five kinds of dirt, with chorus, flanger or phaser kept above the sub.">
     <a class="feature-image" href="plugins/jellysubbtw/">
       <picture><source type="image/webp" srcset="plugins/jellysubbtw/images/screenshot-480.webp 480w, plugins/jellysubbtw/images/screenshot-840.webp 840w, plugins/jellysubbtw/images/screenshot.webp 1896w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/jellysubbtw/images/screenshot.png" alt="JellySubBtw playing a line with the Phased Hold preset: WAVE across the top, DIRT on Clip, MOD on Phaser, the jellyfish pad and OUT" width="1896" height="996" loading="lazy"></picture>
     </a>
@@ -317,7 +323,7 @@ how much dirt and how much chorus, flanger or phaser it gets.</p>
     </div>
   </li>
 
-  <li class="feature" style="--accent:#6fd8ff">
+  <li class="feature" style="--accent:#6fd8ff" data-search="jellypitchbtw vocal effect pitch vocal pitch correction for linux pitch correction for one voice, steered by a jellyfish. one puck sets how fast a note is pulled in and how far off its note a voice may be and be left alone, and a display shows the voice as sung and as corrected. free vocal pitch correction for linux (clap). pick a key and scale, set speed and humanize with one puck, and watch the voice as sung and as corrected.">
     <a class="feature-image" href="plugins/jellypitchbtw/">
       <picture><source type="image/webp" srcset="plugins/jellypitchbtw/images/screenshot-480.webp 480w, plugins/jellypitchbtw/images/screenshot-840.webp 840w, plugins/jellypitchbtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/jellypitchbtw/images/screenshot.png" alt="JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right" width="1260" height="720" loading="lazy"></picture>
     </a>
@@ -341,7 +347,7 @@ as sung and as corrected.</p>
     </div>
   </li>
 
-  <li class="feature" style="--accent:#b49bff">
+  <li class="feature" style="--accent:#b49bff" data-search="orbitloopbtw loop effect loops half-speed, reverse, stutter and tape-stop loop effects for linux one loop played four ways at once, half speed, reversed, stuttered and braked like a tape, and one puck that blends them. for fills, breakdowns and endings that move with the song. free clap plugin for linux that plays one loop four ways at once: half speed, reverse, stutter and tape stop, blended with one puck. no added latency.">
     <a class="feature-image" href="plugins/orbitloopbtw/">
       <picture><source type="image/webp" srcset="plugins/orbitloopbtw/images/screenshot-480.webp 480w, plugins/orbitloopbtw/images/screenshot-840.webp 840w, plugins/orbitloopbtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/orbitloopbtw/images/screenshot.png" alt="OrbitLoopBtw on a loop of music: the REVERSE page, the puck between HALF and REVERSE on a small orbit" width="1260" height="846" loading="lazy"></picture>
     </a>
@@ -364,7 +370,7 @@ one puck that blends them.</strong> For fills, breakdowns and endings that move 
     </div>
   </li>
 
-  <li class="feature" style="--accent:#ffc46b">
+  <li class="feature" style="--accent:#ffc46b" data-search="easymodebtw midi effect midi midi scales, chords and arpeggios for linux play any scale on the white keys, as chords, strums or arpeggios. a midi effect for linux: the white keys play the notes of the scale you pick with its root on middle c, and each key can play a chord of the scale instead, strummed like a guitar or broken into an arpeggio on the beat. free clap midi effect for linux: play any scale on the white keys, then turn each key into a chord, a strum or a tempo-synced arpeggio. 20 scales in 12 keys.">
     <a class="feature-image" href="plugins/easymodebtw/">
       <picture><source type="image/webp" srcset="plugins/easymodebtw/images/screenshot-480.webp 480w, plugins/easymodebtw/images/screenshot-840.webp 840w, plugins/easymodebtw/images/screenshot.webp 1260w" sizes="(max-width: 940px) 100vw, 640px"><img src="plugins/easymodebtw/images/screenshot.png" alt="EasyModeBtw&#39;s PLAY page in F minor: a white key fanning out into a chord, the chords before it rising above" width="1260" height="846" loading="lazy"></picture>
     </a>
@@ -389,6 +395,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
   </li>
 
   </ul>
+  <p class="search-none" hidden>No plugin matches <q></q>.</p>
 </section>
 
 <section class="section wrap" id="install">
@@ -547,7 +554,7 @@ play a chord of the scale instead, strummed like a guitar or broken into an arpe
   </div>
 </footer>
 <a class="to-top" href="#top" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></a>
-<script src="assets/site.js?v=13f3d1418a" defer></script>
+<script src="assets/site.js?v=96ba3652f0" defer></script>
 
 </body>
 </html>

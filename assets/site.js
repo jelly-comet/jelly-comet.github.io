@@ -1,4 +1,4 @@
-// What moves on the site: the front page's switcher between the plugins' windows, the install
+// What moves on the site: the front page's switcher between the plugins' windows, its plugin search, the install
 // window's tabs, the copy buttons on the install steps, and the plugin page's section bar following
 // the reader. Without this script every page still works: the switcher's links open each plugin's
 // page, the first plugin's install steps show and the copy buttons stay hidden.
@@ -25,6 +25,44 @@
       });
     });
   });
+
+  // The front page's search: a panel stays when every word typed starts a word of its name, kind,
+  // tagline or description ("eq" finds TubeEqBtw, not "frequencies"). A panel left alone in its row
+  // takes all of it, as the last one does unfiltered.
+  var search = document.querySelector(".plugin-search");
+  var list = document.querySelector(".features");
+  if (search && list) {
+    search.hidden = false;
+    var input = search.querySelector("input");
+    var cards = list.querySelectorAll(".feature[data-search]");
+    var none = document.querySelector(".search-none");
+    var texts = Array.prototype.map.call(cards, function (card) {
+      var name = card.querySelector("h3 a").textContent.replace(/([a-z])([A-Z])/g, "$1 $2");
+      return " " + (name + " " + card.dataset.search).toLowerCase().replace(/[^a-z0-9]+/g, " ");
+    });
+    var filter = function () {
+      var words = input.value.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+      var shown = [];
+      each(cards, function (card, index) {
+        var text = texts[index];
+        var match = words.every(function (word) { return text.indexOf(" " + word) !== -1; });
+        card.hidden = !match;
+        card.classList.remove("is-wide");
+        if (match) shown.push(card);
+      });
+      list.classList.toggle("is-filtered", words.length > 0);
+      if (words.length && shown.length % 2) shown[shown.length - 1].classList.add("is-wide");
+      if (none) {
+        none.hidden = shown.length > 0;
+        none.querySelector("q").textContent = input.value.trim();
+      }
+    };
+    input.addEventListener("input", filter);
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && input.value) { input.value = ""; filter(); }
+    });
+    filter();
+  }
 
   // The install window's tabs, one per plugin.
   each(document.querySelectorAll(".terminal"), function (terminal) {

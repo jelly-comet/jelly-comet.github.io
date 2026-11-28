@@ -46,11 +46,16 @@
     <div>
       <p class="eyebrow">The plugins</p>
       <h2 class="h2">Small tools, one job each.</h2>
+      {# The search: by name, kind, tagline and description; shown by site.js, so without it every panel stays. #}
+      <div class="plugin-search" hidden>
+        <svg><use href="#i-search"/></svg>
+        <input type="search" id="plugin-search" placeholder="Search by name, type or what it does" aria-label="Search the plugins" autocomplete="off" spellcheck="false">
+      </div>
     </div>
     <p class="section-note">Each does one thing with one unusual control, and comes with a manual to read here or as a PDF.</p>
   </div>
 {% macro feature(plugin, eager) %}
-  <li class="feature" style="--accent:{{ plugin.accent }}">
+  <li class="feature" style="--accent:{{ plugin.accent }}" data-search="{{ [plugin.name, plugin.kind, plugin.short, plugin.tagline, plugin.summary | striptags, plugin.description] | select | join(' ') | lower }}">
     <a class="feature-image" href="plugins/{{ plugin.slug }}/">
       {{ picture("plugins/" ~ plugin.slug ~ "/" ~ plugin.image, plugin.alt, plugin.width, plugin.height, lazy=not eager, sizes="(max-width: 940px) 100vw, 640px") }}
     </a>
@@ -74,6 +79,7 @@
 {% for plugin in plugins %}{{ feature(plugin, loop.first) }}
 {% endfor %}
   </ul>
+  <p class="search-none" hidden>No plugin matches <q></q>.</p>
 </section>
 
 <section class="section wrap" id="install">
